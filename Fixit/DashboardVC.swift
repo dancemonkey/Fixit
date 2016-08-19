@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import pop
 
-class ViewController: UIViewController {
+class DashboardVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()

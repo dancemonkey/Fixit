@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8u4-3u-W7W">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Project Dashboard-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DashboardVC" customModule="Fixit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,264 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OFw-Nj-fFr" userLabel="ProjectView">
+                                <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="2cG-4d-bwI"/>
+                                    <constraint firstAttribute="height" constant="150" id="eNQ-dW-108"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2cG-4d-bwI"/>
+                                        <exclude reference="eNQ-dW-108"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="2cG-4d-bwI"/>
+                                        <include reference="eNQ-dW-108"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2gh-2I-LUH" userLabel="ShoppingList">
+                                <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                <color key="backgroundColor" red="0.15686274510000001" green="0.47843137250000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Gc4-EP-HpN"/>
+                                    <constraint firstAttribute="width" constant="150" id="xYr-Ub-RQO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="xYr-Ub-RQO"/>
+                                        <exclude reference="Gc4-EP-HpN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="xYr-Ub-RQO"/>
+                                        <include reference="Gc4-EP-HpN"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fCR-No-fic" userLabel="HitList">
+                                <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.57647058819999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="5Vo-j4-eMj"/>
+                                    <constraint firstAttribute="width" constant="150" id="RDb-7J-HkZ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RDb-7J-HkZ"/>
+                                        <exclude reference="5Vo-j4-eMj"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="RDb-7J-HkZ"/>
+                                        <include reference="5Vo-j4-eMj"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eEn-WZ-pTV" userLabel="TaskView">
+                                <rect key="frame" x="430" y="84" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.93725490199999995" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="XMt-vj-uc1"/>
+                                    <constraint firstAttribute="width" constant="150" id="r8X-mf-EYM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XMt-vj-uc1"/>
+                                        <exclude reference="r8X-mf-EYM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="XMt-vj-uc1"/>
+                                        <include reference="r8X-mf-EYM"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="255" y="84" width="150" height="150"/>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7z-cx-hnt">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="8o2-fU-qEl">
+                                        <variation key="widthClass=compact" constant="50"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="50" id="y1Q-Ze-n5X">
+                                        <variation key="widthClass=compact" constant="50"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" image="AddNewBtn"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="8o2-fU-qEl"/>
+                                        <exclude reference="y1Q-Ze-n5X"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="8o2-fU-qEl"/>
+                                        <include reference="y1Q-Ze-n5X"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42T-xd-Pbl" userLabel="WeatherView">
+                                <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                <color key="backgroundColor" red="1" green="0.13898010890000001" blue="0.1566192927" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="bee-9Y-Tgh"/>
+                                    <constraint firstAttribute="height" constant="150" id="mEe-th-sIT"/>
+                                    <constraint firstAttribute="width" constant="150" id="vBc-Tf-usE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bee-9Y-Tgh"/>
+                                        <exclude reference="mEe-th-sIT"/>
+                                        <exclude reference="vBc-Tf-usE"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="bee-9Y-Tgh"/>
+                                        <include reference="mEe-th-sIT"/>
+                                        <exclude reference="vBc-Tf-usE"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="20" y="84" width="150" height="150"/>
+                                </variation>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fCR-No-fic" firstAttribute="top" secondItem="eEn-WZ-pTV" secondAttribute="bottom" constant="16" id="0xb-jZ-X0f"/>
+                            <constraint firstItem="h7z-cx-hnt" firstAttribute="top" secondItem="42T-xd-Pbl" secondAttribute="bottom" constant="16" id="3Br-xk-8rR"/>
+                            <constraint firstItem="42T-xd-Pbl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5c2-CH-l45"/>
+                            <constraint firstItem="OFw-Nj-fFr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="6qe-wL-Do0"/>
+                            <constraint firstItem="OFw-Nj-fFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Eog-WH-Rtx"/>
+                            <constraint firstItem="42T-xd-Pbl" firstAttribute="top" secondItem="fCR-No-fic" secondAttribute="bottom" constant="16" id="JxW-68-pz7"/>
+                            <constraint firstItem="eEn-WZ-pTV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="QUu-5V-MWs"/>
+                            <constraint firstItem="2gh-2I-LUH" firstAttribute="top" secondItem="OFw-Nj-fFr" secondAttribute="bottom" constant="16" id="Xrs-PY-nFs"/>
+                            <constraint firstAttribute="trailing" secondItem="42T-xd-Pbl" secondAttribute="trailing" constant="20" id="iJt-f0-g7Q"/>
+                            <constraint firstItem="2gh-2I-LUH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="jYL-E7-Ijc"/>
+                            <constraint firstAttribute="trailing" secondItem="eEn-WZ-pTV" secondAttribute="trailing" constant="20" id="pJf-oe-6Uv"/>
+                            <constraint firstAttribute="trailing" secondItem="fCR-No-fic" secondAttribute="trailing" constant="20" id="s97-Pl-BQi"/>
+                            <constraint firstItem="OFw-Nj-fFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="tty-T5-PdZ"/>
+                            <constraint firstItem="h7z-cx-hnt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uRd-4V-ZUN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="2gh-2I-LUH"/>
+                                <exclude reference="fCR-No-fic"/>
+                                <exclude reference="h7z-cx-hnt"/>
+                                <exclude reference="42T-xd-Pbl"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="6qe-wL-Do0"/>
+                                <exclude reference="Eog-WH-Rtx"/>
+                                <exclude reference="tty-T5-PdZ"/>
+                                <exclude reference="QUu-5V-MWs"/>
+                                <exclude reference="pJf-oe-6Uv"/>
+                                <exclude reference="Xrs-PY-nFs"/>
+                                <exclude reference="jYL-E7-Ijc"/>
+                                <exclude reference="0xb-jZ-X0f"/>
+                                <exclude reference="s97-Pl-BQi"/>
+                                <exclude reference="5c2-CH-l45"/>
+                                <exclude reference="JxW-68-pz7"/>
+                                <exclude reference="iJt-f0-g7Q"/>
+                                <exclude reference="3Br-xk-8rR"/>
+                                <exclude reference="uRd-4V-ZUN"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="2gh-2I-LUH"/>
+                                <include reference="fCR-No-fic"/>
+                                <include reference="h7z-cx-hnt"/>
+                                <include reference="42T-xd-Pbl"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="6qe-wL-Do0"/>
+                                <include reference="tty-T5-PdZ"/>
+                                <include reference="QUu-5V-MWs"/>
+                                <include reference="pJf-oe-6Uv"/>
+                                <include reference="Xrs-PY-nFs"/>
+                                <include reference="jYL-E7-Ijc"/>
+                                <include reference="0xb-jZ-X0f"/>
+                                <include reference="s97-Pl-BQi"/>
+                                <include reference="5c2-CH-l45"/>
+                                <include reference="JxW-68-pz7"/>
+                                <include reference="iJt-f0-g7Q"/>
+                                <include reference="3Br-xk-8rR"/>
+                                <include reference="uRd-4V-ZUN"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Project Dashboard" id="i3V-hH-iei"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1115.25" y="386.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hwR-ML-FPr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8u4-3u-W7W" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lod-FX-ZRl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.062745098039215685" green="0.31764705882352939" blue="0.6470588235294118" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="M0U-6g-5Bd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qq5-sG-VOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="387"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="AddNewBtn" width="75" height="75"/>
+    </resources>
 </document>

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB791D66A3540049A929 /* AppDelegate.swift */; };
-		10EFBB7C1D66A3540049A929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* ViewController.swift */; };
+		10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* DashboardVC.swift */; };
 		10EFBB7F1D66A3540049A929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB7D1D66A3540049A929 /* Main.storyboard */; };
 		10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB801D66A3540049A929 /* Fixit.xcdatamodeld */; };
 		10EFBB841D66A3540049A929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB831D66A3540049A929 /* Assets.xcassets */; };
@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		10EFBB761D66A3540049A929 /* Fixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EFBB791D66A3540049A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10EFBB7B1D66A3540049A929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10EFBB7B1D66A3540049A929 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
 		10EFBB7E1D66A3540049A929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		10EFBB811D66A3540049A929 /* Fixit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fixit.xcdatamodel; sourceTree = "<group>"; };
 		10EFBB831D66A3540049A929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		10EFBBAF1D66AE400049A929 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				10EFBB7B1D66A3540049A929 /* ViewController.swift */,
+				10EFBB7B1D66A3540049A929 /* DashboardVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10EFBB7C1D66A3540049A929 /* ViewController.swift in Sources */,
+				10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */,
 				10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */,
 				10EFBBA21D66AE260049A929 /* Project+CoreDataProperties.swift in Sources */,
 				10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */,
