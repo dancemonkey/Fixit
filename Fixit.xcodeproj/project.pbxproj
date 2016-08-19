@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB791D66A3540049A929 /* AppDelegate.swift */; };
+		10EFBB7C1D66A3540049A929 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* ViewController.swift */; };
+		10EFBB7F1D66A3540049A929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB7D1D66A3540049A929 /* Main.storyboard */; };
+		10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB801D66A3540049A929 /* Fixit.xcdatamodeld */; };
+		10EFBB841D66A3540049A929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB831D66A3540049A929 /* Assets.xcassets */; };
+		10EFBB871D66A3540049A929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB851D66A3540049A929 /* LaunchScreen.storyboard */; };
+		10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB911D66A3540049A929 /* FixitTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		10EFBB8E1D66A3540049A929 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 10EFBB6E1D66A3540049A929 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 10EFBB751D66A3540049A929;
+			remoteInfo = Fixit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		10EFBB761D66A3540049A929 /* Fixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		10EFBB791D66A3540049A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		10EFBB7B1D66A3540049A929 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		10EFBB7E1D66A3540049A929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		10EFBB811D66A3540049A929 /* Fixit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Fixit.xcdatamodel; sourceTree = "<group>"; };
+		10EFBB831D66A3540049A929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		10EFBB861D66A3540049A929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		10EFBB881D66A3540049A929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10EFBB8D1D66A3540049A929 /* FixitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FixitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		10EFBB911D66A3540049A929 /* FixitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixitTests.swift; sourceTree = "<group>"; };
+		10EFBB931D66A3540049A929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10EFBB731D66A3540049A929 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10EFBB8A1D66A3540049A929 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		10EFBB6D1D66A3540049A929 = {
+			isa = PBXGroup;
+			children = (
+				10EFBB781D66A3540049A929 /* Fixit */,
+				10EFBB901D66A3540049A929 /* FixitTests */,
+				10EFBB771D66A3540049A929 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		10EFBB771D66A3540049A929 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				10EFBB761D66A3540049A929 /* Fixit.app */,
+				10EFBB8D1D66A3540049A929 /* FixitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		10EFBB781D66A3540049A929 /* Fixit */ = {
+			isa = PBXGroup;
+			children = (
+				10EFBB791D66A3540049A929 /* AppDelegate.swift */,
+				10EFBB7B1D66A3540049A929 /* ViewController.swift */,
+				10EFBB7D1D66A3540049A929 /* Main.storyboard */,
+				10EFBB831D66A3540049A929 /* Assets.xcassets */,
+				10EFBB851D66A3540049A929 /* LaunchScreen.storyboard */,
+				10EFBB881D66A3540049A929 /* Info.plist */,
+				10EFBB801D66A3540049A929 /* Fixit.xcdatamodeld */,
+			);
+			path = Fixit;
+			sourceTree = "<group>";
+		};
+		10EFBB901D66A3540049A929 /* FixitTests */ = {
+			isa = PBXGroup;
+			children = (
+				10EFBB911D66A3540049A929 /* FixitTests.swift */,
+				10EFBB931D66A3540049A929 /* Info.plist */,
+			);
+			path = FixitTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		10EFBB751D66A3540049A929 /* Fixit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10EFBB961D66A3540049A929 /* Build configuration list for PBXNativeTarget "Fixit" */;
+			buildPhases = (
+				10EFBB721D66A3540049A929 /* Sources */,
+				10EFBB731D66A3540049A929 /* Frameworks */,
+				10EFBB741D66A3540049A929 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fixit;
+			productName = Fixit;
+			productReference = 10EFBB761D66A3540049A929 /* Fixit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		10EFBB8C1D66A3540049A929 /* FixitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 10EFBB991D66A3540049A929 /* Build configuration list for PBXNativeTarget "FixitTests" */;
+			buildPhases = (
+				10EFBB891D66A3540049A929 /* Sources */,
+				10EFBB8A1D66A3540049A929 /* Frameworks */,
+				10EFBB8B1D66A3540049A929 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				10EFBB8F1D66A3540049A929 /* PBXTargetDependency */,
+			);
+			name = FixitTests;
+			productName = FixitTests;
+			productReference = 10EFBB8D1D66A3540049A929 /* FixitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		10EFBB6E1D66A3540049A929 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Drew Lanning";
+				TargetAttributes = {
+					10EFBB751D66A3540049A929 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					10EFBB8C1D66A3540049A929 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 10EFBB751D66A3540049A929;
+					};
+				};
+			};
+			buildConfigurationList = 10EFBB711D66A3540049A929 /* Build configuration list for PBXProject "Fixit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 10EFBB6D1D66A3540049A929;
+			productRefGroup = 10EFBB771D66A3540049A929 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				10EFBB751D66A3540049A929 /* Fixit */,
+				10EFBB8C1D66A3540049A929 /* FixitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10EFBB741D66A3540049A929 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10EFBB871D66A3540049A929 /* LaunchScreen.storyboard in Resources */,
+				10EFBB841D66A3540049A929 /* Assets.xcassets in Resources */,
+				10EFBB7F1D66A3540049A929 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10EFBB8B1D66A3540049A929 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		10EFBB721D66A3540049A929 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10EFBB7C1D66A3540049A929 /* ViewController.swift in Sources */,
+				10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */,
+				10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		10EFBB891D66A3540049A929 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		10EFBB8F1D66A3540049A929 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 10EFBB751D66A3540049A929 /* Fixit */;
+			targetProxy = 10EFBB8E1D66A3540049A929 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		10EFBB7D1D66A3540049A929 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10EFBB7E1D66A3540049A929 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		10EFBB851D66A3540049A929 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				10EFBB861D66A3540049A929 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		10EFBB941D66A3540049A929 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		10EFBB951D66A3540049A929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		10EFBB971D66A3540049A929 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Fixit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.drewlanning.Fixit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		10EFBB981D66A3540049A929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Fixit/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.drewlanning.Fixit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		10EFBB9A1D66A3540049A929 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FixitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.drewlanning.FixitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fixit.app/Fixit";
+			};
+			name = Debug;
+		};
+		10EFBB9B1D66A3540049A929 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FixitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.drewlanning.FixitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fixit.app/Fixit";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		10EFBB711D66A3540049A929 /* Build configuration list for PBXProject "Fixit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10EFBB941D66A3540049A929 /* Debug */,
+				10EFBB951D66A3540049A929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		10EFBB961D66A3540049A929 /* Build configuration list for PBXNativeTarget "Fixit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10EFBB971D66A3540049A929 /* Debug */,
+				10EFBB981D66A3540049A929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		10EFBB991D66A3540049A929 /* Build configuration list for PBXNativeTarget "FixitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				10EFBB9A1D66A3540049A929 /* Debug */,
+				10EFBB9B1D66A3540049A929 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		10EFBB801D66A3540049A929 /* Fixit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				10EFBB811D66A3540049A929 /* Fixit.xcdatamodel */,
+			);
+			currentVersion = 10EFBB811D66A3540049A929 /* Fixit.xcdatamodel */;
+			path = Fixit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 10EFBB6E1D66A3540049A929 /* Project object */;
+}
