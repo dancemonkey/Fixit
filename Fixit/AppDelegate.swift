@@ -106,6 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           }
       }
   }
-
 }
+
+let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 

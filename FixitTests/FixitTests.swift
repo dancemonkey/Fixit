@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreData
 @testable import Fixit
 
 class FixitTests: XCTestCase {
