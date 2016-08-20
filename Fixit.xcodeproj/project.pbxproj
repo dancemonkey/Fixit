@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
+		10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
 		10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB791D66A3540049A929 /* AppDelegate.swift */; };
 		10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* DashboardVC.swift */; };
 		10EFBB7F1D66A3540049A929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB7D1D66A3540049A929 /* Main.storyboard */; };
@@ -43,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCellView.swift; sourceTree = "<group>"; };
 		10EFBB761D66A3540049A929 /* Fixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EFBB791D66A3540049A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EFBB7B1D66A3540049A929 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				10EFBBB21D66AE6D0049A929 /* MaterialView.swift */,
+				10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -347,6 +351,7 @@
 				10EFBBA81D66AE260049A929 /* Task.swift in Sources */,
 				10EFBBB31D66AE6D0049A929 /* MaterialView.swift in Sources */,
 				10EFBBAA1D66AE260049A929 /* Photo+CoreDataProperties.swift in Sources */,
+				10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
 				10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +363,7 @@
 				10EFBBAD1D66AE260049A929 /* Photo.swift in Sources */,
 				10EFBBAB1D66AE260049A929 /* Photo+CoreDataProperties.swift in Sources */,
 				10EFBBA31D66AE260049A929 /* Project+CoreDataProperties.swift in Sources */,
+				10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
 				10EFBBB51D66AEC20049A929 /* AppDelegate.swift in Sources */,
 				10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */,
 				10EFBBA91D66AE260049A929 /* Task.swift in Sources */,

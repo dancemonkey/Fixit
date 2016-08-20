@@ -11,10 +11,12 @@ import CoreData
 import pop
 
 class DashboardVC: UIViewController {
+  
+  @IBOutlet weak var projectCellView: DashboardCellView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+        
   }
   
 }
