@@ -22,7 +22,7 @@ class DashboardVC: UIViewController {
   }
   
   @IBAction func buttonTapped(sender: UIButton) {
-    print("button \(segueStrings[sender.tag]) tapped")
+    performSegueWithIdentifier(segueStrings[sender.tag], sender: sender)
   }
   
 }

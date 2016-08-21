@@ -9,6 +9,7 @@
         <attribute name="complete" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="completeDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="estimatedCost" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="estimatedTime" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -20,14 +21,15 @@
         <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="parentProject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="taskList" inverseEntity="Project" syncable="YES"/>
         <relationship name="photo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="parentTask" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Project" positionX="-63" positionY="-18" width="128" height="180"/>
-        <element name="Task" positionX="-54" positionY="-9" width="128" height="150"/>
-        <element name="Photo" positionX="-36" positionY="18" width="128" height="90"/>
+        <element name="Photo" positionX="340" positionY="18" width="128" height="90"/>
+        <element name="Project" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Task" positionX="142" positionY="225" width="128" height="165"/>
     </elements>
 </model>
