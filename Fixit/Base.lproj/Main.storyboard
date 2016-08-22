@@ -590,15 +590,15 @@
                                         <exclude reference="bee-9Y-Tgh"/>
                                         <exclude reference="mEe-th-sIT"/>
                                         <exclude reference="vBc-Tf-usE"/>
-                                        <exclude reference="AWg-Wd-UQi"/>
-                                        <exclude reference="GTd-ag-ZWq"/>
-                                        <exclude reference="OEy-hc-GwZ"/>
-                                        <exclude reference="AA2-JR-Yvp"/>
-                                        <exclude reference="GVz-6L-VNE"/>
                                         <exclude reference="dMW-wg-QuX"/>
                                         <exclude reference="eEo-xC-dp8"/>
                                         <exclude reference="XQX-v6-L92"/>
                                         <exclude reference="b1P-wf-jI0"/>
+                                        <exclude reference="AA2-JR-Yvp"/>
+                                        <exclude reference="GVz-6L-VNE"/>
+                                        <exclude reference="AWg-Wd-UQi"/>
+                                        <exclude reference="GTd-ag-ZWq"/>
+                                        <exclude reference="OEy-hc-GwZ"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
@@ -612,15 +612,15 @@
                                         <exclude reference="bee-9Y-Tgh"/>
                                         <include reference="mEe-th-sIT"/>
                                         <exclude reference="vBc-Tf-usE"/>
-                                        <include reference="AWg-Wd-UQi"/>
-                                        <include reference="GTd-ag-ZWq"/>
-                                        <include reference="OEy-hc-GwZ"/>
-                                        <include reference="AA2-JR-Yvp"/>
-                                        <include reference="GVz-6L-VNE"/>
                                         <include reference="dMW-wg-QuX"/>
                                         <include reference="eEo-xC-dp8"/>
                                         <include reference="XQX-v6-L92"/>
                                         <include reference="b1P-wf-jI0"/>
+                                        <include reference="AA2-JR-Yvp"/>
+                                        <include reference="GVz-6L-VNE"/>
+                                        <include reference="AWg-Wd-UQi"/>
+                                        <include reference="GTd-ag-ZWq"/>
+                                        <include reference="OEy-hc-GwZ"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
@@ -659,20 +659,20 @@
                                 <exclude reference="42T-xd-Pbl"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="3Br-xk-8rR"/>
+                                <exclude reference="uRd-4V-ZUN"/>
+                                <exclude reference="Xrs-PY-nFs"/>
+                                <exclude reference="jYL-E7-Ijc"/>
+                                <exclude reference="5c2-CH-l45"/>
+                                <exclude reference="JxW-68-pz7"/>
+                                <exclude reference="iJt-f0-g7Q"/>
+                                <exclude reference="0xb-jZ-X0f"/>
+                                <exclude reference="s97-Pl-BQi"/>
                                 <exclude reference="6qe-wL-Do0"/>
                                 <exclude reference="Eog-WH-Rtx"/>
                                 <exclude reference="tty-T5-PdZ"/>
                                 <exclude reference="QUu-5V-MWs"/>
                                 <exclude reference="pJf-oe-6Uv"/>
-                                <exclude reference="Xrs-PY-nFs"/>
-                                <exclude reference="jYL-E7-Ijc"/>
-                                <exclude reference="0xb-jZ-X0f"/>
-                                <exclude reference="s97-Pl-BQi"/>
-                                <exclude reference="5c2-CH-l45"/>
-                                <exclude reference="JxW-68-pz7"/>
-                                <exclude reference="iJt-f0-g7Q"/>
-                                <exclude reference="3Br-xk-8rR"/>
-                                <exclude reference="uRd-4V-ZUN"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -683,19 +683,19 @@
                                 <include reference="42T-xd-Pbl"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="3Br-xk-8rR"/>
+                                <include reference="uRd-4V-ZUN"/>
+                                <include reference="Xrs-PY-nFs"/>
+                                <include reference="jYL-E7-Ijc"/>
+                                <include reference="5c2-CH-l45"/>
+                                <include reference="JxW-68-pz7"/>
+                                <include reference="iJt-f0-g7Q"/>
+                                <include reference="0xb-jZ-X0f"/>
+                                <include reference="s97-Pl-BQi"/>
                                 <include reference="6qe-wL-Do0"/>
                                 <include reference="tty-T5-PdZ"/>
                                 <include reference="QUu-5V-MWs"/>
                                 <include reference="pJf-oe-6Uv"/>
-                                <include reference="Xrs-PY-nFs"/>
-                                <include reference="jYL-E7-Ijc"/>
-                                <include reference="0xb-jZ-X0f"/>
-                                <include reference="s97-Pl-BQi"/>
-                                <include reference="5c2-CH-l45"/>
-                                <include reference="JxW-68-pz7"/>
-                                <include reference="iJt-f0-g7Q"/>
-                                <include reference="3Br-xk-8rR"/>
-                                <include reference="uRd-4V-ZUN"/>
                             </mask>
                         </variation>
                     </view>
@@ -733,7 +733,53 @@
                     <view key="view" contentMode="scaleToFill" id="VG2-b2-mdz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-E1-YgB">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="hAt-My-M7p">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAt-My-M7p" id="5oC-5J-qaf">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YuF-E1-YgB" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" constant="20" id="0dB-EM-c3Y"/>
+                            <constraint firstAttribute="trailing" secondItem="YuF-E1-YgB" secondAttribute="trailing" constant="20" id="Um2-zL-WL6"/>
+                            <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="20" id="i8c-Rq-WJo"/>
+                            <constraint firstItem="YuF-E1-YgB" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" constant="20" id="jSD-2D-RFS"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="YuF-E1-YgB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="0dB-EM-c3Y"/>
+                                <exclude reference="Um2-zL-WL6"/>
+                                <exclude reference="jSD-2D-RFS"/>
+                                <exclude reference="i8c-Rq-WJo"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="YuF-E1-YgB"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="0dB-EM-c3Y"/>
+                                <include reference="Um2-zL-WL6"/>
+                                <include reference="jSD-2D-RFS"/>
+                                <include reference="i8c-Rq-WJo"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Tasks" id="S1R-Em-rP6">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uSa-Dc-SWH">
@@ -757,7 +803,53 @@
                     <view key="view" contentMode="scaleToFill" id="LGv-CF-BOf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4c4-tp-p7z">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="pxK-IM-4Je">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pxK-IM-4Je" id="2Sf-xE-ysM">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4c4-tp-p7z" firstAttribute="top" secondItem="Jw8-A5-Uex" secondAttribute="bottom" constant="20" id="CC9-K3-jV5"/>
+                            <constraint firstAttribute="trailing" secondItem="4c4-tp-p7z" secondAttribute="trailing" constant="20" id="DcJ-nC-iJ2"/>
+                            <constraint firstItem="4c4-tp-p7z" firstAttribute="leading" secondItem="LGv-CF-BOf" secondAttribute="leading" constant="20" id="ReC-9D-Mx8"/>
+                            <constraint firstItem="Mn2-42-jRJ" firstAttribute="top" secondItem="4c4-tp-p7z" secondAttribute="bottom" constant="20" id="YPR-zw-4Ci"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4c4-tp-p7z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="CC9-K3-jV5"/>
+                                <exclude reference="DcJ-nC-iJ2"/>
+                                <exclude reference="ReC-9D-Mx8"/>
+                                <exclude reference="YPR-zw-4Ci"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="4c4-tp-p7z"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="CC9-K3-jV5"/>
+                                <include reference="DcJ-nC-iJ2"/>
+                                <include reference="ReC-9D-Mx8"/>
+                                <include reference="YPR-zw-4Ci"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="HitList" id="LH1-mx-PnG">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="A4b-kC-cNw">
@@ -781,7 +873,53 @@
                     <view key="view" contentMode="scaleToFill" id="5cq-jK-lz4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4We-vq-zXi">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="3Pi-XC-lk3">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pi-XC-lk3" id="fnb-9e-2YZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J12-aF-v27" firstAttribute="top" secondItem="4We-vq-zXi" secondAttribute="bottom" constant="20" id="7hW-Jh-L3m"/>
+                            <constraint firstItem="4We-vq-zXi" firstAttribute="leading" secondItem="5cq-jK-lz4" secondAttribute="leading" constant="20" id="96u-Xp-aj1"/>
+                            <constraint firstAttribute="trailing" secondItem="4We-vq-zXi" secondAttribute="trailing" constant="20" id="Eg6-cd-0SS"/>
+                            <constraint firstItem="4We-vq-zXi" firstAttribute="top" secondItem="Amj-A5-4Qy" secondAttribute="bottom" constant="20" id="K4G-9E-Hu2"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4We-vq-zXi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="96u-Xp-aj1"/>
+                                <exclude reference="Eg6-cd-0SS"/>
+                                <exclude reference="K4G-9E-Hu2"/>
+                                <exclude reference="7hW-Jh-L3m"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="4We-vq-zXi"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="96u-Xp-aj1"/>
+                                <include reference="Eg6-cd-0SS"/>
+                                <include reference="K4G-9E-Hu2"/>
+                                <include reference="7hW-Jh-L3m"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Shopping List" id="8fK-bw-C52">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jWE-jb-oHq">
@@ -805,7 +943,53 @@
                     <view key="view" contentMode="scaleToFill" id="vyC-xV-vJT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JEc-no-F0Q">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="00M-PS-mmB">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00M-PS-mmB" id="EPj-a2-krd">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JEc-no-F0Q" firstAttribute="leading" secondItem="vyC-xV-vJT" secondAttribute="leading" constant="20" id="8p8-ne-2Yw"/>
+                            <constraint firstAttribute="trailing" secondItem="JEc-no-F0Q" secondAttribute="trailing" constant="20" id="Jyz-nf-Z3U"/>
+                            <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="20" id="UFV-1s-YZ7"/>
+                            <constraint firstItem="JEc-no-F0Q" firstAttribute="top" secondItem="kH6-sB-Z8S" secondAttribute="bottom" constant="8" id="bro-Hq-Dbw"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="JEc-no-F0Q"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="8p8-ne-2Yw"/>
+                                <exclude reference="Jyz-nf-Z3U"/>
+                                <exclude reference="bro-Hq-Dbw"/>
+                                <exclude reference="UFV-1s-YZ7"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="JEc-no-F0Q"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="8p8-ne-2Yw"/>
+                                <include reference="Jyz-nf-Z3U"/>
+                                <include reference="bro-Hq-Dbw"/>
+                                <include reference="UFV-1s-YZ7"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Projects" id="XPI-GA-z44">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vOC-dI-UU8">

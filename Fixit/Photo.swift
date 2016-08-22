@@ -11,7 +11,11 @@ import CoreData
 
 
 class Photo: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
+  
+  override func awakeFromInsert() {
+    super.awakeFromInsert()
+    
+    self.creationDate = NSDate()
+  }
 
 }

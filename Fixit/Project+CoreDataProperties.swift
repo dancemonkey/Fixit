@@ -2,7 +2,7 @@
 //  Project+CoreDataProperties.swift
 //  Fixit
 //
-//  Created by Drew Lanning on 8/18/16.
+//  Created by Drew Lanning on 8/21/16.
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,13 +14,14 @@ import CoreData
 
 extension Project {
 
-    @NSManaged var title: String?
+    @NSManaged var complete: NSNumber?
+    @NSManaged var completeDate: NSDate?
     @NSManaged var details: String?
+    @NSManaged var dueDate: NSDate?
     @NSManaged var estimatedCost: NSNumber?
     @NSManaged var estimatedTime: NSNumber?
-    @NSManaged var complete: NSNumber?
     @NSManaged var startDate: NSDate?
-    @NSManaged var completeDate: NSDate?
+    @NSManaged var title: String?
     @NSManaged var photo: NSSet?
     @NSManaged var taskList: NSSet?
 

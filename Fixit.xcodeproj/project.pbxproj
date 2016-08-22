@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		107558AC1D6A87F40058290F /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558AB1D6A87F40058290F /* Datasource.swift */; };
+		107558AD1D6A87F40058290F /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558AB1D6A87F40058290F /* Datasource.swift */; };
+		107558CC1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */; };
+		107558CD1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */; };
+		107558CE1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558CA1D6A8C630058290F /* Project+CoreDataProperties.swift */; };
+		107558CF1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558CA1D6A8C630058290F /* Project+CoreDataProperties.swift */; };
+		107558D01D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */; };
+		107558D11D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */; };
 		10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
 		10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
 		10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB791D66A3540049A929 /* AppDelegate.swift */; };
@@ -16,16 +24,10 @@
 		10EFBB841D66A3540049A929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB831D66A3540049A929 /* Assets.xcassets */; };
 		10EFBB871D66A3540049A929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB851D66A3540049A929 /* LaunchScreen.storyboard */; };
 		10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB911D66A3540049A929 /* FixitTests.swift */; };
-		10EFBBA21D66AE260049A929 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9C1D66AE260049A929 /* Project+CoreDataProperties.swift */; };
-		10EFBBA31D66AE260049A929 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9C1D66AE260049A929 /* Project+CoreDataProperties.swift */; };
 		10EFBBA41D66AE260049A929 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9D1D66AE260049A929 /* Project.swift */; };
 		10EFBBA51D66AE260049A929 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9D1D66AE260049A929 /* Project.swift */; };
-		10EFBBA61D66AE260049A929 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9E1D66AE260049A929 /* Task+CoreDataProperties.swift */; };
-		10EFBBA71D66AE260049A929 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9E1D66AE260049A929 /* Task+CoreDataProperties.swift */; };
 		10EFBBA81D66AE260049A929 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9F1D66AE260049A929 /* Task.swift */; };
 		10EFBBA91D66AE260049A929 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9F1D66AE260049A929 /* Task.swift */; };
-		10EFBBAA1D66AE260049A929 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBA01D66AE260049A929 /* Photo+CoreDataProperties.swift */; };
-		10EFBBAB1D66AE260049A929 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBA01D66AE260049A929 /* Photo+CoreDataProperties.swift */; };
 		10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBA11D66AE260049A929 /* Photo.swift */; };
 		10EFBBAD1D66AE260049A929 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBA11D66AE260049A929 /* Photo.swift */; };
 		10EFBBB31D66AE6D0049A929 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBB21D66AE6D0049A929 /* MaterialView.swift */; };
@@ -45,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		107558AB1D6A87F40058290F /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		107558CA1D6A8C630058290F /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCellView.swift; sourceTree = "<group>"; };
 		10EFBB761D66A3540049A929 /* Fixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EFBB791D66A3540049A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,11 +63,8 @@
 		10EFBB8D1D66A3540049A929 /* FixitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FixitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EFBB911D66A3540049A929 /* FixitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixitTests.swift; sourceTree = "<group>"; };
 		10EFBB931D66A3540049A929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10EFBB9C1D66AE260049A929 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10EFBB9D1D66AE260049A929 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		10EFBB9E1D66AE260049A929 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10EFBB9F1D66AE260049A929 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		10EFBBA01D66AE260049A929 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		10EFBBA11D66AE260049A929 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10EFBBB21D66AE6D0049A929 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		10EFBBB61D66B3D30049A929 /* Fixit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fixit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -138,9 +141,9 @@
 		10EFBBAE1D66AE2D0049A929 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				10EFBB9C1D66AE260049A929 /* Project+CoreDataProperties.swift */,
-				10EFBB9E1D66AE260049A929 /* Task+CoreDataProperties.swift */,
-				10EFBBA01D66AE260049A929 /* Photo+CoreDataProperties.swift */,
+				107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */,
+				107558CA1D6A8C630058290F /* Project+CoreDataProperties.swift */,
+				107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */,
 			);
 			name = Generated;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				10EFBB9F1D66AE260049A929 /* Task.swift */,
 				10EFBBA11D66AE260049A929 /* Photo.swift */,
 				10EFBB801D66A3540049A929 /* Fixit.xcdatamodeld */,
+				107558AB1D6A87F40058290F /* Datasource.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -344,14 +348,15 @@
 			files = (
 				10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */,
 				10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */,
-				10EFBBA21D66AE260049A929 /* Project+CoreDataProperties.swift in Sources */,
 				10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */,
 				10EFBBA41D66AE260049A929 /* Project.swift in Sources */,
-				10EFBBA61D66AE260049A929 /* Task+CoreDataProperties.swift in Sources */,
+				107558AC1D6A87F40058290F /* Datasource.swift in Sources */,
 				10EFBBA81D66AE260049A929 /* Task.swift in Sources */,
+				107558D01D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */,
 				10EFBBB31D66AE6D0049A929 /* MaterialView.swift in Sources */,
-				10EFBBAA1D66AE260049A929 /* Photo+CoreDataProperties.swift in Sources */,
 				10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
+				107558CE1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */,
+				107558CC1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,
 				10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,13 +366,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				10EFBBAD1D66AE260049A929 /* Photo.swift in Sources */,
-				10EFBBAB1D66AE260049A929 /* Photo+CoreDataProperties.swift in Sources */,
-				10EFBBA31D66AE260049A929 /* Project+CoreDataProperties.swift in Sources */,
 				10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
+				107558CF1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */,
 				10EFBBB51D66AEC20049A929 /* AppDelegate.swift in Sources */,
 				10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */,
+				107558CD1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,
 				10EFBBA91D66AE260049A929 /* Task.swift in Sources */,
-				10EFBBA71D66AE260049A929 /* Task+CoreDataProperties.swift in Sources */,
+				107558AD1D6A87F40058290F /* Datasource.swift in Sources */,
+				107558D11D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */,
 				10EFBBA51D66AE260049A929 /* Project.swift in Sources */,
 				10EFBBB41D66AE6D0049A929 /* MaterialView.swift in Sources */,
 			);
