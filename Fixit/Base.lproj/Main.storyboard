@@ -1171,20 +1171,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5Om-t1-0LF" firstAttribute="top" secondItem="ngX-YW-5Gu" secondAttribute="bottom" id="OFf-tW-SQ2"/>
-                            <constraint firstItem="5Om-t1-0LF" firstAttribute="leading" secondItem="kn1-Iy-We0" secondAttribute="leading" id="a6n-fR-8QE"/>
-                            <constraint firstItem="GAf-SF-Ihg" firstAttribute="top" secondItem="5Om-t1-0LF" secondAttribute="bottom" id="kTy-KQ-5fd"/>
-                            <constraint firstAttribute="trailing" secondItem="5Om-t1-0LF" secondAttribute="trailing" id="vWX-Fc-aN4"/>
+                            <constraint firstItem="5Om-t1-0LF" firstAttribute="top" secondItem="kn1-Iy-We0" secondAttribute="top" id="713-e6-Udx">
+                                <variation key="widthClass=compact" constant="32"/>
+                            </constraint>
+                            <constraint firstItem="5Om-t1-0LF" firstAttribute="top" secondItem="ngX-YW-5Gu" secondAttribute="bottom" id="Ja4-Gn-qQk"/>
+                            <constraint firstAttribute="bottom" secondItem="5Om-t1-0LF" secondAttribute="bottom" id="RiA-dK-ons"/>
+                            <constraint firstItem="5Om-t1-0LF" firstAttribute="leading" secondItem="kn1-Iy-We0" secondAttribute="leading" id="RsA-bP-45B"/>
+                            <constraint firstItem="GAf-SF-Ihg" firstAttribute="top" secondItem="5Om-t1-0LF" secondAttribute="bottom" id="imu-Ea-hGu"/>
+                            <constraint firstAttribute="trailing" secondItem="5Om-t1-0LF" secondAttribute="trailing" id="vfb-ae-BKF"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="5Om-t1-0LF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="kTy-KQ-5fd"/>
-                                <exclude reference="OFf-tW-SQ2"/>
-                                <exclude reference="a6n-fR-8QE"/>
-                                <exclude reference="vWX-Fc-aN4"/>
+                                <exclude reference="713-e6-Udx"/>
+                                <exclude reference="Ja4-Gn-qQk"/>
+                                <exclude reference="RiA-dK-ons"/>
+                                <exclude reference="RsA-bP-45B"/>
+                                <exclude reference="vfb-ae-BKF"/>
+                                <exclude reference="imu-Ea-hGu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -1192,10 +1198,12 @@
                                 <include reference="5Om-t1-0LF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="kTy-KQ-5fd"/>
-                                <include reference="OFf-tW-SQ2"/>
-                                <include reference="a6n-fR-8QE"/>
-                                <include reference="vWX-Fc-aN4"/>
+                                <exclude reference="713-e6-Udx"/>
+                                <include reference="Ja4-Gn-qQk"/>
+                                <include reference="RiA-dK-ons"/>
+                                <include reference="RsA-bP-45B"/>
+                                <include reference="vfb-ae-BKF"/>
+                                <exclude reference="imu-Ea-hGu"/>
                             </mask>
                         </variation>
                     </view>
