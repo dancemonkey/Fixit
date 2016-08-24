@@ -16,7 +16,7 @@ class CreateNewItemVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    scrollView = UIScrollView(frame: view.bounds)
+    scrollView = UIScrollView(frame: self.view.bounds)
     scrollView.backgroundColor = UIColor.redColor()
     scrollView.contentSize = contentView.bounds.size
     scrollView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
