@@ -755,6 +755,9 @@
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TxV-gT-plI">
                                                         <rect key="frame" x="71" y="0.0" width="51" height="31"/>
                                                         <color key="onTintColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <connections>
+                                                            <action selector="switchChanged:" destination="ge0-Wc-9UF" eventType="valueChanged" id="cOI-YF-E5j"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfi-ds-RH1">
                                                         <rect key="frame" x="146" y="5" width="36" height="21"/>
@@ -920,6 +923,9 @@
                                                         <include reference="w1G-qb-g6q"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="selectProjectBtnPressed:" destination="ge0-Wc-9UF" eventType="touchUpInside" id="Q0x-NL-4ok"/>
+                                                </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="X2Z-kh-OJg" userLabel="Details Text View">
                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -964,6 +970,9 @@
                                                         <include reference="sop-X4-glE"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="doneBtnPressed:" destination="ge0-Wc-9UF" eventType="touchUpInside" id="mT6-sf-EIq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1259,12 +1268,23 @@
                     <navigationItem key="navigationItem" title="Create new..." id="vIQ-yv-c23">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="eYZ-aK-yjt">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelPressed:" destination="ge0-Wc-9UF" id="oXr-Cq-x51"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="contentView" destination="5Om-t1-0LF" id="eWS-Xg-PQl"/>
+                        <outlet property="costFld" destination="KIu-ar-I5b" id="PKx-9x-bTC"/>
+                        <outlet property="details" destination="X2Z-kh-OJg" id="VKU-CD-AeS"/>
+                        <outlet property="dueDate" destination="Sex-LE-Nuf" id="1aH-aS-NDq"/>
+                        <outlet property="projectBtnLabel" destination="Ngf-hc-abd" id="Y9A-aO-UnT"/>
+                        <outlet property="projectSelectBtn" destination="ngw-wK-9JJ" id="h4f-4W-V8D"/>
+                        <outlet property="projectTaskSwitch" destination="TxV-gT-plI" id="mIE-qr-8bF"/>
                         <outlet property="scrollView" destination="KkI-dk-C54" id="Hah-KY-Jiz"/>
+                        <outlet property="timeFld" destination="NEv-M2-OUw" id="eo7-qJ-eNK"/>
+                        <outlet property="titleFld" destination="Jkm-zh-o7V" id="Jp9-oN-scH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5v-eD-xiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
