@@ -8,21 +8,20 @@
 
 import UIKit
 
-class CreateNewItemVC: UIViewController {
+class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
   
-  var scrollView: UIScrollView!
+  @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    scrollView = UIScrollView(frame: self.view.bounds)
-    scrollView.backgroundColor = UIColor.redColor()
-    scrollView.contentSize = contentView.bounds.size
-    scrollView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
-    scrollView.addSubview(contentView)
-    view.addSubview(scrollView)
+    scrollView.delegate = self
     
+  }
+  
+  func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    print("about to scroll")
   }
   
 }
