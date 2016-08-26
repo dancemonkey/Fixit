@@ -36,6 +36,8 @@
 		10EFBBB31D66AE6D0049A929 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBB21D66AE6D0049A929 /* MaterialView.swift */; };
 		10EFBBB41D66AE6D0049A929 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBB21D66AE6D0049A929 /* MaterialView.swift */; };
 		10EFBBB51D66AEC20049A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB791D66A3540049A929 /* AppDelegate.swift */; };
+		10FB8CB21D70903F00AE70CE /* ProjectListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */; };
+		10FB8CB31D70903F00AE70CE /* ProjectListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */; };
 		878F68C2277BB5C4E2ACDA62 /* Pods_Fixit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A067B9D8A6595BFB272EC8D /* Pods_Fixit.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,7 @@
 		10EFBBA11D66AE260049A929 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10EFBBB21D66AE6D0049A929 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		10EFBBB61D66B3D30049A929 /* Fixit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fixit-Bridging-Header.h"; sourceTree = "<group>"; };
+		10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListVC.swift; sourceTree = "<group>"; };
 		6A067B9D8A6595BFB272EC8D /* Pods_Fixit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fixit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C200982252F5C6DE842447 /* Pods-Fixit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fixit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fixit/Pods-Fixit.release.xcconfig"; sourceTree = "<group>"; };
 		D6F7D3C9F870E345A3612320 /* Pods-Fixit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fixit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fixit/Pods-Fixit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 			children = (
 				10EFBB7B1D66A3540049A929 /* DashboardVC.swift */,
 				1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */,
+				10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -355,6 +359,7 @@
 				10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */,
 				10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */,
 				1056DBB61D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */,
+				10FB8CB21D70903F00AE70CE /* ProjectListVC.swift in Sources */,
 				10EFBBA41D66AE260049A929 /* Project.swift in Sources */,
 				107558AC1D6A87F40058290F /* Datasource.swift in Sources */,
 				10EFBBA81D66AE260049A929 /* Task.swift in Sources */,
@@ -375,6 +380,7 @@
 				1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */,
 				10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
 				1056DBB71D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */,
+				10FB8CB31D70903F00AE70CE /* ProjectListVC.swift in Sources */,
 				107558CF1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */,
 				10EFBBB51D66AEC20049A929 /* AppDelegate.swift in Sources */,
 				10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */,

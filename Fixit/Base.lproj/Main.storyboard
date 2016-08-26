@@ -1510,7 +1510,7 @@
         <!--Projects-->
         <scene sceneID="Goi-aG-Eoe">
             <objects>
-                <viewController title="Projects" id="MRF-Ed-s0B" sceneMemberID="viewController">
+                <viewController title="Projects" id="MRF-Ed-s0B" customClass="ProjectListVC" customModule="Fixit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kH6-sB-Z8S"/>
                         <viewControllerLayoutGuide type="bottom" id="tyG-Ej-Fhi"/>
@@ -1523,7 +1523,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="00M-PS-mmB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projectCell" rowHeight="75" id="00M-PS-mmB">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00M-PS-mmB" id="EPj-a2-krd">
@@ -1570,9 +1570,15 @@
                     <navigationItem key="navigationItem" title="Projects" id="XPI-GA-z44">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vOC-dI-UU8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="addNewPressed:" destination="MRF-Ed-s0B" id="wa5-PW-HnM"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="JEc-no-F0Q" id="juK-Vn-3rS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfn-np-aAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
