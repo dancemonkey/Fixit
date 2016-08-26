@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		104CE2B41D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
+		104CE2B51D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
 		1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* DashboardVC.swift */; };
 		1056DBB61D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */; };
 		1056DBB71D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */; };
@@ -52,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		104CE2B31D70F5DB0084639D /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewItemVC.swift; sourceTree = "<group>"; };
 		107558AB1D6A87F40058290F /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 		107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -170,6 +173,7 @@
 			children = (
 				10EFBBB21D66AE6D0049A929 /* MaterialView.swift */,
 				10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */,
+				104CE2B31D70F5DB0084639D /* ProjectCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -368,6 +372,7 @@
 				10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
 				107558CE1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */,
 				107558CC1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,
+				104CE2B41D70F5DB0084639D /* ProjectCell.swift in Sources */,
 				10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +394,7 @@
 				107558AD1D6A87F40058290F /* Datasource.swift in Sources */,
 				107558D11D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */,
 				10EFBBA51D66AE260049A929 /* Project.swift in Sources */,
+				104CE2B51D70F5DB0084639D /* ProjectCell.swift in Sources */,
 				10EFBBB41D66AE6D0049A929 /* MaterialView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
