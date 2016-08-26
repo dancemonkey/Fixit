@@ -28,7 +28,6 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
   @IBOutlet weak var details: UITextView!
   @IBOutlet weak var projectSelectBtn: UIButton!
   
-  var newCreation: NSManagedObject? = nil
   var projectOrTask: ProjectOrTask = .Project
   
   override func viewDidLoad() {
@@ -63,17 +62,42 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
       scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
     }
     scrollView.scrollIndicatorInsets = scrollView.contentInset
+    
   }
   
   @IBAction func doneBtnPressed(sender: UIButton) {
-    // test for valid entries and save new project or task to context
-    // figure out if it's a project or task
-    // create new entity description
-    // set the values
-    // insert new ns managed object into context
+    
+    let context = appDelegate.managedObjectContext
+    
+    if projectOrTask == .Task {
+      if let newTask = NSEntityDescription.insertNewObjectForEntityForName("Task", inManagedObjectContext: context) as? Task {
+        // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
+        newTask.title = titleFld.text!
+        newTask.completed = false
+        newTask.cost = Double(costFld.text!)
+        newTask.details = details.text
+        newTask.dueDate = dueDate.date
+        newTask.time = Int(timeFld.text!)
+        newTask.parentProject = nil
+        newTask.photo = nil
+      }
+    } else {
+      if let newProject = NSEntityDescription.insertNewObjectForEntityForName("Project", inManagedObjectContext: context) as? Project {
+        // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
+        newProject.title = titleFld.text!
+        newProject.complete = false
+        newProject.estimatedCost = Double(costFld.text!)
+        newProject.details = details.text
+        newProject.dueDate = dueDate.date
+        newProject.estimatedTime = Int(timeFld.text!)
+        newProject.photo = nil
+        newProject.taskList = nil
+      }
+    }
     
     do {
-      try appDelegate.managedObjectContext.save()
+      try context.save()
+      self.navigationController?.popViewControllerAnimated(true)
     } catch {
       print(error)
     }
@@ -97,6 +121,15 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
   
   @IBAction func cancelPressed(sender: UIButton) {
     self.navigationController?.popViewControllerAnimated(true)
+  }
+  
+  func findFirstResponder() -> UIView? {
+    for view in self.view.subviews {
+      if view.isFirstResponder() {
+        return view
+      }
+    }
+    return nil
   }
   
 }

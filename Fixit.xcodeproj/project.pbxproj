@@ -119,10 +119,10 @@
 		10EFBB781D66A3540049A929 /* Fixit */ = {
 			isa = PBXGroup;
 			children = (
+				10EFBBAE1D66AE2D0049A929 /* Generated */,
 				10EFBBB11D66AE570049A929 /* Model */,
 				10EFBBB01D66AE4B0049A929 /* View */,
 				10EFBBAF1D66AE400049A929 /* Controller */,
-				10EFBBAE1D66AE2D0049A929 /* Generated */,
 				10EFBB791D66A3540049A929 /* AppDelegate.swift */,
 				10EFBB7D1D66A3540049A929 /* Main.storyboard */,
 				10EFBB831D66A3540049A929 /* Assets.xcassets */,

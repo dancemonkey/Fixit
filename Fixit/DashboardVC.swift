@@ -18,7 +18,7 @@ class DashboardVC: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
   }
   
   @IBAction func buttonTapped(sender: UIButton) {
@@ -31,9 +31,21 @@ class DashboardVC: UIViewController {
     Datasource.ds.fetchTasks()
     Datasource.ds.fetchProjects()
     
-    print(Datasource.ds.fetchedPhotos)
-    print(Datasource.ds.fetchedProjects)
-    print(Datasource.ds.fetchedTasks)
+    for project in Datasource.ds.fetchedProjects {
+      print(project.title)
+      print(project.details)
+      print(project.dueDate)
+      print(project.estimatedCost)
+      print(project.estimatedTime)
+    }
+    
+    for task in Datasource.ds.fetchedTasks {
+      print(task.title)
+      print(task.details)
+      print(task.dueDate)
+      print(task.cost)
+      print(task.time)
+    }
     
   }
   
