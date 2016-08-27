@@ -16,8 +16,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   lazy var fetchedResultsController: NSFetchedResultsController = {
     let fetch = NSFetchRequest(entityName: fetches.Projects.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "startDate", ascending: false)
-    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
-    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc]
+    fetch.sortDescriptors = [primarySortDesc]
     
     let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     
@@ -60,11 +59,9 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath) as? ProjectCell {
-      configureCell(cell, indexPath: indexPath)
-      return cell
-    }
-    return ProjectCell()
+    let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath) as! ProjectCell
+    configureCell(cell, indexPath: indexPath)
+    return cell
   }
   
   func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
@@ -79,21 +76,12 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
     switch type {
     case .Update:
-      if let updateIndexPath = indexPath {
-        let cell = self.tableView.cellForRowAtIndexPath(updateIndexPath) as? ProjectCell
-        configureCell(cell!, indexPath: updateIndexPath)
-      }
+      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? ProjectCell
+      configureCell(cell!, indexPath: indexPath!)
     case .Insert:
-      if let insertIndexPath = newIndexPath {
-//        let cell = self.tableView.cellForRowAtIndexPath(insertIndexPath) as? ProjectCell
-//        let project = self.fetchedResultsController.objectAtIndexPath(insertIndexPath) as? Project
-//        cell!.configureCell(withProject: project!)
-        self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: .Fade)
-      }
+      self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
     case .Delete:
-      if let deleteIndexPath = indexPath {
-        self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
-      }
+      self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
     case .Move:
       if let deleteIndexPath = indexPath {
         self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
@@ -107,5 +95,5 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   func controllerDidChangeContent(controller: NSFetchedResultsController) {
     self.tableView.endUpdates()
   }
-
+  
 }
