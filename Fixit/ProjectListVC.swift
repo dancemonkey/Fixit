@@ -57,12 +57,12 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath)
     let project = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
-    cell.textLabel?.text = project.title
-    cell.detailTextLabel?.text = String(project.dueDate)
-    
-    return cell
+    if let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath) as? ProjectCell {
+      cell.configureCell(withProject: project)
+      return cell
+    }
+    return ProjectCell()
   }
   
 }

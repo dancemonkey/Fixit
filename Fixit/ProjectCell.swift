@@ -15,6 +15,7 @@ class ProjectCell: UITableViewCell {
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var estCostLbl: UILabel!
   @IBOutlet weak var estTimeLbl: UILabel!
+  @IBOutlet weak var dueDateLbl: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -37,6 +38,12 @@ class ProjectCell: UITableViewCell {
     }
     if let estTime = project.estimatedTime {
       self.estTimeLbl.text = estTimeStub + String(estTime) + estTimeUnitStub
+    }
+    if let dueDate = project.dueDate {
+      self.dueDateLbl.text = String(dueDate)
+    }
+    if let image = project.photo, let data = image.data {
+      self.thumbImg.image = UIImage(data: data)
     }
   }
   
