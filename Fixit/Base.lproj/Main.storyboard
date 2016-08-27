@@ -511,7 +511,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <segue destination="ge0-Wc-9UF" kind="show" id="iSl-ho-pwh"/>
+                                    <segue destination="ge0-Wc-9UF" kind="show" identifier="createNew" id="iSl-ho-pwh"/>
                                 </connections>
                             </button>
                             <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42T-xd-Pbl" userLabel="WeatherView" customClass="DashboardCellView" customModule="Fixit" customModuleProvider="target">
@@ -986,6 +986,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="selectPicture:" destination="ge0-Wc-9UF" eventType="touchUpInside" id="aMR-XR-srh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1317,6 +1320,7 @@
                         <outlet property="projectSelectBtn" destination="ngw-wK-9JJ" id="h4f-4W-V8D"/>
                         <outlet property="projectTaskSwitch" destination="TxV-gT-plI" id="mIE-qr-8bF"/>
                         <outlet property="scrollView" destination="KkI-dk-C54" id="Hah-KY-Jiz"/>
+                        <outlet property="selectPhotoBtn" destination="iNV-l9-r0w" id="CwW-ji-6VT"/>
                         <outlet property="timeFld" destination="NEv-M2-OUw" id="eo7-qJ-eNK"/>
                         <outlet property="titleFld" destination="Jkm-zh-o7V" id="Jp9-oN-scH"/>
                     </connections>
@@ -1550,9 +1554,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JEc-no-F0Q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JEc-no-F0Q">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="projectCell" rowHeight="120" id="00M-PS-mmB" customClass="ProjectCell" customModule="Fixit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1696,27 +1701,27 @@
                                                     <exclude reference="qje-M2-BQ6"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="65w-OX-0Ny"/>
-                                                    <exclude reference="rCX-bo-8Tc"/>
-                                                    <exclude reference="USc-mB-1XK"/>
-                                                    <exclude reference="xa0-5m-YNU"/>
-                                                    <exclude reference="q31-CA-BUH"/>
-                                                    <exclude reference="qZK-1s-9Wi"/>
-                                                    <exclude reference="RYk-FS-8kJ"/>
-                                                    <exclude reference="as1-mK-DOR"/>
                                                     <exclude reference="Kbi-6Z-Yw5"/>
                                                     <exclude reference="fDG-3S-BGJ"/>
                                                     <exclude reference="ha2-gt-Apx"/>
                                                     <exclude reference="sJH-Iy-Zhw"/>
+                                                    <exclude reference="RYk-FS-8kJ"/>
+                                                    <exclude reference="as1-mK-DOR"/>
                                                     <exclude reference="9sF-EJ-Dfe"/>
                                                     <exclude reference="VrT-hZ-y6G"/>
                                                     <exclude reference="je1-ro-8MG"/>
+                                                    <exclude reference="q31-CA-BUH"/>
+                                                    <exclude reference="qZK-1s-9Wi"/>
                                                     <exclude reference="8FE-x7-4Nz"/>
                                                     <exclude reference="FRX-3m-6Da"/>
                                                     <exclude reference="kR7-Dy-Wtd"/>
                                                     <exclude reference="Clu-Kt-VBu"/>
                                                     <exclude reference="Kzk-e1-325"/>
                                                     <exclude reference="dWu-0Z-FtL"/>
+                                                    <exclude reference="65w-OX-0Ny"/>
+                                                    <exclude reference="rCX-bo-8Tc"/>
+                                                    <exclude reference="USc-mB-1XK"/>
+                                                    <exclude reference="xa0-5m-YNU"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -1731,27 +1736,27 @@
                                                     <include reference="qje-M2-BQ6"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="65w-OX-0Ny"/>
-                                                    <include reference="rCX-bo-8Tc"/>
-                                                    <include reference="USc-mB-1XK"/>
-                                                    <include reference="xa0-5m-YNU"/>
-                                                    <include reference="q31-CA-BUH"/>
-                                                    <include reference="qZK-1s-9Wi"/>
-                                                    <include reference="RYk-FS-8kJ"/>
-                                                    <include reference="as1-mK-DOR"/>
                                                     <include reference="Kbi-6Z-Yw5"/>
                                                     <include reference="fDG-3S-BGJ"/>
                                                     <include reference="ha2-gt-Apx"/>
                                                     <exclude reference="sJH-Iy-Zhw"/>
+                                                    <include reference="RYk-FS-8kJ"/>
+                                                    <include reference="as1-mK-DOR"/>
                                                     <include reference="9sF-EJ-Dfe"/>
                                                     <include reference="VrT-hZ-y6G"/>
                                                     <include reference="je1-ro-8MG"/>
+                                                    <include reference="q31-CA-BUH"/>
+                                                    <include reference="qZK-1s-9Wi"/>
                                                     <include reference="8FE-x7-4Nz"/>
                                                     <include reference="FRX-3m-6Da"/>
                                                     <include reference="kR7-Dy-Wtd"/>
                                                     <include reference="Clu-Kt-VBu"/>
                                                     <include reference="Kzk-e1-325"/>
                                                     <include reference="dWu-0Z-FtL"/>
+                                                    <include reference="65w-OX-0Ny"/>
+                                                    <include reference="rCX-bo-8Tc"/>
+                                                    <include reference="USc-mB-1XK"/>
+                                                    <include reference="xa0-5m-YNU"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1803,6 +1808,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="addNewPressed:" destination="MRF-Ed-s0B" id="wa5-PW-HnM"/>
+                                <segue destination="ge0-Wc-9UF" kind="show" identifier="createNew" id="Sqb-S6-oyA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1848,4 +1854,7 @@
         <image name="TaskIconLarge" width="154" height="101"/>
         <image name="WeatherPlaceholderLarge" width="138" height="103"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Sqb-S6-oyA"/>
+    </inferredMetricsTieBreakers>
 </document>

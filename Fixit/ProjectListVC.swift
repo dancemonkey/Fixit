@@ -32,16 +32,23 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     tableView.delegate = self
     tableView.dataSource = self
     
+    attemptFetch()
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    attemptFetch()
+  }
+  
+  func attemptFetch() {
     do {
       try fetchedResultsController.performFetch()
     } catch {
       print("\(error)")
     }
-    
   }
   
   @IBAction func addNewPressed(sender: UIBarButtonItem) {
-    
+    performSegueWithIdentifier("createNew", sender: self)
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -57,12 +64,51 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let project = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
     if let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath) as? ProjectCell {
-      cell.configureCell(withProject: project)
+      configureCell(cell, indexPath: indexPath)
+      print("configured")
       return cell
     }
     return ProjectCell()
   }
   
+  func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    self.tableView.beginUpdates()
+  }
+  
+  func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    switch type {
+    case .Insert:
+      if let insertIndexPath = newIndexPath {
+        self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: .Fade)
+      }
+    case .Delete:
+      if let deleteIndexPath = indexPath {
+        self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
+      }
+    case .Update:
+      if let updateIndexPath = indexPath {
+        let cell = self.tableView.cellForRowAtIndexPath(updateIndexPath) as? ProjectCell
+        let project = self.fetchedResultsController.objectAtIndexPath(updateIndexPath) as? Project
+        cell?.configureCell(withProject: project!)
+      }
+    case .Move:
+      if let deleteIndexPath = indexPath {
+        self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
+      }
+      if let insertIndexPath = newIndexPath {
+        self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: .Fade)
+      }
+    }
+  }
+  
+  func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+    let project = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
+    (cell as! ProjectCell).configureCell(withProject: project)
+  }
+  
+  func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    self.tableView.endUpdates()
+  }
+
 }

@@ -23,6 +23,10 @@ class ProjectCell: UITableViewCell {
   }
   
   func configureCell(withProject project: Project) {
+    
+    estCostLbl.text = ""
+    estTimeLbl.text = ""
+    
     let estCostStub = "Est. cost: $"
     let estTimeStub = "Est. time: "
     let estTimeUnitStub = " min."

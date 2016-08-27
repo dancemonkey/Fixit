@@ -15,7 +15,7 @@ enum ProjectOrTask: String {
   case Task
 }
 
-class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
+class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
@@ -27,6 +27,7 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
   @IBOutlet weak var projectBtnLabel: UILabel!
   @IBOutlet weak var details: UITextView!
   @IBOutlet weak var projectSelectBtn: UIButton!
+  @IBOutlet weak var selectPhotoBtn: UIButton!
   
   var projectOrTask: ProjectOrTask = .Project
   
@@ -90,7 +91,11 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
         newProject.details = details.text
         newProject.dueDate = dueDate.date
         newProject.estimatedTime = Int(timeFld.text!)
-        newProject.photo = nil
+        if let photo = selectPhotoBtn.currentBackgroundImage {
+          let newPic = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo
+          newPic?.data = UIImagePNGRepresentation(photo)
+          newProject.photo = newPic
+        }
         newProject.taskList = nil
       }
     }
@@ -123,13 +128,31 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate {
     self.navigationController?.popViewControllerAnimated(true)
   }
   
-  func findFirstResponder() -> UIView? {
-    for view in self.view.subviews {
-      if view.isFirstResponder() {
-        return view
-      }
+  @IBAction func selectPicture(sender: UIButton) {
+    let picker = UIImagePickerController()
+    picker.allowsEditing = true
+    picker.delegate = self
+    presentViewController(picker, animated: true, completion: nil)
+  }
+  
+  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
+  
+  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    var newImage: UIImage
+    
+    if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+      newImage = possibleImage
+    } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+      newImage = possibleImage
+    } else {
+      return
     }
-    return nil
+    
+    selectPhotoBtn.setBackgroundImage(newImage, forState: .Normal)
+    
+    dismissViewControllerAnimated(true, completion: nil)
   }
   
 }
