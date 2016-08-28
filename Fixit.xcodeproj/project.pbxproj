@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		104C92681D734F91008A834D /* ProjectDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C92671D734F91008A834D /* ProjectDashboardView.swift */; };
+		104C92691D734F91008A834D /* ProjectDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104C92671D734F91008A834D /* ProjectDashboardView.swift */; };
 		104CE2B41D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
 		104CE2B51D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
 		1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* DashboardVC.swift */; };
@@ -54,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		104C92671D734F91008A834D /* ProjectDashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDashboardView.swift; sourceTree = "<group>"; };
 		104CE2B31D70F5DB0084639D /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewItemVC.swift; sourceTree = "<group>"; };
 		107558AB1D6A87F40058290F /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 			children = (
 				10EFBBB21D66AE6D0049A929 /* MaterialView.swift */,
 				10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */,
+				104C92671D734F91008A834D /* ProjectDashboardView.swift */,
 				104CE2B31D70F5DB0084639D /* ProjectCell.swift */,
 			);
 			name = View;
@@ -374,6 +378,7 @@
 				107558CC1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,
 				104CE2B41D70F5DB0084639D /* ProjectCell.swift in Sources */,
 				10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */,
+				104C92681D734F91008A834D /* ProjectDashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +401,7 @@
 				10EFBBA51D66AE260049A929 /* Project.swift in Sources */,
 				104CE2B51D70F5DB0084639D /* ProjectCell.swift in Sources */,
 				10EFBBB41D66AE6D0049A929 /* MaterialView.swift in Sources */,
+				104C92691D734F91008A834D /* ProjectDashboardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

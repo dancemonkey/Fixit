@@ -15,9 +15,13 @@ class DashboardVC: UIViewController {
   @IBOutlet var dashboardViews: [DashboardCellView]!
   @IBOutlet var dashboardButtons: [UIButton]!
   let segueStrings = ["goToProjects","goToTasks","goToShoppingList","goToHitList"]
+  
+  @IBOutlet weak var projectCell: ProjectDashboardView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    projectCell.updateView()
   }
   
   override func viewWillAppear(animated: Bool) {

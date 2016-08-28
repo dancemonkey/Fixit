@@ -73,8 +73,8 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
       timeFld.text = String(project.estimatedTime)
       costFld.text = String(project.estimatedCost)
       details.text = project.details
-      if let image = project.photo { // TODO: rewrite Task as a to-one with Image
-        //selectPhotoBtn.setBackgroundImage(UIImage(data: image), forState: .Normal)
+      if let image = project.photo {
+        selectPhotoBtn.setBackgroundImage(UIImage(data: image.data!), forState: .Normal)
       }
       dueDate.setDate(project.dueDate!, animated: true)
     }
@@ -186,6 +186,7 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
     selectPhotoBtn.setBackgroundImage(newImage, forState: .Normal)
     
     dismissViewControllerAnimated(true, completion: nil)
+    selectPhotoBtn.titleLabel?.text = ""
   }
   
 }
