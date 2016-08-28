@@ -20,33 +20,17 @@ class DashboardVC: UIViewController {
     super.viewDidLoad()
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    // TODO: populate Dasboard Cells with data from fetch
+    
+  }
+  
   @IBAction func buttonTapped(sender: UIButton) {
     performSegueWithIdentifier(segueStrings[sender.tag], sender: sender)
   }
   
-  func testDataFetch() {
-
-    Datasource.ds.fetchPhotos()
-    Datasource.ds.fetchTasks()
-    Datasource.ds.fetchProjects()
-    
-    for project in Datasource.ds.fetchedProjects {
-      print(project.title)
-      print(project.details)
-      print(project.dueDate)
-      print(project.estimatedCost)
-      print(project.estimatedTime)
-    }
-    
-    for task in Datasource.ds.fetchedTasks {
-      print(task.title)
-      print(task.details)
-      print(task.dueDate)
-      print(task.cost)
-      print(task.time)
-    }
-    
-  }
-  
 }
+
 

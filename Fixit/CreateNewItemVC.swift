@@ -30,6 +30,7 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
   @IBOutlet weak var selectPhotoBtn: UIButton!
   
   var projectOrTask: ProjectOrTask = .Project
+  var objectToEdit: NSManagedObject? = nil
   
   override func viewDidLoad() {
     
@@ -45,6 +46,38 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
     tapGest.cancelsTouchesInView = false
     scrollView.addGestureRecognizer(tapGest)
     
+    if objectToEdit != nil {
+      populateFields(withObject: objectToEdit!)
+    }
+    
+  }
+  
+  func populateFields(withObject object: NSManagedObject) {
+    if object is Task {
+      // TODO: validate data before passing to fields
+      let task = object as! Task
+      projectTaskSwitch.setOn(true, animated: true)
+      titleFld.text = task.title
+      timeFld.text = String(task.time)
+      costFld.text = String(task.cost)
+      details.text = task.details
+      if let image = task.photo { // TODO: rewrite Task as a to-one with Image
+        //selectPhotoBtn.setBackgroundImage(UIImage(data: image), forState: .Normal)
+      }
+      dueDate.setDate(task.dueDate!, animated: true)
+    } else if object is Project {
+      // TODO: validate data before passing to fields
+      let project = object as! Project
+      projectTaskSwitch.setOn(false, animated: true)
+      titleFld.text = project.title
+      timeFld.text = String(project.estimatedTime)
+      costFld.text = String(project.estimatedCost)
+      details.text = project.details
+      if let image = project.photo { // TODO: rewrite Task as a to-one with Image
+        //selectPhotoBtn.setBackgroundImage(UIImage(data: image), forState: .Normal)
+      }
+      dueDate.setDate(project.dueDate!, animated: true)
+    }
   }
   
   func hideKeyboard() {

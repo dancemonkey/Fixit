@@ -44,7 +44,7 @@ class ProjectCell: UITableViewCell {
       self.estTimeLbl.text = estTimeStub + String(estTime) + estTimeUnitStub
     }
     if let dueDate = project.dueDate {
-      self.dueDateLbl.text = String(dueDate)
+      self.dueDateLbl.text = "due: " + String(dueDate)
     }
     if let image = project.photo, let data = image.data {
       self.thumbImg.image = UIImage(data: data)
