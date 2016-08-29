@@ -23,13 +23,11 @@ class DashboardVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    projectCell.updateProjectView()
-    
   }
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
+    projectCell.updateProjectView()
     // TODO: populate Dasboard Cells with data from fetch
     
   }

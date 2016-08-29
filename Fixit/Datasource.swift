@@ -68,4 +68,28 @@ class Datasource {
     }
   }
   
+  func fetchTotalDollars() -> Double {
+    self.fetchProjects()
+    
+    let newTotal = fetchedProjects.reduce(0.0) { (value: Double, project: Project) -> Double in
+      if let cost = project.estimatedCost {
+        return cost.doubleValue + value
+      }
+      return value
+    }
+    return newTotal
+  }
+  
+  func fetchTotalMinutes() -> Int {
+    self.fetchProjects()
+    
+    let totalTime = fetchedProjects.reduce(0) { (value: Int, project: Project) -> Int in
+      if let minutes = project.estimatedTime {
+        return Int(minutes.intValue) + value
+      }
+      return value
+    }
+    return totalTime
+  }
+  
 }

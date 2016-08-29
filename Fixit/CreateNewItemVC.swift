@@ -117,11 +117,6 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationContr
         newProject.details = details.text
         newProject.dueDate = dueDate.date
         newProject.estimatedTime = Int(timeFld.text!)
-        if let photo = selectPhotoBtn.currentBackgroundImage {
-          let newPic = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo
-          newPic?.data = UIImagePNGRepresentation(photo)
-          newProject.photo = newPic
-        }
         newProject.taskList = nil
       }
     }
