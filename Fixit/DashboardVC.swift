@@ -12,16 +12,19 @@ import pop
 
 class DashboardVC: UIViewController {
   
-  @IBOutlet var dashboardViews: [DashboardCellView]!
   @IBOutlet var dashboardButtons: [UIButton]!
+  @IBOutlet weak var projectCell: DashboardCellView!
+  @IBOutlet weak var taskCell: DashboardCellView!
+  @IBOutlet weak var shoppingListCell: DashboardCellView!
+  @IBOutlet weak var hitListCell: DashboardCellView!
+
   let segueStrings = ["goToProjects","goToTasks","goToShoppingList","goToHitList"]
   
-  @IBOutlet weak var projectCell: ProjectDashboardView!
-
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    projectCell.updateView()
+    projectCell.updateProjectView()
+    
   }
   
   override func viewWillAppear(animated: Bool) {

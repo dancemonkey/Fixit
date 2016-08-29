@@ -11,6 +11,7 @@ import UIKit
 class DashboardCellView: UIView, UIGestureRecognizerDelegate {
   
   @IBOutlet var titleLbls: [UILabel]!
+  @IBOutlet weak var image: UIImage?
   
   func updateView(labels: String..., image: UIImage?) {
     
@@ -20,4 +21,26 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
 
   }
 
+}
+
+extension DashboardCellView {
+  
+  func updateProjectView() {
+    
+    titleLbls[0].text = String(Datasource.ds.fetchedProjects.count) + " project"
+    
+  }
+  
+  func updateTaskView() {
+    
+  }
+  
+  func updateShoppingListView() {
+    
+  }
+  
+  func updateHitListView() {
+    
+  }
+  
 }

@@ -15,7 +15,7 @@ enum ProjectOrTask: String {
   case Task
 }
 
-class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
@@ -27,7 +27,6 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
   @IBOutlet weak var projectBtnLabel: UILabel!
   @IBOutlet weak var details: UITextView!
   @IBOutlet weak var projectSelectBtn: UIButton!
-  @IBOutlet weak var selectPhotoBtn: UIButton!
   
   var projectOrTask: ProjectOrTask = .Project
   var objectToEdit: NSManagedObject? = nil
@@ -61,9 +60,6 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
       timeFld.text = String(task.time)
       costFld.text = String(task.cost)
       details.text = task.details
-      if let image = task.photo { // TODO: rewrite Task as a to-one with Image
-        //selectPhotoBtn.setBackgroundImage(UIImage(data: image), forState: .Normal)
-      }
       dueDate.setDate(task.dueDate!, animated: true)
     } else if object is Project {
       // TODO: validate data before passing to fields
@@ -73,9 +69,6 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
       timeFld.text = String(project.estimatedTime)
       costFld.text = String(project.estimatedCost)
       details.text = project.details
-      if let image = project.photo {
-        selectPhotoBtn.setBackgroundImage(UIImage(data: image.data!), forState: .Normal)
-      }
       dueDate.setDate(project.dueDate!, animated: true)
     }
   }
@@ -160,33 +153,5 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UIImagePickerCont
   @IBAction func cancelPressed(sender: UIButton) {
     self.navigationController?.popViewControllerAnimated(true)
   }
-  
-  @IBAction func selectPicture(sender: UIButton) {
-    let picker = UIImagePickerController()
-    picker.allowsEditing = true
-    picker.delegate = self
-    presentViewController(picker, animated: true, completion: nil)
-  }
-  
-  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    var newImage: UIImage
-    
-    if let possibleImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
-      newImage = possibleImage
-    } else if let possibleImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-      newImage = possibleImage
-    } else {
-      return
-    }
-    
-    selectPhotoBtn.setBackgroundImage(newImage, forState: .Normal)
-    
-    dismissViewControllerAnimated(true, completion: nil)
-    selectPhotoBtn.titleLabel?.text = ""
-  }
-  
+
 }
