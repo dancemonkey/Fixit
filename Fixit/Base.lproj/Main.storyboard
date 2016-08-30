@@ -1615,7 +1615,8 @@
                                                             <exclude reference="RBW-sC-QbD"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="116" y="8" width="116" height="24"/>
                                                         <mask key="constraints">
                                                             <exclude reference="RBW-sC-QbD"/>
                                                         </mask>
@@ -1626,18 +1627,27 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.34509803921568627" green="0.22745098039215686" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="116" y="36" width="116" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Est. time: 30 min." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1h-B7-u3b">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="116" y="57" width="116" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="due 8/30/16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qje-M2-BQ6">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-ThinItalic" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="116" y="94" width="116" height="17"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1683,27 +1693,27 @@
                                                     <exclude reference="qje-M2-BQ6"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="65w-OX-0Ny"/>
-                                                    <exclude reference="rCX-bo-8Tc"/>
-                                                    <exclude reference="USc-mB-1XK"/>
-                                                    <exclude reference="xa0-5m-YNU"/>
-                                                    <exclude reference="q31-CA-BUH"/>
-                                                    <exclude reference="qZK-1s-9Wi"/>
-                                                    <exclude reference="RYk-FS-8kJ"/>
-                                                    <exclude reference="as1-mK-DOR"/>
                                                     <exclude reference="05L-Hq-Xr8"/>
                                                     <exclude reference="Jv9-69-ymi"/>
                                                     <exclude reference="gqK-By-mfi"/>
                                                     <exclude reference="sJH-Iy-Zhw"/>
+                                                    <exclude reference="RYk-FS-8kJ"/>
+                                                    <exclude reference="as1-mK-DOR"/>
                                                     <exclude reference="Gyz-xi-UXm"/>
                                                     <exclude reference="RmP-6X-nLc"/>
                                                     <exclude reference="eZ5-ru-M33"/>
+                                                    <exclude reference="q31-CA-BUH"/>
+                                                    <exclude reference="qZK-1s-9Wi"/>
                                                     <exclude reference="0tI-ej-SXt"/>
                                                     <exclude reference="9aL-UL-wyI"/>
                                                     <exclude reference="iSm-W9-Rjy"/>
                                                     <exclude reference="8ci-Dt-ywU"/>
                                                     <exclude reference="hL7-QD-sAU"/>
                                                     <exclude reference="qqM-IB-uJa"/>
+                                                    <exclude reference="65w-OX-0Ny"/>
+                                                    <exclude reference="rCX-bo-8Tc"/>
+                                                    <exclude reference="USc-mB-1XK"/>
+                                                    <exclude reference="xa0-5m-YNU"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -1718,27 +1728,27 @@
                                                     <include reference="qje-M2-BQ6"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="65w-OX-0Ny"/>
-                                                    <include reference="rCX-bo-8Tc"/>
-                                                    <include reference="USc-mB-1XK"/>
-                                                    <include reference="xa0-5m-YNU"/>
-                                                    <include reference="q31-CA-BUH"/>
-                                                    <include reference="qZK-1s-9Wi"/>
-                                                    <include reference="RYk-FS-8kJ"/>
-                                                    <include reference="as1-mK-DOR"/>
                                                     <include reference="05L-Hq-Xr8"/>
                                                     <include reference="Jv9-69-ymi"/>
                                                     <include reference="gqK-By-mfi"/>
                                                     <exclude reference="sJH-Iy-Zhw"/>
+                                                    <include reference="RYk-FS-8kJ"/>
+                                                    <include reference="as1-mK-DOR"/>
                                                     <include reference="Gyz-xi-UXm"/>
                                                     <include reference="RmP-6X-nLc"/>
                                                     <include reference="eZ5-ru-M33"/>
+                                                    <include reference="q31-CA-BUH"/>
+                                                    <include reference="qZK-1s-9Wi"/>
                                                     <include reference="0tI-ej-SXt"/>
                                                     <include reference="9aL-UL-wyI"/>
                                                     <include reference="iSm-W9-Rjy"/>
                                                     <include reference="8ci-Dt-ywU"/>
                                                     <include reference="hL7-QD-sAU"/>
                                                     <include reference="qqM-IB-uJa"/>
+                                                    <include reference="65w-OX-0Ny"/>
+                                                    <include reference="rCX-bo-8Tc"/>
+                                                    <include reference="USc-mB-1XK"/>
+                                                    <include reference="xa0-5m-YNU"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1755,7 +1765,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JEc-no-F0Q" firstAttribute="leading" secondItem="vyC-xV-vJT" secondAttribute="leading" constant="20" id="8p8-ne-2Yw"/>
                             <constraint firstAttribute="trailing" secondItem="JEc-no-F0Q" secondAttribute="trailing" constant="20" id="Jyz-nf-Z3U"/>

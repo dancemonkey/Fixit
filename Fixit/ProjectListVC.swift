@@ -30,7 +30,10 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     tableView.delegate = self
     tableView.dataSource = self
-    
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     attemptFetch()
   }
   
@@ -64,9 +67,19 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     return cell
   }
   
-  func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    let managedObject = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
+    appDelegate.managedObjectContext.deleteObject(managedObject)
+    do {
+      try appDelegate.managedObjectContext.save()
+    } catch {
+      print("wtf")
+    }
+  }
+  
+  func configureCell(cell: ProjectCell, indexPath: NSIndexPath) {
     let project = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
-    (cell as! ProjectCell).configureCell(withProject: project)
+    cell.configureCell(withProject: project)
   }
   
   func controllerWillChangeContent(controller: NSFetchedResultsController) {
