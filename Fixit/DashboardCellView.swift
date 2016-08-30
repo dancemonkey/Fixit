@@ -32,7 +32,7 @@ extension DashboardCellView {
     formatter.locale = .currentLocale()
     
     Datasource.ds.fetchProjects()
-    titleLbls[0].text = String(Datasource.ds.fetchedProjects.count) + " project" // total # of projects
+    titleLbls[0].text = String(Datasource.ds.fetchedProjects.count) + " projects" // total # of projects
     titleLbls[1].text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
     titleLbls[2].text = String(Datasource.ds.fetchTotalMinutes()) + " min." // minutes
     
