@@ -27,7 +27,6 @@ class ProjectCell: UITableViewCell {
     estCostLbl.text = ""
     estTimeLbl.text = ""
     
-    let estCostStub = "Est. cost: $"
     let estTimeStub = "Est. time: "
     let estTimeUnitStub = " min."
     
@@ -38,13 +37,19 @@ class ProjectCell: UITableViewCell {
       self.taskLbl.text = String(tasks.count)
     }
     if let estCost = project.estimatedCost {
-      self.estCostLbl.text = estCostStub + String(estCost)
+      let formatter = NSNumberFormatter()
+      formatter.usesGroupingSeparator = true
+      formatter.numberStyle = .CurrencyStyle
+      formatter.locale = .currentLocale()
+      self.estCostLbl.text = formatter.stringFromNumber(estCost)
     }
     if let estTime = project.estimatedTime {
       self.estTimeLbl.text = estTimeStub + String(estTime) + estTimeUnitStub
     }
     if let dueDate = project.dueDate {
-      self.dueDateLbl.text = "due: " + String(dueDate)
+      let dateFormatter = NSDateFormatter()
+      dateFormatter.dateFormat = "M/d"
+      self.dueDateLbl.text = "due " + dateFormatter.stringFromDate(dueDate)
     }
     if let image = project.photo, let data = image.data {
       self.thumbImg.image = UIImage(data: data)
