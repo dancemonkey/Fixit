@@ -488,12 +488,14 @@
                                     <outletCollection property="titleLbls" destination="L4v-QL-eSc" collectionClass="NSMutableArray" id="kjv-Kx-Ixs"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7z-cx-hnt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7z-cx-hnt" customClass="CircleMenu" customModule="CircleMenu">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="8o2-fU-qEl">
                                         <variation key="widthClass=compact" constant="50"/>
                                     </constraint>
+                                    <constraint firstAttribute="width" constant="50" id="Q2i-l3-Qnm"/>
+                                    <constraint firstAttribute="height" constant="50" id="uPu-JE-8dq"/>
                                     <constraint firstAttribute="height" constant="50" id="y1Q-Ze-n5X">
                                         <variation key="widthClass=compact" constant="50"/>
                                     </constraint>
@@ -501,22 +503,35 @@
                                 <state key="normal" image="AddNewBtn"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="buttonsCount">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="distance">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="showDelay">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="8o2-fU-qEl"/>
+                                        <exclude reference="Q2i-l3-Qnm"/>
+                                        <exclude reference="uPu-JE-8dq"/>
                                         <exclude reference="y1Q-Ze-n5X"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="8o2-fU-qEl"/>
-                                        <include reference="y1Q-Ze-n5X"/>
+                                        <exclude reference="8o2-fU-qEl"/>
+                                        <include reference="Q2i-l3-Qnm"/>
+                                        <include reference="uPu-JE-8dq"/>
+                                        <exclude reference="y1Q-Ze-n5X"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <segue destination="ge0-Wc-9UF" kind="show" identifier="createNew" id="iSl-ho-pwh"/>
-                                </connections>
                             </button>
                             <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="42T-xd-Pbl" userLabel="WeatherView" customClass="DashboardCellView" customModule="Fixit" customModuleProvider="target">
                                 <rect key="frame" x="20" y="84" width="150" height="150"/>
@@ -648,7 +663,9 @@
                             <constraint firstItem="OFw-Nj-fFr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="6qe-wL-Do0"/>
                             <constraint firstItem="rNy-Yh-TfU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="74z-JP-VgT"/>
                             <constraint firstItem="h7z-cx-hnt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Fy-Xj-SwJ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h7z-cx-hnt" secondAttribute="bottom" constant="35" id="Bjx-Ef-3c4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="h7z-cx-hnt" secondAttribute="bottom" constant="35" id="Bjx-Ef-3c4">
+                                <variation key="widthClass=compact" constant="100"/>
+                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="rNy-Yh-TfU" secondAttribute="trailing" id="CF1-su-bNf"/>
                             <constraint firstItem="OFw-Nj-fFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Eog-WH-Rtx"/>
                             <constraint firstItem="42T-xd-Pbl" firstAttribute="top" secondItem="fCR-No-fic" secondAttribute="bottom" constant="16" id="JxW-68-pz7"/>
@@ -734,6 +751,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="addNewButton" destination="h7z-cx-hnt" id="anX-aX-5Dj"/>
                         <outlet property="hitListCell" destination="fCR-No-fic" id="MzY-7W-ltl"/>
                         <outlet property="projectCell" destination="OFw-Nj-fFr" id="KCO-Kp-xMy"/>
                         <outlet property="shoppingListCell" destination="2gh-2I-LUH" id="09W-fx-bVM"/>
@@ -746,11 +764,12 @@
                         <segue destination="BvG-p7-fPW" kind="show" identifier="goToTasks" id="P6d-UG-eHh"/>
                         <segue destination="epI-FT-RxT" kind="show" identifier="goToShoppingList" id="Vib-vD-dEe"/>
                         <segue destination="ZZO-xF-6AC" kind="show" identifier="goToHitList" id="A0X-Rg-nqN"/>
+                        <segue destination="ge0-Wc-9UF" kind="show" identifier="newProject" id="6ou-xr-1th"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1115.25" y="386.5"/>
+            <point key="canvasLocation" x="485.25" y="369.5"/>
         </scene>
         <!--New Project-->
         <scene sceneID="Qqm-Qf-fzb">
@@ -1342,7 +1361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w5v-eD-xiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930.75" y="1355.5"/>
+            <point key="canvasLocation" x="582.75" y="1435.5"/>
         </scene>
         <!--Tasks-->
         <scene sceneID="QKR-mq-9Zo">
@@ -1413,7 +1432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zN-CU-oiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339.25" y="107.5"/>
+            <point key="canvasLocation" x="2348.25" y="249.5"/>
         </scene>
         <!--HitList-->
         <scene sceneID="ha1-kx-4DN">
@@ -1484,7 +1503,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJf-LT-5aY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727.25" y="1317.5"/>
+            <point key="canvasLocation" x="-237.75" y="1435.5"/>
         </scene>
         <!--Shopping List-->
         <scene sceneID="2qe-zE-atb">
@@ -1555,7 +1574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u10-jL-eAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2339.25" y="897.5"/>
+            <point key="canvasLocation" x="2348.25" y="1019.5"/>
         </scene>
         <!--Projects-->
         <scene sceneID="Goi-aG-Eoe">
@@ -1848,7 +1867,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfn-np-aAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727.25" y="-445.5"/>
+            <point key="canvasLocation" x="1457.25" y="1435.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hwR-ML-FPr">
@@ -1870,7 +1889,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qq5-sG-VOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="387"/>
+            <point key="canvasLocation" x="-337.5" y="379"/>
         </scene>
     </scenes>
     <resources>
