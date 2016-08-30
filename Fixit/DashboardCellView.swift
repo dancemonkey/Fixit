@@ -11,7 +11,6 @@ import UIKit
 class DashboardCellView: UIView, UIGestureRecognizerDelegate {
   
   @IBOutlet var titleLbls: [UILabel]!
-  @IBOutlet weak var image: UIImage?
   
   func updateView(labels: String..., image: UIImage?) {
     
@@ -34,7 +33,7 @@ extension DashboardCellView {
     Datasource.ds.fetchProjects()
     titleLbls[0].text = String(Datasource.ds.fetchedProjects.count) + " projects" // total # of projects
     titleLbls[1].text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
-    titleLbls[2].text = String(Datasource.ds.fetchTotalMinutes()) + " min." // minutes
+    titleLbls[2].text = String(Datasource.ds.fetchTotalMinutes()) + " days" // minutes
     
   }
   

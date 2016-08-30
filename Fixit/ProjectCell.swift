@@ -28,7 +28,7 @@ class ProjectCell: UITableViewCell {
     estTimeLbl.text = ""
     
     let estTimeStub = "Est. time: "
-    let estTimeUnitStub = " min."
+    let estTimeUnitStub = " days"
     
     if let title = project.title {
       self.titleLbl.text = title

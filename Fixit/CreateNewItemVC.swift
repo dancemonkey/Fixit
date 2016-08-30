@@ -138,10 +138,12 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationContr
       projectBtnLabel.enabled = true
       projectSelectBtn.enabled = true
       self.projectOrTask = .Task
+      timeFld.placeholder = "in minutes"
     } else {
       projectBtnLabel.enabled = false
       projectSelectBtn.enabled = false
       self.projectOrTask = .Project
+      timeFld.placeholder = "in days"
     }
   }
   
