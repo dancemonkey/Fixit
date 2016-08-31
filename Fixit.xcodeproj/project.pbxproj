@@ -10,8 +10,8 @@
 		104CE2B41D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
 		104CE2B51D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
 		1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* DashboardVC.swift */; };
-		1056DBB61D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */; };
-		1056DBB71D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */; };
+		1056DBB61D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */; };
+		1056DBB71D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */; };
 		105B0D281D75D80400830B71 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B0D271D75D80400830B71 /* utils.swift */; };
 		105B0D291D75D80400830B71 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B0D271D75D80400830B71 /* utils.swift */; };
 		107558AC1D6A87F40058290F /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558AB1D6A87F40058290F /* Datasource.swift */; };
@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		104CE2B31D70F5DB0084639D /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
-		1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewItemVC.swift; sourceTree = "<group>"; };
+		1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectVC.swift; sourceTree = "<group>"; };
 		105B0D271D75D80400830B71 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		107558AB1D6A87F40058290F /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 		107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				10EFBB7B1D66A3540049A929 /* DashboardVC.swift */,
-				1056DBB51D6E0440001B7DE3 /* CreateNewItemVC.swift */,
+				1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */,
 				10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */,
 			);
 			name = Controller;
@@ -374,7 +374,7 @@
 				10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */,
 				10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */,
 				10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */,
-				1056DBB61D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */,
+				1056DBB61D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */,
 				10FB8CB21D70903F00AE70CE /* ProjectListVC.swift in Sources */,
 				10EFBBA41D66AE260049A929 /* Project.swift in Sources */,
 				107558AC1D6A87F40058290F /* Datasource.swift in Sources */,
@@ -397,7 +397,7 @@
 				10EFBBAD1D66AE260049A929 /* Photo.swift in Sources */,
 				1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */,
 				10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
-				1056DBB71D6E0440001B7DE3 /* CreateNewItemVC.swift in Sources */,
+				1056DBB71D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */,
 				10FB8CB31D70903F00AE70CE /* ProjectListVC.swift in Sources */,
 				107558CF1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */,
 				10EFBBB51D66AEC20049A929 /* AppDelegate.swift in Sources */,

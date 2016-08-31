@@ -45,13 +45,27 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
   }
   
   func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
-    button.addTarget(self, action: #selector(buttonPressedTest(_:)), forControlEvents: .TouchUpInside)
+    if atIndex == 0 {
+      button.addTarget(self, action: #selector(addProject(_:)), forControlEvents: .TouchUpInside)
+      button.setImage(UIImage(named: "ProjectIconSmall"), forState: .Normal)
+      button.backgroundColor = UIColor.init(red: 16/255.0, green: 81/255.0, blue: 165/255.0, alpha: 1.0)
+    } else if atIndex == 1 {
+      button.addTarget(self, action: #selector(addTask(_:)), forControlEvents: .TouchUpInside)
+      button.setImage(UIImage(named: "TaskIconSmall"), forState: .Normal)
+      button.backgroundColor = UIColor.init(red: 16/255.0, green: 81/255.0, blue: 165/255.0, alpha: 1.0)
+    }
+    
   }
   
-  func buttonPressedTest(sender: UIButton) {
-    // now have view change based on button pressed
+  func addProject(sender: UIButton) {
     Utils.delay(0.5) {
       self.performSegueWithIdentifier("newProject", sender: self)
+    }
+  }
+  
+  func addTask(sender: UIButton) {
+    Utils.delay(0.5) { 
+      self.performSegueWithIdentifier("newTask", sender: self)
     }
   }
   

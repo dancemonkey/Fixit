@@ -15,25 +15,19 @@ enum ProjectOrTask: String {
   case Task
 }
 
-class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate {
+class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
-  @IBOutlet weak var projectTaskSwitch: UISwitch!
   @IBOutlet weak var titleFld: UITextField!
   @IBOutlet weak var timeFld: UITextField!
   @IBOutlet weak var costFld: UITextField!
   @IBOutlet weak var dueDate: UIDatePicker!
-  @IBOutlet weak var projectBtnLabel: UILabel!
   @IBOutlet weak var details: UITextView!
-  @IBOutlet weak var projectSelectBtn: UIButton!
   
-  var projectOrTask: ProjectOrTask = .Project
   var objectToEdit: NSManagedObject? = nil
   
   override func viewDidLoad() {
-    
-    super.viewDidLoad()
     
     let notificationCenter = NSNotificationCenter.defaultCenter()
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillHideNotification, object: nil)
@@ -41,7 +35,7 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationContr
     
     scrollView.delegate = self
     
-    let tapGest = UITapGestureRecognizer(target: self, action: #selector(CreateNewItemVC.hideKeyboard))
+    let tapGest = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
     tapGest.cancelsTouchesInView = false
     scrollView.addGestureRecognizer(tapGest)
     
@@ -55,7 +49,6 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationContr
     if object is Task {
       // TODO: validate data before passing to fields
       let task = object as! Task
-      projectTaskSwitch.setOn(true, animated: true)
       titleFld.text = task.title
       timeFld.text = String(task.time)
       costFld.text = String(task.cost)
@@ -64,7 +57,6 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationContr
     } else if object is Project {
       // TODO: validate data before passing to fields
       let project = object as! Project
-      projectTaskSwitch.setOn(false, animated: true)
       titleFld.text = project.title
       timeFld.text = String(project.estimatedTime)
       costFld.text = String(project.estimatedCost)
@@ -96,29 +88,15 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationContr
     
     let context = appDelegate.managedObjectContext
     
-    if projectOrTask == .Task {
-      if let newTask = NSEntityDescription.insertNewObjectForEntityForName("Task", inManagedObjectContext: context) as? Task {
-        // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
-        newTask.title = titleFld.text!
-        newTask.completed = false
-        newTask.cost = Double(costFld.text!)
-        newTask.details = details.text
-        newTask.dueDate = dueDate.date
-        newTask.time = Int(timeFld.text!)
-        newTask.parentProject = nil
-        newTask.photo = nil
-      }
-    } else {
-      if let newProject = NSEntityDescription.insertNewObjectForEntityForName("Project", inManagedObjectContext: context) as? Project {
-        // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
-        newProject.title = titleFld.text!
-        newProject.complete = false
-        newProject.estimatedCost = Double(costFld.text!)
-        newProject.details = details.text
-        newProject.dueDate = dueDate.date
-        newProject.estimatedTime = Int(timeFld.text!)
-        newProject.taskList = nil
-      }
+    if let newProject = NSEntityDescription.insertNewObjectForEntityForName("Project", inManagedObjectContext: context) as? Project {
+      // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
+      newProject.title = titleFld.text!
+      newProject.complete = false
+      newProject.estimatedCost = Double(costFld.text!)
+      newProject.details = details.text
+      newProject.dueDate = dueDate.date
+      newProject.estimatedTime = Double(timeFld.text!)
+      newProject.taskList = nil
     }
     
     do {
@@ -129,26 +107,8 @@ class CreateNewItemVC: UIViewController, UIScrollViewDelegate, UINavigationContr
     }
   }
   
-  @IBAction func selectProjectBtnPressed(sender: UIButton) {
-    
-  }
-  
-  @IBAction func switchChanged(sender: UISwitch) {
-    if sender.on {
-      projectBtnLabel.enabled = true
-      projectSelectBtn.enabled = true
-      self.projectOrTask = .Task
-      timeFld.placeholder = "in minutes"
-    } else {
-      projectBtnLabel.enabled = false
-      projectSelectBtn.enabled = false
-      self.projectOrTask = .Project
-      timeFld.placeholder = "in days"
-    }
-  }
-  
   @IBAction func cancelPressed(sender: UIButton) {
     self.navigationController?.popViewControllerAnimated(true)
   }
-
+  
 }

@@ -2,7 +2,7 @@
 //  Project+CoreDataProperties.swift
 //  Fixit
 //
-//  Created by Drew Lanning on 8/26/16.
+//  Created by Drew Lanning on 8/30/16.
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
