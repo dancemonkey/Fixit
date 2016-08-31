@@ -24,6 +24,8 @@
 		107558D11D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */; };
 		108D48601D774C8C0062C705 /* CreateNewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D485F1D774C8C0062C705 /* CreateNewTaskVC.swift */; };
 		108D48611D774C8C0062C705 /* CreateNewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D485F1D774C8C0062C705 /* CreateNewTaskVC.swift */; };
+		109B81F01D7782190032FE7E /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B81EF1D7782190032FE7E /* TaskListVC.swift */; };
+		109B81F11D7782190032FE7E /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B81EF1D7782190032FE7E /* TaskListVC.swift */; };
 		10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
 		10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
 		10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB791D66A3540049A929 /* AppDelegate.swift */; };
@@ -66,6 +68,7 @@
 		107558CA1D6A8C630058290F /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		108D485F1D774C8C0062C705 /* CreateNewTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewTaskVC.swift; sourceTree = "<group>"; };
+		109B81EF1D7782190032FE7E /* TaskListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
 		10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCellView.swift; sourceTree = "<group>"; };
 		10EFBB761D66A3540049A929 /* Fixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EFBB791D66A3540049A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 				1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */,
 				108D485F1D774C8C0062C705 /* CreateNewTaskVC.swift */,
 				10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */,
+				109B81EF1D7782190032FE7E /* TaskListVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -382,6 +386,7 @@
 				108D48601D774C8C0062C705 /* CreateNewTaskVC.swift in Sources */,
 				10FB8CB21D70903F00AE70CE /* ProjectListVC.swift in Sources */,
 				10EFBBA41D66AE260049A929 /* Project.swift in Sources */,
+				109B81F01D7782190032FE7E /* TaskListVC.swift in Sources */,
 				107558AC1D6A87F40058290F /* Datasource.swift in Sources */,
 				10EFBBA81D66AE260049A929 /* Task.swift in Sources */,
 				107558D01D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */,
@@ -406,6 +411,7 @@
 				108D48611D774C8C0062C705 /* CreateNewTaskVC.swift in Sources */,
 				10FB8CB31D70903F00AE70CE /* ProjectListVC.swift in Sources */,
 				107558CF1D6A8C630058290F /* Project+CoreDataProperties.swift in Sources */,
+				109B81F11D7782190032FE7E /* TaskListVC.swift in Sources */,
 				10EFBBB51D66AEC20049A929 /* AppDelegate.swift in Sources */,
 				10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */,
 				107558CD1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,

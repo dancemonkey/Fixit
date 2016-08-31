@@ -96,4 +96,8 @@ class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationContr
     self.navigationController?.popViewControllerAnimated(true)
   }
   
+  @IBAction func selectProjectPressed(sender: UIButton) {
+    
+  }
+  
 }
