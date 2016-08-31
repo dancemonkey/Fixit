@@ -1,21 +1,15 @@
 //
-//  CreateNewItemVC.swift
+//  CreateNewTaskVC.swift
 //  Fixit
 //
-//  Created by Drew Lanning on 8/24/16.
+//  Created by Drew Lanning on 8/31/16.
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
 import UIKit
 import CoreData
-import pop
 
-enum ProjectOrTask: String {
-  case Project
-  case Task
-}
-
-class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate {
+class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
@@ -28,6 +22,7 @@ class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationCo
   var objectToEdit: NSManagedObject? = nil
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     
     let notificationCenter = NSNotificationCenter.defaultCenter()
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillHideNotification, object: nil)
@@ -46,14 +41,14 @@ class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationCo
   }
   
   func populateFields(withObject object: NSManagedObject) {
-    if object is Project {
+    if object is Task {
       // TODO: validate data before passing to fields
-      let project = object as! Project
-      titleFld.text = project.title
-      timeFld.text = String(project.estimatedTime)
-      costFld.text = String(project.estimatedCost)
-      details.text = project.details
-      dueDate.setDate(project.dueDate!, animated: true)
+      let task = object as! Task
+      titleFld.text = task.title
+      timeFld.text = String(task.time)
+      costFld.text = String(task.cost)
+      details.text = task.details
+      dueDate.setDate(task.dueDate!, animated: true)
     }
   }
   
@@ -73,22 +68,20 @@ class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationCo
       scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
     }
     scrollView.scrollIndicatorInsets = scrollView.contentInset
-    
   }
   
   @IBAction func doneBtnPressed(sender: UIButton) {
     
     let context = appDelegate.managedObjectContext
     
-    if let newProject = NSEntityDescription.insertNewObjectForEntityForName("Project", inManagedObjectContext: context) as? Project {
+    if let newTask = NSEntityDescription.insertNewObjectForEntityForName("Task", inManagedObjectContext: context) as? Task {
       // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
-      newProject.title = titleFld.text!
-      newProject.complete = false
-      newProject.estimatedCost = Double(costFld.text!)
-      newProject.details = details.text
-      newProject.dueDate = dueDate.date
-      newProject.estimatedTime = Double(timeFld.text!)
-      newProject.taskList = nil
+      newTask.title = titleFld.text!
+      newTask.completed = false
+      newTask.cost = Double(costFld.text!)
+      newTask.details = details.text
+      newTask.dueDate = dueDate.date
+      newTask.time = Int(timeFld.text!)
     }
     
     do {

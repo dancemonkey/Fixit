@@ -25,6 +25,7 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     addNewButton.delegate = self
+  
   }
   
   override func viewWillAppear(animated: Bool) {
