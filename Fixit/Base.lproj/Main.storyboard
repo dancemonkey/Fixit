@@ -1304,16 +1304,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAt-My-M7p" id="5oC-5J-qaf">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qs7-T8-dL1" userLabel="checkboxBtn">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qs7-T8-dL1" userLabel="checkboxBtn" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                                    <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="gaT-Rf-Ge3"/>
                                                         <constraint firstAttribute="height" constant="20" id="o5Z-JC-Wzx"/>
                                                     </constraints>
+                                                    <state key="normal" backgroundImage="CheckBoxBackground"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="gaT-Rf-Ge3"/>
@@ -1348,18 +1349,27 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="127" y="8" width="105" height="24"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8/30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rZ7-eD-osS" userLabel="dueDateLbl">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="191" y="67" width="41" height="24"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7, 30 min." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXD-TG-6Kc" userLabel="timeCostLbl">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="127" y="36" width="105" height="17"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1389,9 +1399,6 @@
                                                     <exclude reference="bXD-TG-6Kc"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="0Oa-DJ-qo4"/>
-                                                    <exclude reference="486-j0-qCZ"/>
-                                                    <exclude reference="QJV-CV-9CY"/>
                                                     <exclude reference="4Bp-5Q-Lin"/>
                                                     <exclude reference="c8n-Bd-nSB"/>
                                                     <exclude reference="J6v-9v-gRm"/>
@@ -1402,6 +1409,9 @@
                                                     <exclude reference="dna-JP-tFr"/>
                                                     <exclude reference="Tcv-L1-0VG"/>
                                                     <exclude reference="jas-C9-dsb"/>
+                                                    <exclude reference="0Oa-DJ-qo4"/>
+                                                    <exclude reference="486-j0-qCZ"/>
+                                                    <exclude reference="QJV-CV-9CY"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -1413,9 +1423,6 @@
                                                     <include reference="bXD-TG-6Kc"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="0Oa-DJ-qo4"/>
-                                                    <include reference="486-j0-qCZ"/>
-                                                    <include reference="QJV-CV-9CY"/>
                                                     <include reference="4Bp-5Q-Lin"/>
                                                     <include reference="c8n-Bd-nSB"/>
                                                     <include reference="J6v-9v-gRm"/>
@@ -1426,6 +1433,9 @@
                                                     <include reference="dna-JP-tFr"/>
                                                     <include reference="Tcv-L1-0VG"/>
                                                     <include reference="jas-C9-dsb"/>
+                                                    <include reference="0Oa-DJ-qo4"/>
+                                                    <include reference="486-j0-qCZ"/>
+                                                    <include reference="QJV-CV-9CY"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1434,7 +1444,7 @@
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="checkBoxBtn" destination="Qs7-T8-dL1" id="Pq3-Mp-uJM"/>
+                                            <outlet property="checkBoxBtn" destination="Qs7-T8-dL1" id="na6-TY-EVh"/>
                                             <outlet property="dueDateLbl" destination="rZ7-eD-osS" id="Ifh-5o-4gV"/>
                                             <outlet property="thumbImg" destination="TGR-EV-EAH" id="07b-mk-5mQ"/>
                                             <outlet property="timeAndCostLbl" destination="bXD-TG-6Kc" id="PIH-SB-04x"/>
@@ -1723,7 +1733,8 @@
                                                             <exclude reference="RBW-sC-QbD"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="widthClass=compact">
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="116" y="8" width="116" height="24"/>
                                                         <mask key="constraints">
                                                             <exclude reference="RBW-sC-QbD"/>
                                                         </mask>
@@ -1734,18 +1745,27 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.34509803921568627" green="0.22745098039215686" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="116" y="36" width="116" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Est. time: 30 min." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m1h-B7-u3b">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="116" y="57" width="116" height="17"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8/30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qje-M2-BQ6">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="191" y="87" width="41" height="24"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2500,6 +2520,7 @@
         <image name="AddNewBtn" width="75" height="75"/>
         <image name="BullseyeIconLarge" width="154" height="154"/>
         <image name="CartIconLarge" width="154" height="154"/>
+        <image name="CheckBoxBackground" width="45" height="45"/>
         <image name="Oval" width="65" height="65"/>
         <image name="ProjectIconLarge" width="154" height="154"/>
         <image name="TaskIconLarge" width="154" height="154"/>

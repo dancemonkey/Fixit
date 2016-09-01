@@ -9,13 +9,9 @@
 import UIKit
 import CoreData
 
-enum checkImages: String {
-  case Incomplete, Complete // TODO: images for these states on the checkBox button
-}
-
-class TaskCell: UITableViewCell {
+class TaskCell: UITableViewCell, TaskCheckboxDelegate {
   
-  @IBOutlet weak var checkBoxBtn: UIButton! // TODO: subclass this for a checkbox
+  @IBOutlet weak var checkBoxBtn: CheckBoxBtn! // TODO: subclass this for a checkbox
   @IBOutlet weak var thumbImg: UIImageView!
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var timeAndCostLbl: UILabel!
@@ -23,10 +19,15 @@ class TaskCell: UITableViewCell {
   
   override func awakeFromNib() {
     super.awakeFromNib()
+    checkBoxBtn.delegate = self
   }
   
   func configureCell(withTask task: Task) {
     // TODO: configure with passed in data
+  }
+  
+  func boxChecked(sender: UIButton) {
+    print("tapped") // TODO: set task to complete or not based on checkbox status, then save context?
   }
   
 }
