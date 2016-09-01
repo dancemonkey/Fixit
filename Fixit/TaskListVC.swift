@@ -62,7 +62,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("genericCell", forIndexPath: indexPath)
+    let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath)
     configureCell(cell, indexPath: indexPath)
     return UITableViewCell()
   }
@@ -73,8 +73,6 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
     let task = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
-    cell.textLabel?.text = task.title
-    cell.detailTextLabel?.text = String(task.dueDate)
     //cell.configureCell(withProject: task)
   }
   

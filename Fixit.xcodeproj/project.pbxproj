@@ -14,6 +14,8 @@
 		1056DBB71D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */; };
 		105B0D281D75D80400830B71 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B0D271D75D80400830B71 /* utils.swift */; };
 		105B0D291D75D80400830B71 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105B0D271D75D80400830B71 /* utils.swift */; };
+		10641A951D78CA1E00B5BE2B /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10641A941D78CA1E00B5BE2B /* TaskCell.swift */; };
+		10641A961D78CA1E00B5BE2B /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10641A941D78CA1E00B5BE2B /* TaskCell.swift */; };
 		107558AC1D6A87F40058290F /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558AB1D6A87F40058290F /* Datasource.swift */; };
 		107558AD1D6A87F40058290F /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558AB1D6A87F40058290F /* Datasource.swift */; };
 		107558CC1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */; };
@@ -63,6 +65,7 @@
 		104CE2B31D70F5DB0084639D /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectVC.swift; sourceTree = "<group>"; };
 		105B0D271D75D80400830B71 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
+		10641A941D78CA1E00B5BE2B /* TaskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		107558AB1D6A87F40058290F /* Datasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
 		107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		107558CA1D6A8C630058290F /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 				10EFBBB21D66AE6D0049A929 /* MaterialView.swift */,
 				10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */,
 				104CE2B31D70F5DB0084639D /* ProjectCell.swift */,
+				10641A941D78CA1E00B5BE2B /* TaskCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -381,6 +385,7 @@
 			files = (
 				10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */,
 				10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */,
+				10641A951D78CA1E00B5BE2B /* TaskCell.swift in Sources */,
 				10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */,
 				1056DBB61D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */,
 				108D48601D774C8C0062C705 /* CreateNewTaskVC.swift in Sources */,
@@ -406,6 +411,7 @@
 			files = (
 				10EFBBAD1D66AE260049A929 /* Photo.swift in Sources */,
 				1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */,
+				10641A961D78CA1E00B5BE2B /* TaskCell.swift in Sources */,
 				10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
 				1056DBB71D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */,
 				108D48611D774C8C0062C705 /* CreateNewTaskVC.swift in Sources */,
