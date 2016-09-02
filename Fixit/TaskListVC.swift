@@ -18,7 +18,8 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   lazy var fetchedResultsController: NSFetchedResultsController = {
     let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
-    fetch.sortDescriptors = [primarySortDesc]
+    let secondarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
+    fetch.sortDescriptors = [secondarySortDesc ,primarySortDesc]
     
     let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeyPath, cacheName: nil)
     
@@ -56,9 +57,11 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    let sections = fetchedResultsController.sections! as [NSFetchedResultsSectionInfo]
-    let sectionInfo = sections[section]
-    return sectionInfo.numberOfObjects
+    if let sections = fetchedResultsController.sections {
+      let current = sections[section]
+      return current.numberOfObjects
+    }
+    return 0
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -68,7 +71,13 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    
+    let managedObject = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
+    appDelegate.managedObjectContext.deleteObject(managedObject)
+    do {
+      try appDelegate.managedObjectContext.save()
+    } catch {
+      print("wtf")
+    }
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -76,7 +85,15 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return fetchedResultsController.sections![section].name
+    if let sections = fetchedResultsController.sections {
+      let currentSection = sections[section]
+      if currentSection.name == "0" {
+        return "Incomplete"
+      } else {
+        return "Complete"
+      }
+    }
+    return nil
   }
   
   func configureCell(cell: TaskCell, indexPath: NSIndexPath) {
@@ -88,24 +105,24 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     self.tableView.beginUpdates()
   }
   
-//  func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-//    switch type {
-//    case .Update:
-//      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? TaskCell
-//      configureCell(cell!, indexPath: indexPath!)
-//    case .Insert:
-//      self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-//    case .Delete:
-//      self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-//    case .Move:
-//      if let deleteIndexPath = indexPath {
-//        self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
-//      }
-//      if let insertIndexPath = newIndexPath {
-//        self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: .Fade)
-//      }
-//    }
-//  }
+  func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    switch type {
+    case .Update:
+      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? TaskCell
+      configureCell(cell!, indexPath: indexPath!)
+    case .Insert:
+      self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+    case .Delete:
+      self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+    case .Move:
+      if let deleteIndexPath = indexPath {
+        self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
+      }
+      if let insertIndexPath = newIndexPath {
+        self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: .Fade)
+      }
+    }
+  }
   
   func controllerDidChangeContent(controller: NSFetchedResultsController) {
     self.tableView.endUpdates()

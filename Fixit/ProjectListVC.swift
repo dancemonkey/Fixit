@@ -50,7 +50,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
+    return (fetchedResultsController.sections?.count)!
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
