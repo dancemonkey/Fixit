@@ -62,18 +62,22 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath)
-    configureCell(cell, indexPath: indexPath)
-    return UITableViewCell()
+    let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as? TaskCell
+    configureCell(cell!, indexPath: indexPath)
+    return cell!
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     
   }
   
-  func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return 100
+  }
+  
+  func configureCell(cell: TaskCell, indexPath: NSIndexPath) {
     let task = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
-    //cell.configureCell(withProject: task)
+    cell.configureCell(withTask: task)
   }
   
   func controllerWillChangeContent(controller: NSFetchedResultsController) {

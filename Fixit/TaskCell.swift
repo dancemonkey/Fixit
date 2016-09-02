@@ -24,6 +24,26 @@ class TaskCell: UITableViewCell, TaskCheckboxDelegate {
   
   func configureCell(withTask task: Task) {
     // TODO: configure with passed in data
+    if let photo = task.photo?.data {
+      thumbImg.image = UIImage(data: photo)
+    }
+    if let title = task.title {
+      titleLbl.text = title
+    }
+    if let time = task.time, let cost = task.cost {
+      
+      let formatter = NSNumberFormatter()
+      formatter.usesGroupingSeparator = true
+      formatter.numberStyle = .CurrencyStyle
+      formatter.locale = .currentLocale()
+
+      timeAndCostLbl.text = formatter.stringFromNumber(cost)! + ", " + String(time) + " min."
+    }
+    if let dueDate = task.dueDate {
+      let dateFormatter = NSDateFormatter()
+      dateFormatter.dateFormat = "M/d"
+      dueDateLbl.text = dateFormatter.stringFromDate(dueDate)
+    }
   }
   
   func boxChecked(sender: UIButton) {

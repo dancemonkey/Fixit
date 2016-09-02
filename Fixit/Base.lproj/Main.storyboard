@@ -1307,7 +1307,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qs7-T8-dL1" userLabel="checkboxBtn" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qs7-T8-dL1" userLabel="checkboxBtn" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
                                                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
@@ -1315,6 +1315,10 @@
                                                         <constraint firstAttribute="height" constant="20" id="o5Z-JC-Wzx"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="CheckBoxBackground"/>
+                                                    <state key="disabled" backgroundImage="CheckBoxBackground"/>
+                                                    <state key="selected" backgroundImage="CheckBoxBackground"/>
+                                                    <state key="highlighted" backgroundImage="CheckBoxBackground"/>
+                                                    <state key="focused" backgroundImage="CheckBoxBackground"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="gaT-Rf-Ge3"/>
@@ -1328,7 +1332,7 @@
                                                         </mask>
                                                     </variation>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-EV-EAH">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-EV-EAH">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="TGR-EV-EAH" secondAttribute="height" multiplier="1:1" id="GN8-nH-Pym"/>
@@ -2519,6 +2523,7 @@
     <resources>
         <image name="AddNewBtn" width="75" height="75"/>
         <image name="BullseyeIconLarge" width="154" height="154"/>
+        <image name="Camera" width="75" height="66"/>
         <image name="CartIconLarge" width="154" height="154"/>
         <image name="CheckBoxBackground" width="45" height="45"/>
         <image name="Oval" width="65" height="65"/>
