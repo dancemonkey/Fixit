@@ -660,7 +660,6 @@
                         <constraints>
                             <constraint firstItem="fCR-No-fic" firstAttribute="top" secondItem="eEn-WZ-pTV" secondAttribute="bottom" constant="16" id="0xb-jZ-X0f"/>
                             <constraint firstItem="h7z-cx-hnt" firstAttribute="top" secondItem="42T-xd-Pbl" secondAttribute="bottom" constant="16" id="3Br-xk-8rR"/>
-                            <constraint firstItem="42T-xd-Pbl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="5c2-CH-l45"/>
                             <constraint firstItem="OFw-Nj-fFr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="6qe-wL-Do0"/>
                             <constraint firstItem="rNy-Yh-TfU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="74z-JP-VgT"/>
                             <constraint firstItem="h7z-cx-hnt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Fy-Xj-SwJ"/>
@@ -669,14 +668,12 @@
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="rNy-Yh-TfU" secondAttribute="trailing" id="CF1-su-bNf"/>
                             <constraint firstItem="OFw-Nj-fFr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="Eog-WH-Rtx"/>
-                            <constraint firstItem="42T-xd-Pbl" firstAttribute="top" secondItem="fCR-No-fic" secondAttribute="bottom" constant="16" id="JxW-68-pz7"/>
                             <constraint firstItem="eEn-WZ-pTV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="QUu-5V-MWs"/>
                             <constraint firstItem="2gh-2I-LUH" firstAttribute="top" secondItem="OFw-Nj-fFr" secondAttribute="bottom" constant="16" id="Xrs-PY-nFs"/>
                             <constraint firstItem="rNy-Yh-TfU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="apQ-nY-cSZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rNy-Yh-TfU" secondAttribute="bottom" id="d3G-TM-UxT">
                                 <variation key="widthClass=compact" constant="-50"/>
                             </constraint>
-                            <constraint firstAttribute="trailing" secondItem="42T-xd-Pbl" secondAttribute="trailing" constant="20" id="iJt-f0-g7Q"/>
                             <constraint firstItem="2gh-2I-LUH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="jYL-E7-Ijc"/>
                             <constraint firstAttribute="trailing" secondItem="eEn-WZ-pTV" secondAttribute="trailing" constant="20" id="pJf-oe-6Uv"/>
                             <constraint firstAttribute="trailing" secondItem="fCR-No-fic" secondAttribute="trailing" constant="20" id="s97-Pl-BQi"/>
@@ -703,9 +700,6 @@
                                 <exclude reference="apQ-nY-cSZ"/>
                                 <exclude reference="Xrs-PY-nFs"/>
                                 <exclude reference="jYL-E7-Ijc"/>
-                                <exclude reference="5c2-CH-l45"/>
-                                <exclude reference="JxW-68-pz7"/>
-                                <exclude reference="iJt-f0-g7Q"/>
                                 <exclude reference="0xb-jZ-X0f"/>
                                 <exclude reference="s97-Pl-BQi"/>
                                 <exclude reference="QUu-5V-MWs"/>
@@ -735,9 +729,6 @@
                                 <include reference="apQ-nY-cSZ"/>
                                 <include reference="Xrs-PY-nFs"/>
                                 <include reference="jYL-E7-Ijc"/>
-                                <include reference="5c2-CH-l45"/>
-                                <include reference="JxW-68-pz7"/>
-                                <include reference="iJt-f0-g7Q"/>
                                 <include reference="0xb-jZ-X0f"/>
                                 <include reference="s97-Pl-BQi"/>
                                 <include reference="QUu-5V-MWs"/>
@@ -1300,7 +1291,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="100" id="hAt-My-M7p" userLabel="taskCell" customClass="TaskCell" customModule="Fixit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="taskCell" focusStyle="custom" rowHeight="100" id="hAt-My-M7p" userLabel="taskCell" customClass="TaskCell" customModule="Fixit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAt-My-M7p" id="5oC-5J-qaf">
@@ -1331,6 +1322,9 @@
                                                             <include reference="o5Z-JC-Wzx"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="boxChecked:" destination="hAt-My-M7p" eventType="touchUpInside" id="OC3-dB-uJg"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-EV-EAH">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>

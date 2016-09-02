@@ -13,7 +13,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   @IBOutlet weak var tableView: UITableView!
   
-  let sectionNameKeyPath = "dueDate"
+  let sectionNameKeyPath = "completed"
   
   lazy var fetchedResultsController: NSFetchedResultsController = {
     let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
@@ -73,6 +73,10 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
     return 100
+  }
+  
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return fetchedResultsController.sections![section].name
   }
   
   func configureCell(cell: TaskCell, indexPath: NSIndexPath) {

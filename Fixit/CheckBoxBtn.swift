@@ -11,7 +11,6 @@ import UIKit
 class CheckBoxBtn: UIButton {
 
   var complete: Bool = false
-  var delegate: TaskCheckboxDelegate!
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -22,17 +21,14 @@ class CheckBoxBtn: UIButton {
   }
   
   func checkBox() {
-    self.complete = !complete
-    if complete {
+    if complete == false {
+      self.complete = true
       self.setImage(UIImage(named: "Complete"), forState: .Normal)
       self.imageView?.contentMode = .ScaleAspectFit
-    } else if !complete {
-      self.imageView!.image = nil
+    } else if complete == true {
+      self.complete = false
+      self.setImage(nil, forState: .Normal)
     }
-  }
-  
-  override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    delegate.boxChecked(self)
   }
 
 }

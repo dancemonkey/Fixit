@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TaskCell: UITableViewCell, TaskCheckboxDelegate {
+class TaskCell: UITableViewCell {
   
   @IBOutlet weak var checkBoxBtn: CheckBoxBtn! // TODO: subclass this for a checkbox
   @IBOutlet weak var thumbImg: UIImageView!
@@ -19,11 +19,10 @@ class TaskCell: UITableViewCell, TaskCheckboxDelegate {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    checkBoxBtn.delegate = self
   }
   
   func configureCell(withTask task: Task) {
-    // TODO: configure with passed in data
+
     if let photo = task.photo?.data {
       thumbImg.image = UIImage(data: photo)
     }
@@ -46,8 +45,12 @@ class TaskCell: UITableViewCell, TaskCheckboxDelegate {
     }
   }
   
-  func boxChecked(sender: UIButton) {
-    print("tapped") // TODO: set task to complete or not based on checkbox status, then save context?
+  @IBAction func boxChecked(sender: CheckBoxBtn) {
+    sender.checkBox()
+    // TODO: when checked
+    // - set status of task to complete in model
+    // - gray out cell, move to "complete" section
+    // - refresh view 
   }
   
 }

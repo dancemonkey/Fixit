@@ -22,7 +22,3 @@ class Utils {
   }
   
 }
-
-protocol TaskCheckboxDelegate {
-  func boxChecked(sender: UIButton)
-}
