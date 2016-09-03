@@ -49,7 +49,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   @IBAction func addNewPressed(sender: UIBarButtonItem) {
-    performSegueWithIdentifier("createNew", sender: self)
+    performSegueWithIdentifier("createNewTask", sender: self)
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {

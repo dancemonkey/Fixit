@@ -1493,7 +1493,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="YuF-E1-YgB" id="w1p-VJ-Tkg"/>
-                        <segue destination="ybF-y6-6lw" kind="show" identifier="createNew" id="MId-6e-6ct"/>
+                        <segue destination="ybF-y6-6lw" kind="show" identifier="createNewTask" id="MId-6e-6ct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zN-CU-oiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1922,7 +1922,7 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="addNewPressed:" destination="MRF-Ed-s0B" id="wa5-PW-HnM"/>
-                                <segue destination="ge0-Wc-9UF" kind="show" identifier="createNew" id="Sqb-S6-oyA"/>
+                                <segue destination="ge0-Wc-9UF" kind="show" identifier="createNewProject" id="Sqb-S6-oyA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -30,6 +30,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     tableView.delegate = self
     tableView.dataSource = self
+    
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -46,7 +47,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   @IBAction func addNewPressed(sender: UIBarButtonItem) {
-    performSegueWithIdentifier("createNew", sender: self)
+    performSegueWithIdentifier("createNewProject", sender: self)
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
