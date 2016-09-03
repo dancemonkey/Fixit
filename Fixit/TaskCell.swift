@@ -11,7 +11,7 @@ import CoreData
 
 class TaskCell: UITableViewCell {
   
-  @IBOutlet weak var checkBoxBtn: CheckBoxBtn! // TODO: subclass this for a checkbox
+  @IBOutlet weak var checkBoxBtn: CheckBoxBtn! 
   @IBOutlet weak var thumbImg: UIImageView!
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var timeAndCostLbl: UILabel!
@@ -23,6 +23,9 @@ class TaskCell: UITableViewCell {
   
   func configureCell(withTask task: Task) {
 
+    timeAndCostLbl.text = ""
+    dueDateLbl.text = ""
+    
     if let photo = task.photo?.data {
       thumbImg.image = UIImage(data: photo)
     }

@@ -65,9 +65,9 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as? TaskCell
-    configureCell(cell!, indexPath: indexPath)
-    return cell!
+    let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskCell
+    configureCell(cell, indexPath: indexPath)
+    return cell
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -127,6 +127,18 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   func controllerDidChangeContent(controller: NSFetchedResultsController) {
     self.tableView.endUpdates()
   }
-
+  
+  func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    switch type {
+    case .Insert:
+      self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+    case .Delete:
+      self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+    case .Move:
+      break
+    case .Update:
+      break
+    }
+  }
   
 }
