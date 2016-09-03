@@ -90,6 +90,7 @@ class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationContr
     } catch {
       print(error)
     }
+    
   }
   
   @IBAction func cancelPressed(sender: UIButton) {
