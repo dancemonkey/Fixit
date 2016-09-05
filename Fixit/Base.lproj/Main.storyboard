@@ -1640,7 +1640,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u10-jL-eAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2348.25" y="1019.5"/>
+            <point key="canvasLocation" x="2348.25" y="305.5"/>
         </scene>
         <!--Projects-->
         <scene sceneID="Goi-aG-Eoe">
@@ -2527,7 +2527,7 @@
         <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MId-6e-6ct"/>
-        <segue reference="Sqb-S6-oyA"/>
+        <segue reference="6ou-xr-1th"/>
+        <segue reference="rek-ld-ofJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -38,7 +38,33 @@ extension DashboardCellView {
   }
   
   func updateTaskView() {
+    Datasource.ds.fetchTasks()
     
+    let dueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
+      if task.completed == false {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "M/d/y"
+        return formatter.stringFromDate(task.dueDate!) == formatter.stringFromDate(NSDate())
+      }
+      return false
+    }
+    
+    let totalUpcomingTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
+      return task.completed == false
+    }
+    
+    titleLbls[0].text = String(totalUpcomingTasks.count) + " tasks" // total # of tasks
+    
+    let overDueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
+      if task.completed == false {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "M/d/y"
+        return formatter.stringFromDate(task.dueDate!) < formatter.stringFromDate(NSDate())
+      }
+      return false
+    }
+    titleLbls[1].text = String("Due: " + String(dueTasks.count))
+    titleLbls[2].text = String("Overdue: " + String(overDueTasks.count))
   }
   
   func updateShoppingListView() {

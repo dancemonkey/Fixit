@@ -16,4 +16,19 @@ class Task: NSManagedObject {
   override func awakeFromInsert() {
     self.completed = false
   }
+  
+  func checkOffTask() {
+
+    if self.completed == true {
+      self.completed = false
+    } else {
+      self.completed = true
+    }
+    
+    do {
+      try appDelegate.managedObjectContext.save()
+    } catch {
+      print("couldn't save - \(error)")
+    }
+  }
 }

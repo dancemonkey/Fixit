@@ -24,6 +24,8 @@ class ProjectCell: UITableViewCell {
   
   func configureCell(withProject project: Project) {
     
+    print(project)
+    
     estCostLbl.text = ""
     estTimeLbl.text = ""
     

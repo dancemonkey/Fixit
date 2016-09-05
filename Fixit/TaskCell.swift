@@ -17,14 +17,23 @@ class TaskCell: UITableViewCell {
   @IBOutlet weak var timeAndCostLbl: UILabel!
   @IBOutlet weak var dueDateLbl: UILabel!
   
+  var task: Task!
+  
   override func awakeFromNib() {
     super.awakeFromNib()
   }
   
   func configureCell(withTask task: Task) {
+    
+    self.task = task 
 
     timeAndCostLbl.text = ""
     dueDateLbl.text = ""
+    
+    if let complete = self.task.completed {
+      self.checkBoxBtn.complete = complete.boolValue
+      self.checkBoxBtn.setCompleteImage()
+    }
     
     if let photo = task.photo?.data {
       thumbImg.image = UIImage(data: photo)
@@ -49,7 +58,10 @@ class TaskCell: UITableViewCell {
   }
   
   @IBAction func boxChecked(sender: CheckBoxBtn) {
+    
     sender.checkBox()
+    self.task.checkOffTask()
+    
     // TODO: when checked
     // - set status of task to complete in model
     // - gray out cell, move to "complete" section

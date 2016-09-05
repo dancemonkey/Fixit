@@ -14,19 +14,24 @@ class CheckBoxBtn: UIButton {
   
   override func awakeFromNib() {
     super.awakeFromNib()
-    if complete {
-      self.setImage(UIImage(named: "Complete"), forState: .Normal)
-      self.imageView?.contentMode = .ScaleAspectFit
-    }
   }
   
   func checkBox() {
     if complete == false {
-      self.complete = true
       self.setImage(UIImage(named: "Complete"), forState: .Normal)
       self.imageView?.contentMode = .ScaleAspectFit
+      self.complete = true
     } else if complete == true {
       self.complete = false
+      self.setImage(nil, forState: .Normal)
+    }
+  }
+  
+  func setCompleteImage() {
+    if complete {
+      self.setImage(UIImage(named: "Complete"), forState: .Normal)
+      self.imageView?.contentMode = .ScaleAspectFit
+    } else if !complete {
       self.setImage(nil, forState: .Normal)
     }
   }
