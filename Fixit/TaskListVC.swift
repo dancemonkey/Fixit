@@ -52,6 +52,21 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     performSegueWithIdentifier("createNewTask", sender: self)
   }
   
+  @IBAction func deleteCompletedPressed(sender: UIBarButtonItem) {
+    let deleteRequest = NSFetchRequest(entityName: "Task")
+    deleteRequest.predicate = NSPredicate(format: "completed == 1", argumentArray: nil)
+    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
+    
+    do {
+      let batchDeleteResult = try appDelegate.managedObjectContext.executeRequest(batchDeleteRequest) as! NSBatchDeleteResult
+      appDelegate.managedObjectContext.reset()
+      try fetchedResultsController.performFetch()
+      tableView.reloadData()
+    } catch {
+      print("\(error)")
+    }
+  }
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return (fetchedResultsController.sections?.count)!
   }
