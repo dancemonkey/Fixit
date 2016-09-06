@@ -30,6 +30,8 @@
 		108D48611D774C8C0062C705 /* CreateNewTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D485F1D774C8C0062C705 /* CreateNewTaskVC.swift */; };
 		109B81F01D7782190032FE7E /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B81EF1D7782190032FE7E /* TaskListVC.swift */; };
 		109B81F11D7782190032FE7E /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B81EF1D7782190032FE7E /* TaskListVC.swift */; };
+		10ACA3D91D7F466B00554072 /* ProjectDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ACA3D81D7F466B00554072 /* ProjectDetailVC.swift */; };
+		10ACA3DA1D7F466B00554072 /* ProjectDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ACA3D81D7F466B00554072 /* ProjectDetailVC.swift */; };
 		10BBF4DE1D78CFF50079889E /* CheckBoxBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BBF4DD1D78CFF50079889E /* CheckBoxBtn.swift */; };
 		10BBF4DF1D78CFF50079889E /* CheckBoxBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BBF4DD1D78CFF50079889E /* CheckBoxBtn.swift */; };
 		10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
@@ -77,6 +79,7 @@
 		107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		108D485F1D774C8C0062C705 /* CreateNewTaskVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewTaskVC.swift; sourceTree = "<group>"; };
 		109B81EF1D7782190032FE7E /* TaskListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
+		10ACA3D81D7F466B00554072 /* ProjectDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC.swift; sourceTree = "<group>"; };
 		10BBF4DD1D78CFF50079889E /* CheckBoxBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxBtn.swift; sourceTree = "<group>"; };
 		10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCellView.swift; sourceTree = "<group>"; };
 		10EFBB761D66A3540049A929 /* Fixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +197,7 @@
 				10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */,
 				109B81EF1D7782190032FE7E /* TaskListVC.swift */,
 				103ED4F51D7E4A5300923A68 /* ProjectSelectVC.swift */,
+				10ACA3D81D7F466B00554072 /* ProjectDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -412,6 +416,7 @@
 				107558CC1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,
 				104CE2B41D70F5DB0084639D /* ProjectCell.swift in Sources */,
 				10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */,
+				10ACA3D91D7F466B00554072 /* ProjectDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +445,7 @@
 				10EFBBA51D66AE260049A929 /* Project.swift in Sources */,
 				104CE2B51D70F5DB0084639D /* ProjectCell.swift in Sources */,
 				10EFBBB41D66AE6D0049A929 /* MaterialView.swift in Sources */,
+				10ACA3DA1D7F466B00554072 /* ProjectDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

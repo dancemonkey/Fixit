@@ -15,7 +15,7 @@ enum ProjectOrTask: String {
   case Task
 }
 
-class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate {
+class CreateNewProjectVC: UIViewController, UIScrollViewDelegate {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
@@ -105,26 +105,5 @@ class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationCo
   @IBAction func cancelPressed(sender: UIButton) {
     self.navigationController?.popViewControllerAnimated(true)
   }
-  
-//  @IBAction func selectPhotoBtnPressed(sender: UIButton) {
-//    let picker = UIImagePickerController()
-//    picker.delegate = self
-//    picker.sourceType = .PhotoLibrary
-//    picker.allowsEditing = false
-//    self.presentViewController(picker, animated: true, completion: nil)
-//  }
-//  
-//  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//      self.selectPhotoBtn.contentMode = .ScaleAspectFit
-//      self.selectPhotoBtn.setImage(pickedImage, forState: .Normal)
-//      self.selectPhotoBtn.setTitle("", forState: .Normal)
-//    }
-//    dismissViewControllerAnimated(true, completion: nil)
-//  }
-//  
-//  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-//    dismissViewControllerAnimated(true, completion: nil)
-//  }
   
 }

@@ -86,7 +86,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showProjectDetail", sender: self)
+    performSegueWithIdentifier("showProjectDetail", sender: indexPath)
   }
   
   func configureCell(cell: ProjectCell, indexPath: NSIndexPath) {
@@ -121,4 +121,11 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     self.tableView.endUpdates()
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showProjectDetail" {
+      if let destVC = segue.destinationViewController as? ProjectDetailVC {
+        destVC.project = fetchedResultsController.objectAtIndexPath(sender as! NSIndexPath) as? Project
+      }
+    }
+  }
 }
