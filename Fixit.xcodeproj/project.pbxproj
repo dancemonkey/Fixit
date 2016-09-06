@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103ED4F61D7E4A5300923A68 /* ProjectSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103ED4F51D7E4A5300923A68 /* ProjectSelectVC.swift */; };
+		103ED4F71D7E4A5300923A68 /* ProjectSelectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103ED4F51D7E4A5300923A68 /* ProjectSelectVC.swift */; };
 		104CE2B41D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
 		104CE2B51D70F5DB0084639D /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104CE2B31D70F5DB0084639D /* ProjectCell.swift */; };
 		1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* DashboardVC.swift */; };
@@ -64,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		103ED4F51D7E4A5300923A68 /* ProjectSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSelectVC.swift; sourceTree = "<group>"; };
 		104CE2B31D70F5DB0084639D /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		1056DBB51D6E0440001B7DE3 /* CreateNewProjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewProjectVC.swift; sourceTree = "<group>"; };
 		105B0D271D75D80400830B71 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 				108D485F1D774C8C0062C705 /* CreateNewTaskVC.swift */,
 				10FB8CB11D70903F00AE70CE /* ProjectListVC.swift */,
 				109B81EF1D7782190032FE7E /* TaskListVC.swift */,
+				103ED4F51D7E4A5300923A68 /* ProjectSelectVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -389,6 +393,7 @@
 			files = (
 				10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */,
 				10EFBB821D66A3540049A929 /* Fixit.xcdatamodeld in Sources */,
+				103ED4F61D7E4A5300923A68 /* ProjectSelectVC.swift in Sources */,
 				10641A951D78CA1E00B5BE2B /* TaskCell.swift in Sources */,
 				10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */,
 				1056DBB61D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */,
@@ -416,6 +421,7 @@
 			files = (
 				10EFBBAD1D66AE260049A929 /* Photo.swift in Sources */,
 				1056DBB41D6DF597001B7DE3 /* DashboardVC.swift in Sources */,
+				103ED4F71D7E4A5300923A68 /* ProjectSelectVC.swift in Sources */,
 				10641A961D78CA1E00B5BE2B /* TaskCell.swift in Sources */,
 				10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
 				1056DBB71D6E0440001B7DE3 /* CreateNewProjectVC.swift in Sources */,

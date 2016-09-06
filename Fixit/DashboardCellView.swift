@@ -25,16 +25,23 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
 extension DashboardCellView {
   
   func updateProjectView() {
+    titleLbls[0].text = ""
+    titleLbls[1].text = ""
+    titleLbls[2].text = ""
+    
     let formatter = NSNumberFormatter()
     formatter.usesGroupingSeparator = true
     formatter.numberStyle = .CurrencyStyle
     formatter.locale = .currentLocale()
     
     Datasource.ds.fetchProjects()
-    titleLbls[0].text = String(Datasource.ds.fetchedProjects.count) + " projects" // total # of projects
-    titleLbls[1].text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
-    titleLbls[2].text = String(Datasource.ds.fetchTotalDays()) + " days" // minutes
     
+    titleLbls[0].text = String(Datasource.ds.fetchedProjects.count) + " projects" // total # of projects
+    
+    if Datasource.ds.fetchedProjects.count > 0 {
+      titleLbls[1].text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
+      titleLbls[2].text = String(Datasource.ds.fetchTotalDays()) + " days" // minutes
+    }
   }
   
   func updateTaskView() {

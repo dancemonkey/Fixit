@@ -53,18 +53,28 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   @IBAction func deleteCompletedPressed(sender: UIBarButtonItem) {
-    let deleteRequest = NSFetchRequest(entityName: "Task")
-    deleteRequest.predicate = NSPredicate(format: "completed == 1", argumentArray: nil)
-    let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
     
-    do {
-      let batchDeleteResult = try appDelegate.managedObjectContext.executeRequest(batchDeleteRequest) as! NSBatchDeleteResult
-      appDelegate.managedObjectContext.reset()
-      try fetchedResultsController.performFetch()
-      tableView.reloadData()
-    } catch {
-      print("\(error)")
-    }
+    let alert = UIAlertController(title: "Confirm", message: "You are about to delete all of your completed tasks!", preferredStyle: .Alert)
+    alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: "Okay", style: .Destructive, handler: { (action: UIAlertAction) in
+      
+      let deleteRequest = NSFetchRequest(entityName: "Task")
+      deleteRequest.predicate = NSPredicate(format: "completed == 1", argumentArray: nil)
+      let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
+      
+      do {
+        let _ = try appDelegate.managedObjectContext.executeRequest(batchDeleteRequest) as! NSBatchDeleteResult
+        appDelegate.managedObjectContext.reset()
+        try self.fetchedResultsController.performFetch()
+        self.tableView.reloadData()
+      } catch {
+        print("\(error)")
+      }
+      
+    }))
+    
+    self.presentViewController(alert, animated: true, completion: nil)
+    
   }
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {

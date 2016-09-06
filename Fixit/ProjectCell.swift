@@ -34,7 +34,10 @@ class ProjectCell: UITableViewCell {
       self.titleLbl.text = title
     }
     if let tasks = project.taskList {
-      self.taskLbl.text = String(tasks.count)
+      let completedTasks = tasks.filter({ (task: AnyObject) -> Bool in
+        return (task as? Task)?.completed != true
+      })
+      self.taskLbl.text = String(completedTasks.count)
     }
     if let estCost = project.estimatedCost {
       let formatter = NSNumberFormatter()

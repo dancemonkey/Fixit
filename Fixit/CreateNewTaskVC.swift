@@ -9,7 +9,11 @@
 import UIKit
 import CoreData
 
-class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate {
+protocol SaveDelegateData {
+  func saveFromDelegate(data: AnyObject)
+}
+
+class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate, SaveDelegateData {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
@@ -18,6 +22,8 @@ class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationContr
   @IBOutlet weak var costFld: UITextField!
   @IBOutlet weak var dueDate: UIDatePicker!
   @IBOutlet weak var details: UITextView!
+  @IBOutlet weak var projectSelectBtn: UIButton!
+  var project: Project? = nil
   
   var objectToEdit: NSManagedObject? = nil
   
@@ -49,6 +55,7 @@ class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationContr
       costFld.text = String(task.cost)
       details.text = task.details
       dueDate.setDate(task.dueDate!, animated: true)
+      project = task.parentProject
     }
   }
   
@@ -82,6 +89,9 @@ class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationContr
       newTask.details = details.text
       newTask.dueDate = dueDate.date
       newTask.time = Int(timeFld.text!)
+      if let projectToSave = self.project {
+        newTask.parentProject = projectToSave
+      }
     }
     
     do {
@@ -98,7 +108,22 @@ class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationContr
   }
   
   @IBAction func selectProjectPressed(sender: UIButton) {
-    
+    performSegueWithIdentifier("selectAProject", sender: self)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "selectAProject" {
+      if let destVC = segue.destinationViewController as? ProjectSelectVC {
+        destVC.delegate = self
+      }
+    }
+  }
+  
+  func saveFromDelegate(data: AnyObject) {
+    if data is Project {
+      self.project = data as? Project
+      self.projectSelectBtn.setTitle((data as? Project)?.title, forState: .Normal)
+    }
   }
   
 }

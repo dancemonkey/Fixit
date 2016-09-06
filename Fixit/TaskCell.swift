@@ -16,6 +16,7 @@ class TaskCell: UITableViewCell {
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var timeAndCostLbl: UILabel!
   @IBOutlet weak var dueDateLbl: UILabel!
+  @IBOutlet weak var projectLbl: UILabel!
   
   var task: Task!
   
@@ -54,6 +55,11 @@ class TaskCell: UITableViewCell {
       let dateFormatter = NSDateFormatter()
       dateFormatter.dateFormat = "M/d"
       dueDateLbl.text = dateFormatter.stringFromDate(dueDate)
+    }
+    if let project = task.parentProject {
+      projectLbl.text = project.title
+    } else {
+      projectLbl.text = "No project assigned"
     }
   }
   
