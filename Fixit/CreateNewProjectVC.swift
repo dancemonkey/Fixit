@@ -43,6 +43,9 @@ class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationCo
       populateFields(withObject: objectToEdit!)
     }
     
+    details.layer.borderColor = UIColor.blackColor().CGColor
+    details.layer.borderWidth = 1.0
+    
   }
   
   func populateFields(withObject object: NSManagedObject) {
@@ -102,5 +105,26 @@ class CreateNewProjectVC: UIViewController, UIScrollViewDelegate, UINavigationCo
   @IBAction func cancelPressed(sender: UIButton) {
     self.navigationController?.popViewControllerAnimated(true)
   }
+  
+//  @IBAction func selectPhotoBtnPressed(sender: UIButton) {
+//    let picker = UIImagePickerController()
+//    picker.delegate = self
+//    picker.sourceType = .PhotoLibrary
+//    picker.allowsEditing = false
+//    self.presentViewController(picker, animated: true, completion: nil)
+//  }
+//  
+//  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+//    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//      self.selectPhotoBtn.contentMode = .ScaleAspectFit
+//      self.selectPhotoBtn.setImage(pickedImage, forState: .Normal)
+//      self.selectPhotoBtn.setTitle("", forState: .Normal)
+//    }
+//    dismissViewControllerAnimated(true, completion: nil)
+//  }
+//  
+//  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+//    dismissViewControllerAnimated(true, completion: nil)
+//  }
   
 }

@@ -13,7 +13,7 @@ protocol SaveDelegateData {
   func saveFromDelegate(data: AnyObject)
 }
 
-class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate, SaveDelegateData {
+class CreateNewTaskVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate, SaveDelegateData, UIImagePickerControllerDelegate {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var contentView: UIView!
