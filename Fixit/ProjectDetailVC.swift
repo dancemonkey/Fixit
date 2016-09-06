@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SaveDelegateData {
   
   var project: Project? = nil
   var taskData: [Task]?
@@ -25,26 +25,33 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   @IBOutlet weak var selectPhoto: UIButton!
   @IBOutlet weak var selectDueDate: UIButton!
   @IBOutlet weak var photoBtnHeight: NSLayoutConstraint!
-  @IBOutlet weak var taskTableHeaderLbl: UILabel!
   @IBOutlet weak var taskTableHeight: NSLayoutConstraint!
+  @IBOutlet weak var newTaskBtn: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    detailsFld.layer.borderColor = UIColor.blackColor().CGColor
+    detailsFld.layer.borderWidth = 1.0
+    
     tableView.delegate = self
     tableView.dataSource = self
     
-    dateFormatter.dateFormat = "M/d"
-    taskTableHeight.constant = 5
-    taskTableHeaderLbl.text = "No tasks yet"
+    dateFormatter.dateFormat = "M/d/yy"
+    taskTableHeight.constant = 0
     
     if project == nil {
       self.navigationItem.title = "New project"
       selectPhoto.setTitle("Tap to select", forState: .Normal)
       selectDueDate.setTitle("Due date...", forState: .Normal)
+      self.newTaskBtn.enabled = false
+      self.newTaskBtn.backgroundColor = UIColor.grayColor()
+      self.newTaskBtn.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
     }
     
     if let project = self.project {
+      
+      self.newTaskBtn.enabled = true
       
       self.navigationItem.title = project.title
       
@@ -62,12 +69,10 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.dueDate = dueDate
       }
       if let photo = project.photo?.data {
-        selectPhoto.setTitle("View photo", forState: .Normal)
         photoBtnHeight.constant = 150
         selectPhoto.setImage(UIImage(data: photo), forState: .Normal)
       }
       if let tasks = project.taskList where tasks.count > 0 {
-        taskTableHeaderLbl.text = "Tasks"
         taskTableHeight.constant = 200
         let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
         self.taskData = tasks.sortedArrayUsingDescriptors([primarySortDesc]) as? [Task]
@@ -76,10 +81,6 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         detailsFld.text = details
       }
     }
-    
-  }
-  
-  @IBAction func selectDueDatePressed(sender: UIButton) {
     
   }
   
@@ -99,8 +100,12 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         newProject.complete = false
         newProject.estimatedCost = Double(costFld.text!)
         newProject.details = detailsFld.text
-        newProject.dueDate = dateFormatter.dateFromString((selectDueDate.titleLabel?.text)!)
+        newProject.dueDate = self.dueDate
         newProject.estimatedTime = Double(timeFld.text!)
+        if let photo = selectPhoto.imageView?.image, let newPhoto = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo {
+          newPhoto.data = UIImagePNGRepresentation(photo)
+          newProject.photo = newPhoto
+        }
       }
     } else {
       
@@ -109,8 +114,12 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
       project!.complete = false
       project!.estimatedCost = Double(costFld.text!)
       project!.details = detailsFld.text
-      project!.dueDate = dateFormatter.dateFromString((selectDueDate.titleLabel?.text)!)
+      project!.dueDate = self.dueDate
       project!.estimatedTime = Int(timeFld.text!)
+      if let photo = selectPhoto.imageView?.image, let newPhoto = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo {
+        newPhoto.data = UIImagePNGRepresentation(photo)
+        project!.photo = newPhoto
+      }
     }
     
     do {
@@ -120,6 +129,19 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
       print(error)
     }
     
+  }
+  
+  @IBAction func newTaskPressed(sender: UIButton) {
+    print("adding new task")
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showDueDatePicker" {
+      if let destVC = segue.destinationViewController as? DueDatePickerVC {
+        destVC.delegate = self
+        destVC.startDate = self.dueDate
+      }
+    }
   }
   
   // MARK: Image Picker Methods
@@ -167,6 +189,11 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
       return cell
     }
     return UITableViewCell()
+  }
+  
+  func saveFromDelegate(data: AnyObject) {
+    self.dueDate = data as! NSDate
+    selectDueDate.setTitle("Due " + dateFormatter.stringFromDate(dueDate), forState: .Normal)
   }
   
 }

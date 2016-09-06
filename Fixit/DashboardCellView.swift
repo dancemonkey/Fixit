@@ -36,11 +36,14 @@ extension DashboardCellView {
     
     Datasource.ds.fetchProjects()
     
-    titleLbls[0].text = String(Datasource.ds.fetchedProjects.count) + " projects" // total # of projects
-    
-    if Datasource.ds.fetchedProjects.count > 0 {
-      titleLbls[1].text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
-      titleLbls[2].text = String(Datasource.ds.fetchTotalDays()) + " days" // minutes
+    for label in titleLbls {
+      if label.tag == 0 {
+        label.text = String(Datasource.ds.fetchedProjects.count) + " projects" // total # of projects
+      } else if label.tag == 1 {
+        label.text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
+      } else if label.tag == 2 {
+        label.text = String(Datasource.ds.fetchTotalDays()) + " days" // minutes
+      }
     }
   }
   
@@ -60,8 +63,6 @@ extension DashboardCellView {
       return task.completed == false
     }
     
-    titleLbls[0].text = String(totalUpcomingTasks.count) + " tasks" // total # of tasks
-    
     let overDueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if task.completed == false {
         let formatter = NSDateFormatter()
@@ -70,8 +71,17 @@ extension DashboardCellView {
       }
       return false
     }
-    titleLbls[1].text = String("Due: " + String(dueTasks.count))
-    titleLbls[2].text = String("Overdue: " + String(overDueTasks.count))
+    
+    for label in titleLbls {
+      if label.tag == 0 {
+        label.text = String(totalUpcomingTasks.count) + " tasks" // total # of tasks
+      } else if label.tag == 1 {
+        label.text = String("Due: " + String(dueTasks.count))
+      } else if label.tag == 2 {
+        label.text = String("Overdue: " + String(overDueTasks.count))
+      }
+    }
+
   }
   
   func updateShoppingListView() {

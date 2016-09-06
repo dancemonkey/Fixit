@@ -26,6 +26,7 @@ class ProjectCell: UITableViewCell {
     
     estCostLbl.text = ""
     estTimeLbl.text = ""
+    dueDateLbl.text = ""
     
     let estTimeStub = "Est. time: "
     let estTimeUnitStub = " days"
