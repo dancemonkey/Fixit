@@ -54,7 +54,9 @@ extension DashboardCellView {
       if task.completed == false {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "M/d/y"
-        return formatter.stringFromDate(task.dueDate!) == formatter.stringFromDate(NSDate())
+        if let date = task.dueDate {
+          return formatter.stringFromDate(date) == formatter.stringFromDate(NSDate())
+        }
       }
       return false
     }
@@ -67,7 +69,9 @@ extension DashboardCellView {
       if task.completed == false {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "M/d/y"
-        return formatter.stringFromDate(task.dueDate!) < formatter.stringFromDate(NSDate())
+        if let date = task.dueDate {
+          return formatter.stringFromDate(date) < formatter.stringFromDate(NSDate())
+        }
       }
       return false
     }

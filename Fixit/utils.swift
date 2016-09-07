@@ -31,3 +31,7 @@ public func <(lhs: NSDate, rhs: NSDate) -> Bool {
 }
 
 extension NSDate: Comparable { }
+
+protocol SaveDelegateData {
+  func saveFromDelegate(data: AnyObject)
+}

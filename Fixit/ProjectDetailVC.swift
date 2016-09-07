@@ -9,14 +9,16 @@
 import UIKit
 import CoreData
 
-class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SaveDelegateData {
+class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SaveDelegateData, UIScrollViewDelegate {
   
   var project: Project? = nil
   var taskData: [Task]?
   let dateFormatter = NSDateFormatter()
   var imagePickerController: UIImagePickerController!
-  var dueDate: NSDate! // set this with a delegate after picking it from the date picker popup not yet implemented
+  var dueDate: NSDate!
+  let imagePickerButtonHeight: CGFloat = 200
   
+  @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var titleFld: UITextField!
   @IBOutlet weak var timeFld: UITextField!
   @IBOutlet weak var costFld: UITextField!
@@ -30,6 +32,16 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let notificationCenter = NSNotificationCenter.defaultCenter()
+    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillHideNotification, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillChangeFrameNotification, object: nil)
+    
+    scrollView.delegate = self
+    
+    let tapGest = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+    tapGest.cancelsTouchesInView = false
+    scrollView.addGestureRecognizer(tapGest)
     
     detailsFld.layer.borderColor = UIColor.blackColor().CGColor
     detailsFld.layer.borderWidth = 1.0
@@ -69,7 +81,7 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.dueDate = dueDate
       }
       if let photo = project.photo?.data {
-        photoBtnHeight.constant = 150
+        photoBtnHeight.constant = imagePickerButtonHeight
         selectPhoto.setImage(UIImage(data: photo), forState: .Normal)
       }
       if let tasks = project.taskList where tasks.count > 0 {
@@ -82,6 +94,24 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
       }
     }
     
+  }
+  
+  func hideKeyboard() {
+    self.view.endEditing(true)
+  }
+  
+  func adjustForKeyboard(notification: NSNotification) {
+    let userInfo = notification.userInfo!
+    
+    let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+    let keyboardViewEndFrame = view.convertRect(keyboardScreenEndFrame, fromView: view.window)
+    
+    if notification.name == UIKeyboardWillHideNotification {
+      scrollView.contentInset = UIEdgeInsetsZero
+    } else {
+      scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+    }
+    scrollView.scrollIndicatorInsets = scrollView.contentInset
   }
   
   @IBAction func savePressed(sender: UIBarButtonItem) {
@@ -155,11 +185,11 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   }
   
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-      self.selectPhoto.contentMode = .ScaleAspectFit
+    if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+      self.selectPhoto.contentMode = .ScaleAspectFill
       self.selectPhoto.setImage(pickedImage, forState: .Normal)
       self.selectPhoto.setTitle("", forState: .Normal)
-      self.photoBtnHeight.constant = 150
+      self.photoBtnHeight.constant = imagePickerButtonHeight
     }
     dismissViewControllerAnimated(true, completion: nil)
   }
