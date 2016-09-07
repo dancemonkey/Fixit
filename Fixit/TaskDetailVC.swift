@@ -20,6 +20,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   @IBOutlet weak var projectSelectBtn: UIButton!
   @IBOutlet weak var photoSelectBtn: UIButton!
   @IBOutlet weak var photoSelectBtnHeight: NSLayoutConstraint!
+  @IBOutlet weak var shoppingListSwitch: UISwitch!
   
   var task: Task? = nil
   var project: Project? = nil
@@ -77,6 +78,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       if let project = task.parentProject {
         self.setProject(withProject: project)
       }
+      
+      shoppingListSwitch.setOn((task.shoppingList?.boolValue)!, animated: true)
 
     }
     
@@ -130,6 +133,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
         if let project = self.project {
           newTask.parentProject = project
         }
+        newTask.shoppingList = shoppingListSwitch.on
       }
     } else {
       
@@ -147,6 +151,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       if let project = self.project {
         task!.parentProject = project
       }
+      task!.shoppingList = shoppingListSwitch.on
     }
     
     do {

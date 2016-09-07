@@ -802,9 +802,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="8" y="72" width="359" height="543"/>
-                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2766,8 +2763,7 @@
                                         <exclude reference="zhD-8q-LUT"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="ZpL-UF-Nih"/>
                                     </mask>
@@ -2845,6 +2841,7 @@
                         <outlet property="photoSelectBtnHeight" destination="puc-QH-Wl9" id="Jgf-dI-wHi"/>
                         <outlet property="projectSelectBtn" destination="tQP-gq-ZvZ" id="a7H-SQ-hYO"/>
                         <outlet property="scrollView" destination="oZY-U0-UEI" id="lJL-9a-fha"/>
+                        <outlet property="shoppingListSwitch" destination="MTm-wt-djv" id="Ch0-zT-5Da"/>
                         <outlet property="timeFld" destination="bCC-PC-IKh" id="W2S-d2-aUw"/>
                         <outlet property="titleFld" destination="OcG-96-j3F" id="gX3-oA-He1"/>
                         <segue destination="yf9-NN-m06" kind="show" identifier="selectAProject" id="5zs-AR-qvn"/>
@@ -2869,7 +2866,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YnI-WA-tKL"/>
-        <segue reference="Gg9-dU-NKc"/>
-        <segue reference="Zbv-EL-gJw"/>
+        <segue reference="MId-6e-6ct"/>
+        <segue reference="4pg-dZ-y2f"/>
     </inferredMetricsTieBreakers>
 </document>
