@@ -22,7 +22,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   @IBOutlet weak var photoSelectBtnHeight: NSLayoutConstraint!
   
   var task: Task? = nil
-  var projectTitle: String? = nil
+  var project: Project? = nil
   let dateFormatter = NSDateFormatter()
   var imagePickerController: UIImagePickerController!
   var dueDate: NSDate!
@@ -53,7 +53,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
     }
     
     if let task = self.task {
-      
       if let title = task.title {
         self.navigationItem.title = task.title
         titleFld.text = title
@@ -75,7 +74,14 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       if let details = task.details {
         self.details.text = details
       }
-      
+      if let project = task.parentProject {
+        self.setProject(withProject: project)
+      }
+
+    }
+    
+    if let project = self.project {
+      self.setProject(withProject: project)
     }
     
   }
@@ -121,6 +127,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
           newPhoto.data = UIImagePNGRepresentation(photo)
           newTask.photo = newPhoto
         }
+        if let project = self.project {
+          newTask.parentProject = project
+        }
       }
     } else {
       
@@ -134,6 +143,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo {
         newPhoto.data = UIImagePNGRepresentation(photo)
         task!.photo = newPhoto
+      }
+      if let project = self.project {
+        task!.parentProject = project
       }
     }
     
@@ -169,12 +181,16 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   
   func saveFromDelegate(data: AnyObject) {
     if data is Project {
-      self.projectTitle = (data as? Project)?.title
-      self.projectSelectBtn.setTitle(projectTitle, forState: .Normal)
+      setProject(withProject: (data as? Project)!)
     } else if data is NSDate {
       self.dueDate = data as? NSDate
       dueDateSelectBtn.setTitle("Due " + dateFormatter.stringFromDate(self.dueDate), forState: .Normal)
     }
+  }
+  
+  func setProject(withProject project: Project) {
+    self.project = project
+    self.projectSelectBtn.setTitle(self.project?.title, forState: .Normal)
   }
   
   // MARK: Image Picker Methods

@@ -1,4 +1,4 @@
-//
+  //
 //  ProjectDetailVC.swift
 //  Fixit
 //
@@ -86,14 +86,31 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
       }
       if let tasks = project.taskList where tasks.count > 0 {
         taskTableHeight.constant = 200
-        let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
-        self.taskData = tasks.sortedArrayUsingDescriptors([primarySortDesc]) as? [Task]
+        refreshTableData(withTasks: tasks)
       }
       if let details = project.details {
         detailsFld.text = details
       }
     }
     
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    if let project = self.project {
+      if let tasks = project.taskList where tasks.count > 0 {
+        taskTableHeight.constant = 200
+        refreshTableData(withTasks: tasks)
+      }
+    }
+    self.tableView.reloadData()
+  }
+  
+  func refreshTableData(withTasks tasks: NSSet) {
+    let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
+    self.taskData = (tasks.sortedArrayUsingDescriptors([primarySortDesc]) as? [Task])?.filter{ (task: Task) -> Bool in
+      return task.completed == false
+    }
   }
   
   func hideKeyboard() {
@@ -161,15 +178,19 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     
   }
   
-  @IBAction func newTaskPressed(sender: UIButton) {
-    print("adding new task")
-  }
-  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDueDatePicker" {
       if let destVC = segue.destinationViewController as? DueDatePickerVC {
         destVC.delegate = self
         destVC.startDate = self.dueDate
+      }
+    } else if segue.identifier == "createNewTask" {
+      if let destVC = segue.destinationViewController as? TaskDetailVC {
+        destVC.project = self.project
+      }
+    } else if segue.identifier == "showTaskDetail" {
+      if let destVC = segue.destinationViewController as? TaskDetailVC {
+        destVC.task = self.taskData![(sender as! NSIndexPath).row]
       }
     }
   }
@@ -215,10 +236,18 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     if let tasks = taskData, let cell = tableView.dequeueReusableCellWithIdentifier("miniTaskCell") {
       cell.textLabel?.text = tasks[indexPath.row].title
-      cell.detailTextLabel?.text = dateFormatter.stringFromDate(tasks[indexPath.row].dueDate!)
+      if let date = tasks[indexPath.row].dueDate {
+        cell.detailTextLabel?.text = dateFormatter.stringFromDate(date)
+      } else {
+        cell.detailTextLabel?.text = "No due date"
+      }
       return cell
     }
     return UITableViewCell()
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showTaskDetail", sender: indexPath)
   }
   
   func saveFromDelegate(data: AnyObject) {
