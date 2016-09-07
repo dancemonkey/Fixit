@@ -97,7 +97,7 @@ extension DashboardCellView {
     titleLbls[1].text = ""
     
     let shoppingCartTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
-      return task.shoppingList!.boolValue
+      return task.shoppingList!.boolValue && task.completed == false
     }
     let shoppingCartValue = shoppingCartTasks.reduce(0) { (value: Double, task: Task) -> Double in
       if let cost = task.cost {
