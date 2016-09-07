@@ -77,6 +77,16 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "showTaskDetail" {
+      if let destVC = segue.destinationViewController as? TaskDetailVC {
+        destVC.task = fetchedResultsController.objectAtIndexPath(sender as! NSIndexPath) as? Task
+      }
+    }
+  }
+  
+  // MARK: Tableview methods
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return (fetchedResultsController.sections?.count)!
   }
@@ -121,10 +131,16 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     return nil
   }
   
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    performSegueWithIdentifier("showTaskDetail", sender: indexPath)
+  }
+  
   func configureCell(cell: TaskCell, indexPath: NSIndexPath) {
     let task = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
     cell.configureCell(withTask: task)
   }
+  
+  // MARK: Fetchedresultscontroller methods
   
   func controllerWillChangeContent(controller: NSFetchedResultsController) {
     self.tableView.beginUpdates()

@@ -160,7 +160,7 @@
                                         <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34 total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eOW-8l-0cZ" userLabel="Price Lbl">
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$34 total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="eOW-8l-0cZ" userLabel="Price Lbl">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -802,6 +802,9 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="8" y="72" width="359" height="543"/>
+                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -866,7 +869,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-E1-YgB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-E1-YgB">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1129,11 +1132,12 @@
                     <connections>
                         <outlet property="tableView" destination="YuF-E1-YgB" id="w1p-VJ-Tkg"/>
                         <segue destination="ybF-y6-6lw" kind="show" identifier="createNewTask" id="MId-6e-6ct"/>
+                        <segue destination="ybF-y6-6lw" kind="show" identifier="showTaskDetail" id="I6S-Ra-16w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zN-CU-oiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-573.75" y="1019.5"/>
+            <point key="canvasLocation" x="-395.25" y="1036.5"/>
         </scene>
         <!--HitList-->
         <scene sceneID="ha1-kx-4DN">
@@ -2763,7 +2767,8 @@
                                         <exclude reference="zhD-8q-LUT"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact">
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                                     <mask key="subviews">
                                         <include reference="ZpL-UF-Nih"/>
                                     </mask>
@@ -2865,8 +2870,8 @@
         <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YnI-WA-tKL"/>
-        <segue reference="MId-6e-6ct"/>
+        <segue reference="Jxk-1f-Ue0"/>
+        <segue reference="rek-ld-ofJ"/>
         <segue reference="4pg-dZ-y2f"/>
     </inferredMetricsTieBreakers>
 </document>

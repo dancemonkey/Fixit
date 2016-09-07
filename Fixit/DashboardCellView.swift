@@ -11,13 +11,16 @@ import UIKit
 class DashboardCellView: UIView, UIGestureRecognizerDelegate {
   
   @IBOutlet var titleLbls: [UILabel]!
+  let formatter = NSNumberFormatter()
   
   func updateView(labels: String..., image: UIImage?) {
     
   }
   
   override func awakeFromNib() {
-
+    formatter.usesGroupingSeparator = true
+    formatter.numberStyle = .CurrencyStyle
+    formatter.locale = .currentLocale()
   }
 
 }
@@ -28,11 +31,6 @@ extension DashboardCellView {
     titleLbls[0].text = ""
     titleLbls[1].text = ""
     titleLbls[2].text = ""
-    
-    let formatter = NSNumberFormatter()
-    formatter.usesGroupingSeparator = true
-    formatter.numberStyle = .CurrencyStyle
-    formatter.locale = .currentLocale()
     
     Datasource.ds.fetchProjects()
     
@@ -49,6 +47,10 @@ extension DashboardCellView {
   
   func updateTaskView() {
     Datasource.ds.fetchTasks()
+    
+    titleLbls[0].text = ""
+    titleLbls[1].text = ""
+    titleLbls[2].text = ""
     
     let dueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if task.completed == false {
@@ -89,6 +91,27 @@ extension DashboardCellView {
   }
   
   func updateShoppingListView() {
+    Datasource.ds.fetchTasks()
+    
+    titleLbls[0].text = ""
+    titleLbls[1].text = ""
+    
+    let shoppingCartTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
+      return task.shoppingList!.boolValue
+    }
+    let shoppingCartValue = shoppingCartTasks.reduce(0) { (value: Double, task: Task) -> Double in
+      if let cost = task.cost {
+        return cost.doubleValue + value
+      }
+      return value
+    }
+    for label in titleLbls {
+      if label.tag == 0 {
+        label.text = String(shoppingCartTasks.count) + " items"
+      } else if label.tag == 1 {
+        label.text = formatter.stringFromNumber(shoppingCartValue)! + " total"
+      }
+    }
     
   }
   
