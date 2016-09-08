@@ -34,6 +34,7 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     projectCell.updateProjectView()
     taskCell.updateTaskView()
     shoppingListCell.updateShoppingListView()
+    hitListCell.updateHitListView()
     
     // TODO: populate Dasboard Cells with data from fetch
     

@@ -116,7 +116,27 @@ extension DashboardCellView {
   }
   
   func updateHitListView() {
+    Datasource.ds.fetchTasks()
+    let hitlistTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
+      if let time = task.time {
+        return time.intValue < 15 && task.completed != true
+      }
+      return false
+    }
+    let hitlistTotalTime = hitlistTasks.reduce(0) { (value, task) -> Int in
+      return value + Int(task.time!)
+    }
     
+    titleLbls[0].text = ""
+    titleLbls[1].text = ""
+    
+    for label in titleLbls {
+      if label.tag == 0 {
+        label.text = String(hitlistTasks.count) + " items"
+      } else if label.tag == 1 {
+        label.text = String(hitlistTotalTime) + " min. total"
+      }
+    }
   }
   
 }

@@ -47,6 +47,11 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   }
   
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.tableView.reloadData()
+  }
+  
   @IBAction func deleteCompletedPressed(sender: UIBarButtonItem) {
     
     let alert = UIAlertController(title: "Confirm", message: "You are about to delete all of your completed tasks!", preferredStyle: .Alert)

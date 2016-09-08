@@ -269,7 +269,7 @@
                                         <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15m total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Cnx-0z-q3k" userLabel="Price Lbl">
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.64999997615814209" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15m total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Cnx-0z-q3k" userLabel="Price Lbl">
                                         <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="18"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -763,7 +763,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="875.25" y="-90.5"/>
+            <point key="canvasLocation" x="765.75" y="-170.5"/>
         </scene>
         <!--Select a project-->
         <scene sceneID="a7n-EA-OHo">
@@ -802,9 +802,6 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="8" y="72" width="359" height="543"/>
-                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1213,7 +1210,7 @@
         <!--Shopping List-->
         <scene sceneID="2qe-zE-atb">
             <objects>
-                <viewController title="Shopping List" id="epI-FT-RxT" customClass="ShoppingListVC" customModule="Fixit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Shopping List" automaticallyAdjustsScrollViewInsets="NO" id="epI-FT-RxT" customClass="ShoppingListVC" customModule="Fixit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Amj-A5-4Qy"/>
                         <viewControllerLayoutGuide type="bottom" id="J12-aF-v27"/>
@@ -1230,7 +1227,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pi-XC-lk3" id="fnb-9e-2YZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-6H-MiN" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
@@ -1261,6 +1258,9 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="198" y="10" width="34" height="19"/>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Square bracket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpA-LA-hxE" userLabel="titleLbl">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -1287,10 +1287,10 @@
                                                 <mask key="constraints">
                                                     <exclude reference="4da-dY-8DN"/>
                                                     <exclude reference="cee-XH-ui0"/>
-                                                    <exclude reference="5KW-g2-n75"/>
-                                                    <exclude reference="o5n-aN-bE7"/>
                                                     <exclude reference="11q-Ew-BUn"/>
                                                     <exclude reference="pUI-y2-cHa"/>
+                                                    <exclude reference="5KW-g2-n75"/>
+                                                    <exclude reference="o5n-aN-bE7"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -1302,10 +1302,10 @@
                                                 <mask key="constraints">
                                                     <include reference="4da-dY-8DN"/>
                                                     <include reference="cee-XH-ui0"/>
-                                                    <include reference="5KW-g2-n75"/>
-                                                    <include reference="o5n-aN-bE7"/>
                                                     <include reference="11q-Ew-BUn"/>
                                                     <include reference="pUI-y2-cHa"/>
+                                                    <include reference="5KW-g2-n75"/>
+                                                    <include reference="o5n-aN-bE7"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -2856,8 +2856,7 @@
                                         <exclude reference="zhD-8q-LUT"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="ZpL-UF-Nih"/>
                                     </mask>
@@ -2959,8 +2958,8 @@
         <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gl2-hA-64l"/>
-        <segue reference="YnI-WA-tKL"/>
+        <segue reference="Jxk-1f-Ue0"/>
+        <segue reference="rek-ld-ofJ"/>
         <segue reference="4pg-dZ-y2f"/>
     </inferredMetricsTieBreakers>
 </document>
