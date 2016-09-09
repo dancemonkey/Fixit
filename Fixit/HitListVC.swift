@@ -1,16 +1,16 @@
 //
-//  ShoppingListVC.swift
+//  HitListVC.swift
 //  Fixit
 //
-//  Created by Drew Lanning on 9/7/16.
+//  Created by Drew Lanning on 9/9/16.
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
-  
+class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+
   @IBOutlet weak var tableView: UITableView!
   
   let sectionNameKeypath = "parentProject.title"
@@ -20,7 +20,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     let primarySortDesc = NSSortDescriptor(key: "parentProject.title", ascending: true)
     let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
     fetch.sortDescriptors = [primarySortDesc,secondarySortDesc]
-    fetch.predicate = NSPredicate(format: "shoppingList.boolValue == true AND completed.boolValue == false", argumentArray: nil)
+    fetch.predicate = NSPredicate(format: "time.intValue <= 15 AND completed.boolValue == false", argumentArray: nil)
     
     let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeypath, cacheName: nil)
     
@@ -34,7 +34,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     tableView.delegate = self
     tableView.dataSource = self
-   
+    
     attemptFetch()
   }
   
@@ -50,7 +50,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     super.viewWillAppear(animated)
     self.tableView.reloadData()
   }
-  
+
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showTaskDetail" {
       if let destVC = segue.destinationViewController as? TaskDetailVC {
@@ -60,6 +60,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   // MARK: Tableview methods
+  
   
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return (fetchedResultsController.sections?.count)!
@@ -74,7 +75,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("shoppingListCell", forIndexPath: indexPath) as! ShoppingListCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("hitListCell", forIndexPath: indexPath) as! HitListCell
     configureCell(cell, indexPath: indexPath)
     return cell
   }
@@ -106,12 +107,13 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     performSegueWithIdentifier("showTaskDetail", sender: indexPath)
   }
   
-  func configureCell(cell: ShoppingListCell, indexPath: NSIndexPath) {
+  func configureCell(cell: HitListCell, indexPath: NSIndexPath) {
     let task = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
     cell.configureCell(withTask: task)
   }
 
-  // MARK: FRC methods
+  
+  // MARK: FRC Methods
   
   func controllerWillChangeContent(controller: NSFetchedResultsController) {
     self.tableView.beginUpdates()
@@ -120,7 +122,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
     switch type {
     case .Update:
-      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? ShoppingListCell
+      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? HitListCell
       configureCell(cell!, indexPath: indexPath!)
     case .Insert:
       self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
@@ -152,5 +154,5 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       break
     }
   }
-  
+
 }
