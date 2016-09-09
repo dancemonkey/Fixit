@@ -30,6 +30,7 @@
     @IBOutlet weak var taskTableHeight: NSLayoutConstraint!
     @IBOutlet weak var newTaskBtn: UIButton!
     @IBOutlet weak var photoBtnHeight: NSLayoutConstraint!
+    @IBOutlet weak var trashBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -59,11 +60,13 @@
         self.newTaskBtn.enabled = false
         self.newTaskBtn.backgroundColor = UIColor.grayColor()
         self.newTaskBtn.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+        trashBtn.enabled = false
       }
       
       if let project = self.project {
         
         self.newTaskBtn.enabled = true
+        trashBtn.enabled = true
         
         self.navigationItem.title = project.title
         
@@ -104,6 +107,34 @@
         }
       }
       self.tableView.reloadData()
+    }
+    
+    @IBAction func deleteCompletedPressed(sender: UIBarButtonItem) {
+      
+      let alert = UIAlertController(title: "Confirm", message: "You are about to delete this project!", preferredStyle: .Alert)
+      alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+      alert.addAction(UIAlertAction(title: "Okay", style: .Destructive, handler: { (action: UIAlertAction) in
+        
+        appDelegate.managedObjectContext.deleteObject(self.project!)
+        self.navigationController?.popViewControllerAnimated(true)
+        
+//        let deleteRequest = NSFetchRequest(entityName: "Task")
+//        deleteRequest.predicate = NSPredicate(format: "completed == 1", argumentArray: nil)
+//        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
+//        
+//        do {
+//          let _ = try appDelegate.managedObjectContext.executeRequest(batchDeleteRequest) as! NSBatchDeleteResult
+//          appDelegate.managedObjectContext.reset()
+//          try self.fetchedResultsController.performFetch()
+//          self.tableView.reloadData()
+//        } catch {
+//          print("\(error)")
+//        }
+        
+      }))
+      
+      self.presentViewController(alert, animated: true, completion: nil)
+      
     }
     
     func refreshTableData(withTasks tasks: NSSet) {

@@ -874,7 +874,7 @@
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="uIA-oH-UpU"/>
                                     <barButtonItem style="plain" systemItem="trash" id="pYY-RL-Pyz">
-                                        <color key="tintColor" red="1" green="0.13898010890000001" blue="0.1566192927" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="deleteCompletedPressed:" destination="BvG-p7-fPW" id="Ij6-fM-opU"/>
                                         </connections>
@@ -1487,6 +1487,7 @@
                             <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="20" id="UFV-1s-YZ7">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
+                            <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="8" id="V5Z-VZ-lSl"/>
                             <constraint firstItem="JEc-no-F0Q" firstAttribute="top" secondItem="kH6-sB-Z8S" secondAttribute="bottom" constant="8" id="bro-Hq-Dbw">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
@@ -1499,6 +1500,7 @@
                                 <exclude reference="8p8-ne-2Yw"/>
                                 <exclude reference="Jyz-nf-Z3U"/>
                                 <exclude reference="bro-Hq-Dbw"/>
+                                <exclude reference="SxX-Nw-aW0"/>
                                 <exclude reference="UFV-1s-YZ7"/>
                             </mask>
                         </variation>
@@ -1531,7 +1533,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfn-np-aAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3605" y="-713"/>
+            <point key="canvasLocation" x="3604.5" y="-713.5"/>
         </scene>
         <!--Project Detail View-->
         <scene sceneID="6aP-oL-JwA">
@@ -1734,14 +1736,31 @@
                                     <constraint firstAttribute="trailing" secondItem="NuY-4U-FeU" secondAttribute="trailing" id="xbe-Al-FgL"/>
                                 </constraints>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HDq-Vc-69G">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yre-hm-TQ0"/>
+                                    <barButtonItem systemItem="trash" id="Pw1-OX-RHE">
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="deleteCompletedPressed:" destination="NTe-Je-CoY" id="eBn-4E-MHx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="HDq-Vc-69G" firstAttribute="leading" secondItem="NIO-9i-gp5" secondAttribute="leading" id="2Ua-0D-iEY"/>
+                            <constraint firstItem="yJE-8h-pBv" firstAttribute="top" secondItem="HDq-Vc-69G" secondAttribute="bottom" id="41b-zG-2ye"/>
                             <constraint firstItem="G3I-wW-Hek" firstAttribute="top" secondItem="NIO-9i-gp5" secondAttribute="top" id="BoJ-xH-FAc"/>
                             <constraint firstItem="yJE-8h-pBv" firstAttribute="top" secondItem="G3I-wW-Hek" secondAttribute="bottom" id="Ekd-tQ-AB7"/>
                             <constraint firstAttribute="trailing" secondItem="G3I-wW-Hek" secondAttribute="trailing" id="H5a-zM-RBZ"/>
                             <constraint firstItem="G3I-wW-Hek" firstAttribute="leading" secondItem="NIO-9i-gp5" secondAttribute="leading" id="TLP-5f-vG6"/>
                             <constraint firstAttribute="trailing" secondItem="G3I-wW-Hek" secondAttribute="trailing" id="WRu-b6-BgX"/>
+                            <constraint firstAttribute="trailing" secondItem="HDq-Vc-69G" secondAttribute="trailing" id="e9h-jY-K6L"/>
                             <constraint firstItem="G3I-wW-Hek" firstAttribute="top" secondItem="Qi4-wA-ODW" secondAttribute="bottom" id="frL-PN-dWa"/>
                             <constraint firstItem="yJE-8h-pBv" firstAttribute="top" secondItem="G3I-wW-Hek" secondAttribute="bottom" id="ngi-f9-dWa"/>
                             <constraint firstItem="G3I-wW-Hek" firstAttribute="top" secondItem="Qi4-wA-ODW" secondAttribute="bottom" id="shg-aU-2S2"/>
@@ -1788,6 +1807,7 @@
                         <outlet property="taskTableHeight" destination="X7R-r4-eU1" id="ZZG-MZ-rbq"/>
                         <outlet property="timeFld" destination="PwE-Ka-7d5" id="GP8-yh-ibj"/>
                         <outlet property="titleFld" destination="cVr-MW-jaP" id="M97-q9-08b"/>
+                        <outlet property="trashBtn" destination="Pw1-OX-RHE" id="hyW-nY-2mb"/>
                         <segue destination="ybF-y6-6lw" kind="show" identifier="showTaskDetail" id="Zbv-EL-gJw"/>
                     </connections>
                 </viewController>
@@ -2142,15 +2162,24 @@
                                     <constraint firstAttribute="bottom" secondItem="3DU-1k-RZu" secondAttribute="bottom" id="vMY-ZP-K4w"/>
                                 </constraints>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddL-i5-j9M">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="m9u-PA-43c"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="35n-1f-eeV" firstAttribute="top" secondItem="aAV-xP-ya5" secondAttribute="bottom" id="4PG-Vk-Zhe"/>
                             <constraint firstItem="aAV-xP-ya5" firstAttribute="top" secondItem="0b7-51-1ct" secondAttribute="bottom" id="7ts-Eo-YKm"/>
                             <constraint firstItem="aAV-xP-ya5" firstAttribute="leading" secondItem="61u-G1-wje" secondAttribute="leading" id="9Ha-Uq-GK1"/>
+                            <constraint firstAttribute="trailing" secondItem="ddL-i5-j9M" secondAttribute="trailing" id="D0P-2d-oDu"/>
                             <constraint firstItem="35n-1f-eeV" firstAttribute="top" secondItem="aAV-xP-ya5" secondAttribute="bottom" id="Qej-1Z-Sbw"/>
+                            <constraint firstItem="ddL-i5-j9M" firstAttribute="leading" secondItem="61u-G1-wje" secondAttribute="leading" id="Yjn-dl-OPn"/>
                             <constraint firstAttribute="trailing" secondItem="aAV-xP-ya5" secondAttribute="trailing" id="fP6-Af-ykh"/>
                             <constraint firstItem="aAV-xP-ya5" firstAttribute="leading" secondItem="61u-G1-wje" secondAttribute="leadingMargin" id="k6j-eh-Qwq"/>
+                            <constraint firstItem="35n-1f-eeV" firstAttribute="top" secondItem="ddL-i5-j9M" secondAttribute="bottom" id="qag-QY-fMw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aAV-xP-ya5" secondAttribute="trailing" id="tkP-8p-0Jt"/>
                         </constraints>
                         <variation key="default">
@@ -2208,8 +2237,8 @@
         <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RVP-Hx-CJZ"/>
-        <segue reference="WCH-Gr-WaN"/>
         <segue reference="YnI-WA-tKL"/>
+        <segue reference="Zbv-EL-gJw"/>
+        <segue reference="WCH-Gr-WaN"/>
     </inferredMetricsTieBreakers>
 </document>

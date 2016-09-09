@@ -50,6 +50,9 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     performSegueWithIdentifier("createNewProject", sender: self)
   }
   
+  
+  // MARK: Tableview methods
+  
   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
     return (fetchedResultsController.sections?.count)!
   }
@@ -93,6 +96,8 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let project = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
     cell.configureCell(withProject: project)
   }
+  
+  // MARK: FRC Methods
   
   func controllerWillChangeContent(controller: NSFetchedResultsController) {
     self.tableView.beginUpdates()
