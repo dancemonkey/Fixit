@@ -34,7 +34,6 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    print(selectPhoto.frame.height)
     photoBtnHeight.constant = photoHeightConstant
         
     let notificationCenter = NSNotificationCenter.defaultCenter()
