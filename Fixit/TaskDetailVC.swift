@@ -21,6 +21,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   @IBOutlet weak var photoSelectBtn: UIButton!
   @IBOutlet weak var photoSelectBtnHeight: NSLayoutConstraint!
   @IBOutlet weak var shoppingListSwitch: UISwitch!
+  @IBOutlet weak var completeBtn: UIBarButtonItem!
   
   var task: Task? = nil
   var project: Project? = nil
@@ -31,6 +32,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    setCompleteBtnStatus()
     
     details.layer.borderColor = UIColor.blackColor().CGColor
     details.layer.borderWidth = 1.0
@@ -54,6 +57,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
     }
     
     if let task = self.task {
+      
       if let title = task.title {
         self.navigationItem.title = task.title
         titleFld.text = title
@@ -80,7 +84,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       }
       
       shoppingListSwitch.setOn((task.shoppingList?.boolValue)!, animated: true)
-
+      
     }
     
     if let project = self.project {
@@ -105,6 +109,42 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
     }
     scrollView.scrollIndicatorInsets = scrollView.contentInset
+  }
+  
+  func setCompleteBtnStatus() {
+    if let task = self.task {
+      completeBtn.enabled = !(task.completed?.boolValue)!
+      if completeBtn.enabled == false {
+        completeBtn.title = "Task Completed"
+      }
+    } else {
+      completeBtn.enabled = false
+      completeBtn.title = "Tap to complete"
+    }
+  }
+  
+  func save(withPop pop: Bool) {
+    let context = appDelegate.managedObjectContext
+    do {
+      try context.save()
+      if pop {
+        self.navigationController?.popViewControllerAnimated(true)
+      }
+    } catch {
+      print(error)
+    }
+  }
+  
+  @IBAction func completePressed(sender: UIBarButtonItem) {
+    if let task = self.task {
+      if task.completed == false {
+        task.completed = true
+        setCompleteBtnStatus()
+      } else {
+        task.completed = false
+        setCompleteBtnStatus()
+      }
+    }
   }
   
   @IBAction func savePressed(sender: UIBarButtonItem) {
@@ -154,12 +194,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       task!.shoppingList = shoppingListSwitch.on
     }
     
-    do {
-      try context.save()
-      self.navigationController?.popViewControllerAnimated(true)
-    } catch {
-      print(error)
-    }
+    save(withPop: true)
     
   }
   
@@ -221,6 +256,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   func imagePickerControllerDidCancel(picker: UIImagePickerController) {
     dismissViewControllerAnimated(true, completion: nil)
   }
-
+  
   
 }
