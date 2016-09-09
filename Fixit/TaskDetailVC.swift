@@ -49,7 +49,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
     
     if task == nil {
       self.navigationItem.title = "New task"
-      photoSelectBtn.setTitle("Tap to select", forState: .Normal)
+      photoSelectBtn.setTitle("Tap to add photo", forState: .Normal)
       dueDateSelectBtn.setTitle("Due date...", forState: .Normal)
     }
     
