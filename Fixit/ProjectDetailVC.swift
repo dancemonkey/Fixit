@@ -16,7 +16,8 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   let dateFormatter = NSDateFormatter()
   var imagePickerController: UIImagePickerController!
   var dueDate: NSDate!
-  let imagePickerButtonHeight: CGFloat = 200
+  let taskHeightConstant: CGFloat = 150
+  let photoHeightConstant: CGFloat = 200
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var titleFld: UITextField!
@@ -26,13 +27,16 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var selectPhoto: UIButton!
   @IBOutlet weak var selectDueDate: UIButton!
-  @IBOutlet weak var photoBtnHeight: NSLayoutConstraint!
   @IBOutlet weak var taskTableHeight: NSLayoutConstraint!
   @IBOutlet weak var newTaskBtn: UIButton!
+  @IBOutlet weak var photoBtnHeight: NSLayoutConstraint!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    print(selectPhoto.frame.height)
+    photoBtnHeight.constant = photoHeightConstant
+        
     let notificationCenter = NSNotificationCenter.defaultCenter()
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillHideNotification, object: nil)
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillChangeFrameNotification, object: nil)
@@ -81,7 +85,6 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.dueDate = dueDate
       }
       if let photo = project.photo?.data {
-        photoBtnHeight.constant = imagePickerButtonHeight
         selectPhoto.setImage(UIImage(data: photo), forState: .Normal)
       }
       if let tasks = project.taskList where tasks.count > 0 {
@@ -99,7 +102,7 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     super.viewWillAppear(animated)
     if let project = self.project {
       if let tasks = project.taskList where tasks.count > 0 {
-        taskTableHeight.constant = 200
+        taskTableHeight.constant = taskHeightConstant
         refreshTableData(withTasks: tasks)
       }
     }
@@ -210,7 +213,6 @@ class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
       self.selectPhoto.contentMode = .ScaleAspectFill
       self.selectPhoto.setImage(pickedImage, forState: .Normal)
       self.selectPhoto.setTitle("", forState: .Normal)
-      self.photoBtnHeight.constant = imagePickerButtonHeight
     }
     dismissViewControllerAnimated(true, completion: nil)
   }
