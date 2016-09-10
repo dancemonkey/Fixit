@@ -44,8 +44,12 @@ class HitListCell: UITableViewCell {
   }
   
   @IBAction func boxChecked(sender: CheckBoxBtn) {
-    sender.checkBox()
     self.task.checkOffTask()
+    if task.completed!.boolValue {
+      sender.completeTask()
+    } else {
+      sender.incompleteTask()
+    }
   }
 
 

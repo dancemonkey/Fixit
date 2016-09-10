@@ -49,9 +49,17 @@ class ShoppingListCell: UITableViewCell {
   }
   
   @IBAction func boxChecked(sender: CheckBoxBtn) {
-    sender.checkBox()
     self.task.checkOffTask()
-    // then remove from view, done in list VC
+    if task.completed!.boolValue {
+      sender.completeTask()
+    } else {
+      sender.incompleteTask()
+    }
+    do {
+      try appDelegate.managedObjectContext.save()
+    } catch {
+      print(error)
+    }
   }
   
 }

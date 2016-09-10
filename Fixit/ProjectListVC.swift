@@ -68,6 +68,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath) as! ProjectCell
     configureCell(cell, indexPath: indexPath)
+    cell.tag = indexPath.row
     return cell
   }
   

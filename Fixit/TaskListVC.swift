@@ -19,7 +19,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
     let secondarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
-    fetch.sortDescriptors = [secondarySortDesc ,primarySortDesc]
+    fetch.sortDescriptors = [secondarySortDesc, primarySortDesc]
     
     let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeyPath, cacheName: nil)
     
@@ -103,6 +103,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskCell
     configureCell(cell, indexPath: indexPath)
+    cell.tag = indexPath.row
     return cell
   }
   
@@ -157,12 +158,9 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     case .Delete:
       self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
     case .Move:
-      if let deleteIndexPath = indexPath {
-        self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
-      }
-      if let insertIndexPath = newIndexPath {
-        self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: .Fade)
-      }
+      tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+      tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+      attemptFetch()
     }
   }
   

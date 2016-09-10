@@ -13,23 +13,17 @@ import CoreData
 class Task: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
+  
   override func awakeFromInsert() {
     self.completed = false
     self.shoppingList = false
   }
   
   func checkOffTask() {
-
     if self.completed == true {
       self.completed = false
     } else {
       self.completed = true
-    }
-    
-    do {
-      try appDelegate.managedObjectContext.save()
-    } catch {
-      print("couldn't save - \(error)")
     }
   }
 }

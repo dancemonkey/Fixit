@@ -35,7 +35,6 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     tableView.delegate = self
     tableView.dataSource = self
    
-    attemptFetch()
   }
   
   func attemptFetch() {
@@ -48,7 +47,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    self.tableView.reloadData()
+    attemptFetch()
   }
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

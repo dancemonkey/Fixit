@@ -923,7 +923,6 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="YuF-E1-YgB"/>
                                 <include reference="NUT-1O-rMI"/>
                             </mask>
                             <mask key="constraints">
@@ -1082,18 +1081,18 @@
                         <viewControllerLayoutGuide type="bottom" id="J12-aF-v27"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5cq-jK-lz4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="105" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4We-vq-zXi">
-                                <rect key="frame" x="8" y="72" width="304" height="488"/>
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="shoppingListCell" rowHeight="40" id="3Pi-XC-lk3" customClass="ShoppingListCell" customModule="Fixit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="304" height="40"/>
+                                        <rect key="frame" x="0.0" y="28" width="359" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pi-XC-lk3" id="fnb-9e-2YZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="304" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-6H-MiN" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
@@ -1124,7 +1123,7 @@
                                                         <action selector="boxChecked:" destination="3Pi-XC-lk3" eventType="touchUpInside" id="hFk-ZS-C7e"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cost" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5s-xd-lkz">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cost" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5s-xd-lkz">
                                                     <rect key="frame" x="262" y="10" width="34" height="19"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1173,11 +1172,6 @@
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
-                                                <mask key="subviews">
-                                                    <include reference="NfU-6H-MiN"/>
-                                                    <include reference="A5s-xd-lkz"/>
-                                                    <include reference="rpA-LA-hxE"/>
-                                                </mask>
                                                 <mask key="constraints">
                                                     <include reference="4da-dY-8DN"/>
                                                     <include reference="cee-XH-ui0"/>
@@ -1239,7 +1233,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Shopping List" id="8fK-bw-C52"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="4We-vq-zXi" id="Jyx-rd-AAg"/>
                         <segue destination="ybF-y6-6lw" kind="show" identifier="showTaskDetail" id="Gl2-hA-64l"/>
@@ -1562,7 +1556,7 @@
                                                 <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cVr-MW-jaP" userLabel="TitleField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cVr-MW-jaP" userLabel="TitleField" customClass="BottomBorderTextField" customModule="Fixit" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="16" width="291" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="6L8-0S-qEw"/>
@@ -1580,7 +1574,7 @@
                                                 <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="estimated length of project" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PwE-Ka-7d5" userLabel="TitleField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="estimated length of project" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PwE-Ka-7d5" userLabel="TitleField" customClass="BottomBorderTextField" customModule="Fixit" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="64" width="291" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="cxL-mY-M6q"/>
@@ -1598,7 +1592,7 @@
                                                 <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yl5-0s-coi" userLabel="TitleField">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yl5-0s-coi" userLabel="TitleField" customClass="BottomBorderTextField" customModule="Fixit" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="112" width="291" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="291" id="Bcj-S1-ZTu"/>
@@ -2253,8 +2247,8 @@
         <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zbv-EL-gJw"/>
         <segue reference="YnI-WA-tKL"/>
         <segue reference="Tdg-8o-wfF"/>
+        <segue reference="Gl2-hA-64l"/>
     </inferredMetricsTieBreakers>
 </document>

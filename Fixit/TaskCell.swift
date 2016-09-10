@@ -30,13 +30,16 @@ class TaskCell: UITableViewCell {
 
     timeAndCostLbl.text = ""
     dueDateLbl.text = ""
+    checkBoxBtn.incompleteTask()
+    thumbImg.image = UIImage(named: "Camera")
+    projectLbl.text = ""
+    titleLbl.text = ""
     
-    if let complete = self.task.completed {
-      self.checkBoxBtn.complete = complete.boolValue
-      self.checkBoxBtn.setCompleteImage()
+    
+    if self.task.completed?.boolValue == true {
+      self.checkBoxBtn.completeTask()
     } else {
-      self.checkBoxBtn.complete = false
-      self.checkBoxBtn.setCompleteImage()
+      self.checkBoxBtn.incompleteTask()
     }
     
     if let photo = task.photo?.data {
@@ -80,13 +83,21 @@ class TaskCell: UITableViewCell {
   
   @IBAction func boxChecked(sender: CheckBoxBtn) {
     
-    sender.checkBox()
     self.task.checkOffTask()
+    if task.completed!.boolValue == true {
+      sender.completeTask()
+      print("complete called by \(self.tag)")
+    } else {
+      sender.incompleteTask()
+      print("incomplete called by \(self.tag)")
+    }
     
-    // TODO: when checked
-    // - set status of task to complete in model
-    // - gray out cell, move to "complete" section
-    // - refresh view 
+    do {
+      try appDelegate.managedObjectContext.save()
+    } catch {
+      print("couldn't save - \(error)")
+    }
+
   }
   
 }

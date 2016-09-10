@@ -179,7 +179,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       
       // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
       task!.title = titleFld.text!
-      task!.completed = false
+      //task!.completed = false
       task!.cost = Double(costFld.text!)
       task!.details = details.text
       task!.dueDate = self.dueDate

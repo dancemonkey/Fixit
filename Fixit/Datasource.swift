@@ -53,6 +53,21 @@ class Datasource {
     }
   }
   
+  func fetchOverdueTaskCount() -> Int {
+    self.fetchTasks()
+    let overdue = self.fetchedTasks.filter { (task) -> Bool in
+      if task.completed == false {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "M/D/Y"
+        if let date = task.dueDate {
+          return formatter.stringFromDate(date) < formatter.stringFromDate(NSDate())
+        }
+      }
+      return false
+    }
+    return overdue.count
+  }
+  
   func fetchPhotos() {
     let fetchReq = NSFetchRequest(entityName: fetches.Photos.rawValue)
     let sortDesc = NSSortDescriptor(key: "creationDate", ascending: true)

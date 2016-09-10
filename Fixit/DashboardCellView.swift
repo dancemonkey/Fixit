@@ -22,7 +22,7 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
     formatter.numberStyle = .CurrencyStyle
     formatter.locale = .currentLocale()
   }
-
+  
 }
 
 extension DashboardCellView {
@@ -46,6 +46,7 @@ extension DashboardCellView {
   }
   
   func updateTaskView() {
+    
     Datasource.ds.fetchTasks()
     
     titleLbls[0].text = ""
@@ -55,7 +56,7 @@ extension DashboardCellView {
     let dueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if task.completed == false {
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "M/d/y"
+        formatter.dateFormat = "m/d/y"
         if let date = task.dueDate {
           return formatter.stringFromDate(date) == formatter.stringFromDate(NSDate())
         }
@@ -67,27 +68,16 @@ extension DashboardCellView {
       return task.completed == false
     }
     
-    let overDueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
-      if task.completed == false {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "M/d/y"
-        if let date = task.dueDate {
-          return formatter.stringFromDate(date) < formatter.stringFromDate(NSDate())
-        }
-      }
-      return false
-    }
-    
     for label in titleLbls {
       if label.tag == 0 {
         label.text = String(totalUpcomingTasks.count) + " tasks" // total # of tasks
       } else if label.tag == 1 {
         label.text = String("Due: " + String(dueTasks.count))
       } else if label.tag == 2 {
-        label.text = String("Overdue: " + String(overDueTasks.count))
+        label.text = String("Overdue: " + String(Datasource.ds.fetchOverdueTaskCount()))
       }
     }
-
+    
   }
   
   func updateShoppingListView() {
