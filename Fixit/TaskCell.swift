@@ -55,7 +55,6 @@ class TaskCell: UITableViewCell {
     }
     
     if let time = task.time, let cost = task.cost {
-      
       let formatter = NSNumberFormatter()
       formatter.usesGroupingSeparator = true
       formatter.numberStyle = .CurrencyStyle
@@ -84,12 +83,13 @@ class TaskCell: UITableViewCell {
   @IBAction func boxChecked(sender: CheckBoxBtn) {
     
     self.task.checkOffTask()
+    print(self.task)
     if task.completed!.boolValue == true {
       sender.completeTask()
-      print("complete called by \(self.tag)")
+      print("complete called by \(self.task)")
     } else {
       sender.incompleteTask()
-      print("incomplete called by \(self.tag)")
+      print("incomplete called by \(self.task)")
     }
     
     do {

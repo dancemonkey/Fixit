@@ -145,40 +145,40 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   // MARK: Fetchedresultscontroller methods
   
   func controllerWillChangeContent(controller: NSFetchedResultsController) {
-    self.tableView.beginUpdates()
+    //self.tableView.beginUpdates()
   }
   
   func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-    switch type {
-    case .Update:
-      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? TaskCell
-      configureCell(cell!, indexPath: indexPath!)
-    case .Insert:
-      self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-    case .Delete:
-      self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-    case .Move:
-      tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-      tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-      attemptFetch()
-    }
+//    switch type {
+//    case .Update:
+//      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? TaskCell
+//      configureCell(cell!, indexPath: indexPath!)
+//    case .Insert:
+//      self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+//    case .Delete:
+//      self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+//    case .Move:
+//      tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+//      tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+//    }
+    tableView.reloadData()
   }
   
   func controllerDidChangeContent(controller: NSFetchedResultsController) {
-    self.tableView.endUpdates()
+    //self.tableView.endUpdates()
   }
   
   func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
-    switch type {
-    case .Insert:
-      self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-    case .Delete:
-      self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-    case .Move:
-      break
-    case .Update:
-      break
-    }
+//    switch type {
+//    case .Insert:
+//      self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+//    case .Delete:
+//      self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+//    case .Move:
+//      break
+//    case .Update:
+//      break
+//    }
   }
   
 }
