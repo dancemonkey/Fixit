@@ -34,14 +34,23 @@ class TaskCell: UITableViewCell {
     if let complete = self.task.completed {
       self.checkBoxBtn.complete = complete.boolValue
       self.checkBoxBtn.setCompleteImage()
+    } else {
+      self.checkBoxBtn.complete = false
+      self.checkBoxBtn.setCompleteImage()
     }
     
     if let photo = task.photo?.data {
       thumbImg.image = UIImage(data: photo)
+    } else {
+      thumbImg.image = UIImage(named: "Camera")
     }
+    
     if let title = task.title {
       titleLbl.text = title
+    } else {
+      titleLbl.text = "No title"
     }
+    
     if let time = task.time, let cost = task.cost {
       
       let formatter = NSNumberFormatter()
@@ -50,12 +59,18 @@ class TaskCell: UITableViewCell {
       formatter.locale = .currentLocale()
 
       timeAndCostLbl.text = formatter.stringFromNumber(cost)! + ", " + String(time) + " min."
+    } else {
+      timeAndCostLbl.text = ""
     }
+    
     if let dueDate = task.dueDate {
       let dateFormatter = NSDateFormatter()
       dateFormatter.dateFormat = "M/d"
       dueDateLbl.text = dateFormatter.stringFromDate(dueDate)
+    } else {
+      dueDateLbl.text = "-/-"
     }
+    
     if let project = task.parentProject {
       projectLbl.text = project.title
     } else {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G31" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1004" minimumToolsVersion="Automatic">
     <entity name="Photo" representedClassName=".Photo" syncable="YES">
         <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="data" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -15,8 +15,8 @@
         <attribute name="estimatedTime" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="parentProject" inverseEntity="Photo" syncable="YES"/>
-        <relationship name="taskList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="parentProject" inverseEntity="Task" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="parentProject" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="taskList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Task" inverseName="parentProject" inverseEntity="Task" syncable="YES"/>
     </entity>
     <entity name="Task" representedClassName=".Task" syncable="YES">
         <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -27,7 +27,7 @@
         <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="parentProject" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="taskList" inverseEntity="Project" syncable="YES"/>
-        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="parentTask" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="parentTask" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
         <element name="Photo" positionX="340" positionY="18" width="128" height="103"/>

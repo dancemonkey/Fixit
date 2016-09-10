@@ -72,20 +72,25 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    
     let managedObject = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
-    appDelegate.managedObjectContext.deleteObject(managedObject)
     
     if let taskList = managedObject.taskList {
       for task in taskList {
         appDelegate.managedObjectContext.deleteObject(task as! NSManagedObject)
       }
     }
+    if let photo = managedObject.photo {
+      appDelegate.managedObjectContext.deleteObject(photo)
+    }
+    appDelegate.managedObjectContext.deleteObject(managedObject)
     
     do {
       try appDelegate.managedObjectContext.save()
     } catch {
       print("wtf")
     }
+    
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
