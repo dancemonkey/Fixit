@@ -13,12 +13,13 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   @IBOutlet weak var tableView: UITableView!
   
-  let sectionNameKeypath = "parentProject.title"
+  let sectionNameKeypath = "sectionName"
   
   lazy var fetchedResultsController: NSFetchedResultsController = {
     let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "parentProject.title", ascending: true)
+    let primarySortDesc = NSSortDescriptor(key: "sectionName", ascending: true)
     let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
+    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
     fetch.sortDescriptors = [primarySortDesc,secondarySortDesc]
     fetch.predicate = NSPredicate(format: "shoppingList.boolValue == true AND completed.boolValue == false", argumentArray: nil)
     
@@ -89,7 +90,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return 40
+    return 50
   }
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -97,7 +98,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
       let currentSection = sections[section]
       return currentSection.name
     } else {
-      return nil
+      return "No project"
     }
   }
   
@@ -119,8 +120,10 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
     switch type {
     case .Update:
-      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? ShoppingListCell
-      configureCell(cell!, indexPath: indexPath!)
+      if let path = indexPath {
+        let cell = self.tableView.cellForRowAtIndexPath(path) as? ShoppingListCell
+        configureCell(cell!, indexPath: path)
+      }
     case .Insert:
       self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
     case .Delete:

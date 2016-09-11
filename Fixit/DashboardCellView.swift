@@ -40,7 +40,7 @@ extension DashboardCellView {
       } else if label.tag == 1 {
         label.text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
       } else if label.tag == 2 {
-        label.text = String(Datasource.ds.fetchTotalDays()) + " days" // minutes
+        label.text = String(Datasource.ds.fetchTotalDays()) + " days" // days
       }
     }
   }

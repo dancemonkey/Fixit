@@ -17,7 +17,7 @@
     var imagePickerController: UIImagePickerController!
     var dueDate: NSDate!
     let taskHeightConstant: CGFloat = 200
-    let photoHeightConstant: CGFloat = 200
+    var photoHeightConstant: CGFloat = 200
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleFld: UITextField!
@@ -34,7 +34,7 @@
     
     override func viewDidLoad() {
       super.viewDidLoad()
-            
+      
       let notificationCenter = NSNotificationCenter.defaultCenter()
       notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillHideNotification, object: nil)
       notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillChangeFrameNotification, object: nil)
@@ -85,6 +85,7 @@
         }
         if let photo = project.photo?.data {
           selectPhoto.setImage(UIImage(data: photo), forState: .Normal)
+          selectPhoto.imageView?.contentMode = .ScaleAspectFit
           adjustPhotoHeight()
         }
         if let tasks = project.taskList where tasks.count > 0 {
@@ -117,19 +118,6 @@
         
         appDelegate.managedObjectContext.deleteObject(self.project!)
         self.navigationController?.popViewControllerAnimated(true)
-        
-//        let deleteRequest = NSFetchRequest(entityName: "Task")
-//        deleteRequest.predicate = NSPredicate(format: "completed == 1", argumentArray: nil)
-//        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
-//        
-//        do {
-//          let _ = try appDelegate.managedObjectContext.executeRequest(batchDeleteRequest) as! NSBatchDeleteResult
-//          appDelegate.managedObjectContext.reset()
-//          try self.fetchedResultsController.performFetch()
-//          self.tableView.reloadData()
-//        } catch {
-//          print("\(error)")
-//        }
         
       }))
       
@@ -193,7 +181,7 @@
         project!.estimatedCost = Double(costFld.text!)
         project!.details = detailsFld.text
         project!.dueDate = self.dueDate
-        project!.estimatedTime = Int(timeFld.text!)
+        project!.estimatedTime = Double(timeFld.text!)
         if let photo = selectPhoto.imageView?.image, let newPhoto = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo {
           newPhoto.data = UIImagePNGRepresentation(photo)
           project!.photo = newPhoto
@@ -242,7 +230,7 @@
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
       if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-        self.selectPhoto.contentMode = .ScaleAspectFill
+        self.selectPhoto.contentMode = .ScaleAspectFit
         self.selectPhoto.setImage(pickedImage, forState: .Normal)
         self.selectPhoto.setTitle("", forState: .Normal)
         adjustPhotoHeight()

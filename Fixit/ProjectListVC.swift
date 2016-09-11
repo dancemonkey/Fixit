@@ -16,6 +16,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   lazy var fetchedResultsController: NSFetchedResultsController = {
     let fetch = NSFetchRequest(entityName: fetches.Projects.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "startDate", ascending: false)
+    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
     fetch.sortDescriptors = [primarySortDesc]
     
     let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)

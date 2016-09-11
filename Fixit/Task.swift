@@ -17,6 +17,8 @@ class Task: NSManagedObject {
   override func awakeFromInsert() {
     self.completed = false
     self.shoppingList = false
+    self.creationDate = NSDate()
+    self.sectionName = "No project assigned"
   }
   
   func checkOffTask() {

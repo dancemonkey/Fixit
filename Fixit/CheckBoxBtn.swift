@@ -16,7 +16,7 @@ class CheckBoxBtn: UIButton {
   
   func completeTask() {
     self.setImage(UIImage(named: "Complete"), forState: .Normal)
-    self.imageView?.contentMode = .ScaleAspectFit
+    self.imageView?.contentMode = .ScaleAspectFill
   }
   
   func incompleteTask() {

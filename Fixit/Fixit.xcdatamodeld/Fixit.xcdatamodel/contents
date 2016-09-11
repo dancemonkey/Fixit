@@ -21,8 +21,10 @@
     <entity name="Task" representedClassName=".Task" syncable="YES">
         <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="cost" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="creationDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sectionName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shoppingList" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,6 +34,6 @@
     <elements>
         <element name="Photo" positionX="340" positionY="18" width="128" height="103"/>
         <element name="Project" positionX="-63" positionY="-18" width="128" height="195"/>
-        <element name="Task" positionX="142" positionY="225" width="128" height="180"/>
+        <element name="Task" positionX="142" positionY="225" width="128" height="210"/>
     </elements>
 </model>

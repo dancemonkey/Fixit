@@ -33,10 +33,13 @@ class ShoppingListCell: UITableViewCell {
     
     costLbl.text = ""
     titleLbl.text = ""
-
+    
     if let title = task.title {
       titleLbl.text = title
+    } else {
+      titleLbl.text = "No title"
     }
+    
     if let cost = task.cost {
       
       let formatter = NSNumberFormatter()
@@ -45,21 +48,27 @@ class ShoppingListCell: UITableViewCell {
       formatter.locale = .currentLocale()
       
       costLbl.text = formatter.stringFromNumber(cost)!
+    } else {
+      costLbl.text = "No estimated cost"
     }
+    
   }
   
   @IBAction func boxChecked(sender: CheckBoxBtn) {
+    
     self.task.checkOffTask()
     if task.completed!.boolValue {
       sender.completeTask()
     } else {
       sender.incompleteTask()
     }
+    
     do {
       try appDelegate.managedObjectContext.save()
     } catch {
       print(error)
     }
+    
   }
   
 }

@@ -14,7 +14,6 @@ class Photo: NSManagedObject {
   
   override func awakeFromInsert() {
     super.awakeFromInsert()
-    
     self.creationDate = NSDate()
   }
 

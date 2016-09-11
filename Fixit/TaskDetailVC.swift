@@ -28,7 +28,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   let dateFormatter = NSDateFormatter()
   var imagePickerController: UIImagePickerController!
   var dueDate: NSDate!
-  let imagePickerButtonHeight: CGFloat = 200
+  var imagePickerButtonHeight: CGFloat = 200
+  let blankSectionName = "No associated project"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -73,8 +74,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
         self.dueDate = dueDate
       }
       if let photo = task.photo?.data {
-        photoSelectBtnHeight.constant = imagePickerButtonHeight
         photoSelectBtn.setImage(UIImage(data: photo), forState: .Normal)
+        photoSelectBtnHeight.constant = imagePickerButtonHeight
+        photoSelectBtn.imageView?.contentMode = .ScaleAspectFit
       }
       if let details = task.details {
         self.details.text = details
@@ -172,6 +174,11 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
         }
         if let project = self.project {
           newTask.parentProject = project
+          if let title = project.title {
+            newTask.sectionName = title
+          } else {
+            newTask.sectionName = blankSectionName
+          }
         }
         newTask.shoppingList = shoppingListSwitch.on
       }
@@ -190,6 +197,11 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
       }
       if let project = self.project {
         task!.parentProject = project
+        if let title = project.title {
+          task!.sectionName = title
+        } else {
+          task!.sectionName = blankSectionName
+        }
       }
       task!.shoppingList = shoppingListSwitch.on
     }
@@ -245,7 +257,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   
   func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
     if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-      self.photoSelectBtn.contentMode = .ScaleAspectFill
+      self.photoSelectBtn.contentMode = .ScaleAspectFit
       self.photoSelectBtn.setImage(pickedImage, forState: .Normal)
       self.photoSelectBtn.setTitle("", forState: .Normal)
       self.photoSelectBtnHeight.constant = imagePickerButtonHeight

@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  Fixit
 //
-//  Created by Drew Lanning on 9/9/16.
+//  Created by Drew Lanning on 9/10/16.
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -21,6 +21,8 @@ extension Task {
     @NSManaged var shoppingList: NSNumber?
     @NSManaged var time: NSNumber?
     @NSManaged var title: String?
+    @NSManaged var creationDate: NSDate?
+    @NSManaged var sectionName: String?
     @NSManaged var parentProject: Project?
     @NSManaged var photo: Photo?
 

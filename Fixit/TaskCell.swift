@@ -83,19 +83,15 @@ class TaskCell: UITableViewCell {
   @IBAction func boxChecked(sender: CheckBoxBtn) {
     
     self.task.checkOffTask()
-    print(self.task)
     if task.completed!.boolValue == true {
       sender.completeTask()
-      print("complete called by \(self.task)")
     } else {
       sender.incompleteTask()
-      print("incomplete called by \(self.task)")
     }
     
     do {
       try appDelegate.managedObjectContext.save()
     } catch {
-      print("couldn't save - \(error)")
     }
 
   }
