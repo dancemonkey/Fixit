@@ -54,3 +54,11 @@ class BottomBorderTextField : UITextField {
     path.stroke()
   }
 }
+
+extension NSDate {
+  func dayOfTheWeek() -> String? {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "EEEE"
+    return dateFormatter.stringFromDate(self)
+  }
+}

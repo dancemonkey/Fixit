@@ -91,7 +91,7 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   }
   
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return 40
+    return 50
   }
   
   func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

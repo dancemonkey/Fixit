@@ -21,6 +21,9 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
     formatter.usesGroupingSeparator = true
     formatter.numberStyle = .CurrencyStyle
     formatter.locale = .currentLocale()
+    
+    self.layer.borderColor = UIColor(red:0.35, green:0.23, blue:0.00, alpha:1.0).CGColor
+    self.layer.borderWidth = 2.0
   }
   
 }
