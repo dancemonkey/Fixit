@@ -9,12 +9,11 @@
   import UIKit
   import CoreData
   
-  class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SaveDelegateData, UIScrollViewDelegate {
+  class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveDelegateData, UIScrollViewDelegate {
     
     var project: Project? = nil
     var taskData: [Task]?
     let dateFormatter = NSDateFormatter()
-    var imagePickerController: UIImagePickerController!
     var dueDate: NSDate!
     let taskHeightConstant: CGFloat = 200
     var photoHeightConstant: CGFloat = 200
@@ -217,31 +216,6 @@
         }
       }
     }
-    
-    // MARK: Image Picker Methods
-    
-    @IBAction func selectPhotoPressed(sender: UIButton) {
-      imagePickerController = UIImagePickerController()
-      imagePickerController.delegate = self
-      imagePickerController.allowsEditing = true
-      imagePickerController.sourceType = .PhotoLibrary
-      self.presentViewController(imagePickerController, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-      if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-        self.selectPhoto.contentMode = .ScaleAspectFit
-        self.selectPhoto.setImage(pickedImage, forState: .Normal)
-        self.selectPhoto.setTitle("", forState: .Normal)
-        adjustPhotoHeight()
-      }
-      dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-      dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     
     // MARK: Tableview methods
     

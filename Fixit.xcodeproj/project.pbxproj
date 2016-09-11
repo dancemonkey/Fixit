@@ -44,6 +44,8 @@
 		10CFD1D71D67EEEB00C1B389 /* DashboardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */; };
 		10E5F3ED1D7FAFB30076DD07 /* TaskDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5F3EC1D7FAFB30076DD07 /* TaskDetailVC.swift */; };
 		10E5F3EE1D7FAFB30076DD07 /* TaskDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E5F3EC1D7FAFB30076DD07 /* TaskDetailVC.swift */; };
+		10EC02E61D8619CA0090DF03 /* PhotoPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC02E51D8619CA0090DF03 /* PhotoPickerVC.swift */; };
+		10EC02E71D8619CA0090DF03 /* PhotoPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC02E51D8619CA0090DF03 /* PhotoPickerVC.swift */; };
 		10EFBB7A1D66A3540049A929 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB791D66A3540049A929 /* AppDelegate.swift */; };
 		10EFBB7C1D66A3540049A929 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB7B1D66A3540049A929 /* DashboardVC.swift */; };
 		10EFBB7F1D66A3540049A929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EFBB7D1D66A3540049A929 /* Main.storyboard */; };
@@ -94,6 +96,7 @@
 		10BBF4DD1D78CFF50079889E /* CheckBoxBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxBtn.swift; sourceTree = "<group>"; };
 		10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCellView.swift; sourceTree = "<group>"; };
 		10E5F3EC1D7FAFB30076DD07 /* TaskDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDetailVC.swift; sourceTree = "<group>"; };
+		10EC02E51D8619CA0090DF03 /* PhotoPickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerVC.swift; sourceTree = "<group>"; };
 		10EFBB761D66A3540049A929 /* Fixit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fixit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EFBB791D66A3540049A929 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EFBB7B1D66A3540049A929 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
@@ -212,6 +215,7 @@
 				10E5F3EC1D7FAFB30076DD07 /* TaskDetailVC.swift */,
 				1082944B1D80CAD20087E4CE /* ShoppingListVC.swift */,
 				103C100F1D82F6B000E475B3 /* HitListVC.swift */,
+				10EC02E51D8619CA0090DF03 /* PhotoPickerVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -428,6 +432,7 @@
 				107558D01D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */,
 				10EFBBB31D66AE6D0049A929 /* MaterialView.swift in Sources */,
 				10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
+				10EC02E61D8619CA0090DF03 /* PhotoPickerVC.swift in Sources */,
 				105B0D281D75D80400830B71 /* utils.swift in Sources */,
 				109BD0F51D7F71540069CD89 /* DueDatePickerVC.swift in Sources */,
 				10BBF4DE1D78CFF50079889E /* CheckBoxBtn.swift in Sources */,
@@ -461,6 +466,7 @@
 				107558CD1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,
 				10EFBBA91D66AE260049A929 /* Task.swift in Sources */,
 				107558AD1D6A87F40058290F /* Datasource.swift in Sources */,
+				10EC02E71D8619CA0090DF03 /* PhotoPickerVC.swift in Sources */,
 				105B0D291D75D80400830B71 /* utils.swift in Sources */,
 				109BD0F61D7F71540069CD89 /* DueDatePickerVC.swift in Sources */,
 				10BBF4DF1D78CFF50079889E /* CheckBoxBtn.swift in Sources */,

@@ -581,10 +581,10 @@
                                 <exclude reference="Eog-WH-Rtx"/>
                                 <exclude reference="moo-HK-k8M"/>
                                 <exclude reference="qvz-iK-7MN"/>
-                                <exclude reference="Diy-qq-qKZ"/>
-                                <exclude reference="cwm-AA-BwG"/>
                                 <exclude reference="CdM-c1-3TF"/>
                                 <exclude reference="MvQ-Ib-Cpb"/>
+                                <exclude reference="Diy-qq-qKZ"/>
+                                <exclude reference="cwm-AA-BwG"/>
                                 <exclude reference="h1b-9Z-tvb"/>
                                 <exclude reference="pid-fs-0I9"/>
                                 <exclude reference="3Br-xk-8rR"/>
@@ -600,10 +600,10 @@
                                 <exclude reference="yGL-Rn-P6O"/>
                                 <exclude reference="moo-HK-k8M"/>
                                 <exclude reference="qvz-iK-7MN"/>
-                                <exclude reference="Diy-qq-qKZ"/>
-                                <exclude reference="cwm-AA-BwG"/>
                                 <exclude reference="CdM-c1-3TF"/>
                                 <exclude reference="MvQ-Ib-Cpb"/>
+                                <exclude reference="Diy-qq-qKZ"/>
+                                <exclude reference="cwm-AA-BwG"/>
                                 <exclude reference="h1b-9Z-tvb"/>
                                 <exclude reference="pid-fs-0I9"/>
                                 <exclude reference="3Br-xk-8rR"/>
@@ -1510,7 +1510,7 @@
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="selectPhotoPressed:" destination="NTe-Je-CoY" eventType="touchUpInside" id="2HW-ij-oBC"/>
+                                                    <segue destination="7dF-fd-Yvb" kind="show" identifier="showPhotoDetail" id="KkE-uQ-xfH"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4E-Oq-ks2">
@@ -1645,7 +1645,7 @@
                         <outlet property="photoBtnHeight" destination="ute-Jb-K1j" id="ooz-09-MDF"/>
                         <outlet property="scrollView" destination="G3I-wW-Hek" id="Cgo-yX-FfS"/>
                         <outlet property="selectDueDate" destination="Guw-KL-GFS" id="fJm-e7-6K6"/>
-                        <outlet property="selectPhoto" destination="H0d-ma-S6Q" id="ymH-X0-rzF"/>
+                        <outlet property="selectPhoto" destination="H0d-ma-S6Q" id="KEj-dE-pJp"/>
                         <outlet property="tableView" destination="KoU-X9-pj5" id="fC6-6e-epf"/>
                         <outlet property="taskTableHeight" destination="X7R-r4-eU1" id="ZZG-MZ-rbq"/>
                         <outlet property="timeFld" destination="PwE-Ka-7d5" id="GP8-yh-ibj"/>
@@ -1656,7 +1656,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHx-N0-QbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3583.5" y="350.5"/>
+            <point key="canvasLocation" x="2472.5" y="274.5"/>
+        </scene>
+        <!--Photo PickerVC-->
+        <scene sceneID="QmG-kT-zTF">
+            <objects>
+                <viewController id="7dF-fd-Yvb" customClass="PhotoPickerVC" customModule="Fixit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="slK-K8-aKb"/>
+                        <viewControllerLayoutGuide type="bottom" id="vvu-T4-fq7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8l0-NP-vS0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-Gw-TZp">
+                                <rect key="frame" x="20" y="84" width="335" height="335"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ogk-Gw-TZp" secondAttribute="height" multiplier="1:1" id="NWD-kL-b4d"/>
+                                    <constraint firstAttribute="height" constant="300" id="o7Y-aq-0gV"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="o7Y-aq-0gV"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAe-P5-fWp">
+                                <rect key="frame" x="20" y="439" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0fL-wy-GoE"/>
+                                    <constraint firstAttribute="width" constant="100" id="mVL-3z-KfI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="imagePickerPressed:" destination="7dF-fd-Yvb" eventType="touchUpInside" id="lLy-w8-ASm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh7-ZK-4JX">
+                                <rect key="frame" x="255" y="439" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Iq2-ju-bEU"/>
+                                    <constraint firstAttribute="width" constant="100" id="W7r-Cn-DBj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Photo Album">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="imagePickerPressed:" destination="7dF-fd-Yvb" eventType="touchUpInside" id="w2D-Do-UYS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qh7-ZK-4JX" firstAttribute="centerY" secondItem="sAe-P5-fWp" secondAttribute="centerY" id="4kf-jU-YGi"/>
+                            <constraint firstAttribute="trailing" secondItem="qh7-ZK-4JX" secondAttribute="trailing" constant="20" id="7lW-fu-kVe"/>
+                            <constraint firstItem="sAe-P5-fWp" firstAttribute="leading" secondItem="8l0-NP-vS0" secondAttribute="leading" constant="20" id="80i-un-822"/>
+                            <constraint firstAttribute="trailing" secondItem="Ogk-Gw-TZp" secondAttribute="trailing" constant="20" id="8Kg-aM-Jr5"/>
+                            <constraint firstItem="sAe-P5-fWp" firstAttribute="top" secondItem="Ogk-Gw-TZp" secondAttribute="bottom" constant="20" id="JAh-wQ-KTj"/>
+                            <constraint firstItem="Ogk-Gw-TZp" firstAttribute="leading" secondItem="8l0-NP-vS0" secondAttribute="leading" constant="20" id="m8Q-RW-D9a"/>
+                            <constraint firstItem="Ogk-Gw-TZp" firstAttribute="top" secondItem="slK-K8-aKb" secondAttribute="bottom" constant="20" id="uGU-tJ-z1K"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="sAe-P5-fWp" id="NmY-1P-q3A"/>
+                        <outlet property="photoPreview" destination="Ogk-Gw-TZp" id="9jh-3E-uQQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZy-nz-jWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2982.5" y="274.5"/>
         </scene>
         <!--Pick a due date-->
         <scene sceneID="eie-dD-aFW">
@@ -2054,7 +2131,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YnI-WA-tKL"/>
-        <segue reference="RVP-Hx-CJZ"/>
-        <segue reference="WCH-Gr-WaN"/>
+        <segue reference="Zbv-EL-gJw"/>
+        <segue reference="Tdg-8o-wfF"/>
     </inferredMetricsTieBreakers>
 </document>
