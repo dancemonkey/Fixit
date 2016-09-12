@@ -12,6 +12,10 @@ class CheckBoxBtn: UIButton {
 
   override func awakeFromNib() {
     super.awakeFromNib()
+    layer.borderWidth = 2.0
+    layer.borderColor = UIColor.lightGrayColor().CGColor
+    layer.cornerRadius = self.frame.width/2
+    layer.masksToBounds = false
   }
   
   func completeTask() {
