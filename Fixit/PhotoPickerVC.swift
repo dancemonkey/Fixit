@@ -14,8 +14,15 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
   @IBOutlet weak var photoPreview: UIImageView!
   @IBOutlet weak var cameraButton: UIButton!
   
+  var delegate: SaveDelegateData!
+  var image: UIImage? = nil
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    if let image = self.image {
+      photoPreview.image = image
+    }
     
     imagePickerController = UIImagePickerController()
     if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
@@ -25,6 +32,10 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
       cameraButton.backgroundColor = UIColor.lightGrayColor()
     }
     
+  }
+  
+  @IBAction func donePressed(sender: UIButton) {
+    self.navigationController?.popViewControllerAnimated(true)
   }
   
   // MARK: Image Picker Methods
@@ -40,6 +51,7 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
     if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
       self.photoPreview.contentMode = .ScaleAspectFit
       self.photoPreview.image = pickedImage
+      delegate.saveFromDelegate(pickedImage)
     }
     dismissViewControllerAnimated(true, completion: nil)
   }

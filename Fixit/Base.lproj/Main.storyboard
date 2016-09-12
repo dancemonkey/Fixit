@@ -1638,7 +1638,7 @@
                                 </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAe-P5-fWp">
-                                <rect key="frame" x="20" y="439" width="100" height="40"/>
+                                <rect key="frame" x="20" y="459" width="100" height="40"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="0fL-wy-GoE"/>
@@ -1653,7 +1653,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qh7-ZK-4JX">
-                                <rect key="frame" x="255" y="439" width="100" height="40"/>
+                                <rect key="frame" x="255" y="459" width="100" height="40"/>
                                 <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Iq2-ju-bEU"/>
@@ -1667,6 +1667,25 @@
                                     <action selector="imagePickerPressed:" destination="7dF-fd-Yvb" eventType="touchUpInside" id="w2D-Do-UYS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpT-M9-yLu">
+                                <rect key="frame" x="20" y="519" width="335" height="40"/>
+                                <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="g9N-Na-B2q"/>
+                                </constraints>
+                                <state key="normal" title="DONE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="donePressed:" destination="7dF-fd-Yvb" eventType="touchUpInside" id="5vQ-lC-8KP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o4-Ti-etk">
+                                <rect key="frame" x="8" y="427" width="359" height="19"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1674,7 +1693,13 @@
                             <constraint firstAttribute="trailing" secondItem="qh7-ZK-4JX" secondAttribute="trailing" constant="20" id="7lW-fu-kVe"/>
                             <constraint firstItem="sAe-P5-fWp" firstAttribute="leading" secondItem="8l0-NP-vS0" secondAttribute="leading" constant="20" id="80i-un-822"/>
                             <constraint firstAttribute="trailing" secondItem="Ogk-Gw-TZp" secondAttribute="trailing" constant="20" id="8Kg-aM-Jr5"/>
-                            <constraint firstItem="sAe-P5-fWp" firstAttribute="top" secondItem="Ogk-Gw-TZp" secondAttribute="bottom" constant="20" id="JAh-wQ-KTj"/>
+                            <constraint firstItem="8o4-Ti-etk" firstAttribute="top" secondItem="Ogk-Gw-TZp" secondAttribute="bottom" constant="8" id="AAj-oP-p1H"/>
+                            <constraint firstItem="dpT-M9-yLu" firstAttribute="leading" secondItem="8l0-NP-vS0" secondAttribute="leading" constant="20" id="AuA-lm-r3c"/>
+                            <constraint firstAttribute="trailing" secondItem="8o4-Ti-etk" secondAttribute="trailing" constant="8" id="E28-Y4-EOE"/>
+                            <constraint firstAttribute="trailing" secondItem="dpT-M9-yLu" secondAttribute="trailing" constant="20" id="I8n-Sx-FZB"/>
+                            <constraint firstItem="sAe-P5-fWp" firstAttribute="top" secondItem="Ogk-Gw-TZp" secondAttribute="bottom" constant="40" id="JAh-wQ-KTj"/>
+                            <constraint firstItem="8o4-Ti-etk" firstAttribute="leading" secondItem="8l0-NP-vS0" secondAttribute="leading" constant="8" id="dYX-Mf-Kx8"/>
+                            <constraint firstItem="dpT-M9-yLu" firstAttribute="top" secondItem="sAe-P5-fWp" secondAttribute="bottom" constant="20" id="lsg-fF-mMQ"/>
                             <constraint firstItem="Ogk-Gw-TZp" firstAttribute="leading" secondItem="8l0-NP-vS0" secondAttribute="leading" constant="20" id="m8Q-RW-D9a"/>
                             <constraint firstItem="Ogk-Gw-TZp" firstAttribute="top" secondItem="slK-K8-aKb" secondAttribute="bottom" constant="20" id="uGU-tJ-z1K"/>
                         </constraints>
@@ -1919,7 +1944,7 @@
                                                     </mask>
                                                 </variation>
                                                 <connections>
-                                                    <action selector="selectPhotoPressed:" destination="ybF-y6-6lw" eventType="touchUpInside" id="B2h-jt-xML"/>
+                                                    <segue destination="7dF-fd-Yvb" kind="show" identifier="showPhotoDetail" id="Bvn-pR-G0l"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kMz-rq-WMm">
@@ -2081,8 +2106,9 @@
         <image name="blueWood" width="1000" height="1002"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gl2-hA-64l"/>
-        <segue reference="WCH-Gr-WaN"/>
         <segue reference="YnI-WA-tKL"/>
+        <segue reference="Gl2-hA-64l"/>
+        <segue reference="Bvn-pR-G0l"/>
+        <segue reference="WCH-Gr-WaN"/>
     </inferredMetricsTieBreakers>
 </document>

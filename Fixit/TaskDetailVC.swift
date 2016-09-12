@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControllerDelegate, SaveDelegateData, UIImagePickerControllerDelegate {
+class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var titleFld: UITextField!
@@ -26,7 +26,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   var task: Task? = nil
   var project: Project? = nil
   let dateFormatter = NSDateFormatter()
-  var imagePickerController: UIImagePickerController!
   var dueDate: NSDate!
   var imagePickerButtonHeight: CGFloat = 200
   let blankSectionName = "No associated project"
@@ -97,6 +96,14 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
   
   func hideKeyboard() {
     self.view.endEditing(true)
+  }
+  
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if photoSelectBtn.imageView?.image != nil {
+      photoSelectBtnHeight.constant = imagePickerButtonHeight
+    }
   }
   
   func adjustForKeyboard(notification: NSNotification) {
@@ -228,6 +235,13 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
         destVC.delegate = self
         destVC.startDate = self.dueDate
       }
+    } else if segue.identifier == "showPhotoDetail" {
+      if let destVC = segue.destinationViewController as? PhotoPickerVC {
+        destVC.delegate = self
+        if let photo = photoSelectBtn.imageView?.image {
+          destVC.image = photo
+        }
+      }
     }
   }
   
@@ -237,6 +251,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
     } else if data is NSDate {
       self.dueDate = data as? NSDate
       dueDateSelectBtn.setTitle("Due " + dateFormatter.stringFromDate(self.dueDate), forState: .Normal)
+    } else if data is UIImage {
+      photoSelectBtn.setImage(data as? UIImage, forState: .Normal)
     }
   }
   
@@ -244,30 +260,5 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, UINavigationControll
     self.project = project
     self.projectSelectBtn.setTitle(self.project?.title, forState: .Normal)
   }
-  
-  // MARK: Image Picker Methods
-  
-  @IBAction func selectPhotoPressed(sender: UIButton) {
-    imagePickerController = UIImagePickerController()
-    imagePickerController.delegate = self
-    imagePickerController.allowsEditing = true
-    imagePickerController.sourceType = .PhotoLibrary
-    self.presentViewController(imagePickerController, animated: true, completion: nil)
-  }
-  
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-    if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-      self.photoSelectBtn.contentMode = .ScaleAspectFit
-      self.photoSelectBtn.setImage(pickedImage, forState: .Normal)
-      self.photoSelectBtn.setTitle("", forState: .Normal)
-      self.photoSelectBtnHeight.constant = imagePickerButtonHeight
-    }
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-    dismissViewControllerAnimated(true, completion: nil)
-  }
-  
-  
+
 }

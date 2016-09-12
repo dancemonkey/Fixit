@@ -106,7 +106,10 @@
           refreshTableData(withTasks: tasks)
         }
       }
-      self.tableView.reloadData()
+      if selectPhoto.imageView?.image != nil {
+        adjustPhotoHeight()
+      }
+      //self.tableView.reloadData()
     }
     
     @IBAction func deleteCompletedPressed(sender: UIBarButtonItem) {
@@ -147,6 +150,15 @@
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
       }
       scrollView.scrollIndicatorInsets = scrollView.contentInset
+    }
+    
+    func saveFromDelegate(data: AnyObject) {
+      if data is NSDate {
+        self.dueDate = data as! NSDate
+        selectDueDate.setTitle("Due " + dateFormatter.stringFromDate(dueDate), forState: .Normal)
+      } else if data is UIImage {
+        selectPhoto.setImage(data as? UIImage, forState: .Normal)
+      }
     }
     
     @IBAction func savePressed(sender: UIBarButtonItem) {
@@ -214,6 +226,13 @@
         if let destVC = segue.destinationViewController as? TaskDetailVC {
           destVC.task = self.taskData![(sender as! NSIndexPath).row]
         }
+      } else if segue.identifier == "showPhotoDetail" {
+        if let destVC = segue.destinationViewController as? PhotoPickerVC {
+          destVC.delegate = self
+          if let photo = selectPhoto.imageView?.image {
+            destVC.image = photo
+          }
+        }
       }
     }
     
@@ -245,11 +264,6 @@
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       performSegueWithIdentifier("showTaskDetail", sender: indexPath)
-    }
-    
-    func saveFromDelegate(data: AnyObject) {
-      self.dueDate = data as! NSDate
-      selectDueDate.setTitle("Due " + dateFormatter.stringFromDate(dueDate), forState: .Normal)
     }
     
   }
