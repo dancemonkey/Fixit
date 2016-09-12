@@ -19,16 +19,16 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
   @IBOutlet weak var details: UITextView!
   @IBOutlet weak var projectSelectBtn: UIButton!
   @IBOutlet weak var photoSelectBtn: UIButton!
-  @IBOutlet weak var photoSelectBtnHeight: NSLayoutConstraint!
   @IBOutlet weak var shoppingListSwitch: UISwitch!
   @IBOutlet weak var completeBtn: UIBarButtonItem!
+  @IBOutlet weak var photoBtnHeight: NSLayoutConstraint!
   
   var task: Task? = nil
   var project: Project? = nil
   let dateFormatter = NSDateFormatter()
   var dueDate: NSDate!
-  var imagePickerButtonHeight: CGFloat = 200
   let blankSectionName = "No associated project"
+  let photoBtnHeightConst: CGFloat = 100
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -74,8 +74,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
       }
       if let photo = task.photo?.data {
         photoSelectBtn.setImage(UIImage(data: photo), forState: .Normal)
-        photoSelectBtnHeight.constant = imagePickerButtonHeight
         photoSelectBtn.imageView?.contentMode = .ScaleAspectFit
+        photoBtnHeight.constant = photoBtnHeightConst
       }
       if let details = task.details {
         self.details.text = details
@@ -100,10 +100,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
   
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-    
-    if photoSelectBtn.imageView?.image != nil {
-      photoSelectBtnHeight.constant = imagePickerButtonHeight
-    }
   }
   
   func adjustForKeyboard(notification: NSNotification) {
@@ -253,6 +249,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
       dueDateSelectBtn.setTitle("Due " + dateFormatter.stringFromDate(self.dueDate), forState: .Normal)
     } else if data is UIImage {
       photoSelectBtn.setImage(data as? UIImage, forState: .Normal)
+      photoSelectBtn.imageView?.contentMode = .ScaleAspectFit
     }
   }
   
