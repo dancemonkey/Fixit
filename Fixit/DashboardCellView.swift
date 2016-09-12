@@ -22,8 +22,11 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
     formatter.numberStyle = .CurrencyStyle
     formatter.locale = .currentLocale()
     
-    self.layer.borderColor = UIColor(red:0.08, green:0.22, blue:0.46, alpha:1.0).CGColor
-    self.layer.borderWidth = 2.0
+    self.layer.borderColor = UIColor.lightGrayColor().CGColor
+    self.layer.borderWidth = 1.0
+    
+    self.layer.cornerRadius = self.frame.width/2
+    self.layer.masksToBounds = true
   }
   
 }
@@ -33,15 +36,14 @@ extension DashboardCellView {
   func updateProjectView() {
     titleLbls[0].text = ""
     titleLbls[1].text = ""
-    titleLbls[2].text = ""
     
     Datasource.ds.fetchProjects()
     
     for label in titleLbls {
       if label.tag == 0 {
-        label.text = String(Datasource.ds.fetchedProjects.count) + " projects" // total # of projects
+        label.text = String(Datasource.ds.fetchedProjects.count) // total # of projects
       } else if label.tag == 1 {
-        label.text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars()) // dollars
+        label.text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars())! + ", " + String(Datasource.ds.fetchTotalDays()) + " days" // dollars
       } else if label.tag == 2 {
         label.text = String(Datasource.ds.fetchTotalDays()) + " days" // days
       }
@@ -54,7 +56,6 @@ extension DashboardCellView {
     
     titleLbls[0].text = ""
     titleLbls[1].text = ""
-    titleLbls[2].text = ""
     
     let dueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if task.completed == false {
@@ -73,9 +74,9 @@ extension DashboardCellView {
     
     for label in titleLbls {
       if label.tag == 0 {
-        label.text = String(totalUpcomingTasks.count) + " tasks" // total # of tasks
+        label.text = String(totalUpcomingTasks.count) // total # of tasks
       } else if label.tag == 1 {
-        label.text = String("Due: " + String(dueTasks.count))
+        label.text = String("Due: " + String(dueTasks.count)) + ", " + String("Overdue: " + String(Datasource.ds.fetchOverdueTaskCount()))
       } else if label.tag == 2 {
         label.text = String("Overdue: " + String(Datasource.ds.fetchOverdueTaskCount()))
       }
@@ -100,9 +101,9 @@ extension DashboardCellView {
     }
     for label in titleLbls {
       if label.tag == 0 {
-        label.text = String(shoppingCartTasks.count) + " items"
+        label.text = String(shoppingCartTasks.count)
       } else if label.tag == 1 {
-        label.text = formatter.stringFromNumber(shoppingCartValue)! + " total"
+        label.text = formatter.stringFromNumber(shoppingCartValue)!
       }
     }
     
@@ -125,9 +126,9 @@ extension DashboardCellView {
     
     for label in titleLbls {
       if label.tag == 0 {
-        label.text = String(hitlistTasks.count) + " items"
+        label.text = String(hitlistTasks.count)
       } else if label.tag == 1 {
-        label.text = String(hitlistTotalTime) + " min. total"
+        label.text = String(hitlistTotalTime) + " mins."
       }
     }
   }

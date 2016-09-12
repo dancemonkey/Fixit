@@ -13,13 +13,14 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
 
   @IBOutlet weak var tableView: UITableView!
   
-  let sectionNameKeypath = "parentProject.title"
+  let sectionNameKeypath = "sectionName"
   
   lazy var fetchedResultsController: NSFetchedResultsController = {
     let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "parentProject.title", ascending: true)
+    let primarySortDesc = NSSortDescriptor(key: "sectionName", ascending: true)
     let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
-    fetch.sortDescriptors = [primarySortDesc,secondarySortDesc]
+    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
+    fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
     fetch.predicate = NSPredicate(format: "time.intValue <= 15 AND completed.boolValue == false", argumentArray: nil)
     
     let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeypath, cacheName: nil)
