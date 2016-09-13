@@ -197,6 +197,12 @@
           newPhoto.data = UIImagePNGRepresentation(photo)
           project!.photo = newPhoto
         }
+        if let tasks = project!.taskList {
+          for task in tasks {
+            task.setValue(project!, forKey: "parentProject")
+            task.setValue(project!.title, forKey: "sectionName")
+          }
+        }
       }
       
       do {

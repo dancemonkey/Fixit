@@ -13,18 +13,20 @@ class CheckBoxBtn: UIButton {
   override func awakeFromNib() {
     super.awakeFromNib()
     layer.borderWidth = 2.0
-    layer.borderColor = UIColor.lightGrayColor().CGColor
+    layer.borderColor = UIColor(red:0.35, green:0.23, blue:0.00, alpha:1.0).CGColor
     layer.cornerRadius = self.frame.width/2
     layer.masksToBounds = false
   }
   
   func completeTask() {
-    self.setImage(UIImage(named: "Complete"), forState: .Normal)
-    self.imageView?.contentMode = .ScaleAspectFill
+//    self.setImage(UIImage(named: "Complete"), forState: .Normal)
+//    self.imageView?.contentMode = .ScaleAspectFill
+    layer.backgroundColor = UIColor(red:0.35, green:0.23, blue:0.00, alpha:1.0).CGColor
   }
   
   func incompleteTask() {
-    self.setImage(nil, forState: .Normal)
+//    self.setImage(nil, forState: .Normal)
+    layer.backgroundColor = UIColor.whiteColor().CGColor
   }
 
 }
