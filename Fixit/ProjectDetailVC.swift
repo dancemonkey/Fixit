@@ -109,6 +109,7 @@
       if selectPhoto.imageView?.image != nil {
         adjustPhotoHeight()
       }
+      self.tableView.reloadData()
     }
     
     @IBAction func deleteCompletedPressed(sender: UIBarButtonItem) {
