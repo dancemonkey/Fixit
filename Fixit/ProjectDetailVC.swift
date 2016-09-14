@@ -9,20 +9,20 @@
   import UIKit
   import CoreData
   
-  class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveDelegateData, UIScrollViewDelegate {
+  class ProjectDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, SaveDelegateData, UIScrollViewDelegate, UITextViewDelegate {
     
     var project: Project? = nil
     var taskData: [Task]?
     let dateFormatter = NSDateFormatter()
     var dueDate: NSDate!
     let taskHeightConstant: CGFloat = 200
-    var photoHeightConstant: CGFloat = 200
+    var photoHeightConstant: CGFloat!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleFld: UITextField!
     @IBOutlet weak var timeFld: UITextField!
     @IBOutlet weak var costFld: UITextField!
-    @IBOutlet weak var detailsFld: UITextView!
+    @IBOutlet weak var detailsFld: CustomTextView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var selectPhoto: UIButton!
     @IBOutlet weak var selectDueDate: UIButton!
@@ -39,6 +39,8 @@
       notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillChangeFrameNotification, object: nil)
       
       scrollView.delegate = self
+      detailsFld.delegate = self
+      photoHeightConstant = selectPhoto.frame.width
       
       let tapGest = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
       tapGest.cancelsTouchesInView = false
@@ -55,7 +57,7 @@
       if project == nil {
         self.navigationItem.title = "New project"
         selectPhoto.setTitle("Tap to add photo", forState: .Normal)
-        selectDueDate.setTitle("Due date...", forState: .Normal)
+        selectDueDate.setTitle("Set due date...", forState: .Normal)
         self.newTaskBtn.enabled = false
         self.newTaskBtn.backgroundColor = UIColor.grayColor()
         self.newTaskBtn.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
@@ -91,7 +93,7 @@
           taskTableHeight.constant = 200
           refreshTableData(withTasks: tasks)
         }
-        if let details = project.details {
+        if let details = project.details where details != "" {
           detailsFld.text = details
         }
       }
@@ -158,6 +160,7 @@
         selectDueDate.setTitle("Due " + dateFormatter.stringFromDate(dueDate), forState: .Normal)
       } else if data is UIImage {
         selectPhoto.setImage(data as? UIImage, forState: .Normal)
+        selectPhoto.imageView?.contentMode = .ScaleAspectFit
       }
     }
     
@@ -270,6 +273,22 @@
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       performSegueWithIdentifier("showTaskDetail", sender: indexPath)
+    }
+    
+    // MARK: TextView delegate methods
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+      if detailsFld.textColor == detailsFld.placeholderColor {
+        detailsFld.text = nil
+        detailsFld.textColor = detailsFld.defaultColor
+      }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+      if detailsFld.text.isEmpty {
+        detailsFld.text = detailsFld.placeholderText
+        detailsFld.textColor = detailsFld.placeholderColor
+      }
     }
     
   }

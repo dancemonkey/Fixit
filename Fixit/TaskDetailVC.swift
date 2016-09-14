@@ -9,14 +9,14 @@
 import UIKit
 import CoreData
 
-class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
+class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UITextViewDelegate {
   
   @IBOutlet weak var scrollView: UIScrollView!
   @IBOutlet weak var titleFld: UITextField!
   @IBOutlet weak var timeFld: UITextField!
   @IBOutlet weak var costFld: UITextField!
   @IBOutlet weak var dueDateSelectBtn: UIButton!
-  @IBOutlet weak var details: UITextView!
+  @IBOutlet weak var details: CustomTextView!
   @IBOutlet weak var projectSelectBtn: UIButton!
   @IBOutlet weak var photoSelectBtn: UIButton!
   @IBOutlet weak var shoppingListSwitch: UISwitch!
@@ -28,7 +28,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
   let dateFormatter = NSDateFormatter()
   var dueDate: NSDate!
   let blankSectionName = "No associated project"
-  let photoBtnHeightConst: CGFloat = 100
+  var photoBtnHeightConst: CGFloat!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,6 +37,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
     
     details.layer.borderColor = UIColor.blackColor().CGColor
     details.layer.borderWidth = 1.0
+    details.delegate = self
+    
+    photoBtnHeightConst = photoSelectBtn.frame.width
     
     dateFormatter.dateFormat = "M/d/yy"
     
@@ -77,7 +80,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
         photoSelectBtn.imageView?.contentMode = .ScaleAspectFit
         photoBtnHeight.constant = photoBtnHeightConst
       }
-      if let details = task.details {
+      if let details = task.details where details != "" {
         self.details.text = details
       }
       if let project = task.parentProject {
@@ -250,12 +253,29 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData {
     } else if data is UIImage {
       photoSelectBtn.setImage(data as? UIImage, forState: .Normal)
       photoSelectBtn.imageView?.contentMode = .ScaleAspectFit
+      photoBtnHeight.constant = photoBtnHeightConst
     }
   }
   
   func setProject(withProject project: Project) {
     self.project = project
     self.projectSelectBtn.setTitle(self.project?.title, forState: .Normal)
+  }
+  
+  // MARK: TextView delegate methods
+  
+  func textViewDidBeginEditing(textView: UITextView) {
+    if details.textColor == details.placeholderColor {
+      details.text = nil
+      details.textColor = details.defaultColor
+    }
+  }
+  
+  func textViewDidEndEditing(textView: UITextView) {
+    if details.text.isEmpty {
+      details.text = details.placeholderText
+      details.textColor = details.placeholderColor
+    }
   }
 
 }
