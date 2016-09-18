@@ -15,26 +15,23 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   
   let sectionNameKeypath = "sectionName"
   
-  lazy var fetchedResultsController: NSFetchedResultsController = { () -> <<error type>> in 
-    let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "sectionName", ascending: true)
-    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
-    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
-    fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
-    fetch.predicate = NSPredicate(format: "time.intValue <= 15 AND completed.boolValue == false", argumentArray: nil)
-    
-    let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeypath, cacheName: nil)
-    
-    frc.delegate = self
-    
-    return frc
-  }()
+  var fetchedResultsController: NSFetchedResultsController<Task>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.delegate = self
     tableView.dataSource = self
+    
+    let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
+    let primarySortDesc = NSSortDescriptor(key: "sectionName", ascending: true)
+    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
+    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
+    fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
+    fetch.predicate = NSPredicate(format: "time.intValue <= 15 AND completed.boolValue == false", argumentArray: nil)
+    
+    fetchedResultsController = NSFetchedResultsController<Task>(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeypath, cacheName: nil)
+    fetchedResultsController.delegate = self
     
     attemptFetch()
   }
@@ -55,7 +52,7 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showTaskDetail" {
       if let destVC = segue.destination as? TaskDetailVC {
-        destVC.task = fetchedResultsController.object(at: sender as! IndexPath) as? Task
+        destVC.task = fetchedResultsController.object(at: sender as! IndexPath)
       }
     }
   }
@@ -82,7 +79,7 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    let managedObject = fetchedResultsController.object(at: indexPath) as! Task
+    let managedObject = fetchedResultsController.object(at: indexPath)
     appDelegate.managedObjectContext.delete(managedObject)
     do {
       try appDelegate.managedObjectContext.save()
@@ -109,7 +106,7 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   }
   
   func configureCell(_ cell: HitListCell, indexPath: IndexPath) {
-    let task = fetchedResultsController.object(at: indexPath) as! Task
+    let task = fetchedResultsController.object(at: indexPath)
     cell.configureCell(withTask: task)
   }
 

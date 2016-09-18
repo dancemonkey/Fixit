@@ -13,19 +13,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   @IBOutlet weak var tableView: UITableView!
   
-  lazy var fetchedResultsController: NSFetchedResultsController = { () -> <<error type>> in 
-    let fetch = NSFetchRequest(entityName: fetches.Projects.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: false)
-    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
-    let tertiarySortDescr = NSSortDescriptor(key: "startDate", ascending: true)
-    fetch.sortDescriptors = [primarySortDesc]
-    
-    let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-    
-    frc.delegate = self
-    
-    return frc
-  }()
+  var fetchedResultsController: NSFetchedResultsController<Task>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -37,6 +25,17 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    let fetch = NSFetchRequest<Task>(entityName: fetches.Projects.rawValue)
+    let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: false)
+    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
+    let tertiarySortDescr = NSSortDescriptor(key: "startDate", ascending: true)
+    fetch.sortDescriptors = [primarySortDesc]
+    
+    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+    
+    fetchedResultsController.delegate = self
+
     attemptFetch()
   }
   

@@ -162,7 +162,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     let formatter = NumberFormatter()
     formatter.usesGroupingSeparator = true
     formatter.numberStyle = .currency
-    formatter.locale = .current()
+    formatter.locale = .current
     
     if self.task == nil {
       if let newTask = NSEntityDescription.insertNewObject(forEntityName: "Task", into: context) as? Task {
@@ -170,10 +170,10 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
         newTask.title = titleFld.text!
         newTask.completed = false
-        newTask.cost = Double(costFld.text!)
+        newTask.cost = Double(costFld.text!) as NSNumber?
         newTask.details = details.text
         newTask.dueDate = self.dueDate
-        newTask.time = Int(timeFld.text!)
+        newTask.time = Int(timeFld.text!) as NSNumber?
         if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
           newPhoto.data = UIImagePNGRepresentation(photo)
           newTask.photo = newPhoto
@@ -186,7 +186,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
             newTask.sectionName = blankSectionName
           }
         }
-        newTask.shoppingList = shoppingListSwitch.isOn
+        newTask.shoppingList = shoppingListSwitch.isOn as NSNumber?
       }
     } else {
       

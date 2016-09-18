@@ -24,30 +24,26 @@ class Datasource {
   var fetchedPhotos = [Photo]()
   
   func fetchProjects() {
-    let fetchReq = NSFetchRequest(entityName: fetches.Projects.rawValue)
+    let fetchReq = NSFetchRequest<Project>(entityName: fetches.Projects.rawValue)
     let sortDesc = NSSortDescriptor(key: "startDate", ascending: true)
     fetchReq.sortDescriptors = [sortDesc]
     
     do {
       let results = try appDelegate.managedObjectContext.fetch(fetchReq)
-      if let projects = results as? [Project] {
-        self.fetchedProjects = projects
-      }
+      self.fetchedProjects = results
     } catch {
       print(error)
     }
   }
   
   func fetchTasks() {
-    let fetchReq = NSFetchRequest(entityName: fetches.Tasks.rawValue)
+    let fetchReq = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
     let sortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
     fetchReq.sortDescriptors = [sortDesc]
     
     do {
       let results = try appDelegate.managedObjectContext.fetch(fetchReq)
-      if let tasks = results as? [Task] {
-        self.fetchedTasks = tasks
-      }
+      self.fetchedTasks = results
     } catch {
       print(error)
     }
@@ -69,15 +65,13 @@ class Datasource {
   }
   
   func fetchPhotos() {
-    let fetchReq = NSFetchRequest(entityName: fetches.Photos.rawValue)
+    let fetchReq = NSFetchRequest<Photo>(entityName: fetches.Photos.rawValue)
     let sortDesc = NSSortDescriptor(key: "creationDate", ascending: true)
     fetchReq.sortDescriptors = [sortDesc]
     
     do {
       let results = try appDelegate.managedObjectContext.fetch(fetchReq)
-      if let photos = results as? [Photo] {
-        self.fetchedPhotos = photos
-      }
+      self.fetchedPhotos = results
     } catch {
       print(error)
     }

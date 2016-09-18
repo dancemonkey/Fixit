@@ -34,7 +34,7 @@ class DueDatePickerVC: UIViewController {
   }
   
   @IBAction func donePressed(_ sender: UIButton) {
-    delegate.saveFromDelegate(datePicker.date)
+    delegate.saveFromDelegate(datePicker.date as AnyObject)
     self.navigationController?.popViewController(animated: true)
   }
   

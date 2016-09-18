@@ -20,7 +20,7 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
   override func awakeFromNib() {
     formatter.usesGroupingSeparator = true
     formatter.numberStyle = .currency
-    formatter.locale = .current()
+    formatter.locale = .current
     
     self.layer.borderColor = UIColor.lightGray.cgColor
     self.layer.borderWidth = 1.0
@@ -43,7 +43,7 @@ extension DashboardCellView {
       if label.tag == 0 {
         label.text = String(Datasource.ds.fetchedProjects.count) // total # of projects
       } else if label.tag == 1 {
-        label.text = formatter.string(from: NSNumber(Datasource.ds.fetchTotalDollars()))! + ", " + String(Datasource.ds.fetchTotalDays()) + " days" // dollars
+        label.text = formatter.string(from: NSNumber(value: Datasource.ds.fetchTotalDollars()))! + ", " + String(Datasource.ds.fetchTotalDays()) + " days" // dollars
       } else if label.tag == 2 {
         label.text = String(Datasource.ds.fetchTotalDays()) + " days" // days
       }
@@ -103,7 +103,7 @@ extension DashboardCellView {
       if label.tag == 0 {
         label.text = String(shoppingCartTasks.count)
       } else if label.tag == 1 {
-        label.text = formatter.string(from: NSNumber(shoppingCartValue))!
+        label.text = formatter.string(from: NSNumber(value: shoppingCartValue))
       }
     }
     

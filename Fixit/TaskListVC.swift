@@ -15,19 +15,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   let sectionNameKeyPath = "completed"
   
-  lazy var fetchedResultsController: NSFetchedResultsController = { () -> <<error type>> in 
-    let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
-    let secondarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
-    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
-    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDesc]
-    
-    let frc = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeyPath, cacheName: nil)
-    
-    frc.delegate = self
-    
-    return frc
-  }()
+  var fetchedResultsController: NSFetchedResultsController<Task>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,6 +26,17 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
+    let primarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
+    let secondarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
+    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
+    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDesc]
+    
+    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeyPath, cacheName: nil)
+    
+    fetchedResultsController.delegate = self
+
     attemptFetch()
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44.0, right: 0)
   }
@@ -60,9 +59,9 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
     alert.addAction(UIAlertAction(title: "Okay", style: .destructive, handler: { (action: UIAlertAction) in
       
-      let deleteRequest = NSFetchRequest(entityName: "Task")
+      let deleteRequest = NSFetchRequest<Task>(entityName: "Task")
       deleteRequest.predicate = NSPredicate(format: "completed == 1", argumentArray: nil)
-      let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
+      let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest as! NSFetchRequest<NSFetchRequestResult>)
       
       do {
         let _ = try appDelegate.managedObjectContext.execute(batchDeleteRequest) as! NSBatchDeleteResult
@@ -82,7 +81,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showTaskDetail" {
       if let destVC = segue.destination as? TaskDetailVC {
-        destVC.task = fetchedResultsController.object(at: sender as! IndexPath) as? Task
+        destVC.task = fetchedResultsController.object(at: sender as! IndexPath)
       }
     }
   }
@@ -109,7 +108,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    let managedObject = fetchedResultsController.object(at: indexPath) as! Task
+    let managedObject = fetchedResultsController.object(at: indexPath)
     appDelegate.managedObjectContext.delete(managedObject)
     do {
       try appDelegate.managedObjectContext.save()
@@ -139,7 +138,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func configureCell(_ cell: TaskCell, indexPath: IndexPath) {
-    let task = fetchedResultsController.object(at: indexPath) as! Task
+    let task = fetchedResultsController.object(at: indexPath)
     cell.configureCell(withTask: task)
   }
   

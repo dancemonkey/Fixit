@@ -170,7 +170,7 @@
       let formatter = NumberFormatter()
       formatter.usesGroupingSeparator = true
       formatter.numberStyle = .currency
-      formatter.locale = .current()
+      formatter.locale = .current
       
       if project == nil {
         if let newProject = NSEntityDescription.insertNewObject(forEntityName: "Project", into: context) as? Project {
@@ -178,10 +178,10 @@
           // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
           newProject.title = titleFld.text!
           newProject.complete = false
-          newProject.estimatedCost = Double(costFld.text!)
+          newProject.estimatedCost = Double(costFld.text!) as NSNumber?
           newProject.details = detailsFld.text
           newProject.dueDate = self.dueDate
-          newProject.estimatedTime = Double(timeFld.text!)
+          newProject.estimatedTime = Double(timeFld.text!) as NSNumber?
           if let photo = selectPhoto.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
             newPhoto.data = UIImagePNGRepresentation(photo)
             newProject.photo = newPhoto

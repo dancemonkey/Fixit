@@ -53,7 +53,7 @@ class ProjectCell: UITableViewCell {
       let formatter = NumberFormatter()
       formatter.usesGroupingSeparator = true
       formatter.numberStyle = .currency
-      formatter.locale = .current()
+      formatter.locale = .current
       self.estCostLbl.text = formatter.string(from: estCost)
     } else {
       estCostLbl.text = "No cost estimate"

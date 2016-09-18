@@ -58,7 +58,7 @@ class TaskCell: UITableViewCell {
       let formatter = NumberFormatter()
       formatter.usesGroupingSeparator = true
       formatter.numberStyle = .currency
-      formatter.locale = .current()
+      formatter.locale = .current
 
       timeAndCostLbl.text = formatter.string(from: cost)! + ", " + String(describing: time) + " min."
     } else {

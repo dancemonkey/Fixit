@@ -45,7 +45,7 @@ class ShoppingListCell: UITableViewCell {
       let formatter = NumberFormatter()
       formatter.usesGroupingSeparator = true
       formatter.numberStyle = .currency
-      formatter.locale = .current()
+      formatter.locale = .current
       
       costLbl.text = formatter.string(from: cost)!
     } else {
