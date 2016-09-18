@@ -14,7 +14,7 @@ class Project: NSManagedObject {
 
   override func awakeFromInsert() {
     super.awakeFromInsert()
-    self.startDate = NSDate()
+    self.startDate = Date()
   }
   
 }

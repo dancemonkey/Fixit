@@ -25,39 +25,39 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
     }
     
     imagePickerController = UIImagePickerController()
-    if UIImagePickerController.availableCaptureModesForCameraDevice(.Rear) != nil {
-      cameraButton.enabled = true
+    if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+      cameraButton.isEnabled = true
     } else {
-      cameraButton.enabled = false
-      cameraButton.backgroundColor = UIColor.lightGrayColor()
+      cameraButton.isEnabled = false
+      cameraButton.backgroundColor = UIColor.lightGray
     }
     
   }
   
-  @IBAction func donePressed(sender: UIButton) {
-    self.navigationController?.popViewControllerAnimated(true)
+  @IBAction func donePressed(_ sender: UIButton) {
+    self.navigationController?.popViewController(animated: true)
   }
   
   // MARK: Image Picker Methods
   
-  @IBAction func imagePickerPressed(sender: UIButton) {
+  @IBAction func imagePickerPressed(_ sender: UIButton) {
     imagePickerController.delegate = self
     imagePickerController.allowsEditing = true
-    imagePickerController.sourceType = (sender.titleLabel?.text == "Camera" ? .Camera : .PhotoLibrary)
-    self.presentViewController(imagePickerController, animated: true, completion: nil)
+    imagePickerController.sourceType = (sender.titleLabel?.text == "Camera" ? .camera : .photoLibrary)
+    self.present(imagePickerController, animated: true, completion: nil)
   }
   
-  func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
-      self.photoPreview.contentMode = .ScaleAspectFit
+      self.photoPreview.contentMode = .scaleAspectFit
       self.photoPreview.image = pickedImage
       delegate.saveFromDelegate(pickedImage)
     }
-    dismissViewControllerAnimated(true, completion: nil)
+    dismiss(animated: true, completion: nil)
   }
   
-  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-    dismissViewControllerAnimated(true, completion: nil)
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true, completion: nil)
   }
   
 }

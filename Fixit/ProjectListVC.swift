@@ -13,7 +13,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   @IBOutlet weak var tableView: UITableView!
   
-  lazy var fetchedResultsController: NSFetchedResultsController = {
+  lazy var fetchedResultsController: NSFetchedResultsController = { () -> <<error type>> in 
     let fetch = NSFetchRequest(entityName: fetches.Projects.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: false)
     let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
@@ -35,7 +35,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     attemptFetch()
   }
@@ -48,18 +48,18 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
   }
   
-  @IBAction func addNewPressed(sender: UIBarButtonItem) {
-    performSegueWithIdentifier("createNewProject", sender: self)
+  @IBAction func addNewPressed(_ sender: UIBarButtonItem) {
+    performSegue(withIdentifier: "createNewProject", sender: self)
   }
   
   
   // MARK: Tableview methods
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return (fetchedResultsController.sections?.count)!
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let sections = fetchedResultsController.sections {
       let current = sections[section]
       return current.numberOfObjects
@@ -67,26 +67,26 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     return 0
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("projectCell", forIndexPath: indexPath) as! ProjectCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "projectCell", for: indexPath) as! ProjectCell
     configureCell(cell, indexPath: indexPath)
-    cell.tag = indexPath.row
+    cell.tag = (indexPath as NSIndexPath).row
     return cell
   }
   
-  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     
-    let managedObject = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
+    let managedObject = fetchedResultsController.object(at: indexPath) as! Project
     
     if let taskList = managedObject.taskList {
       for task in taskList {
-        appDelegate.managedObjectContext.deleteObject(task as! NSManagedObject)
+        appDelegate.managedObjectContext.delete(task as! NSManagedObject)
       }
     }
     if let photo = managedObject.photo {
-      appDelegate.managedObjectContext.deleteObject(photo)
+      appDelegate.managedObjectContext.delete(photo)
     }
-    appDelegate.managedObjectContext.deleteObject(managedObject)
+    appDelegate.managedObjectContext.delete(managedObject)
     
     do {
       try appDelegate.managedObjectContext.save()
@@ -96,48 +96,48 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
   }
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showProjectDetail", sender: indexPath)
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "showProjectDetail", sender: indexPath)
   }
   
-  func configureCell(cell: ProjectCell, indexPath: NSIndexPath) {
-    let project = fetchedResultsController.objectAtIndexPath(indexPath) as! Project
+  func configureCell(_ cell: ProjectCell, indexPath: IndexPath) {
+    let project = fetchedResultsController.object(at: indexPath) as! Project
     cell.configureCell(withProject: project)
   }
   
   // MARK: FRC Methods
   
-  func controllerWillChangeContent(controller: NSFetchedResultsController) {
+  func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.beginUpdates()
   }
   
-  func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
     switch type {
-    case .Update:
-      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? ProjectCell
+    case .update:
+      let cell = self.tableView.cellForRow(at: indexPath!) as? ProjectCell
       configureCell(cell!, indexPath: indexPath!)
-    case .Insert:
-      self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-    case .Delete:
-      self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-    case .Move:
+    case .insert:
+      self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+    case .delete:
+      self.tableView.deleteRows(at: [indexPath!], with: .fade)
+    case .move:
       if let deleteIndexPath = indexPath {
-        self.tableView.deleteRowsAtIndexPaths([deleteIndexPath], withRowAnimation: .Fade)
+        self.tableView.deleteRows(at: [deleteIndexPath], with: .fade)
       }
       if let insertIndexPath = newIndexPath {
-        self.tableView.insertRowsAtIndexPaths([insertIndexPath], withRowAnimation: .Fade)
+        self.tableView.insertRows(at: [insertIndexPath], with: .fade)
       }
     }
   }
   
-  func controllerDidChangeContent(controller: NSFetchedResultsController) {
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.endUpdates()
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showProjectDetail" {
-      if let destVC = segue.destinationViewController as? ProjectDetailVC {
-        destVC.project = fetchedResultsController.objectAtIndexPath(sender as! NSIndexPath) as? Project
+      if let destVC = segue.destination as? ProjectDetailVC {
+        destVC.project = fetchedResultsController.object(at: sender as! IndexPath) as? Project
       }
     }
   }

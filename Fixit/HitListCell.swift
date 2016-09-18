@@ -22,7 +22,7 @@ class HitListCell: UITableViewCell {
     super.awakeFromNib()
   }
   
-  override func setSelected(selected: Bool, animated: Bool) {
+  override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
   }
@@ -39,11 +39,11 @@ class HitListCell: UITableViewCell {
     }
     if let time = task.time {
       
-      timeLabel.text = String(time) + " mins."
+      timeLabel.text = String(describing: time) + " mins."
     }
   }
   
-  @IBAction func boxChecked(sender: CheckBoxBtn) {
+  @IBAction func boxChecked(_ sender: CheckBoxBtn) {
     self.task.checkOffTask()
     if task.completed!.boolValue {
       sender.completeTask()

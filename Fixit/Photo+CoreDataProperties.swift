@@ -14,8 +14,8 @@ import CoreData
 
 extension Photo {
 
-    @NSManaged var creationDate: NSDate?
-    @NSManaged var data: NSData?
+    @NSManaged var creationDate: Date?
+    @NSManaged var data: Data?
     @NSManaged var parentProject: Project?
     @NSManaged var parentTask: Task?
 

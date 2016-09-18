@@ -29,7 +29,7 @@ class Datasource {
     fetchReq.sortDescriptors = [sortDesc]
     
     do {
-      let results = try appDelegate.managedObjectContext.executeFetchRequest(fetchReq)
+      let results = try appDelegate.managedObjectContext.fetch(fetchReq)
       if let projects = results as? [Project] {
         self.fetchedProjects = projects
       }
@@ -44,7 +44,7 @@ class Datasource {
     fetchReq.sortDescriptors = [sortDesc]
     
     do {
-      let results = try appDelegate.managedObjectContext.executeFetchRequest(fetchReq)
+      let results = try appDelegate.managedObjectContext.fetch(fetchReq)
       if let tasks = results as? [Task] {
         self.fetchedTasks = tasks
       }
@@ -57,10 +57,10 @@ class Datasource {
     self.fetchTasks()
     let overdue = self.fetchedTasks.filter { (task) -> Bool in
       if task.completed == false {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "M/D/Y"
         if let date = task.dueDate {
-          return formatter.stringFromDate(date) < formatter.stringFromDate(NSDate())
+          return formatter.string(from: date as Date) < formatter.string(from: Date())
         }
       }
       return false
@@ -74,7 +74,7 @@ class Datasource {
     fetchReq.sortDescriptors = [sortDesc]
     
     do {
-      let results = try appDelegate.managedObjectContext.executeFetchRequest(fetchReq)
+      let results = try appDelegate.managedObjectContext.fetch(fetchReq)
       if let photos = results as? [Photo] {
         self.fetchedPhotos = photos
       }
@@ -100,7 +100,7 @@ class Datasource {
     
     let totalTime = fetchedProjects.reduce(0) { (value: Int, project: Project) -> Int in
       if let minutes = project.estimatedTime {
-        return Int(minutes.intValue) + value
+        return Int(minutes.int32Value) + value
       }
       return value
     }

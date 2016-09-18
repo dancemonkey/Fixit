@@ -11,7 +11,7 @@ import UIKit
 class DueDatePickerVC: UIViewController {
   
   var delegate: SaveDelegateData!
-  var startDate: NSDate? = nil
+  var startDate: Date? = nil
   
   @IBOutlet weak var datePicker: UIDatePicker!
   @IBOutlet weak var dayOfWeek: UILabel!
@@ -19,7 +19,7 @@ class DueDatePickerVC: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.datePicker.addTarget(self, action: #selector(DueDatePickerVC.datePickerChanged), forControlEvents: .ValueChanged)
+    self.datePicker.addTarget(self, action: #selector(DueDatePickerVC.datePickerChanged), for: .valueChanged)
     
     if let date = startDate {
       datePicker.setDate(date, animated: true)
@@ -33,9 +33,9 @@ class DueDatePickerVC: UIViewController {
     dayOfWeek.text = datePicker.date.dayOfTheWeek()
   }
   
-  @IBAction func donePressed(sender: UIButton) {
+  @IBAction func donePressed(_ sender: UIButton) {
     delegate.saveFromDelegate(datePicker.date)
-    self.navigationController?.popViewControllerAnimated(true)
+    self.navigationController?.popViewController(animated: true)
   }
   
 }

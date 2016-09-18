@@ -11,8 +11,8 @@ import UIKit
 class CustomTextView: UITextView {
   
   let placeholderText = "More details"
-  let defaultColor = UIColor.blackColor()
-  let placeholderColor = UIColor.lightGrayColor()
+  let defaultColor = UIColor.black
+  let placeholderColor = UIColor.lightGray
   
   override func awakeFromNib() {
     super.awakeFromNib()

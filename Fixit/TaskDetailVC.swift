@@ -25,8 +25,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   
   var task: Task? = nil
   var project: Project? = nil
-  let dateFormatter = NSDateFormatter()
-  var dueDate: NSDate!
+  let dateFormatter = DateFormatter()
+  var dueDate: Date!
   let blankSectionName = "No associated project"
   var photoBtnHeightConst: CGFloat!
   
@@ -35,7 +35,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     
     setCompleteBtnStatus()
     
-    details.layer.borderColor = UIColor.blackColor().CGColor
+    details.layer.borderColor = UIColor.black.cgColor
     details.layer.borderWidth = 1.0
     details.delegate = self
     
@@ -43,9 +43,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     
     dateFormatter.dateFormat = "M/d/yy"
     
-    let notificationCenter = NSNotificationCenter.defaultCenter()
-    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillHideNotification, object: nil)
-    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIKeyboardWillChangeFrameNotification, object: nil)
+    let notificationCenter = NotificationCenter.default
+    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
     
     scrollView.delegate = self
     
@@ -55,8 +55,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     
     if task == nil {
       self.navigationItem.title = "New task"
-      photoSelectBtn.setTitle("Tap to add photo", forState: .Normal)
-      dueDateSelectBtn.setTitle("Due date...", forState: .Normal)
+      photoSelectBtn.setTitle("Tap to add photo", for: UIControlState())
+      dueDateSelectBtn.setTitle("Due date...", for: UIControlState())
     }
     
     if let task = self.task {
@@ -66,21 +66,21 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         titleFld.text = title
       }
       if let time = task.time {
-        timeFld.text = String(time)
+        timeFld.text = String(describing: time)
       }
       if let cost = task.cost {
-        costFld.text = String(cost)
+        costFld.text = String(describing: cost)
       }
       if let dueDate = task.dueDate {
-        dueDateSelectBtn.setTitle("Due " + dateFormatter.stringFromDate(dueDate), forState: .Normal)
-        self.dueDate = dueDate
+        dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: dueDate as Date), for: UIControlState())
+        self.dueDate = dueDate as Date!
       }
       if let photo = task.photo?.data {
-        photoSelectBtn.setImage(UIImage(data: photo), forState: .Normal)
-        photoSelectBtn.imageView?.contentMode = .ScaleAspectFit
+        photoSelectBtn.setImage(UIImage(data: photo as Data), for: UIControlState())
+        photoSelectBtn.imageView?.contentMode = .scaleAspectFit
         photoBtnHeight.constant = photoBtnHeightConst
       }
-      if let details = task.details where details != "" {
+      if let details = task.details , details != "" {
         self.details.text = details
       }
       if let project = task.parentProject {
@@ -101,18 +101,18 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     self.view.endEditing(true)
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
   }
   
-  func adjustForKeyboard(notification: NSNotification) {
-    let userInfo = notification.userInfo!
+  func adjustForKeyboard(_ notification: Notification) {
+    let userInfo = (notification as NSNotification).userInfo!
     
-    let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-    let keyboardViewEndFrame = view.convertRect(keyboardScreenEndFrame, fromView: view.window)
+    let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+    let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
     
-    if notification.name == UIKeyboardWillHideNotification {
-      scrollView.contentInset = UIEdgeInsetsZero
+    if notification.name == NSNotification.Name.UIKeyboardWillHide {
+      scrollView.contentInset = UIEdgeInsets.zero
     } else {
       scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
     }
@@ -121,12 +121,12 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   
   func setCompleteBtnStatus() {
     if let task = self.task {
-      completeBtn.enabled = !(task.completed?.boolValue)!
-      if completeBtn.enabled == false {
+      completeBtn.isEnabled = !(task.completed?.boolValue)!
+      if completeBtn.isEnabled == false {
         completeBtn.title = "Task Completed"
       }
     } else {
-      completeBtn.enabled = false
+      completeBtn.isEnabled = false
       completeBtn.title = "Tap to complete"
     }
   }
@@ -136,14 +136,14 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     do {
       try context.save()
       if pop {
-        self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popViewController(animated: true)
       }
     } catch {
       print(error)
     }
   }
   
-  @IBAction func completePressed(sender: UIBarButtonItem) {
+  @IBAction func completePressed(_ sender: UIBarButtonItem) {
     if let task = self.task {
       if task.completed == false {
         task.completed = true
@@ -155,17 +155,17 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     }
   }
   
-  @IBAction func savePressed(sender: UIBarButtonItem) {
+  @IBAction func savePressed(_ sender: UIBarButtonItem) {
     
     let context = appDelegate.managedObjectContext
     
-    let formatter = NSNumberFormatter()
+    let formatter = NumberFormatter()
     formatter.usesGroupingSeparator = true
-    formatter.numberStyle = .CurrencyStyle
-    formatter.locale = .currentLocale()
+    formatter.numberStyle = .currency
+    formatter.locale = .current()
     
     if self.task == nil {
-      if let newTask = NSEntityDescription.insertNewObjectForEntityForName("Task", inManagedObjectContext: context) as? Task {
+      if let newTask = NSEntityDescription.insertNewObject(forEntityName: "Task", into: context) as? Task {
         
         // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
         newTask.title = titleFld.text!
@@ -174,7 +174,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         newTask.details = details.text
         newTask.dueDate = self.dueDate
         newTask.time = Int(timeFld.text!)
-        if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo {
+        if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
           newPhoto.data = UIImagePNGRepresentation(photo)
           newTask.photo = newPhoto
         }
@@ -186,18 +186,18 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
             newTask.sectionName = blankSectionName
           }
         }
-        newTask.shoppingList = shoppingListSwitch.on
+        newTask.shoppingList = shoppingListSwitch.isOn
       }
     } else {
       
       // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
       task!.title = titleFld.text!
       //task!.completed = false
-      task!.cost = Double(costFld.text!)
+      task!.cost = Double(costFld.text!) as NSNumber?
       task!.details = details.text
       task!.dueDate = self.dueDate
-      task!.time = Int(timeFld.text!)
-      if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: context) as? Photo {
+      task!.time = Int(timeFld.text!) as NSNumber?
+      if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
         newPhoto.data = UIImagePNGRepresentation(photo)
         task!.photo = newPhoto
       }
@@ -209,33 +209,33 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
           task!.sectionName = blankSectionName
         }
       }
-      task!.shoppingList = shoppingListSwitch.on
+      task!.shoppingList = shoppingListSwitch.isOn as NSNumber?
     }
     
     save(withPop: true)
     
   }
   
-  @IBAction func cancelPressed(sender: UIButton) {
-    self.navigationController?.popViewControllerAnimated(true)
+  @IBAction func cancelPressed(_ sender: UIButton) {
+    self.navigationController?.popViewController(animated: true)
   }
   
-  @IBAction func selectProjectPressed(sender: UIButton) {
-    performSegueWithIdentifier("selectAProject", sender: self)
+  @IBAction func selectProjectPressed(_ sender: UIButton) {
+    performSegue(withIdentifier: "selectAProject", sender: self)
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "selectAProject" {
-      if let destVC = segue.destinationViewController as? ProjectSelectVC {
+      if let destVC = segue.destination as? ProjectSelectVC {
         destVC.delegate = self
       }
     } else if segue.identifier == "showDueDatePicker" {
-      if let destVC = segue.destinationViewController as? DueDatePickerVC {
+      if let destVC = segue.destination as? DueDatePickerVC {
         destVC.delegate = self
         destVC.startDate = self.dueDate
       }
     } else if segue.identifier == "showPhotoDetail" {
-      if let destVC = segue.destinationViewController as? PhotoPickerVC {
+      if let destVC = segue.destination as? PhotoPickerVC {
         destVC.delegate = self
         if let photo = photoSelectBtn.imageView?.image {
           destVC.image = photo
@@ -244,34 +244,34 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     }
   }
   
-  func saveFromDelegate(data: AnyObject) {
+  func saveFromDelegate(_ data: AnyObject) {
     if data is Project {
       setProject(withProject: (data as? Project)!)
-    } else if data is NSDate {
-      self.dueDate = data as? NSDate
-      dueDateSelectBtn.setTitle("Due " + dateFormatter.stringFromDate(self.dueDate), forState: .Normal)
+    } else if data is Date {
+      self.dueDate = data as? Date
+      dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: self.dueDate), for: UIControlState())
     } else if data is UIImage {
-      photoSelectBtn.setImage(data as? UIImage, forState: .Normal)
-      photoSelectBtn.imageView?.contentMode = .ScaleAspectFit
+      photoSelectBtn.setImage(data as? UIImage, for: UIControlState())
+      photoSelectBtn.imageView?.contentMode = .scaleAspectFit
       photoBtnHeight.constant = photoBtnHeightConst
     }
   }
   
   func setProject(withProject project: Project) {
     self.project = project
-    self.projectSelectBtn.setTitle(self.project?.title, forState: .Normal)
+    self.projectSelectBtn.setTitle(self.project?.title, for: UIControlState())
   }
   
   // MARK: TextView delegate methods
   
-  func textViewDidBeginEditing(textView: UITextView) {
+  func textViewDidBeginEditing(_ textView: UITextView) {
     if details.textColor == details.placeholderColor {
       details.text = nil
       details.textColor = details.defaultColor
     }
   }
   
-  func textViewDidEndEditing(textView: UITextView) {
+  func textViewDidEndEditing(_ textView: UITextView) {
     if details.text.isEmpty {
       details.text = details.placeholderText
       details.textColor = details.placeholderColor

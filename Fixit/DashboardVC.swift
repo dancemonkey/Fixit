@@ -28,7 +28,7 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
   
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
     projectCell.updateProjectView()
@@ -40,36 +40,36 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     
   }
   
-  @IBAction func buttonTapped(sender: UIButton) {
-    performSegueWithIdentifier(segueStrings[sender.tag], sender: sender)
+  @IBAction func buttonTapped(_ sender: UIButton) {
+    performSegue(withIdentifier: segueStrings[sender.tag], sender: sender)
   }
   
   func setCircleMenuButtons() {
     
   }
   
-  func circleMenu(circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+  func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
     if atIndex == 0 {
-      button.addTarget(self, action: #selector(addProject(_:)), forControlEvents: .TouchUpInside)
-      button.setImage(UIImage(named: "ProjectIconSmall"), forState: .Normal)
+      button.addTarget(self, action: #selector(addProject(_:)), for: .touchUpInside)
+      button.setImage(UIImage(named: "ProjectIconSmall"), for: UIControlState())
       button.backgroundColor = UIColor.init(red: 16/255.0, green: 81/255.0, blue: 165/255.0, alpha: 1.0)
     } else if atIndex == 1 {
-      button.addTarget(self, action: #selector(addTask(_:)), forControlEvents: .TouchUpInside)
-      button.setImage(UIImage(named: "TaskIconSmall"), forState: .Normal)
+      button.addTarget(self, action: #selector(addTask(_:)), for: .touchUpInside)
+      button.setImage(UIImage(named: "TaskIconSmall"), for: UIControlState())
       button.backgroundColor = UIColor.init(red: 16/255.0, green: 81/255.0, blue: 165/255.0, alpha: 1.0)
     }
     
   }
   
-  func addProject(sender: UIButton) {
+  func addProject(_ sender: UIButton) {
     Utils.delay(0.5) {
-      self.performSegueWithIdentifier("newProject", sender: self)
+      self.performSegue(withIdentifier: "newProject", sender: self)
     }
   }
   
-  func addTask(sender: UIButton) {
+  func addTask(_ sender: UIButton) {
     Utils.delay(0.5) { 
-      self.performSegueWithIdentifier("newTask", sender: self)
+      self.performSegue(withIdentifier: "newTask", sender: self)
     }
   }
   

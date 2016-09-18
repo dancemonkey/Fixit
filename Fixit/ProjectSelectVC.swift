@@ -26,25 +26,25 @@ class ProjectSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSou
 
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return self.projects.count
   }
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCellWithIdentifier("listProjectCell") {
-      cell.textLabel?.text = projects[indexPath.row].title
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCell(withIdentifier: "listProjectCell") {
+      cell.textLabel?.text = projects[(indexPath as NSIndexPath).row].title
       return cell
     }
     return UITableViewCell()
   }
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    delegate.saveFromDelegate(projects[indexPath.row])
-    self.navigationController?.popViewControllerAnimated(true)
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    delegate.saveFromDelegate(projects[(indexPath as NSIndexPath).row])
+    self.navigationController?.popViewController(animated: true)
   }
   
 }

@@ -11,18 +11,18 @@ import UIKit
 class DashboardCellView: UIView, UIGestureRecognizerDelegate {
   
   @IBOutlet var titleLbls: [UILabel]!
-  let formatter = NSNumberFormatter()
+  let formatter = NumberFormatter()
   
-  func updateView(labels: String..., image: UIImage?) {
+  func updateView(_ labels: String..., image: UIImage?) {
     
   }
   
   override func awakeFromNib() {
     formatter.usesGroupingSeparator = true
-    formatter.numberStyle = .CurrencyStyle
-    formatter.locale = .currentLocale()
+    formatter.numberStyle = .currency
+    formatter.locale = .current()
     
-    self.layer.borderColor = UIColor.lightGrayColor().CGColor
+    self.layer.borderColor = UIColor.lightGray.cgColor
     self.layer.borderWidth = 1.0
     
     self.layer.cornerRadius = self.frame.width/2
@@ -43,7 +43,7 @@ extension DashboardCellView {
       if label.tag == 0 {
         label.text = String(Datasource.ds.fetchedProjects.count) // total # of projects
       } else if label.tag == 1 {
-        label.text = formatter.stringFromNumber(Datasource.ds.fetchTotalDollars())! + ", " + String(Datasource.ds.fetchTotalDays()) + " days" // dollars
+        label.text = formatter.string(from: NSNumber(Datasource.ds.fetchTotalDollars()))! + ", " + String(Datasource.ds.fetchTotalDays()) + " days" // dollars
       } else if label.tag == 2 {
         label.text = String(Datasource.ds.fetchTotalDays()) + " days" // days
       }
@@ -59,10 +59,10 @@ extension DashboardCellView {
     
     let dueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if task.completed == false {
-        let formatter = NSDateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "m/d/y"
         if let date = task.dueDate {
-          return formatter.stringFromDate(date) == formatter.stringFromDate(NSDate())
+          return formatter.string(from: date as Date) == formatter.string(from: Date())
         }
       }
       return false
@@ -103,7 +103,7 @@ extension DashboardCellView {
       if label.tag == 0 {
         label.text = String(shoppingCartTasks.count)
       } else if label.tag == 1 {
-        label.text = formatter.stringFromNumber(shoppingCartValue)!
+        label.text = formatter.string(from: NSNumber(shoppingCartValue))!
       }
     }
     
@@ -113,7 +113,7 @@ extension DashboardCellView {
     Datasource.ds.fetchTasks()
     let hitlistTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if let time = task.time {
-        return time.intValue < 15 && task.completed != true
+        return time.int32Value < 15 && task.completed != true
       }
       return false
     }

@@ -15,7 +15,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   let sectionNameKeyPath = "completed"
   
-  lazy var fetchedResultsController: NSFetchedResultsController = {
+  lazy var fetchedResultsController: NSFetchedResultsController = { () -> <<error type>> in 
     let fetch = NSFetchRequest(entityName: fetches.Tasks.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
     let secondarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
@@ -36,7 +36,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     tableView.dataSource = self
   }
   
-  override func viewWillAppear(animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     attemptFetch()
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44.0, right: 0)
@@ -50,22 +50,22 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
   }
   
-  @IBAction func addNewPressed(sender: UIBarButtonItem) {
-    performSegueWithIdentifier("createNewTask", sender: self)
+  @IBAction func addNewPressed(_ sender: UIBarButtonItem) {
+    performSegue(withIdentifier: "createNewTask", sender: self)
   }
   
-  @IBAction func deleteCompletedPressed(sender: UIBarButtonItem) {
+  @IBAction func deleteCompletedPressed(_ sender: UIBarButtonItem) {
     
-    let alert = UIAlertController(title: "Confirm", message: "You are about to delete all of your completed tasks!", preferredStyle: .Alert)
-    alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
-    alert.addAction(UIAlertAction(title: "Okay", style: .Destructive, handler: { (action: UIAlertAction) in
+    let alert = UIAlertController(title: "Confirm", message: "You are about to delete all of your completed tasks!", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+    alert.addAction(UIAlertAction(title: "Okay", style: .destructive, handler: { (action: UIAlertAction) in
       
       let deleteRequest = NSFetchRequest(entityName: "Task")
       deleteRequest.predicate = NSPredicate(format: "completed == 1", argumentArray: nil)
       let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: deleteRequest)
       
       do {
-        let _ = try appDelegate.managedObjectContext.executeRequest(batchDeleteRequest) as! NSBatchDeleteResult
+        let _ = try appDelegate.managedObjectContext.execute(batchDeleteRequest) as! NSBatchDeleteResult
         appDelegate.managedObjectContext.reset()
         try self.fetchedResultsController.performFetch()
         self.tableView.reloadData()
@@ -75,25 +75,25 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
       
     }))
     
-    self.presentViewController(alert, animated: true, completion: nil)
+    self.present(alert, animated: true, completion: nil)
     
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showTaskDetail" {
-      if let destVC = segue.destinationViewController as? TaskDetailVC {
-        destVC.task = fetchedResultsController.objectAtIndexPath(sender as! NSIndexPath) as? Task
+      if let destVC = segue.destination as? TaskDetailVC {
+        destVC.task = fetchedResultsController.object(at: sender as! IndexPath) as? Task
       }
     }
   }
   
   // MARK: Tableview methods
   
-  func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+  func numberOfSections(in tableView: UITableView) -> Int {
     return (fetchedResultsController.sections?.count)!
   }
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     if let sections = fetchedResultsController.sections {
       let current = sections[section]
       return current.numberOfObjects
@@ -101,16 +101,16 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     return 0
   }
   
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("taskCell", forIndexPath: indexPath) as! TaskCell
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskCell
     configureCell(cell, indexPath: indexPath)
-    cell.tag = indexPath.row
+    cell.tag = (indexPath as NSIndexPath).row
     return cell
   }
   
-  func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    let managedObject = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
-    appDelegate.managedObjectContext.deleteObject(managedObject)
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    let managedObject = fetchedResultsController.object(at: indexPath) as! Task
+    appDelegate.managedObjectContext.delete(managedObject)
     do {
       try appDelegate.managedObjectContext.save()
     } catch {
@@ -118,11 +118,11 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
   }
   
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
   }
   
-  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     if let sections = fetchedResultsController.sections {
       let currentSection = sections[section]
       if currentSection.name == "0" {
@@ -134,49 +134,49 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     return nil
   }
   
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("showTaskDetail", sender: indexPath)
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
   }
   
-  func configureCell(cell: TaskCell, indexPath: NSIndexPath) {
-    let task = fetchedResultsController.objectAtIndexPath(indexPath) as! Task
+  func configureCell(_ cell: TaskCell, indexPath: IndexPath) {
+    let task = fetchedResultsController.object(at: indexPath) as! Task
     cell.configureCell(withTask: task)
   }
   
   // MARK: Fetchedresultscontroller methods
   
-  func controllerWillChangeContent(controller: NSFetchedResultsController) {
+  func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.beginUpdates()
   }
   
-  func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
     switch type {
-    case .Update:
-      let cell = self.tableView.cellForRowAtIndexPath(indexPath!) as? TaskCell
+    case .update:
+      let cell = self.tableView.cellForRow(at: indexPath!) as? TaskCell
       configureCell(cell!, indexPath: indexPath!)
-    case .Insert:
-      self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-    case .Delete:
-      self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-    case .Move:
-      tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-      tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+    case .insert:
+      self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+    case .delete:
+      self.tableView.deleteRows(at: [indexPath!], with: .fade)
+    case .move:
+      tableView.deleteRows(at: [indexPath!], with: .fade)
+      tableView.insertRows(at: [newIndexPath!], with: .fade)
     }
   }
   
-  func controllerDidChangeContent(controller: NSFetchedResultsController) {
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.endUpdates()
   }
   
-  func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
     switch type {
-    case .Insert:
-      self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-    case .Delete:
-      self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-    case .Move:
+    case .insert:
+      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+    case .delete:
+      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+    case .move:
       break
-    case .Update:
+    case .update:
       break
     }
   }

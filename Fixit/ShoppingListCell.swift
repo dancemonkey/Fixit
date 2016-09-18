@@ -22,7 +22,7 @@ class ShoppingListCell: UITableViewCell {
     // Initialization code
   }
   
-  override func setSelected(selected: Bool, animated: Bool) {
+  override func setSelected(_ selected: Bool, animated: Bool) {
     super.setSelected(selected, animated: animated)
     
   }
@@ -42,19 +42,19 @@ class ShoppingListCell: UITableViewCell {
     
     if let cost = task.cost {
       
-      let formatter = NSNumberFormatter()
+      let formatter = NumberFormatter()
       formatter.usesGroupingSeparator = true
-      formatter.numberStyle = .CurrencyStyle
-      formatter.locale = .currentLocale()
+      formatter.numberStyle = .currency
+      formatter.locale = .current()
       
-      costLbl.text = formatter.stringFromNumber(cost)!
+      costLbl.text = formatter.string(from: cost)!
     } else {
       costLbl.text = "No estimated cost"
     }
     
   }
   
-  @IBAction func boxChecked(sender: CheckBoxBtn) {
+  @IBAction func boxChecked(_ sender: CheckBoxBtn) {
     
     self.task.checkOffTask()
     if task.completed!.boolValue {

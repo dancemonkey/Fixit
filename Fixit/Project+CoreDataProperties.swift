@@ -15,12 +15,12 @@ import CoreData
 extension Project {
 
     @NSManaged var complete: NSNumber?
-    @NSManaged var completeDate: NSDate?
+    @NSManaged var completeDate: Date?
     @NSManaged var details: String?
-    @NSManaged var dueDate: NSDate?
+    @NSManaged var dueDate: Date?
     @NSManaged var estimatedCost: NSNumber?
     @NSManaged var estimatedTime: NSNumber?
-    @NSManaged var startDate: NSDate?
+    @NSManaged var startDate: Date?
     @NSManaged var title: String?
     @NSManaged var photo: Photo?
     @NSManaged var taskList: NSSet?

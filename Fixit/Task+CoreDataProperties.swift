@@ -17,11 +17,11 @@ extension Task {
     @NSManaged var completed: NSNumber?
     @NSManaged var cost: NSNumber?
     @NSManaged var details: String?
-    @NSManaged var dueDate: NSDate?
+    @NSManaged var dueDate: Date?
     @NSManaged var shoppingList: NSNumber?
     @NSManaged var time: NSNumber?
     @NSManaged var title: String?
-    @NSManaged var creationDate: NSDate?
+    @NSManaged var creationDate: Date?
     @NSManaged var sectionName: String?
     @NSManaged var parentProject: Project?
     @NSManaged var photo: Photo?

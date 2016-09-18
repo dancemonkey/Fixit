@@ -43,7 +43,7 @@ class TaskCell: UITableViewCell {
     }
     
     if let photo = task.photo?.data {
-      thumbImg.image = UIImage(data: photo)
+      thumbImg.image = UIImage(data: photo as Data)
     } else {
       thumbImg.image = UIImage(named: "Camera")
     }
@@ -55,20 +55,20 @@ class TaskCell: UITableViewCell {
     }
     
     if let time = task.time, let cost = task.cost {
-      let formatter = NSNumberFormatter()
+      let formatter = NumberFormatter()
       formatter.usesGroupingSeparator = true
-      formatter.numberStyle = .CurrencyStyle
-      formatter.locale = .currentLocale()
+      formatter.numberStyle = .currency
+      formatter.locale = .current()
 
-      timeAndCostLbl.text = formatter.stringFromNumber(cost)! + ", " + String(time) + " min."
+      timeAndCostLbl.text = formatter.string(from: cost)! + ", " + String(describing: time) + " min."
     } else {
       timeAndCostLbl.text = ""
     }
     
     if let dueDate = task.dueDate {
-      let dateFormatter = NSDateFormatter()
+      let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "M/d"
-      dueDateLbl.text = dateFormatter.stringFromDate(dueDate)
+      dueDateLbl.text = dateFormatter.string(from: dueDate as Date)
     } else {
       dueDateLbl.text = "-/-"
     }
@@ -80,7 +80,7 @@ class TaskCell: UITableViewCell {
     }
   }
   
-  @IBAction func boxChecked(sender: CheckBoxBtn) {
+  @IBAction func boxChecked(_ sender: CheckBoxBtn) {
     
     self.task.checkOffTask()
     if task.completed!.boolValue == true {

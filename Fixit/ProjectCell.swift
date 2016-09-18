@@ -43,38 +43,38 @@ class ProjectCell: UITableViewCell {
     if let tasks = project.taskList {
       let completedTasks = tasks.filter({ (task: AnyObject) -> Bool in
         return (task as? Task)?.completed != true
-      })
+      } as! (NSFastEnumerationIterator.Element) -> Bool)
       self.taskLbl.text = String(completedTasks.count)
     } else {
       taskLbl.text = "0"
     }
     
     if let estCost = project.estimatedCost {
-      let formatter = NSNumberFormatter()
+      let formatter = NumberFormatter()
       formatter.usesGroupingSeparator = true
-      formatter.numberStyle = .CurrencyStyle
-      formatter.locale = .currentLocale()
-      self.estCostLbl.text = formatter.stringFromNumber(estCost)
+      formatter.numberStyle = .currency
+      formatter.locale = .current()
+      self.estCostLbl.text = formatter.string(from: estCost)
     } else {
       estCostLbl.text = "No cost estimate"
     }
     
     if let estTime = project.estimatedTime {
-      self.estTimeLbl.text = estTimeStub + String(estTime) + estTimeUnitStub
+      self.estTimeLbl.text = estTimeStub + String(describing: estTime) + estTimeUnitStub
     } else {
       estTimeLbl.text = "No time estimate"
     }
     
     if let dueDate = project.dueDate {
-      let dateFormatter = NSDateFormatter()
+      let dateFormatter = DateFormatter()
       dateFormatter.dateFormat = "M/d"
-      self.dueDateLbl.text = "due " + dateFormatter.stringFromDate(dueDate)
+      self.dueDateLbl.text = "due " + dateFormatter.string(from: dueDate as Date)
     } else {
       dueDateLbl.text = "--/--/--"
     }
     
     if let image = project.photo, let data = image.data {
-      self.thumbImg.image = UIImage(data: data)
+      self.thumbImg.image = UIImage(data: data as Data)
     } else {
       thumbImg.image = UIImage(named: "Camera")
     }
