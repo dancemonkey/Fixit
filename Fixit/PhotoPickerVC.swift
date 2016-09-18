@@ -35,7 +35,7 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
   }
   
   @IBAction func donePressed(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+    _ = self.navigationController?.popViewController(animated: true)
   }
   
   // MARK: Image Picker Methods

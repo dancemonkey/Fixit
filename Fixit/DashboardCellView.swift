@@ -25,8 +25,14 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
     self.layer.borderColor = UIColor.lightGray.cgColor
     self.layer.borderWidth = 1.0
     
-    self.layer.cornerRadius = self.frame.width/2
+    //self.layer.cornerRadius = self.frame.width/2
     self.layer.masksToBounds = true
+  }
+  
+  override var bounds: CGRect {
+    didSet {
+      self.layer.cornerRadius = self.frame.width/2
+    }
   }
   
 }

@@ -86,7 +86,6 @@
         }
         if let photo = project.photo?.data {
           selectPhoto.setImage(UIImage(data: photo as Data), for: UIControlState())
-          selectPhoto.imageView?.contentMode = .scaleAspectFit
           adjustPhotoHeight()
         }
         if let tasks = project.taskList , tasks.count > 0 {
@@ -121,7 +120,7 @@
       alert.addAction(UIAlertAction(title: "Okay", style: .destructive, handler: { (action: UIAlertAction) in
         
         appDelegate.managedObjectContext.delete(self.project!)
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
         
       }))
       
@@ -210,7 +209,7 @@
       
       do {
         try context.save()
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
       } catch {
         print(error)
       }
@@ -218,6 +217,7 @@
     }
     
     func adjustPhotoHeight() {
+      selectPhoto.imageView?.contentMode = .scaleAspectFit
       photoBtnHeight.constant = photoHeightConstant
     }
     

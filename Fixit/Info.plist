@@ -34,5 +34,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>For adding photos to tasks and projects.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>For adding photos to tasks and projects.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>For adding photos to tasks and projects.</string>
 </dict>
 </plist>

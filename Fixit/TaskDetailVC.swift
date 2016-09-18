@@ -136,7 +136,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     do {
       try context.save()
       if pop {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
       }
     } catch {
       print(error)
@@ -217,7 +217,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   }
   
   @IBAction func cancelPressed(_ sender: UIButton) {
-    self.navigationController?.popViewController(animated: true)
+    _ = self.navigationController?.popViewController(animated: true)
   }
   
   @IBAction func selectProjectPressed(_ sender: UIButton) {

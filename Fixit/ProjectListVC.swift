@@ -13,7 +13,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   @IBOutlet weak var tableView: UITableView!
   
-  var fetchedResultsController: NSFetchedResultsController<Task>!
+  var fetchedResultsController: NSFetchedResultsController<Project>!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,11 +26,11 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    let fetch = NSFetchRequest<Task>(entityName: fetches.Projects.rawValue)
+    let fetch = NSFetchRequest<Project>(entityName: fetches.Projects.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: false)
     let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
     let tertiarySortDescr = NSSortDescriptor(key: "startDate", ascending: true)
-    fetch.sortDescriptors = [primarySortDesc]
+    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDescr]
     
     self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     
@@ -75,7 +75,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
     
-    let managedObject = fetchedResultsController.object(at: indexPath) as! Project
+    let managedObject = fetchedResultsController.object(at: indexPath) 
     
     if let taskList = managedObject.taskList {
       for task in taskList {
@@ -100,7 +100,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func configureCell(_ cell: ProjectCell, indexPath: IndexPath) {
-    let project = fetchedResultsController.object(at: indexPath) as! Project
+    let project = fetchedResultsController.object(at: indexPath)
     cell.configureCell(withProject: project)
   }
   
@@ -136,7 +136,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showProjectDetail" {
       if let destVC = segue.destination as? ProjectDetailVC {
-        destVC.project = fetchedResultsController.object(at: sender as! IndexPath) as? Project
+        destVC.project = fetchedResultsController.object(at: sender as! IndexPath)
       }
     }
   }
