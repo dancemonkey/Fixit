@@ -17,6 +17,7 @@ class TaskCell: UITableViewCell {
   @IBOutlet weak var timeAndCostLbl: UILabel!
   @IBOutlet weak var dueDateLbl: UILabel!
   @IBOutlet weak var projectLbl: UILabel!
+  @IBOutlet weak var cartIcon: UIImageView!
   
   var task: Task!
   
@@ -26,7 +27,8 @@ class TaskCell: UITableViewCell {
   
   func configureCell(withTask task: Task) {
     
-    self.task = task 
+    self.task = task
+    self.cartIcon.isHidden = false
 
     timeAndCostLbl.text = ""
     dueDateLbl.text = ""
@@ -77,6 +79,10 @@ class TaskCell: UITableViewCell {
       projectLbl.text = project.title
     } else {
       projectLbl.text = "No project assigned"
+    }
+    
+    if let cart = task.shoppingList?.boolValue {
+      self.cartIcon.isHidden = !cart
     }
   }
   

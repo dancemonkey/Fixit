@@ -16,7 +16,6 @@
     let dateFormatter = DateFormatter()
     var dueDate: Date!
     let taskHeightConstant: CGFloat = 200
-    var photoHeightConstant: CGFloat!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleFld: UITextField!
@@ -40,7 +39,6 @@
       
       scrollView.delegate = self
       detailsFld.delegate = self
-      photoHeightConstant = selectPhoto.frame.width
       
       let tapGest = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
       tapGest.cancelsTouchesInView = false
@@ -86,7 +84,6 @@
         }
         if let photo = project.photo?.data {
           selectPhoto.setImage(UIImage(data: photo as Data), for: UIControlState())
-          adjustPhotoHeight()
         }
         if let tasks = project.taskList , tasks.count > 0 {
           taskTableHeight.constant = 200
@@ -106,9 +103,6 @@
           taskTableHeight.constant = taskHeightConstant
           refreshTableData(withTasks: tasks)
         }
-      }
-      if selectPhoto.imageView?.image != nil {
-        adjustPhotoHeight()
       }
       self.tableView.reloadData()
     }
@@ -216,9 +210,8 @@
       
     }
     
-    func adjustPhotoHeight() {
-      selectPhoto.imageView?.contentMode = .scaleAspectFit
-      photoBtnHeight.constant = photoHeightConstant
+    @IBAction func cancelPressed(sender: UIBarButtonItem) {
+      _ = self.navigationController?.popViewController(animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

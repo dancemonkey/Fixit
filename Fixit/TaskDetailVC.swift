@@ -78,7 +78,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       if let photo = task.photo?.data {
         photoSelectBtn.setImage(UIImage(data: photo as Data), for: UIControlState())
         photoSelectBtn.imageView?.contentMode = .scaleAspectFit
-        photoBtnHeight.constant = photoBtnHeightConst
+        //photoBtnHeight.constant = photoBtnHeightConst
       }
       if let details = task.details , details != "" {
         self.details.text = details
@@ -253,7 +253,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     } else if data is UIImage {
       photoSelectBtn.setImage(data as? UIImage, for: UIControlState())
       photoSelectBtn.imageView?.contentMode = .scaleAspectFit
-      photoBtnHeight.constant = photoBtnHeightConst
+      //photoBtnHeight.constant = photoBtnHeightConst
     }
   }
   
