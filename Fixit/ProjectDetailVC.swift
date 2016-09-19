@@ -147,16 +147,6 @@
       scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
     
-    func saveFromDelegate(_ data: AnyObject) {
-      if data is Date {
-        self.dueDate = data as! Date
-        selectDueDate.setTitle("Due " + dateFormatter.string(from: dueDate), for: UIControlState())
-      } else if data is UIImage {
-        selectPhoto.setImage(data as? UIImage, for: UIControlState())
-        selectPhoto.imageView?.contentMode = .scaleAspectFit
-      }
-    }
-    
     @IBAction func savePressed(_ sender: UIBarButtonItem) {
       let context = appDelegate.managedObjectContext
       
@@ -282,6 +272,22 @@
         detailsFld.text = detailsFld.placeholderText
         detailsFld.textColor = detailsFld.placeholderColor
       }
+    }
+    
+    // MARK: Protocol methods
+    
+    func saveDate(_ date: Date) {
+      self.dueDate = date
+      selectDueDate.setTitle("Due " + dateFormatter.string(from: dueDate), for: UIControlState())
+    }
+    
+    func saveImage(_ image: UIImage?) {
+      selectPhoto.setImage(image, for: UIControlState())
+      selectPhoto.imageView?.contentMode = .scaleAspectFit
+    }
+    
+    func saveProject(_ project: Project) {
+      // not used in this context
     }
     
   }

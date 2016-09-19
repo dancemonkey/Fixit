@@ -18,18 +18,10 @@ class Utils {
   }
 }
 
-/*public func ==(lhs: Date, rhs: Date) -> Bool {
-  return lhs === rhs || lhs.compare(rhs) == .orderedSame
-}
-
-public func <(lhs: Date, rhs: Date) -> Bool {
-  return lhs.compare(rhs) == .orderedAscending
-}*/
-
-//extension Date: Comparable { }
-
 protocol SaveDelegateData {
-  func saveFromDelegate(_ data: AnyObject)
+  func saveImage(_ image: UIImage?)
+  func saveDate(_ date: Date)
+  func saveProject(_ project: Project)
 }
 
 class BottomBorderTextField : UITextField {

@@ -38,6 +38,13 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
     _ = self.navigationController?.popViewController(animated: true)
   }
   
+  @IBAction func removePhotoPressed(_ sender: UIButton) {
+    self.image = nil
+    self.photoPreview.image = nil
+    delegate.saveImage(nil)
+    _ = self.navigationController?.popViewController(animated: true)
+  }
+  
   // MARK: Image Picker Methods
   
   @IBAction func imagePickerPressed(_ sender: UIButton) {
@@ -51,7 +58,7 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
     if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
       self.photoPreview.contentMode = .scaleAspectFit
       self.photoPreview.image = pickedImage
-      delegate.saveFromDelegate(pickedImage)
+      delegate.saveImage(pickedImage)
     }
     dismiss(animated: true, completion: nil)
   }

@@ -45,13 +45,17 @@ extension DashboardCellView {
     
     Datasource.ds.fetchProjects()
     
+    let days = Datasource.ds.fetchTotalDays()
+    let dollars = Datasource.ds.fetchTotalDollars()
+    let dayStr = days != 1 ? " days" : " day"
+    
     for label in titleLbls {
       if label.tag == 0 {
         label.text = String(Datasource.ds.fetchedProjects.count) // total # of projects
       } else if label.tag == 1 {
-        label.text = formatter.string(from: NSNumber(value: Datasource.ds.fetchTotalDollars()))! + ", " + String(Datasource.ds.fetchTotalDays()) + " days" // dollars
+        label.text = formatter.string(from: NSNumber(value: dollars))! + ", " + String(days) + dayStr // dollars
       } else if label.tag == 2 {
-        label.text = String(Datasource.ds.fetchTotalDays()) + " days" // days
+        label.text = String(days) + dayStr // days
       }
     }
   }
@@ -62,7 +66,7 @@ extension DashboardCellView {
     
     titleLbls[0].text = ""
     titleLbls[1].text = ""
-    
+        
     let dueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if task.completed == false {
         let formatter = DateFormatter()

@@ -198,6 +198,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       task!.dueDate = self.dueDate
       task!.time = Int(timeFld.text!) as NSNumber?
       if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
+        print(photoSelectBtn.imageView?.image)
         newPhoto.data = UIImagePNGRepresentation(photo)
         task!.photo = newPhoto
       }
@@ -244,17 +245,30 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     }
   }
   
-  func saveFromDelegate(_ data: AnyObject) {
-    if data is Project {
-      setProject(withProject: (data as? Project)!)
-    } else if data is Date {
-      self.dueDate = data as? Date
-      dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: self.dueDate), for: UIControlState())
-    } else if data is UIImage {
-      photoSelectBtn.setImage(data as? UIImage, for: UIControlState())
+  // MARK: Protocol methods
+  
+  func saveProject(_ project: Project) {
+    setProject(withProject: project)
+  }
+  
+  func saveImage(_ image: UIImage?) {
+    if let img = image {
+      photoSelectBtn.setImage(img, for: .normal)
       photoSelectBtn.imageView?.contentMode = .scaleAspectFit
-      //photoBtnHeight.constant = photoBtnHeightConst
+    } else {
+      photoSelectBtn.setImage(nil, for: .normal)
+      print(photoSelectBtn.imageView?.image)
+      if let photo = self.task?.photo {
+        print("deleting photo")
+        appDelegate.managedObjectContext.delete(photo)
+        print(photo.isDeleted)
+      }
     }
+  }
+  
+  func saveDate(_ date: Date) {
+    self.dueDate = date
+    dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: self.dueDate), for: UIControlState())
   }
   
   func setProject(withProject project: Project) {
