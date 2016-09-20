@@ -15,14 +15,20 @@ class DueDatePickerVC: UIViewController {
   
   @IBOutlet weak var datePicker: UIDatePicker!
   @IBOutlet weak var dayOfWeek: UILabel!
+  @IBOutlet weak var removeDueDateBtn: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.datePicker.addTarget(self, action: #selector(DueDatePickerVC.datePickerChanged), for: .valueChanged)
     
+    removeDueDateBtn.isEnabled = false
+    removeDueDateBtn.setTitleColor(.lightGray, for: .normal)
+    
     if let date = startDate {
       datePicker.setDate(date, animated: true)
+      removeDueDateBtn.isEnabled = true
+      removeDueDateBtn.setTitleColor(.red, for: .normal)
     }
     
     dayOfWeek.text = datePicker.date.dayOfTheWeek()

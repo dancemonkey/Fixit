@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueWood" translatesAutoresizingMaskIntoConstraints="NO" id="0ui-Ud-YCW"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0ui-Ud-YCW"/>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="JWy-nq-EjN">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFw-Nj-fFr" userLabel="ProjectView" customClass="DashboardCellView" customModule="Fixit" customModuleProvider="target">
@@ -1479,6 +1479,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="sAe-P5-fWp" id="NmY-1P-q3A"/>
                         <outlet property="photoPreview" destination="Ogk-Gw-TZp" id="9jh-3E-uQQ"/>
+                        <outlet property="removePhotoBtn" destination="uep-z7-ARM" id="PKk-nE-v81"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZy-nz-jWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1565,6 +1566,7 @@
                     <connections>
                         <outlet property="datePicker" destination="m33-Hw-Im3" id="9fG-Jj-TSZ"/>
                         <outlet property="dayOfWeek" destination="rLa-Dl-4VH" id="hwN-pq-Mgn"/>
+                        <outlet property="removeDueDateBtn" destination="fWO-Vm-xe4" id="LJL-8I-2QL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mn-ti-rNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1848,12 +1850,12 @@
         <image name="CheckBoxBackground" width="45" height="45"/>
         <image name="Clock Icon" width="50" height="50"/>
         <image name="Oval" width="65" height="65"/>
-        <image name="blueWood" width="1000" height="1002"/>
+        <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bvn-pR-G0l"/>
-        <segue reference="Zbv-EL-gJw"/>
-        <segue reference="YnI-WA-tKL"/>
+        <segue reference="rek-ld-ofJ"/>
+        <segue reference="Jxk-1f-Ue0"/>
         <segue reference="WCH-Gr-WaN"/>
     </inferredMetricsTieBreakers>
 </document>

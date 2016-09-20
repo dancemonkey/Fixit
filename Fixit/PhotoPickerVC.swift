@@ -13,6 +13,7 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
   var imagePickerController: UIImagePickerController!
   @IBOutlet weak var photoPreview: UIImageView!
   @IBOutlet weak var cameraButton: UIButton!
+  @IBOutlet weak var removePhotoBtn: UIButton!
   
   var delegate: SaveDelegateData!
   var image: UIImage? = nil
@@ -20,8 +21,13 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    removePhotoBtn.isEnabled = false
+    removePhotoBtn.setTitleColor(.lightGray, for: .normal)
+    
     if let image = self.image {
       photoPreview.image = image
+      removePhotoBtn.isEnabled = true
+      removePhotoBtn.setTitleColor(.red, for: .normal)
     }
     
     imagePickerController = UIImagePickerController()
