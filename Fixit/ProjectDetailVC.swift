@@ -278,9 +278,14 @@
     
     // MARK: Protocol methods
     
-    func saveDate(_ date: Date) {
-      self.dueDate = date
-      selectDueDate.setTitle("Due " + dateFormatter.string(from: dueDate), for: UIControlState())
+    func saveDate(_ date: Date?) {
+      if let pickedDate = date {
+        self.dueDate = pickedDate
+        selectDueDate.setTitle("Due " + dateFormatter.string(from: self.dueDate), for: UIControlState())
+      } else {
+        self.dueDate = nil
+        selectDueDate.setTitle("Set due date...", for: UIControlState())
+      }
     }
     
     func saveImage(_ image: UIImage?) {

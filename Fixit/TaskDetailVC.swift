@@ -259,9 +259,14 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     }
   }
   
-  func saveDate(_ date: Date) {
-    self.dueDate = date
-    dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: self.dueDate), for: UIControlState())
+  func saveDate(_ date: Date?) {
+    if let pickedDate = date {
+      self.dueDate = pickedDate
+      dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: self.dueDate), for: UIControlState())
+    } else {
+      self.dueDate = nil
+      dueDateSelectBtn.setTitle("Set due date...", for: UIControlState())
+    }
   }
   
   func setProject(withProject project: Project) {

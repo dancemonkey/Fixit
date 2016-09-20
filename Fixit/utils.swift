@@ -20,7 +20,7 @@ class Utils {
 
 protocol SaveDelegateData {
   func saveImage(_ image: UIImage?)
-  func saveDate(_ date: Date)
+  func saveDate(_ date: Date?)
   func saveProject(_ project: Project)
 }
 

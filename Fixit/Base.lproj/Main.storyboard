@@ -1526,15 +1526,32 @@
                                 <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWO-Vm-xe4">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="huz-hV-tlc"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="yZb-7f-64F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Remove due date">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeDueDatePressed:" destination="h9c-rC-QwX" eventType="touchUpInside" id="wb4-tY-ylP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iqE-k3-rfS" firstAttribute="leading" secondItem="Ymr-RE-b5c" secondAttribute="leading" constant="8" id="0R7-h1-MWc"/>
                             <constraint firstAttribute="trailing" secondItem="iqE-k3-rfS" secondAttribute="trailing" constant="8" id="6ep-ri-S9j"/>
+                            <constraint firstItem="hyC-YR-L6P" firstAttribute="top" secondItem="fWO-Vm-xe4" secondAttribute="bottom" constant="20" id="Djz-Fy-UjH"/>
                             <constraint firstItem="m33-Hw-Im3" firstAttribute="top" secondItem="tjj-JL-1Im" secondAttribute="bottom" constant="8" id="F9Z-Mb-7FT"/>
                             <constraint firstAttribute="trailing" secondItem="m33-Hw-Im3" secondAttribute="trailing" constant="8" id="Fz1-37-F2W"/>
                             <constraint firstItem="rLa-Dl-4VH" firstAttribute="top" secondItem="m33-Hw-Im3" secondAttribute="bottom" constant="8" id="IsG-JY-CUx"/>
                             <constraint firstItem="m33-Hw-Im3" firstAttribute="leading" secondItem="Ymr-RE-b5c" secondAttribute="leading" constant="8" id="Xql-GK-xN0"/>
+                            <constraint firstAttribute="trailing" secondItem="fWO-Vm-xe4" secondAttribute="trailing" constant="20" id="cwy-Pq-Fw8"/>
+                            <constraint firstItem="fWO-Vm-xe4" firstAttribute="leading" secondItem="Ymr-RE-b5c" secondAttribute="leading" constant="20" id="j3t-QB-lgR"/>
                             <constraint firstItem="rLa-Dl-4VH" firstAttribute="centerX" secondItem="Ymr-RE-b5c" secondAttribute="centerX" id="m2w-JT-gHj"/>
                             <constraint firstItem="iqE-k3-rfS" firstAttribute="top" secondItem="rLa-Dl-4VH" secondAttribute="bottom" constant="22" id="tdD-Ti-DU9"/>
                         </constraints>
@@ -1559,10 +1576,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8u4-3u-W7W" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lod-FX-ZRl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lod-FX-ZRl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.062745098039215685" green="0.31764705882352939" blue="0.6470588235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -1622,7 +1639,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rGR-ie-sJM">
-                                                <frame key="frameInset" minX="47" minY="112" width="155" height="40"/>
+                                                <frame key="frameInset" minX="47" minY="112" width="154" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cost" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="WR6-Wa-Yxe" userLabel="CostFld" customClass="BottomBorderTextField" customModule="Fixit" customModuleProvider="target">
@@ -1655,7 +1672,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="psn-UF-mbK">
-                                                <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="KFN-1v-zJ9"/>
                                                 </constraints>
@@ -1834,9 +1851,9 @@
         <image name="blueWood" width="1000" height="1002"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Bvn-pR-G0l"/>
         <segue reference="Zbv-EL-gJw"/>
         <segue reference="YnI-WA-tKL"/>
-        <segue reference="Tdg-8o-wfF"/>
-        <segue reference="KkE-uQ-xfH"/>
+        <segue reference="WCH-Gr-WaN"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -38,4 +38,9 @@ class DueDatePickerVC: UIViewController {
     _ = self.navigationController?.popViewController(animated: true)
   }
   
+  @IBAction func removeDueDatePressed(_ sender: UIButton) {
+    delegate.saveDate(nil)
+    _ = self.navigationController?.popViewController(animated: true)
+  }
+  
 }
