@@ -29,6 +29,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   var dueDate: Date!
   let blankSectionName = "No associated project"
   var photoBtnHeightConst: CGFloat!
+  var currentPhoto: UIImage? = nil
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -38,8 +39,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     details.layer.borderColor = UIColor.black.cgColor
     details.layer.borderWidth = 1.0
     details.delegate = self
-    
-    photoBtnHeightConst = photoSelectBtn.frame.width
     
     dateFormatter.dateFormat = "M/d/yy"
     
@@ -78,7 +77,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       if let photo = task.photo?.data {
         photoSelectBtn.setImage(UIImage(data: photo as Data), for: UIControlState())
         photoSelectBtn.imageView?.contentMode = .scaleAspectFit
-        //photoBtnHeight.constant = photoBtnHeightConst
+        currentPhoto = UIImage(data: photo as Data)
       }
       if let details = task.details , details != "" {
         self.details.text = details
@@ -99,10 +98,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   
   func hideKeyboard() {
     self.view.endEditing(true)
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
   }
   
   func adjustForKeyboard(_ notification: Notification) {
@@ -174,7 +169,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         newTask.details = details.text
         newTask.dueDate = self.dueDate
         newTask.time = Int(timeFld.text!) as NSNumber?
-        if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
+        if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
           newPhoto.data = UIImagePNGRepresentation(photo)
           newTask.photo = newPhoto
         }
@@ -192,13 +187,11 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       
       // TODO: VALIDATE ENTRIES BEFORE TRYING TO SAVE THEM TO ENTITY
       task!.title = titleFld.text!
-      //task!.completed = false
       task!.cost = Double(costFld.text!) as NSNumber?
       task!.details = details.text
       task!.dueDate = self.dueDate
       task!.time = Int(timeFld.text!) as NSNumber?
-      if let photo = photoSelectBtn.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
-        print(photoSelectBtn.imageView?.image)
+      if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
         newPhoto.data = UIImagePNGRepresentation(photo)
         task!.photo = newPhoto
       }
@@ -238,7 +231,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     } else if segue.identifier == "showPhotoDetail" {
       if let destVC = segue.destination as? PhotoPickerVC {
         destVC.delegate = self
-        if let photo = photoSelectBtn.imageView?.image {
+        if let photo = currentPhoto {
           destVC.image = photo
         }
       }
@@ -255,13 +248,13 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     if let img = image {
       photoSelectBtn.setImage(img, for: .normal)
       photoSelectBtn.imageView?.contentMode = .scaleAspectFit
+      currentPhoto = img
     } else {
       photoSelectBtn.setImage(nil, for: .normal)
-      print(photoSelectBtn.imageView?.image)
+      currentPhoto = nil
       if let photo = self.task?.photo {
-        print("deleting photo")
+        self.task?.photo = nil
         appDelegate.managedObjectContext.delete(photo)
-        print(photo.isDeleted)
       }
     }
   }
@@ -291,5 +284,5 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       details.textColor = details.placeholderColor
     }
   }
-
+  
 }

@@ -16,6 +16,7 @@
     let dateFormatter = DateFormatter()
     var dueDate: Date!
     let taskHeightConstant: CGFloat = 200
+    var currentPhoto: UIImage? = nil
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleFld: UITextField!
@@ -79,11 +80,12 @@
           costFld.text = String(describing: cost)
         }
         if let dueDate = project.dueDate {
-          selectDueDate.setTitle("Due " + dateFormatter.string(from: dueDate as Date), for: UIControlState())
+          selectDueDate.setTitle("Due " + dateFormatter.string(from: dueDate as Date), for: .normal)
           self.dueDate = dueDate as Date!
         }
         if let photo = project.photo?.data {
-          selectPhoto.setImage(UIImage(data: photo as Data), for: UIControlState())
+          selectPhoto.setImage(UIImage(data: photo), for: .normal)
+          currentPhoto = UIImage(data: photo)
         }
         if let tasks = project.taskList , tasks.count > 0 {
           taskTableHeight.constant = 200
@@ -165,7 +167,7 @@
           newProject.details = detailsFld.text
           newProject.dueDate = self.dueDate
           newProject.estimatedTime = Double(timeFld.text!) as NSNumber?
-          if let photo = selectPhoto.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
+          if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
             newPhoto.data = UIImagePNGRepresentation(photo)
             newProject.photo = newPhoto
           }
@@ -179,7 +181,7 @@
         project!.details = detailsFld.text
         project!.dueDate = self.dueDate
         project!.estimatedTime = Double(timeFld.text!) as NSNumber?
-        if let photo = selectPhoto.imageView?.image, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
+        if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
           newPhoto.data = UIImagePNGRepresentation(photo)
           project!.photo = newPhoto
         }
@@ -221,7 +223,7 @@
       } else if segue.identifier == "showPhotoDetail" {
         if let destVC = segue.destination as? PhotoPickerVC {
           destVC.delegate = self
-          if let photo = selectPhoto.imageView?.image {
+          if let photo = currentPhoto {
             destVC.image = photo
           }
         }
@@ -282,8 +284,18 @@
     }
     
     func saveImage(_ image: UIImage?) {
-      selectPhoto.setImage(image, for: UIControlState())
-      selectPhoto.imageView?.contentMode = .scaleAspectFit
+      if let img = image {
+        selectPhoto.setImage(img, for: .normal)
+        selectPhoto.imageView?.contentMode = .scaleAspectFit
+        currentPhoto = img
+      } else {
+        selectPhoto.setImage(nil, for: .normal)
+        currentPhoto = nil
+        if let photo = self.project?.photo {
+          self.project?.photo = nil
+          appDelegate.managedObjectContext.delete(photo)
+        }
+      }
     }
     
     func saveProject(_ project: Project) {
