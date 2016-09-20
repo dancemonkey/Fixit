@@ -42,10 +42,6 @@ class ProjectCell: UITableViewCell {
     
     if let tasks = project.taskList {
       
-      //let completedTasks = tasks.filter({ (task: AnyObject) -> Bool in
-      //  return (task as? Task)?.completed != true
-      //})
-      
       var completedTasks = 0
       for task in tasks {
         if ((task as! Task).completed != nil) {

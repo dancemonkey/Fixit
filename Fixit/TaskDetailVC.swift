@@ -35,9 +35,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     super.viewDidLoad()
     
     setCompleteBtnStatus()
-    
-    details.layer.borderColor = UIColor.black.cgColor
-    details.layer.borderWidth = 1.0
+
     details.delegate = self
     
     dateFormatter.dateFormat = "M/d/yy"
@@ -54,7 +52,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     
     if task == nil {
       self.navigationItem.title = "New task"
-      photoSelectBtn.setTitle("Tap to add photo", for: UIControlState())
+      photoSelectBtn.setTitle("+ Add photo", for: UIControlState())
       dueDateSelectBtn.setTitle("Due date...", for: UIControlState())
     }
     

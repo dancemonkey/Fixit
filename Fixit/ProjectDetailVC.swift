@@ -45,9 +45,6 @@
       tapGest.cancelsTouchesInView = false
       scrollView.addGestureRecognizer(tapGest)
       
-      detailsFld.layer.borderColor = UIColor.black.cgColor
-      detailsFld.layer.borderWidth = 1.0
-      
       tableView.delegate = self
       tableView.dataSource = self
       
@@ -55,10 +52,9 @@
       
       if project == nil {
         self.navigationItem.title = "New project"
-        selectPhoto.setTitle("Tap to add photo", for: UIControlState())
+        selectPhoto.setTitle("+ Add photo", for: UIControlState())
         selectDueDate.setTitle("Set due date...", for: UIControlState())
         self.newTaskBtn.isEnabled = false
-        self.newTaskBtn.backgroundColor = UIColor.gray
         self.newTaskBtn.setTitleColor(UIColor.lightGray, for: UIControlState())
         trashBtn.isEnabled = false
       }

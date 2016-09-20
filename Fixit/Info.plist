@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>Fixit</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,6 +24,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>For adding photos to tasks and projects.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>For adding photos to tasks and projects.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>For adding photos to tasks and projects.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -34,11 +42,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>For adding photos to tasks and projects.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>For adding photos to tasks and projects.</string>
-	<key>NSCameraUsageDescription</key>
-	<string>For adding photos to tasks and projects.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Phosphate.ttc</string>
+	</array>
 </dict>
 </plist>
