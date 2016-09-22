@@ -501,8 +501,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2id-E3-7nv"/>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-E1-YgB">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="taskCell" focusStyle="custom" rowHeight="100" id="hAt-My-M7p" userLabel="taskCell" customClass="TaskCell" customModule="Fixit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="100"/>
@@ -566,6 +567,7 @@
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="rZ7-eD-osS" firstAttribute="leading" secondItem="Ssw-A3-3Dh" secondAttribute="trailing" constant="8" id="4tw-df-voy"/>
                                                 <constraint firstItem="5UI-tT-v8s" firstAttribute="centerY" secondItem="5oC-5J-qaf" secondAttribute="centerY" id="FDg-xN-YMI"/>
@@ -586,7 +588,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
                                         </userDefinedRuntimeAttributes>
@@ -626,14 +628,18 @@
                             </constraint>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="8" id="6lG-Ti-FF0"/>
                             <constraint firstItem="YuF-E1-YgB" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" constant="8" id="GTq-fy-DQB"/>
+                            <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="2id-E3-7nv" secondAttribute="bottom" id="JcY-Wd-MiD"/>
                             <constraint firstItem="NUT-1O-rMI" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="Lzf-ck-5DJ"/>
                             <constraint firstAttribute="bottom" secondItem="NUT-1O-rMI" secondAttribute="bottom" id="NZh-cO-U8S"/>
                             <constraint firstAttribute="trailing" secondItem="NUT-1O-rMI" secondAttribute="trailing" id="OJ0-WX-sOV"/>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="8" id="Odq-C4-xQF"/>
+                            <constraint firstAttribute="trailing" secondItem="2id-E3-7nv" secondAttribute="trailing" id="RU8-AH-Zfa"/>
+                            <constraint firstItem="2id-E3-7nv" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" id="ScK-kb-EUZ"/>
                             <constraint firstAttribute="trailing" secondItem="YuF-E1-YgB" secondAttribute="trailing" constant="8" id="Svi-Fl-Se8"/>
                             <constraint firstAttribute="trailing" secondItem="YuF-E1-YgB" secondAttribute="trailing" constant="20" id="Um2-zL-WL6">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
+                            <constraint firstItem="2id-E3-7nv" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="bK0-Cw-CJh"/>
                             <constraint firstAttribute="trailing" secondItem="NUT-1O-rMI" secondAttribute="trailing" id="h1p-91-dbT"/>
                             <constraint firstItem="NUT-1O-rMI" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="hPi-67-Rm8"/>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="20" id="i8c-Rq-WJo">
@@ -647,14 +653,14 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="NZh-cO-U8S"/>
-                                <exclude reference="OJ0-WX-sOV"/>
-                                <exclude reference="hPi-67-Rm8"/>
                                 <exclude reference="0dB-EM-c3Y"/>
                                 <exclude reference="Um2-zL-WL6"/>
                                 <exclude reference="jSD-2D-RFS"/>
                                 <exclude reference="Odq-C4-xQF"/>
                                 <exclude reference="i8c-Rq-WJo"/>
+                                <exclude reference="NZh-cO-U8S"/>
+                                <exclude reference="OJ0-WX-sOV"/>
+                                <exclude reference="hPi-67-Rm8"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -662,13 +668,13 @@
                                 <include reference="NUT-1O-rMI"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="NZh-cO-U8S"/>
-                                <include reference="OJ0-WX-sOV"/>
-                                <include reference="hPi-67-Rm8"/>
                                 <include reference="0dB-EM-c3Y"/>
                                 <include reference="Um2-zL-WL6"/>
                                 <include reference="jSD-2D-RFS"/>
                                 <include reference="i8c-Rq-WJo"/>
+                                <include reference="NZh-cO-U8S"/>
+                                <include reference="OJ0-WX-sOV"/>
+                                <include reference="hPi-67-Rm8"/>
                             </mask>
                         </variation>
                     </view>
@@ -690,7 +696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zN-CU-oiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-503.5" y="1176.5"/>
+            <point key="canvasLocation" x="-504.80000000000001" y="1176.1619190404799"/>
         </scene>
         <!--HitList-->
         <scene sceneID="ha1-kx-4DN">
@@ -1651,7 +1657,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rGR-ie-sJM">
-                                                <frame key="frameInset" minX="47" minY="112" width="154" height="40"/>
+                                                <frame key="frameInset" minX="47" minY="112" width="155" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Cost" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="WR6-Wa-Yxe" userLabel="CostFld" customClass="BottomBorderTextField" customModule="Fixit" customModuleProvider="target">
@@ -1866,9 +1872,9 @@
         <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Zbv-EL-gJw"/>
-        <segue reference="YnI-WA-tKL"/>
+        <segue reference="MId-6e-6ct"/>
         <segue reference="WCH-Gr-WaN"/>
         <segue reference="Bvn-pR-G0l"/>
+        <segue reference="YnI-WA-tKL"/>
     </inferredMetricsTieBreakers>
 </document>
