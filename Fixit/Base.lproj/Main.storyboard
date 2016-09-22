@@ -502,11 +502,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2id-E3-7nv"/>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-E1-YgB">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="20" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-E1-YgB">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="taskCell" focusStyle="custom" rowHeight="100" id="hAt-My-M7p" userLabel="taskCell" customClass="TaskCell" customModule="Fixit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="359" height="100"/>
+                                        <rect key="frame" x="0.0" y="20" width="359" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAt-My-M7p" id="5oC-5J-qaf">
                                             <frame key="frameInset" width="359" height="100"/>
@@ -570,6 +570,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="rZ7-eD-osS" firstAttribute="leading" secondItem="Ssw-A3-3Dh" secondAttribute="trailing" constant="8" id="4tw-df-voy"/>
+                                                <constraint firstItem="z3m-29-3GV" firstAttribute="centerY" secondItem="5oC-5J-qaf" secondAttribute="centerY" id="DGT-R7-h2a"/>
                                                 <constraint firstItem="5UI-tT-v8s" firstAttribute="centerY" secondItem="5oC-5J-qaf" secondAttribute="centerY" id="FDg-xN-YMI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="z3m-29-3GV" secondAttribute="trailing" constant="8" id="KsH-Qc-AbZ"/>
                                                 <constraint firstItem="5UI-tT-v8s" firstAttribute="leading" secondItem="5oC-5J-qaf" secondAttribute="leading" constant="8" id="Mzf-DZ-LEn"/>
@@ -577,7 +578,6 @@
                                                 <constraint firstItem="Ssw-A3-3Dh" firstAttribute="centerY" secondItem="rZ7-eD-osS" secondAttribute="centerY" id="Zek-aJ-xZt"/>
                                                 <constraint firstItem="z3m-29-3GV" firstAttribute="leading" secondItem="5UI-tT-v8s" secondAttribute="trailing" constant="8" id="pyX-jS-c4E"/>
                                                 <constraint firstAttribute="bottom" secondItem="rZ7-eD-osS" secondAttribute="bottom" constant="8" id="w0D-Zw-yP1"/>
-                                                <constraint firstItem="z3m-29-3GV" firstAttribute="top" secondItem="5UI-tT-v8s" secondAttribute="top" id="xEI-dC-rG1"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>

@@ -39,6 +39,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     fetchedResultsController.delegate = self
 
     attemptFetch()
+    
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44.0, right: 0)
   }
   
@@ -108,11 +109,11 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     cell.contentView.backgroundColor = .clear
     
-    let whiteRoundedView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width - 20, height: 90))
+    let whiteRoundedView : UIView = UIView(frame: CGRect(x: 5, y: 5, width: self.view.frame.size.width-25, height: 90))
     
-    whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 1.0])
+    whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
     whiteRoundedView.layer.masksToBounds = false
-    whiteRoundedView.layer.cornerRadius = 4.0
+    whiteRoundedView.layer.cornerRadius = 3.0
     whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
     whiteRoundedView.layer.shadowOpacity = 0.2
     
@@ -166,20 +167,25 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
     switch type {
     case .update:
-      let cell = self.tableView.cellForRow(at: indexPath!) as? TaskCell
-      configureCell(cell!, indexPath: indexPath!)
+      if let ip = indexPath {
+        if let cell = self.tableView.cellForRow(at: ip) as? TaskCell {
+          configureCell(cell, indexPath: ip)
+        }
+      }
     case .insert:
-      self.tableView.insertRows(at: [newIndexPath!], with: .fade)
+      if let nip = newIndexPath {
+        self.tableView.insertRows(at: [nip], with: .fade)
+      }
     case .delete:
-      self.tableView.deleteRows(at: [indexPath!], with: .fade)
+      if let ip = indexPath {
+        self.tableView.deleteRows(at: [ip], with: .fade)
+      }
     case .move:
-      tableView.deleteRows(at: [indexPath!], with: .fade)
-      tableView.insertRows(at: [newIndexPath!], with: .fade)
+      if let ip = indexPath, let nip = newIndexPath {
+        tableView.deleteRows(at: [ip], with: .fade)
+        tableView.insertRows(at: [nip], with: .fade)
+      }
     }
-  }
-  
-  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-    self.tableView.endUpdates()
   }
   
   func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
@@ -193,6 +199,10 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     case .update:
       break
     }
+  }
+  
+  func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+    self.tableView.endUpdates()
   }
   
 }

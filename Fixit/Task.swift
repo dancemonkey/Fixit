@@ -18,6 +18,7 @@ class Task: NSManagedObject {
     self.completed = false
     self.shoppingList = false
     self.creationDate = Date()
+    print(creationDate)
     self.sectionName = "No project assigned"
   }
   
@@ -26,6 +27,10 @@ class Task: NSManagedObject {
       self.completed = false
     } else {
       self.completed = true
+    }
+    do {
+      try appDelegate.managedObjectContext.save()
+    } catch {
     }
   }
 }

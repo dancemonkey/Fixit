@@ -94,12 +94,6 @@ class TaskCell: UITableViewCell {
     } else {
       sender.incompleteTask()
     }
-    
-    do {
-      try appDelegate.managedObjectContext.save()
-    } catch {
-    }
-
   }
   
 }
