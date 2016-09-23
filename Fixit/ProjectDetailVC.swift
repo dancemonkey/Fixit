@@ -66,6 +66,8 @@
         
         self.navigationItem.title = project.title
         
+        selectPhoto.imageView?.contentMode = .scaleAspectFill
+        
         if let title = project.title {
           titleFld.text = title
         }
@@ -181,12 +183,12 @@
           newPhoto.data = UIImagePNGRepresentation(photo)
           project!.photo = newPhoto
         }
-        if let tasks = project!.taskList {
-          for task in tasks {
-            (task as AnyObject).setValue(project!, forKey: "parentProject")
-            (task as AnyObject).setValue(project!.title, forKey: "sectionName")
-          }
-        }
+//        if let tasks = project!.taskList {
+//          for task in tasks {
+//            (task as AnyObject).setValue(project!, forKey: "parentProject")
+//            (task as AnyObject).setValue(project!.title, forKey: "sectionName")
+//          }
+//        }
       }
       
       do {
@@ -237,6 +239,10 @@
         return tasks.count
       }
       return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+      return "Project Tasks"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

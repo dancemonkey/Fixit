@@ -40,6 +40,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     
     dateFormatter.dateFormat = "M/d/yy"
     
+    photoSelectBtn.imageView?.contentMode = .scaleAspectFill
+    
     let notificationCenter = NotificationCenter.default
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
