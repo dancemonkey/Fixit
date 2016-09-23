@@ -13,7 +13,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   @IBOutlet weak var tableView: UITableView!
   
-  let sectionNameKeyPath = "completed"
+  let sectionNameKeyPath: String? = nil //"completed"
   
   var fetchedResultsController: NSFetchedResultsController<Task>!
   
@@ -139,17 +139,17 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     return 100
   }
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if let sections = fetchedResultsController.sections {
-      let currentSection = sections[section]
-      if currentSection.name == "0" {
-        return "Incomplete"
-      } else {
-        return "Complete"
-      }
-    }
-    return nil
-  }
+//  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//    if let sections = fetchedResultsController.sections {
+//      let currentSection = sections[section]
+//      if currentSection.name == "0" {
+//        return "Incomplete"
+//      } else {
+//        return "Complete"
+//      }
+//    }
+//    return nil
+//  }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
@@ -190,19 +190,19 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
   }
   
-  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-    switch type {
-    case .update:
-      self.tableView.reloadSections(IndexSet(integer: sectionIndex), with: .fade)
-    case .insert:
-      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-    case .delete:
-      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-    case .move:
-      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-    }
-  }
+//  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//    switch type {
+//    case .update:
+//      self.tableView.reloadSections(IndexSet(integer: sectionIndex), with: .fade)
+//    case .insert:
+//      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+//    case .delete:
+//      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+//    case .move:
+//      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+//      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+//    }
+//  }
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.endUpdates()
