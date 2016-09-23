@@ -91,7 +91,10 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   // MARK: Tableview methods
   
   func numberOfSections(in tableView: UITableView) -> Int {
-    return (fetchedResultsController.sections?.count)!
+    if let sections = fetchedResultsController.sections {
+      return sections.count
+    }
+    return 0
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,15 +111,12 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     cell.tag = (indexPath as NSIndexPath).row
     
     cell.contentView.backgroundColor = .clear
-    
     let whiteRoundedView : UIView = UIView(frame: CGRect(x: 5, y: 5, width: self.view.frame.size.width-25, height: 90))
-    
     whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
     whiteRoundedView.layer.masksToBounds = false
     whiteRoundedView.layer.cornerRadius = 3.0
     whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
     whiteRoundedView.layer.shadowOpacity = 0.2
-    
     cell.contentView.addSubview(whiteRoundedView)
     cell.contentView.sendSubview(toBack: whiteRoundedView)
     
@@ -124,12 +124,14 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    let managedObject = fetchedResultsController.object(at: indexPath)
-    appDelegate.managedObjectContext.delete(managedObject)
-    do {
-      try appDelegate.managedObjectContext.save()
-    } catch {
-      print("wtf")
+    if editingStyle == .delete {
+      let managedObject = fetchedResultsController.object(at: indexPath)
+      appDelegate.managedObjectContext.delete(managedObject)
+      do {
+        try appDelegate.managedObjectContext.save()
+      } catch {
+        print("wtf")
+      }
     }
   }
   
@@ -190,14 +192,15 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
     switch type {
+    case .update:
+      self.tableView.reloadSections(IndexSet(integer: sectionIndex), with: .fade)
     case .insert:
       self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
     case .delete:
       self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
     case .move:
-      break
-    case .update:
-      break
+      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
     }
   }
   
