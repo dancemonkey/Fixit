@@ -35,13 +35,16 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     taskCell.updateTaskView()
     shoppingListCell.updateShoppingListView()
     hitListCell.updateHitListView()
-    
-    // TODO: populate Dasboard Cells with data from fetch
-    
+  
   }
   
   @IBAction func buttonTapped(_ sender: UIButton) {
-    performSegue(withIdentifier: segueStrings[sender.tag], sender: sender)
+    
+    Utils.animateButton(projectCell, withTiming: 0.01) {
+      self.performSegue(withIdentifier: self.segueStrings[sender.tag], sender: sender)
+    }
+    //performSegue(withIdentifier: segueStrings[sender.tag], sender: sender)
+    
   }
   
   func setCircleMenuButtons() {

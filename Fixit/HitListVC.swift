@@ -25,12 +25,12 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     
     let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "sectionName", ascending: true)
-    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
+    let secondarySortDesc = NSSortDescriptor(key: "time", ascending: true)
     let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
     fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
     fetch.predicate = NSPredicate(format: "time.intValue <= 15 AND completed.boolValue == false", argumentArray: nil)
     
-    fetchedResultsController = NSFetchedResultsController<Task>(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeypath, cacheName: nil)
+    fetchedResultsController = NSFetchedResultsController<Task>(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     fetchedResultsController.delegate = self
     
     attemptFetch()
@@ -92,15 +92,6 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     return 50
   }
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if let sections = fetchedResultsController.sections {
-      let currentSection = sections[section]
-      return currentSection.name
-    } else {
-      return nil
-    }
-  }
-  
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
   }
@@ -138,19 +129,6 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.endUpdates()
-  }
-  
-  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-    switch type {
-    case .insert:
-      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-    case .delete:
-      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-    case .move:
-      break
-    case .update:
-      break
-    }
   }
 
 }

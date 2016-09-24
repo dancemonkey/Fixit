@@ -16,6 +16,19 @@ class Utils {
       execute: closure
     )
   }
+  
+  static func animateButton(_ view: UIView, withTiming timing: Double, completionClosure: @escaping () -> ()) {
+    UIView.animate(withDuration: timing  ,
+                   animations: {
+                    view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+      },
+                   completion: { finish in
+                    UIView.animate(withDuration: timing/2){
+                      view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    }
+                    completionClosure()
+    })
+  }
 }
 
 protocol SaveDelegateData {
