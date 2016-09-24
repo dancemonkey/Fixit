@@ -14,6 +14,7 @@ class ShoppingListCell: UITableViewCell {
   @IBOutlet weak var checkBoxBtn: CheckBoxBtn!
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var costLbl: UILabel!
+  @IBOutlet weak var projectLbl: UILabel!
   
   var task: Task!
   
@@ -50,6 +51,10 @@ class ShoppingListCell: UITableViewCell {
       costLbl.text = formatter.string(from: cost)!
     } else {
       costLbl.text = "No estimated cost"
+    }
+    
+    if let project = task.parentProject {
+      projectLbl.text = project.title
     }
     
   }

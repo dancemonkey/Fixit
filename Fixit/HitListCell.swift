@@ -15,6 +15,7 @@ class HitListCell: UITableViewCell {
   @IBOutlet weak var checkBoxBtn: CheckBoxBtn!
   @IBOutlet weak var titleLbl: UILabel!
   @IBOutlet weak var timeLabel: UILabel!
+  @IBOutlet weak var projectLbl: UILabel!
   
   var task: Task!
   
@@ -38,8 +39,10 @@ class HitListCell: UITableViewCell {
       titleLbl.text = title
     }
     if let time = task.time {
-      
       timeLabel.text = String(describing: time) + " mins."
+    }
+    if let project = task.parentProject {
+      projectLbl.text = project.title
     }
   }
   

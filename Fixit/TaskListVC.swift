@@ -110,16 +110,6 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     configureCell(cell, indexPath: indexPath)
     cell.tag = (indexPath as NSIndexPath).row
     
-    cell.contentView.backgroundColor = .clear
-    let whiteRoundedView : UIView = UIView(frame: CGRect(x: 5, y: 5, width: self.view.frame.size.width-25, height: 90))
-    whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
-    whiteRoundedView.layer.masksToBounds = false
-    whiteRoundedView.layer.cornerRadius = 3.0
-    whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
-    whiteRoundedView.layer.shadowOpacity = 0.2
-    cell.contentView.addSubview(whiteRoundedView)
-    cell.contentView.sendSubview(toBack: whiteRoundedView)
-    
     return cell
   }
   
@@ -138,18 +128,6 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 100
   }
-  
-//  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//    if let sections = fetchedResultsController.sections {
-//      let currentSection = sections[section]
-//      if currentSection.name == "0" {
-//        return "Incomplete"
-//      } else {
-//        return "Complete"
-//      }
-//    }
-//    return nil
-//  }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: "showTaskDetail", sender: indexPath)

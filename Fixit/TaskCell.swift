@@ -34,9 +34,19 @@ class TaskCell: UITableViewCell {
     dueDateLbl.text = ""
     checkBoxBtn.incompleteTask()
     thumbImg.image = UIImage(named: "Camera")
+    thumbImg.contentMode = .scaleAspectFill
     projectLbl.text = ""
     titleLbl.text = ""
     
+    contentView.backgroundColor = .clear
+    let whiteRoundedView : UIView = UIView(frame: CGRect(x: 5, y: 5, width: self.frame.size.width-10, height: 90))
+    whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+    whiteRoundedView.layer.masksToBounds = false
+    whiteRoundedView.layer.cornerRadius = 3.0
+    whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+    whiteRoundedView.layer.shadowOpacity = 0.2
+    contentView.addSubview(whiteRoundedView)
+    contentView.sendSubview(toBack: whiteRoundedView)
     
     if self.task.completed?.boolValue == true {
       self.checkBoxBtn.completeTask()
@@ -72,7 +82,7 @@ class TaskCell: UITableViewCell {
       dateFormatter.dateFormat = "M/d"
       dueDateLbl.text = dateFormatter.string(from: dueDate as Date)
     } else {
-      dueDateLbl.text = "-/-"
+      dueDateLbl.text = "--/--"
     }
     
     if let project = task.parentProject {

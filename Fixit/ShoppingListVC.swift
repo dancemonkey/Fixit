@@ -29,7 +29,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
     fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
     fetch.predicate = NSPredicate(format: "shoppingList.boolValue == true AND completed.boolValue == false", argumentArray: nil)
-    fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeypath, cacheName: nil)
+    fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     
     fetchedResultsController.delegate = self
    
@@ -90,14 +90,14 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     return 50
   }
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if let sections = fetchedResultsController.sections {
-      let currentSection = sections[section]
-      return currentSection.name
-    } else {
-      return "No project"
-    }
-  }
+//  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//    if let sections = fetchedResultsController.sections {
+//      let currentSection = sections[section]
+//      return currentSection.name
+//    } else {
+//      return "No project"
+//    }
+//  }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
@@ -148,17 +148,17 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     self.tableView.endUpdates()
   }
   
-  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-    switch type {
-    case .insert:
-      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-    case .delete:
-      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-    case .move:
-      break
-    case .update:
-      break
-    }
-  }
+//  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//    switch type {
+//    case .insert:
+//      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+//    case .delete:
+//      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+//    case .move:
+//      break
+//    case .update:
+//      break
+//    }
+//  }
   
 }

@@ -50,6 +50,8 @@
       
       dateFormatter.dateFormat = "M/d/yy"
       
+      selectPhoto.imageView?.contentMode = .scaleAspectFill
+      
       if project == nil {
         self.navigationItem.title = "New project"
         selectPhoto.setTitle("+ Add photo", for: UIControlState())
