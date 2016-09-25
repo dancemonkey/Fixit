@@ -43,8 +43,10 @@ class ProjectSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSou
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    delegate.saveProject(projects[(indexPath as NSIndexPath).row])
-    _ = self.navigationController?.popViewController(animated: true)
+    Utils.animateButton(tableView.cellForRow(at: indexPath)!, withTiming: 0.05) {
+      self.delegate.saveProject(self.projects[(indexPath as NSIndexPath).row])
+      _ = self.navigationController?.popViewController(animated: true)
+    }
   }
   
 }

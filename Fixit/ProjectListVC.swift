@@ -97,7 +97,9 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "showProjectDetail", sender: indexPath)
+    Utils.animateButton(tableView.cellForRow(at: indexPath)!, withTiming: 0.05) { 
+      self.performSegue(withIdentifier: "showProjectDetail", sender: indexPath)
+    }
   }
   
   func configureCell(_ cell: ProjectCell, indexPath: IndexPath) {

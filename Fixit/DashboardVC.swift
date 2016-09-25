@@ -21,6 +21,7 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
   @IBOutlet weak var addNewButton: CircleMenu!
   
   let segueStrings = ["goToProjects","goToTasks","goToShoppingList","goToHitList"]
+  var animatedCells: [DashboardCellView]!
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -35,19 +36,16 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     taskCell.updateTaskView()
     shoppingListCell.updateShoppingListView()
     hitListCell.updateHitListView()
+    
+    animatedCells = [projectCell, taskCell, shoppingListCell, hitListCell]
   
   }
   
   @IBAction func buttonTapped(_ sender: UIButton) {
     
-    Utils.animateButton(projectCell, withTiming: 0.01) {
+    Utils.animateButton(animatedCells[sender.tag], withTiming: 0.05) {
       self.performSegue(withIdentifier: self.segueStrings[sender.tag], sender: sender)
     }
-    //performSegue(withIdentifier: segueStrings[sender.tag], sender: sender)
-    
-  }
-  
-  func setCircleMenuButtons() {
     
   }
   

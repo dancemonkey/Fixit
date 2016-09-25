@@ -130,7 +130,10 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
+    Utils.animateButton(tableView.cellForRow(at: indexPath)!, withTiming: 0.05) {
+      self.performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
+    }
+    //performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
   }
   
   func configureCell(_ cell: TaskCell, indexPath: IndexPath) {
