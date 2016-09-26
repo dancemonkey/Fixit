@@ -8,6 +8,8 @@
 
 import UIKit
 
+let btnAnimTiming: Double = 0.05
+
 class Utils {
   
   static func delay(_ delay: Double, closure: @escaping ()->()) {
@@ -17,7 +19,7 @@ class Utils {
     )
   }
   
-  static func animateButton(_ view: UIView, withTiming timing: Double, completionClosure: @escaping () -> ()) {
+  static func animateButton(_ view: UIView, withTiming timing: Double, completionClosure: (() -> ())?) {
     UIView.animate(withDuration: timing  ,
                    animations: {
                     view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
@@ -26,7 +28,9 @@ class Utils {
                     UIView.animate(withDuration: timing/2){
                       view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                     }
-                    completionClosure()
+                    if let closure = completionClosure {
+                      closure()
+                    }
     })
   }
 }

@@ -1181,7 +1181,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="h9c-rC-QwX" kind="show" identifier="showDueDatePicker" id="Tdg-8o-wfF"/>
+                                                    <action selector="selectDueDatePressedWithSender:" destination="NTe-Je-CoY" eventType="touchUpInside" id="QqW-CA-yqD"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RFx-1J-kkj">
@@ -1280,7 +1280,7 @@
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="outlineView" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <segue destination="7dF-fd-Yvb" kind="show" identifier="showPhotoDetail" id="KkE-uQ-xfH"/>
+                                                    <action selector="addPhotoPressedWithSender:" destination="NTe-Je-CoY" eventType="touchUpInside" id="h8Y-KX-AdC"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1410,6 +1410,8 @@
                         <outlet property="titleFld" destination="cVr-MW-jaP" id="M97-q9-08b"/>
                         <outlet property="trashBtn" destination="Pw1-OX-RHE" id="hyW-nY-2mb"/>
                         <segue destination="ybF-y6-6lw" kind="show" identifier="showTaskDetail" id="Zbv-EL-gJw"/>
+                        <segue destination="7dF-fd-Yvb" kind="show" identifier="showPhotoDetail" id="AhU-Ky-WEs"/>
+                        <segue destination="h9c-rC-QwX" kind="show" identifier="showDueDatePicker" id="Sfd-d4-CHD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yHx-N0-QbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1900,8 +1902,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Jxk-1f-Ue0"/>
-        <segue reference="Gl2-hA-64l"/>
-        <segue reference="Bvn-pR-G0l"/>
-        <segue reference="WCH-Gr-WaN"/>
+        <segue reference="Zbv-EL-gJw"/>
+        <segue reference="Sfd-d4-CHD"/>
+        <segue reference="AhU-Ky-WEs"/>
     </inferredMetricsTieBreakers>
 </document>

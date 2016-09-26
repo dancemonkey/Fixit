@@ -109,6 +109,18 @@
       self.tableView.reloadData()
     }
     
+    @IBAction func addPhotoPressed(sender: UIButton) {
+      Utils.animateButton(sender, withTiming: btnAnimTiming) {
+        self.performSegue(withIdentifier: "showPhotoDetail", sender: sender)
+      }
+    }
+    
+    @IBAction func selectDueDatePressed(sender: UIButton) {
+      Utils.animateButton(sender, withTiming: btnAnimTiming) {
+        self.performSegue(withIdentifier: "showDueDatePicker", sender: sender)
+      }
+    }
+    
     @IBAction func deleteCompletedPressed(_ sender: UIBarButtonItem) {
       
       let alert = UIAlertController(title: "Confirm", message: "You are about to delete this project!", preferredStyle: .alert)
@@ -185,12 +197,6 @@
           newPhoto.data = UIImagePNGRepresentation(photo)
           project!.photo = newPhoto
         }
-//        if let tasks = project!.taskList {
-//          for task in tasks {
-//            (task as AnyObject).setValue(project!, forKey: "parentProject")
-//            (task as AnyObject).setValue(project!.title, forKey: "sectionName")
-//          }
-//        }
       }
       
       do {
