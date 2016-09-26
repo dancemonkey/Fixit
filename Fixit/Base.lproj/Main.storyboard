@@ -1240,7 +1240,7 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="outlineView" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <segue destination="ybF-y6-6lw" kind="show" identifier="createNewTask" id="LmV-qB-xSf"/>
+                                                            <action selector="newTaskPressedWithSender:" destination="NTe-Je-CoY" eventType="touchUpInside" id="Ue3-s3-CVE"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1611,6 +1611,7 @@
                     <connections>
                         <outlet property="datePicker" destination="m33-Hw-Im3" id="9fG-Jj-TSZ"/>
                         <outlet property="dayOfWeek" destination="rLa-Dl-4VH" id="hwN-pq-Mgn"/>
+                        <outlet property="doneButton" destination="iqE-k3-rfS" id="iEf-2g-26y"/>
                         <outlet property="removeDueDateBtn" destination="fWO-Vm-xe4" id="LJL-8I-2QL"/>
                     </connections>
                 </viewController>
@@ -1728,7 +1729,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="h9c-rC-QwX" kind="show" identifier="showDueDatePicker" id="WCH-Gr-WaN"/>
+                                                    <action selector="selectDueDatePressedWithSender:" destination="ybF-y6-6lw" eventType="touchUpInside" id="ljK-hE-M3p"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZj-N2-efW">
@@ -1737,7 +1738,7 @@
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="7dF-fd-Yvb" kind="show" identifier="showPhotoDetail" id="Bvn-pR-G0l"/>
+                                                    <action selector="addPhotoPressedWithSender:" destination="ybF-y6-6lw" eventType="touchUpInside" id="YbS-Tn-F17"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kMz-rq-WMm">
@@ -1884,6 +1885,8 @@
                         <outlet property="timeFld" destination="XeF-6D-q8k" id="zm4-b9-yU3"/>
                         <outlet property="titleFld" destination="VEv-NS-Jza" id="NxO-Ye-Ura"/>
                         <segue destination="yf9-NN-m06" kind="show" identifier="selectAProject" id="5zs-AR-qvn"/>
+                        <segue destination="7dF-fd-Yvb" kind="show" identifier="showPhotoDetail" id="pPk-Mp-OhW"/>
+                        <segue destination="h9c-rC-QwX" kind="show" identifier="showDueDatePicker" id="lzy-zi-yZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cs7-TC-Oy3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1903,7 +1906,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Jxk-1f-Ue0"/>
         <segue reference="Zbv-EL-gJw"/>
-        <segue reference="Sfd-d4-CHD"/>
-        <segue reference="AhU-Ky-WEs"/>
+        <segue reference="pPk-Mp-OhW"/>
+        <segue reference="lzy-zi-yZw"/>
     </inferredMetricsTieBreakers>
 </document>

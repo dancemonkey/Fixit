@@ -121,6 +121,12 @@
       }
     }
     
+    @IBAction func newTaskPressed(sender: UIButton) {
+      Utils.animateButton(sender, withTiming: btnAnimTiming) {
+        self.performSegue(withIdentifier: "showTaskDetail", sender: sender)
+      }
+    }
+    
     @IBAction func deleteCompletedPressed(_ sender: UIBarButtonItem) {
       
       let alert = UIAlertController(title: "Confirm", message: "You are about to delete this project!", preferredStyle: .alert)
@@ -222,9 +228,13 @@
         if let destVC = segue.destination as? TaskDetailVC {
           destVC.project = self.project
         }
-      } else if segue.identifier == "showTaskDetail" {
+      } else if segue.identifier == "showTaskDetail" , sender is IndexPath {
         if let destVC = segue.destination as? TaskDetailVC {
           destVC.task = self.taskData![((sender as! IndexPath) as NSIndexPath).row]
+        }
+      } else if segue.identifier == "showTaskDetail" , sender is UIButton {
+        if let destVC = segue.destination as? TaskDetailVC {
+          destVC.project = self.project
         }
       } else if segue.identifier == "showPhotoDetail" {
         if let destVC = segue.destination as? PhotoPickerVC {

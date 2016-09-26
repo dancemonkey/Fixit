@@ -18,7 +18,9 @@ class CheckBoxBtn: UIButton {
   }
   
   func completeTask() {
-    layer.backgroundColor = UIColor(red:0.35, green:0.23, blue:0.00, alpha:1.0).cgColor
+    Utils.animateButton(self, withTiming: btnAnimTiming) { 
+      self.layer.backgroundColor = UIColor(red:0.35, green:0.23, blue:0.00, alpha:1.0).cgColor
+    }
   }
   
   func incompleteTask() {

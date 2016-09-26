@@ -215,7 +215,21 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   }
   
   @IBAction func selectProjectPressed(_ sender: UIButton) {
-    performSegue(withIdentifier: "selectAProject", sender: self)
+    Utils.animateButton(sender, withTiming: btnAnimTiming) {
+      self.performSegue(withIdentifier: "selectAProject", sender: self)
+    }
+  }
+  
+  @IBAction func addPhotoPressed(sender: UIButton) {
+    Utils.animateButton(sender, withTiming: btnAnimTiming) {
+      self.performSegue(withIdentifier: "showPhotoDetail", sender: sender)
+    }
+  }
+  
+  @IBAction func selectDueDatePressed(sender: UIButton) {
+    Utils.animateButton(sender, withTiming: btnAnimTiming) {
+      self.performSegue(withIdentifier: "showDueDatePicker", sender: sender)
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

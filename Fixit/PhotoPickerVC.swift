@@ -41,23 +41,30 @@ class PhotoPickerVC: UIViewController, UINavigationControllerDelegate, UIImagePi
   }
   
   @IBAction func donePressed(_ sender: UIButton) {
-    _ = self.navigationController?.popViewController(animated: true)
+    Utils.animateButton(sender, withTiming: btnAnimTiming) { 
+      _ = self.navigationController?.popViewController(animated: true)
+    }
   }
   
   @IBAction func removePhotoPressed(_ sender: UIButton) {
-    self.image = nil
-    self.photoPreview.image = nil
-    delegate.saveImage(nil)
-    _ = self.navigationController?.popViewController(animated: true)
+    Utils.animateButton(sender, withTiming: btnAnimTiming) { 
+      self.image = nil
+      self.photoPreview.image = nil
+      self.delegate.saveImage(nil)
+      _ = self.navigationController?.popViewController(animated: true)
+
+    }
   }
   
   // MARK: Image Picker Methods
   
   @IBAction func imagePickerPressed(_ sender: UIButton) {
-    imagePickerController.delegate = self
-    imagePickerController.allowsEditing = true
-    imagePickerController.sourceType = (sender.titleLabel?.text == "Camera" ? .camera : .photoLibrary)
-    self.present(imagePickerController, animated: true, completion: nil)
+    Utils.animateButton(sender, withTiming: btnAnimTiming) { 
+      self.imagePickerController.delegate = self
+      self.imagePickerController.allowsEditing = true
+      self.imagePickerController.sourceType = (sender.titleLabel?.text == "Camera" ? .camera : .photoLibrary)
+      self.present(self.imagePickerController, animated: true, completion: nil)
+    }
   }
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
