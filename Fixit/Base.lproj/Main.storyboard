@@ -26,7 +26,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodBackground" translatesAutoresizingMaskIntoConstraints="NO" id="0ui-Ud-YCW"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="0ui-Ud-YCW"/>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="JWy-nq-EjN">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OFw-Nj-fFr" userLabel="ProjectView" customClass="DashboardCellView" customModule="Fixit" customModuleProvider="target">
@@ -34,7 +34,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uCR-7D-3z5">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="0zk-bf-858">
-                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="48"/>
+                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="60"/>
                                                         <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -51,7 +51,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="fmH-e8-xgL" firstAttribute="top" secondItem="OFw-Nj-fFr" secondAttribute="top" id="52g-Jo-Re2"/>
                                             <constraint firstAttribute="width" secondItem="OFw-Nj-fFr" secondAttribute="height" multiplier="1:1" id="DcO-XD-RsI"/>
@@ -65,7 +65,7 @@
                                             <constraint firstAttribute="width" constant="125" id="yjZ-ny-Gxk"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -94,7 +94,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pPt-L3-bss">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="4Id-ml-iES">
-                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="48"/>
+                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="60"/>
                                                         <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -125,7 +125,7 @@
                                             <constraint firstItem="uj3-Yh-6zS" firstAttribute="height" secondItem="eEn-WZ-pTV" secondAttribute="height" id="uO8-2y-OWq"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -153,7 +153,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tMY-FC-oSB">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="wzT-Ep-FmO">
-                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="48"/>
+                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="60"/>
                                                         <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -184,7 +184,7 @@
                                             <constraint firstItem="tMY-FC-oSB" firstAttribute="centerY" secondItem="2gh-2I-LUH" secondAttribute="centerY" id="sBE-Mf-Ubc"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -208,7 +208,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PNF-94-KBq">
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="hzC-i5-fNF">
-                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="48"/>
+                                                        <fontDescription key="fontDescription" name="Phosphate-Solid" family="Phosphate" pointSize="60"/>
                                                         <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -239,7 +239,7 @@
                                             <constraint firstItem="PNF-94-KBq" firstAttribute="centerX" secondItem="fCR-No-fic" secondAttribute="centerX" id="tW5-tq-Z1X"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -271,6 +271,7 @@
                                         <variation key="widthClass=compact" constant="50"/>
                                     </constraint>
                                 </constraints>
+                                <color key="tintColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="AddNewBtn"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="YES"/>
@@ -340,12 +341,22 @@
                                 <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f46-fl-taZ">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="G1j-xG-4NW"/>
+                                    <constraint firstAttribute="width" constant="22" id="R8p-50-BNV"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="0FO-rR-fnC" firstAttribute="trailing" secondItem="2gh-2I-LUH" secondAttribute="trailing" id="1we-ox-pmz"/>
+                            <constraint firstItem="f46-fl-taZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="5rv-SB-mrh"/>
                             <constraint firstAttribute="trailing" secondItem="0ui-Ud-YCW" secondAttribute="trailing" id="9GD-zt-Ls3"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0ui-Ud-YCW" secondAttribute="bottom" constant="-50" id="FGw-mg-JVw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0ui-Ud-YCW" secondAttribute="bottom" id="FGw-mg-JVw"/>
                             <constraint firstItem="Cnx-0z-q3k" firstAttribute="trailing" secondItem="5Eg-oD-vai" secondAttribute="trailing" id="FTK-Gd-MIM"/>
                             <constraint firstItem="HdA-cl-K3O" firstAttribute="leading" secondItem="OFw-Nj-fFr" secondAttribute="leading" id="FrZ-9e-DZc"/>
                             <constraint firstItem="Dyd-ha-VsG" firstAttribute="top" secondItem="JWy-nq-EjN" secondAttribute="bottom" constant="48" id="HaP-R8-ZkH"/>
@@ -358,6 +369,7 @@
                             <constraint firstItem="h7z-cx-hnt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qo6-ji-sln"/>
                             <constraint firstItem="eOW-8l-0cZ" firstAttribute="leading" secondItem="0FO-rR-fnC" secondAttribute="leading" id="SyQ-Rt-pKh"/>
                             <constraint firstItem="eOW-8l-0cZ" firstAttribute="trailing" secondItem="0FO-rR-fnC" secondAttribute="trailing" id="UBI-Km-6gL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="f46-fl-taZ" secondAttribute="bottom" constant="16" id="VyU-et-zc6"/>
                             <constraint firstItem="Dyd-ha-VsG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W1y-bw-wuO"/>
                             <constraint firstItem="Cnx-0z-q3k" firstAttribute="leading" secondItem="5Eg-oD-vai" secondAttribute="leading" id="XVe-OB-dm3"/>
                             <constraint firstItem="JWy-nq-EjN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dtE-6V-GFk"/>
@@ -386,9 +398,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Fixit" id="i3V-hH-iei">
                         <barButtonItem key="backBarButtonItem" title="Back" id="mua-3b-niI"/>
-                        <barButtonItem key="rightBarButtonItem" title="?" id="r1y-RJ-ecw">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addNewButton" destination="h7z-cx-hnt" id="anX-aX-5Dj"/>
@@ -504,7 +513,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2id-E3-7nv"/>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="20" sectionFooterHeight="20" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-E1-YgB">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -631,18 +639,14 @@
                             </constraint>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="8" id="6lG-Ti-FF0"/>
                             <constraint firstItem="YuF-E1-YgB" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" constant="8" id="GTq-fy-DQB"/>
-                            <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="2id-E3-7nv" secondAttribute="bottom" constant="-94" id="JcY-Wd-MiD"/>
                             <constraint firstItem="NUT-1O-rMI" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="Lzf-ck-5DJ"/>
                             <constraint firstAttribute="bottom" secondItem="NUT-1O-rMI" secondAttribute="bottom" id="NZh-cO-U8S"/>
                             <constraint firstAttribute="trailing" secondItem="NUT-1O-rMI" secondAttribute="trailing" id="OJ0-WX-sOV"/>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="8" id="Odq-C4-xQF"/>
-                            <constraint firstAttribute="trailing" secondItem="2id-E3-7nv" secondAttribute="trailing" id="RU8-AH-Zfa"/>
-                            <constraint firstItem="2id-E3-7nv" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" id="ScK-kb-EUZ"/>
                             <constraint firstAttribute="trailing" secondItem="YuF-E1-YgB" secondAttribute="trailing" constant="8" id="Svi-Fl-Se8"/>
                             <constraint firstAttribute="trailing" secondItem="YuF-E1-YgB" secondAttribute="trailing" constant="20" id="Um2-zL-WL6">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
-                            <constraint firstItem="2id-E3-7nv" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="bK0-Cw-CJh"/>
                             <constraint firstAttribute="trailing" secondItem="NUT-1O-rMI" secondAttribute="trailing" id="h1p-91-dbT"/>
                             <constraint firstItem="NUT-1O-rMI" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="hPi-67-Rm8"/>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="20" id="i8c-Rq-WJo">
@@ -655,9 +659,6 @@
                             <constraint firstAttribute="bottom" secondItem="NUT-1O-rMI" secondAttribute="bottom" id="snI-1N-Kgf"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="2id-E3-7nv"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="NZh-cO-U8S"/>
                                 <exclude reference="OJ0-WX-sOV"/>
@@ -1737,6 +1738,9 @@
                                                 <state key="normal" title="Add photo">
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="outlineView" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="addPhotoPressedWithSender:" destination="ybF-y6-6lw" eventType="touchUpInside" id="YbS-Tn-F17"/>
                                                 </connections>
@@ -1896,17 +1900,17 @@
     </scenes>
     <resources>
         <image name="AddNewBtn" width="75" height="75"/>
+        <image name="Background" width="375" height="667"/>
         <image name="Camera" width="75" height="66"/>
         <image name="CartIconLarge" width="154" height="154"/>
         <image name="CheckBoxBackground" width="45" height="45"/>
         <image name="Clock Icon" width="50" height="50"/>
         <image name="Oval" width="65" height="65"/>
-        <image name="woodBackground" width="1663" height="1667"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jxk-1f-Ue0"/>
-        <segue reference="Zbv-EL-gJw"/>
         <segue reference="pPk-Mp-OhW"/>
+        <segue reference="MId-6e-6ct"/>
+        <segue reference="Jxk-1f-Ue0"/>
         <segue reference="lzy-zi-yZw"/>
     </inferredMetricsTieBreakers>
 </document>

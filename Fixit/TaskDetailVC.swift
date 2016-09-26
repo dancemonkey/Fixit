@@ -56,6 +56,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       self.navigationItem.title = "New task"
       photoSelectBtn.setTitle("+ Add photo", for: UIControlState())
       dueDateSelectBtn.setTitle("Due date...", for: UIControlState())
+      titleFld.becomeFirstResponder()
     }
     
     if let task = self.task {

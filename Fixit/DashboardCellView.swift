@@ -22,9 +22,9 @@ class DashboardCellView: UIView, UIGestureRecognizerDelegate {
     formatter.numberStyle = .currency
     formatter.locale = .current
     
-    self.layer.borderColor = UIColor.lightGray.cgColor
+    self.layer.borderColor = UIColor(red:0.35, green:0.23, blue:0.00, alpha:1.0).cgColor //UIColor.lightGray.cgColor
     self.layer.borderWidth = 1.0
-    self.backgroundColor = UIColor(white: 1.0, alpha: 1.0)
+    self.backgroundColor = UIColor(white: 1.0, alpha: 0.4)
     
     self.layer.masksToBounds = true
   }

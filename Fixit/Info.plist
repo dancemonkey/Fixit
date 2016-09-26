@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Fixit</string>
+	<string>Fixit List</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -30,6 +30,10 @@
 	<string>For adding photos to tasks and projects.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>For adding photos to tasks and projects.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Phosphate.ttc</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -41,10 +45,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Phosphate.ttc</string>
 	</array>
 </dict>
 </plist>

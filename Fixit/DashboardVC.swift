@@ -52,11 +52,11 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
   func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
     if atIndex == 0 {
       button.addTarget(self, action: #selector(addProject(_:)), for: .touchUpInside)
-      button.setImage(UIImage(named: "ProjectIconSmall"), for: UIControlState())
+      button.setImage(UIImage(named: "ProjectIconSmall"), for: .normal)
       button.backgroundColor = UIColor.init(red: 16/255.0, green: 81/255.0, blue: 165/255.0, alpha: 1.0)
     } else if atIndex == 1 {
       button.addTarget(self, action: #selector(addTask(_:)), for: .touchUpInside)
-      button.setImage(UIImage(named: "TaskIconSmall"), for: UIControlState())
+      button.setImage(UIImage(named: "TaskIconSmall"), for: .normal)
       button.backgroundColor = UIColor.init(red: 16/255.0, green: 81/255.0, blue: 165/255.0, alpha: 1.0)
     }
     

@@ -59,6 +59,7 @@
         self.newTaskBtn.isEnabled = false
         self.newTaskBtn.setTitleColor(UIColor.lightGray, for: UIControlState())
         trashBtn.isEnabled = false
+        titleFld.becomeFirstResponder()
       }
       
       if let project = self.project {
