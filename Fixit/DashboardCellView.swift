@@ -66,17 +66,6 @@ extension DashboardCellView {
     
     titleLbls[0].text = ""
     titleLbls[1].text = ""
-        
-    let dueTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
-      if task.completed == false {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "m/d/y"
-        if let date = task.dueDate {
-          return formatter.string(from: date as Date) == formatter.string(from: Date())
-        }
-      }
-      return false
-    }
     
     let totalUpcomingTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       return task.completed == false
@@ -86,7 +75,7 @@ extension DashboardCellView {
       if label.tag == 0 {
         label.text = String(totalUpcomingTasks.count) // total # of tasks
       } else if label.tag == 1 {
-        label.text = String("Due: " + String(dueTasks.count)) + ", " + String("Overdue: " + String(Datasource.ds.fetchOverdueTaskCount()))
+        label.text = String("Due: " + String(Datasource.ds.fetchDueTaskCount())) + ", " + String("Overdue: " + String(Datasource.ds.fetchOverdueTaskCount()))
       } else if label.tag == 2 {
         label.text = String("Overdue: " + String(Datasource.ds.fetchOverdueTaskCount()))
       }

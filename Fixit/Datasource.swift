@@ -53,15 +53,24 @@ class Datasource {
     self.fetchTasks()
     let overdue = self.fetchedTasks.filter { (task) -> Bool in
       if task.completed == false {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "M/D/Y"
         if let date = task.dueDate {
-          return formatter.string(from: date as Date) < formatter.string(from: Date())
+          return Calendar.current.startOfDay(for: date) < Calendar.current.startOfDay(for: Date())
         }
       }
       return false
     }
     return overdue.count
+  }
+  
+  func fetchDueTaskCount() -> Int {
+    self.fetchTasks()
+    let due = self.fetchedTasks.filter { (task) -> Bool in
+      if task.completed == false, let date = task.dueDate {
+        return Calendar.current.startOfDay(for: date) == Calendar.current.startOfDay(for: Date())
+      }
+      return false
+    }
+    return due.count
   }
   
   func fetchPhotos() {
