@@ -54,4 +54,29 @@ class DueDatePickerVC: UIViewController {
     }
   }
   
+  @IBAction func dueDateShortcutPressed(_ sender: UIButton) {
+    var dateToSave: Date!
+    var components = DateComponents()
+    let calendar = Calendar.current
+    Utils.animateButton(sender, withTiming: btnAnimTiming) { 
+      switch sender.tag {
+      case 0:
+        dateToSave = Date()
+      case 1:
+        components.day = 1
+        dateToSave = calendar.date(byAdding: components, to: Date())
+      case 2:
+        components.day = 7
+        dateToSave = calendar.date(byAdding: components, to: Date())
+      case 3:
+        components.month = 1
+        dateToSave = calendar.date(byAdding: components, to: Date())
+      default:
+        dateToSave = Date()
+      }
+      self.delegate.saveDate(dateToSave)
+      _ = self.navigationController?.popViewController(animated: true)
+    }
+  }
+  
 }
