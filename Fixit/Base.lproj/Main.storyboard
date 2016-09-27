@@ -517,10 +517,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="taskCell" focusStyle="custom" rowHeight="100" id="hAt-My-M7p" userLabel="taskCell" customClass="TaskCell" customModule="Fixit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="20" width="359" height="100"/>
+                                        <rect key="frame" x="0.0" y="20" width="1000" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hAt-My-M7p" id="5oC-5J-qaf">
-                                            <frame key="frameInset" width="359" height="100"/>
+                                            <frame key="frameInset" width="1000" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5UI-tT-v8s">
@@ -810,7 +810,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pi-XC-lk3" id="fnb-9e-2YZ">
-                                            <frame key="frameInset" width="359" height="50"/>
+                                            <frame key="frameInset" width="359" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-6H-MiN" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
@@ -1571,7 +1571,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8u4-3u-W7W" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lod-FX-ZRl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lod-FX-ZRl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1854,9 +1854,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gl2-hA-64l"/>
         <segue reference="lzy-zi-yZw"/>
-        <segue reference="pPk-Mp-OhW"/>
+        <segue reference="MId-6e-6ct"/>
         <segue reference="YnI-WA-tKL"/>
+        <segue reference="pPk-Mp-OhW"/>
     </inferredMetricsTieBreakers>
 </document>
