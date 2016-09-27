@@ -51,6 +51,11 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     performSegue(withIdentifier: "createNewProject", sender: self)
   }
   
+  @IBAction func questionPressed(_ sender: UIBarButtonItem) {
+    let alert = UIAlertController(title: "Project List", message: "This is the master list of all projects you have created. From here you can create projects, delete projects (by swiping left on the table row), and get a quick glance at the particulars of each project.", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
   
   // MARK: Tableview methods
   

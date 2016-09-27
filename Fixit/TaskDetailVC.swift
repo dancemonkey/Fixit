@@ -123,7 +123,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       }
     } else {
       completeBtn.isEnabled = false
-      completeBtn.title = "Tap to complete"
+      completeBtn.title = "Complete task"
     }
   }
   

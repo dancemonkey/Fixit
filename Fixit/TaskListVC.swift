@@ -80,6 +80,12 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
   }
   
+  @IBAction func questionPressed(_ sender: UIBarButtonItem) {
+    let alert = UIAlertController(title: "Task List", message: "This is the master list of all tasks you have created. From here you can create tasks, delete tasks (by swiping left on the table row), and get a quick glance at the particulars of each task.", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showTaskDetail" {
       if let destVC = segue.destination as? TaskDetailVC {
@@ -170,20 +176,6 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
       }
     }
   }
-  
-//  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-//    switch type {
-//    case .update:
-//      self.tableView.reloadSections(IndexSet(integer: sectionIndex), with: .fade)
-//    case .insert:
-//      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-//    case .delete:
-//      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-//    case .move:
-//      self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
-//      self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
-//    }
-//  }
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.endUpdates()

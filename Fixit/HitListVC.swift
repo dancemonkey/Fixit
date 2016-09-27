@@ -57,6 +57,12 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     }
   }
   
+  @IBAction func questionPressed(_ sender: UIBarButtonItem) {
+    let alert = UIAlertController(title: "Hit List", message: "This is a list of all tasks that have an estimated time (in minutes) entered into the time field, of less than 15 minutes. This way you can get a quick look at all of the tasks you have on your list that won't take you long to complete. If you have a few minutes to spare and want to get something done on your Fixit List, this is the place to look!", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
   // MARK: Tableview methods
   
   

@@ -56,6 +56,12 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
   }
   
+  @IBAction func questionPressed(_ sender: UIBarButtonItem) {
+    let alert = UIAlertController(title: "Shopping List", message: "This is a list of all tasks that you have flipped the 'shopping cart' switch on in the task detail view. You can tap on a row to go directly to the task detail screen of that item.", preferredStyle: .alert)
+    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+    self.present(alert, animated: true, completion: nil)
+  }
+  
   // MARK: Tableview methods
   
   func numberOfSections(in tableView: UITableView) -> Int {

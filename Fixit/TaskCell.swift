@@ -88,7 +88,7 @@ class TaskCell: UITableViewCell {
     if let project = task.parentProject {
       projectLbl.text = project.title
     } else {
-      projectLbl.text = "No project assigned"
+      projectLbl.text = "No project"
     }
     
     if let cart = task.shoppingList?.boolValue {
