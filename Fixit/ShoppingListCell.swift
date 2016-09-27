@@ -50,11 +50,13 @@ class ShoppingListCell: UITableViewCell {
       
       costLbl.text = formatter.string(from: cost)!
     } else {
-      costLbl.text = "No estimated cost"
+      costLbl.text = "$0.00"
     }
     
     if let project = task.parentProject {
       projectLbl.text = project.title
+    } else {
+      projectLbl.text = "No Project"
     }
     
   }

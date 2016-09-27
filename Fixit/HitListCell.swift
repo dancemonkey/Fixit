@@ -43,6 +43,8 @@ class HitListCell: UITableViewCell {
     }
     if let project = task.parentProject {
       projectLbl.text = project.title
+    } else {
+      projectLbl.text = "No Project"
     }
   }
   

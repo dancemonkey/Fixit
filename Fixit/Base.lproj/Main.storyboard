@@ -440,11 +440,11 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TBC-PV-wgf" id="IMA-TD-z8V">
-                                            <frame key="frameInset" width="359" height="43"/>
+                                            <frame key="frameInset" width="359" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ldl-kt-Ogn">
-                                                    <frame key="frameInset" minX="15" width="329" height="43"/>
+                                                    <frame key="frameInset" minX="15" width="329" height="43.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -637,25 +637,19 @@
                             <constraint firstItem="YuF-E1-YgB" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" constant="20" id="0dB-EM-c3Y">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
-                            <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="8" id="6lG-Ti-FF0"/>
-                            <constraint firstItem="YuF-E1-YgB" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" constant="8" id="GTq-fy-DQB"/>
                             <constraint firstItem="NUT-1O-rMI" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="Lzf-ck-5DJ"/>
                             <constraint firstAttribute="bottom" secondItem="NUT-1O-rMI" secondAttribute="bottom" id="NZh-cO-U8S"/>
                             <constraint firstAttribute="trailing" secondItem="NUT-1O-rMI" secondAttribute="trailing" id="OJ0-WX-sOV"/>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="8" id="Odq-C4-xQF"/>
                             <constraint firstAttribute="trailing" secondItem="YuF-E1-YgB" secondAttribute="trailing" constant="8" id="Svi-Fl-Se8"/>
-                            <constraint firstAttribute="trailing" secondItem="YuF-E1-YgB" secondAttribute="trailing" constant="20" id="Um2-zL-WL6">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
                             <constraint firstAttribute="trailing" secondItem="NUT-1O-rMI" secondAttribute="trailing" id="h1p-91-dbT"/>
                             <constraint firstItem="NUT-1O-rMI" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="hPi-67-Rm8"/>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="20" id="i8c-Rq-WJo">
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="YuF-E1-YgB" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" constant="20" id="jSD-2D-RFS">
-                                <variation key="widthClass=compact" constant="8"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
-                            <constraint firstItem="YuF-E1-YgB" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" constant="8" id="pPW-IC-MIV"/>
                             <constraint firstAttribute="bottom" secondItem="NUT-1O-rMI" secondAttribute="bottom" id="snI-1N-Kgf"/>
                         </constraints>
                         <variation key="default">
@@ -664,7 +658,6 @@
                                 <exclude reference="OJ0-WX-sOV"/>
                                 <exclude reference="hPi-67-Rm8"/>
                                 <exclude reference="0dB-EM-c3Y"/>
-                                <exclude reference="Um2-zL-WL6"/>
                                 <exclude reference="jSD-2D-RFS"/>
                                 <exclude reference="Odq-C4-xQF"/>
                                 <exclude reference="i8c-Rq-WJo"/>
@@ -679,7 +672,6 @@
                                 <include reference="OJ0-WX-sOV"/>
                                 <include reference="hPi-67-Rm8"/>
                                 <include reference="0dB-EM-c3Y"/>
-                                <include reference="Um2-zL-WL6"/>
                                 <include reference="jSD-2D-RFS"/>
                                 <include reference="i8c-Rq-WJo"/>
                             </mask>
@@ -724,7 +716,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pxK-IM-4Je" id="2Sf-xE-ysM">
-                                            <frame key="frameInset" width="359" height="49"/>
+                                            <frame key="frameInset" width="359" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTk-e9-Gnq" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
@@ -780,7 +772,7 @@
                         <constraints>
                             <constraint firstItem="4c4-tp-p7z" firstAttribute="leading" secondItem="LGv-CF-BOf" secondAttribute="leading" constant="8" id="2Yj-1g-M0h"/>
                             <constraint firstItem="Mn2-42-jRJ" firstAttribute="top" secondItem="4c4-tp-p7z" secondAttribute="bottom" constant="8" id="DAO-ua-99g"/>
-                            <constraint firstItem="4c4-tp-p7z" firstAttribute="top" secondItem="Jw8-A5-Uex" secondAttribute="bottom" constant="8" id="bY2-ic-HyA"/>
+                            <constraint firstItem="4c4-tp-p7z" firstAttribute="top" secondItem="Jw8-A5-Uex" secondAttribute="bottom" id="bY2-ic-HyA"/>
                             <constraint firstAttribute="trailing" secondItem="4c4-tp-p7z" secondAttribute="trailing" constant="8" id="yhi-Lr-WTi"/>
                         </constraints>
                         <variation key="widthClass=compact">
@@ -818,7 +810,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pi-XC-lk3" id="fnb-9e-2YZ">
-                                            <frame key="frameInset" width="359" height="49"/>
+                                            <frame key="frameInset" width="359" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-6H-MiN" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
@@ -886,39 +878,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="J12-aF-v27" firstAttribute="top" secondItem="4We-vq-zXi" secondAttribute="bottom" constant="20" id="7hW-Jh-L3m">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
-                            <constraint firstItem="4We-vq-zXi" firstAttribute="leading" secondItem="5cq-jK-lz4" secondAttribute="leading" constant="20" id="96u-Xp-aj1">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
-                            <constraint firstAttribute="trailing" secondItem="4We-vq-zXi" secondAttribute="trailing" constant="20" id="Eg6-cd-0SS">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
                             <constraint firstItem="4We-vq-zXi" firstAttribute="leading" secondItem="5cq-jK-lz4" secondAttribute="leading" constant="8" id="J7Y-Cx-axR"/>
-                            <constraint firstItem="4We-vq-zXi" firstAttribute="top" secondItem="Amj-A5-4Qy" secondAttribute="bottom" constant="20" id="K4G-9E-Hu2">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
                             <constraint firstItem="4We-vq-zXi" firstAttribute="top" secondItem="5cq-jK-lz4" secondAttribute="top" constant="8" id="YcZ-Wv-fSx"/>
-                            <constraint firstItem="4We-vq-zXi" firstAttribute="top" secondItem="Amj-A5-4Qy" secondAttribute="bottom" constant="8" id="uq5-0M-Z4s"/>
+                            <constraint firstItem="4We-vq-zXi" firstAttribute="top" secondItem="Amj-A5-4Qy" secondAttribute="bottom" id="uq5-0M-Z4s"/>
                             <constraint firstAttribute="trailing" secondItem="4We-vq-zXi" secondAttribute="trailing" constant="8" id="wnj-d4-a5S"/>
                             <constraint firstItem="J12-aF-v27" firstAttribute="top" secondItem="4We-vq-zXi" secondAttribute="bottom" constant="8" id="x0S-1U-Tge"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="96u-Xp-aj1"/>
-                                <exclude reference="Eg6-cd-0SS"/>
-                                <exclude reference="K4G-9E-Hu2"/>
                                 <exclude reference="YcZ-Wv-fSx"/>
-                                <exclude reference="7hW-Jh-L3m"/>
-                            </mask>
-                        </variation>
-                        <variation key="widthClass=compact">
-                            <mask key="constraints">
-                                <include reference="96u-Xp-aj1"/>
-                                <include reference="Eg6-cd-0SS"/>
-                                <include reference="K4G-9E-Hu2"/>
-                                <include reference="7hW-Jh-L3m"/>
                             </mask>
                         </variation>
                     </view>
@@ -1075,42 +1043,20 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JEc-no-F0Q" firstAttribute="leading" secondItem="vyC-xV-vJT" secondAttribute="leading" constant="20" id="8p8-ne-2Yw">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
-                            <constraint firstAttribute="trailing" secondItem="JEc-no-F0Q" secondAttribute="trailing" constant="20" id="Jyz-nf-Z3U">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
                             <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="8" id="SxX-Nw-aW0"/>
-                            <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="20" id="UFV-1s-YZ7">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
                             <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="8" id="V5Z-VZ-lSl"/>
-                            <constraint firstItem="JEc-no-F0Q" firstAttribute="top" secondItem="kH6-sB-Z8S" secondAttribute="bottom" constant="8" id="bro-Hq-Dbw">
-                                <variation key="widthClass=compact" constant="8"/>
-                            </constraint>
-                            <constraint firstItem="JEc-no-F0Q" firstAttribute="top" secondItem="kH6-sB-Z8S" secondAttribute="bottom" constant="8" id="ddV-vb-iSd"/>
+                            <constraint firstItem="JEc-no-F0Q" firstAttribute="top" secondItem="kH6-sB-Z8S" secondAttribute="bottom" id="ddV-vb-iSd"/>
                             <constraint firstItem="JEc-no-F0Q" firstAttribute="leading" secondItem="vyC-xV-vJT" secondAttribute="leading" constant="8" id="iaa-u2-wHf"/>
                             <constraint firstAttribute="trailing" secondItem="JEc-no-F0Q" secondAttribute="trailing" constant="8" id="oi4-lO-fq1"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="8p8-ne-2Yw"/>
-                                <exclude reference="Jyz-nf-Z3U"/>
-                                <exclude reference="bro-Hq-Dbw"/>
                                 <exclude reference="SxX-Nw-aW0"/>
-                                <exclude reference="UFV-1s-YZ7"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="JEc-no-F0Q"/>
-                            </mask>
-                            <mask key="constraints">
-                                <include reference="8p8-ne-2Yw"/>
-                                <include reference="Jyz-nf-Z3U"/>
-                                <include reference="bro-Hq-Dbw"/>
-                                <include reference="UFV-1s-YZ7"/>
                             </mask>
                         </variation>
                     </view>
@@ -1197,18 +1143,18 @@
                                                                 <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkP-Go-xUb" id="hDJ-19-iXs">
-                                                                    <frame key="frameInset" width="335" height="43"/>
+                                                                    <frame key="frameInset" width="335" height="44"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xoq-yg-sRe">
-                                                                            <frame key="frameInset" minX="15" minY="12" width="32" height="20"/>
+                                                                            <frame key="frameInset" minX="15" minY="12" width="31.5" height="19.5"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AMJ-VR-eiI">
-                                                                            <frame key="frameInset" minX="278" minY="12" width="42" height="20"/>
+                                                                            <frame key="frameInset" minX="278.5" minY="12" width="41.5" height="19.5"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1625,7 +1571,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8u4-3u-W7W" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lod-FX-ZRl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lod-FX-ZRl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1908,9 +1854,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pPk-Mp-OhW"/>
-        <segue reference="MId-6e-6ct"/>
-        <segue reference="Jxk-1f-Ue0"/>
+        <segue reference="Gl2-hA-64l"/>
         <segue reference="lzy-zi-yZw"/>
+        <segue reference="pPk-Mp-OhW"/>
+        <segue reference="YnI-WA-tKL"/>
     </inferredMetricsTieBreakers>
 </document>
