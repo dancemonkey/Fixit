@@ -349,9 +349,12 @@
                                 <state key="normal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="infoBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Rz-Dh-exe"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0FO-rR-fnC" firstAttribute="trailing" secondItem="2gh-2I-LUH" secondAttribute="trailing" id="1we-ox-pmz"/>
                             <constraint firstItem="f46-fl-taZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="5rv-SB-mrh"/>
@@ -638,7 +641,7 @@
                                 <color key="barTintColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="YuF-E1-YgB" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" constant="20" id="0dB-EM-c3Y">
                                 <variation key="widthClass=compact" constant="8"/>
@@ -1982,9 +1985,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gl2-hA-64l"/>
+        <segue reference="rek-ld-ofJ"/>
+        <segue reference="Jxk-1f-Ue0"/>
         <segue reference="lzy-zi-yZw"/>
         <segue reference="pPk-Mp-OhW"/>
-        <segue reference="YnI-WA-tKL"/>
     </inferredMetricsTieBreakers>
 </document>

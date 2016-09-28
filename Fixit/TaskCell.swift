@@ -66,13 +66,17 @@ class TaskCell: UITableViewCell {
       titleLbl.text = "No title"
     }
     
+    let formatter = NumberFormatter()
+    formatter.usesGroupingSeparator = true
+    formatter.numberStyle = .currency
+    formatter.locale = .current
+    
     if let time = task.time, let cost = task.cost {
-      let formatter = NumberFormatter()
-      formatter.usesGroupingSeparator = true
-      formatter.numberStyle = .currency
-      formatter.locale = .current
-
       timeAndCostLbl.text = formatter.string(from: cost)! + ", " + String(describing: time) + " min."
+    } else if let time = task.time {
+      timeAndCostLbl.text = String(describing: time) + " min."
+    } else if let cost = task.cost {
+      timeAndCostLbl.text = formatter.string(from: cost)!
     } else {
       timeAndCostLbl.text = ""
     }

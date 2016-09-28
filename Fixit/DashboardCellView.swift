@@ -112,7 +112,7 @@ extension DashboardCellView {
     Datasource.ds.fetchTasks()
     let hitlistTasks = Datasource.ds.fetchedTasks.filter { (task: Task) -> Bool in
       if let time = task.time {
-        return time.int32Value < 15 && task.completed != true
+        return time.int32Value < 31 && task.completed != true
       }
       return false
     }
