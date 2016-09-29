@@ -10,8 +10,6 @@ import UIKit
 import AVFoundation
 
 let btnAnimTiming: Double = 0.05
-var clickSound: AVAudioPlayer? = nil
-
 class Utils {
   
   static func delay(_ delay: Double, closure: @escaping ()->()) {
@@ -62,7 +60,26 @@ class BottomBorderTextField : UITextField {
   }
 }
 
+var clickSound: AVAudioPlayer? = nil
 extension UIButton {
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+    
+    let path = Bundle.main.path(forResource: "click_04", ofType: "wav")!
+    let url = URL(fileURLWithPath: path)
+    do {
+      let sound = try AVAudioPlayer(contentsOf: url)
+      clickSound = sound
+      clickSound?.prepareToPlay()
+      clickSound?.play()
+      print("played sound I guess")
+    } catch {
+      print("error playing sound")
+    }
+  }
+}
+
+extension UITableViewCell {
   override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesBegan(touches, with: event)
     

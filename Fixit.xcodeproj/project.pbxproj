@@ -152,7 +152,6 @@
 		105B0D261D75D7ED00830B71 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				10DA68591D91B77C00840503 /* Phosphate.ttc */,
 				105B0D271D75D80400830B71 /* utils.swift */,
 			);
 			name = Util;
@@ -162,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				1061BE741D9D64F800BD9A0E /* click_04.wav */,
+				10DA68591D91B77C00840503 /* Phosphate.ttc */,
 			);
 			name = Files;
 			sourceTree = "<group>";
