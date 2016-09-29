@@ -72,7 +72,6 @@ extension UIButton {
       clickSound = sound
       clickSound?.prepareToPlay()
       clickSound?.play()
-      print("played sound I guess")
     } catch {
       print("error playing sound")
     }
@@ -90,7 +89,6 @@ extension UITableViewCell {
       clickSound = sound
       clickSound?.prepareToPlay()
       clickSound?.play()
-      print("played sound I guess")
     } catch {
       print("error playing sound")
     }

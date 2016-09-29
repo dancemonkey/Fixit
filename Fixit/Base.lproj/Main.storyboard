@@ -444,11 +444,11 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TBC-PV-wgf" id="IMA-TD-z8V">
-                                            <frame key="frameInset" width="359" height="44"/>
+                                            <frame key="frameInset" width="359" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ldl-kt-Ogn">
-                                                    <frame key="frameInset" minX="15" width="329" height="43.5"/>
+                                                    <frame key="frameInset" minX="15" width="329" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -469,11 +469,11 @@
                                 <variation key="widthClass=compact" constant="8"/>
                             </constraint>
                             <constraint firstItem="Gju-Bg-rmc" firstAttribute="top" secondItem="Bf7-nv-aZm" secondAttribute="bottom" constant="20" id="XMB-UH-PXA">
-                                <variation key="widthClass=compact" constant="8"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="Bf7-nv-aZm" secondAttribute="trailing" constant="8" id="cEx-sG-wZG"/>
                             <constraint firstItem="Bf7-nv-aZm" firstAttribute="top" secondItem="mLq-qn-vYA" secondAttribute="bottom" constant="20" id="qvt-aW-p3a">
-                                <variation key="widthClass=compact" constant="8"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -668,7 +668,7 @@
                             <constraint firstAttribute="trailing" secondItem="NUT-1O-rMI" secondAttribute="trailing" id="h1p-91-dbT"/>
                             <constraint firstItem="NUT-1O-rMI" firstAttribute="leading" secondItem="VG2-b2-mdz" secondAttribute="leading" id="hPi-67-Rm8"/>
                             <constraint firstItem="4g8-ub-Vsl" firstAttribute="top" secondItem="YuF-E1-YgB" secondAttribute="bottom" constant="20" id="i8c-Rq-WJo">
-                                <variation key="widthClass=compact" constant="8"/>
+                                <variation key="widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="YuF-E1-YgB" firstAttribute="top" secondItem="oHL-Gl-p80" secondAttribute="bottom" constant="20" id="jSD-2D-RFS">
                                 <variation key="widthClass=compact" constant="0.0"/>
@@ -751,7 +751,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pxK-IM-4Je" id="2Sf-xE-ysM">
-                                            <frame key="frameInset" width="359" height="50"/>
+                                            <frame key="frameInset" width="359" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nTk-e9-Gnq" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
@@ -807,7 +807,7 @@
                             <constraint firstItem="vuP-zd-TKS" firstAttribute="leading" secondItem="LGv-CF-BOf" secondAttribute="leading" id="0r7-oL-Oru"/>
                             <constraint firstItem="4c4-tp-p7z" firstAttribute="leading" secondItem="LGv-CF-BOf" secondAttribute="leading" constant="8" id="2Yj-1g-M0h"/>
                             <constraint firstAttribute="trailing" secondItem="vuP-zd-TKS" secondAttribute="trailing" id="3Gp-mg-6b9"/>
-                            <constraint firstItem="vuP-zd-TKS" firstAttribute="top" secondItem="4c4-tp-p7z" secondAttribute="bottom" constant="8" id="FbF-y9-QiM"/>
+                            <constraint firstItem="vuP-zd-TKS" firstAttribute="top" secondItem="4c4-tp-p7z" secondAttribute="bottom" id="FbF-y9-QiM"/>
                             <constraint firstItem="4c4-tp-p7z" firstAttribute="top" secondItem="Jw8-A5-Uex" secondAttribute="bottom" id="bY2-ic-HyA"/>
                             <constraint firstItem="Mn2-42-jRJ" firstAttribute="top" secondItem="vuP-zd-TKS" secondAttribute="bottom" id="yHh-iy-0dt"/>
                             <constraint firstAttribute="trailing" secondItem="4c4-tp-p7z" secondAttribute="trailing" constant="8" id="yhi-Lr-WTi"/>
@@ -847,7 +847,7 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Pi-XC-lk3" id="fnb-9e-2YZ">
-                                            <frame key="frameInset" width="359" height="50"/>
+                                            <frame key="frameInset" width="359" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfU-6H-MiN" customClass="CheckBoxBtn" customModule="Fixit" customModuleProvider="target">
@@ -927,7 +927,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="J12-aF-v27" firstAttribute="top" secondItem="rzJ-Ev-Kre" secondAttribute="bottom" id="1cN-gv-4iU"/>
-                            <constraint firstItem="rzJ-Ev-Kre" firstAttribute="top" secondItem="4We-vq-zXi" secondAttribute="bottom" constant="8" id="BJd-so-Mbb"/>
+                            <constraint firstItem="rzJ-Ev-Kre" firstAttribute="top" secondItem="4We-vq-zXi" secondAttribute="bottom" id="BJd-so-Mbb"/>
                             <constraint firstItem="rzJ-Ev-Kre" firstAttribute="leading" secondItem="5cq-jK-lz4" secondAttribute="leading" id="CTp-UM-zcb"/>
                             <constraint firstAttribute="trailing" secondItem="rzJ-Ev-Kre" secondAttribute="trailing" id="FJ3-cH-yE8"/>
                             <constraint firstItem="4We-vq-zXi" firstAttribute="leading" secondItem="5cq-jK-lz4" secondAttribute="leading" constant="8" id="J7Y-Cx-axR"/>
@@ -967,11 +967,11 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="projectCell" rowHeight="120" id="00M-PS-mmB" customClass="ProjectCell" customModule="Fixit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="120"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="projectCell" rowHeight="120" id="00M-PS-mmB" customClass="ProjectCell" customModule="Fixit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00M-PS-mmB" id="EPj-a2-krd">
-                                            <frame key="frameInset" width="1000" height="120"/>
+                                            <frame key="frameInset" width="359" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1HG-xU-BSx">
@@ -1110,7 +1110,7 @@
                             <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="iLh-GM-NFA" secondAttribute="bottom" id="BbU-2H-lJs"/>
                             <constraint firstItem="iLh-GM-NFA" firstAttribute="leading" secondItem="vyC-xV-vJT" secondAttribute="leading" id="CHv-vS-wz9"/>
                             <constraint firstItem="tyG-Ej-Fhi" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="8" id="SxX-Nw-aW0"/>
-                            <constraint firstItem="iLh-GM-NFA" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" constant="8" id="VPC-vb-Txm"/>
+                            <constraint firstItem="iLh-GM-NFA" firstAttribute="top" secondItem="JEc-no-F0Q" secondAttribute="bottom" id="VPC-vb-Txm"/>
                             <constraint firstItem="JEc-no-F0Q" firstAttribute="top" secondItem="kH6-sB-Z8S" secondAttribute="bottom" id="ddV-vb-iSd"/>
                             <constraint firstAttribute="trailing" secondItem="iLh-GM-NFA" secondAttribute="trailing" id="dqt-dP-R7K"/>
                             <constraint firstItem="JEc-no-F0Q" firstAttribute="leading" secondItem="vyC-xV-vJT" secondAttribute="leading" constant="8" id="iaa-u2-wHf"/>
@@ -1210,18 +1210,18 @@
                                                                 <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkP-Go-xUb" id="hDJ-19-iXs">
-                                                                    <frame key="frameInset" width="335" height="44"/>
+                                                                    <frame key="frameInset" width="335" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xoq-yg-sRe">
-                                                                            <frame key="frameInset" minX="15" minY="12" width="31.5" height="19.5"/>
+                                                                            <frame key="frameInset" minX="15" minY="12" width="32" height="20"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AMJ-VR-eiI">
-                                                                            <frame key="frameInset" minX="278.5" minY="12" width="41.5" height="19.5"/>
+                                                                            <frame key="frameInset" minX="278" minY="12" width="42" height="20"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2000,8 +2000,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="MId-6e-6ct"/>
-        <segue reference="Jxk-1f-Ue0"/>
         <segue reference="lzy-zi-yZw"/>
         <segue reference="pPk-Mp-OhW"/>
+        <segue reference="YnI-WA-tKL"/>
     </inferredMetricsTieBreakers>
 </document>
