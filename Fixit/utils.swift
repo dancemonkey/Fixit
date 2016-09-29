@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 let btnAnimTiming: Double = 0.05
 
@@ -57,6 +58,24 @@ class BottomBorderTextField : UITextField {
     tintColor.setStroke()
     
     path.stroke()
+  }
+}
+
+extension UIButton {
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesBegan(touches, with: event)
+    
+    var clickSound: AVAudioPlayer!
+    let path = Bundle.main.path(forResource: "click_04.wav", ofType: nil)!
+    let url = URL(fileURLWithPath: path)
+    do {
+      let sound = try AVAudioPlayer(contentsOf: url)
+      clickSound = sound
+      sound.play()
+      print("played sound I guess")
+    } catch {
+      print("error playing sound")
+    }
   }
 }
 
