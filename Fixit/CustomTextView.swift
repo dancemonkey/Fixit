@@ -10,7 +10,7 @@ import UIKit
 
 class CustomTextView: UITextView {
   
-  let placeholderText = "More details"
+  let placeholderText = "Notes"
   let defaultColor = UIColor.black
   let placeholderColor = UIColor.lightGray
   

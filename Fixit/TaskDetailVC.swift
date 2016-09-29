@@ -77,11 +77,12 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       }
       if let photo = task.photo?.data {
         photoSelectBtn.setImage(UIImage(data: photo as Data), for: UIControlState())
-        photoSelectBtn.imageView?.contentMode = .scaleAspectFit
+        photoSelectBtn.imageView?.contentMode = .scaleAspectFill
         currentPhoto = UIImage(data: photo as Data)
       }
-      if let details = task.details , details != "" {
+      if let details = task.details , details != "" , details != "Notes" {
         self.details.text = details
+        self.details.textColor = self.details.defaultColor
       }
       if let project = task.parentProject {
         self.setProject(withProject: project)
@@ -262,7 +263,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   func saveImage(_ image: UIImage?) {
     if let img = image {
       photoSelectBtn.setImage(img, for: .normal)
-      photoSelectBtn.imageView?.contentMode = .scaleAspectFit
+      photoSelectBtn.imageView?.contentMode = .scaleAspectFill
       currentPhoto = img
     } else {
       photoSelectBtn.setImage(nil, for: .normal)
@@ -302,6 +303,8 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     if details.text.isEmpty {
       details.text = details.placeholderText
       details.textColor = details.placeholderColor
+    } else {
+      details.textColor = details.defaultColor
     }
   }
   

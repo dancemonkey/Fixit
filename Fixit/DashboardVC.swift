@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import pop
 import CircleMenu
 
 class DashboardVC: UIViewController, CircleMenuDelegate {

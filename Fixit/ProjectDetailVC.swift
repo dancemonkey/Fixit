@@ -92,8 +92,9 @@
           taskTableHeight.constant = 200
           refreshTableData(withTasks: tasks)
         }
-        if let details = project.details , details != "" {
+        if let details = project.details , details != "" , details != "Notes" {
           detailsFld.text = details
+          detailsFld.textColor = detailsFld.defaultColor
         }
       }
       
@@ -294,6 +295,8 @@
       if detailsFld.text.isEmpty {
         detailsFld.text = detailsFld.placeholderText
         detailsFld.textColor = detailsFld.placeholderColor
+      } else {
+        detailsFld.textColor = detailsFld.defaultColor
       }
     }
     
@@ -312,7 +315,7 @@
     func saveImage(_ image: UIImage?) {
       if let img = image {
         selectPhoto.setImage(img, for: .normal)
-        selectPhoto.imageView?.contentMode = .scaleAspectFit
+        selectPhoto.imageView?.contentMode = .scaleAspectFill
         currentPhoto = img
       } else {
         selectPhoto.setImage(nil, for: .normal)
