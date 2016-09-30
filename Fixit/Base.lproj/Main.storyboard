@@ -543,7 +543,7 @@
                                                                 <action selector="boxChecked:" destination="hAt-My-M7p" eventType="touchUpInside" id="OC3-dB-uJg"/>
                                                             </connections>
                                                         </button>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-EV-EAH">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TGR-EV-EAH">
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="67" id="GlA-8u-VRZ"/>
                                                                 <constraint firstAttribute="width" constant="75" id="f7D-g7-CDh"/>
@@ -603,7 +603,6 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="mme-Hc-SCl" secondAttribute="bottom" constant="8" id="7un-BH-Q41"/>
-                                                <constraint firstItem="mme-Hc-SCl" firstAttribute="leading" secondItem="5UI-tT-v8s" secondAttribute="trailing" constant="8" id="COM-iJ-x0Z"/>
                                                 <constraint firstItem="5UI-tT-v8s" firstAttribute="centerY" secondItem="5oC-5J-qaf" secondAttribute="centerY" id="FDg-xN-YMI"/>
                                                 <constraint firstAttribute="trailing" secondItem="jXO-dg-waA" secondAttribute="trailing" constant="8" id="Gdy-7i-Zha"/>
                                                 <constraint firstItem="5UI-tT-v8s" firstAttribute="leading" secondItem="5oC-5J-qaf" secondAttribute="leading" constant="10" id="Mzf-DZ-LEn"/>
@@ -624,6 +623,7 @@
                                             <outlet property="cartIcon" destination="Ssw-A3-3Dh" id="hhy-O6-JeN"/>
                                             <outlet property="checkBoxBtn" destination="Qs7-T8-dL1" id="na6-TY-EVh"/>
                                             <outlet property="dueDateLbl" destination="rZ7-eD-osS" id="Ifh-5o-4gV"/>
+                                            <outlet property="imageWidth" destination="f7D-g7-CDh" id="YKU-Nj-zZV"/>
                                             <outlet property="projectLbl" destination="xrz-oX-DqL" id="vC6-wc-HLS"/>
                                             <outlet property="thumbImg" destination="TGR-EV-EAH" id="07b-mk-5mQ"/>
                                             <outlet property="timeAndCostLbl" destination="bXD-TG-6Kc" id="PIH-SB-04x"/>
@@ -1999,9 +1999,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pPk-Mp-OhW"/>
+        <segue reference="AhU-Ky-WEs"/>
+        <segue reference="YnI-WA-tKL"/>
         <segue reference="MId-6e-6ct"/>
-        <segue reference="Jxk-1f-Ue0"/>
-        <segue reference="lzy-zi-yZw"/>
+        <segue reference="Sfd-d4-CHD"/>
     </inferredMetricsTieBreakers>
 </document>

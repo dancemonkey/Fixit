@@ -27,7 +27,7 @@ class ProjectCell: UITableViewCell {
     estCostLbl.text = ""
     estTimeLbl.text = ""
     dueDateLbl.text = ""
-    thumbImg.image = UIImage(named: "Camera")
+    //thumbImg.image = UIImage(named: "Camera")
     thumbImg.contentMode = .scaleAspectFill
     titleLbl.text = ""
     taskLbl.text = ""
@@ -91,7 +91,7 @@ class ProjectCell: UITableViewCell {
     if let image = project.photo, let data = image.data {
       self.thumbImg.image = UIImage(data: data as Data)
     } else {
-      thumbImg.image = UIImage(named: "Camera")
+      //thumbImg.image = UIImage(named: "Camera")
     }
   }
   

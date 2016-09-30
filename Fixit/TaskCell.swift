@@ -18,8 +18,11 @@ class TaskCell: UITableViewCell {
   @IBOutlet weak var dueDateLbl: UILabel!
   @IBOutlet weak var projectLbl: UILabel!
   @IBOutlet weak var cartIcon: UIImageView!
+  @IBOutlet weak var imageWidth: NSLayoutConstraint!
   
   var task: Task!
+  let defaultImageWidth: CGFloat = 75
+  let missingImageWidth: CGFloat = 0
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -56,8 +59,10 @@ class TaskCell: UITableViewCell {
     
     if let photo = task.photo?.data {
       thumbImg.image = UIImage(data: photo as Data)
+      imageWidth.constant = defaultImageWidth
     } else {
-      thumbImg.image = UIImage(named: "Camera")
+      //thumbImg.image = UIImage(named: "Camera")
+      imageWidth.constant = missingImageWidth
     }
     
     if let title = task.title {
