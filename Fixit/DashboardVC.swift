@@ -26,6 +26,9 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     super.viewDidLoad()
     addNewButton.delegate = self
   
+    self.navigationItem.titleView = UIImageView(image: UIImage(named: "Fixit Small White"))
+    self.navigationItem.titleView?.contentMode = .scaleAspectFit
+    self.navigationItem.titleView?.frame = CGRect(x: 0, y: 0, width: 80, height: 40)
   }
   
   override func viewWillAppear(_ animated: Bool) {

@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Fixit-->
+        <!--DashboardVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DashboardVC" customModule="Fixit" customModuleProvider="target" sceneMemberID="viewController">
@@ -400,7 +400,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Fixit" id="i3V-hH-iei">
+                    <navigationItem key="navigationItem" id="i3V-hH-iei">
                         <barButtonItem key="backBarButtonItem" title="Back" id="mua-3b-niI"/>
                     </navigationItem>
                     <connections>
@@ -1999,9 +1999,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MId-6e-6ct"/>
-        <segue reference="lzy-zi-yZw"/>
         <segue reference="pPk-Mp-OhW"/>
-        <segue reference="YnI-WA-tKL"/>
+        <segue reference="MId-6e-6ct"/>
+        <segue reference="Jxk-1f-Ue0"/>
+        <segue reference="lzy-zi-yZw"/>
     </inferredMetricsTieBreakers>
 </document>
