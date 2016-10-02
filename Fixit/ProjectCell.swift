@@ -27,20 +27,19 @@ class ProjectCell: UITableViewCell {
     estCostLbl.text = ""
     estTimeLbl.text = ""
     dueDateLbl.text = ""
-    //thumbImg.image = UIImage(named: "Camera")
     thumbImg.contentMode = .scaleAspectFill
     titleLbl.text = ""
     taskLbl.text = ""
     
-    contentView.backgroundColor = .clear
-    let whiteRoundedView : UIView = UIView(frame: CGRect(x: 5, y: 5, width: self.frame.size.width-10, height: 110))
-    whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
-    whiteRoundedView.layer.masksToBounds = false
-    whiteRoundedView.layer.cornerRadius = 3.0
-    whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
-    whiteRoundedView.layer.shadowOpacity = 0.2
-    contentView.addSubview(whiteRoundedView)
-    contentView.sendSubview(toBack: whiteRoundedView)
+//    contentView.backgroundColor = .clear
+//    let whiteRoundedView : UIView = UIView(frame: CGRect(x: 5, y: 5, width: self.frame.size.width-10, height: 110))
+//    whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+//    whiteRoundedView.layer.masksToBounds = false
+//    whiteRoundedView.layer.cornerRadius = 3.0
+//    whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+//    whiteRoundedView.layer.shadowOpacity = 0.2
+//    contentView.addSubview(whiteRoundedView)
+//    contentView.sendSubview(toBack: whiteRoundedView)
     
     let estTimeStub = "Est. time: "
     let estTimeUnitStub = " days"

@@ -77,7 +77,7 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
   }
   
   @IBAction func infoBtnPressed(_ sender: UIButton) {
-    let alert = UIAlertController(title: "Attribution", message: "Background graphic created by Akira and is distributed under the Creative Commons Attribution 4.0 license. Icons were created by Catalin Fertu and are available at https://dribbble.com/shots/1634821-440-Free-Icons. CircleMenu was created by Ramotion and is released under the MIT license. Source can be found at https://github.com/Ramotion/circle-menu.", preferredStyle: .alert)
+    let alert = UIAlertController(title: "Attribution", message: "Background graphic created by Akira and is distributed under the Creative Commons Attribution 4.0 license. \n \n Icons were created by Catalin Fertu and are available at https://dribbble.com/shots/1634821-440-Free-Icons. \n\n CircleMenu was created by Ramotion and is released under the MIT license. Source can be found at https://github.com/Ramotion/circle-menu.", preferredStyle: .alert)
     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }

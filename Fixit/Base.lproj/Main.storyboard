@@ -602,7 +602,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="mme-Hc-SCl" secondAttribute="bottom" constant="8" id="7un-BH-Q41"/>
+                                                <constraint firstAttribute="bottom" secondItem="mme-Hc-SCl" secondAttribute="bottom" id="7un-BH-Q41"/>
                                                 <constraint firstItem="5UI-tT-v8s" firstAttribute="centerY" secondItem="5oC-5J-qaf" secondAttribute="centerY" id="FDg-xN-YMI"/>
                                                 <constraint firstAttribute="trailing" secondItem="jXO-dg-waA" secondAttribute="trailing" constant="8" id="Gdy-7i-Zha"/>
                                                 <constraint firstItem="5UI-tT-v8s" firstAttribute="leading" secondItem="5oC-5J-qaf" secondAttribute="leading" constant="10" id="Mzf-DZ-LEn"/>
@@ -618,6 +618,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="outlineView" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="cartIcon" destination="Ssw-A3-3Dh" id="hhy-O6-JeN"/>
@@ -901,6 +902,7 @@
                                         </tableViewCellContentView>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="outlineView" value="NO"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="checkBoxBtn" destination="NfU-6H-MiN" id="Mrd-hx-UxQ"/>
@@ -1080,6 +1082,10 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="materialDesign" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="outlineView" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="dueDateLbl" destination="qje-M2-BQ6" id="aUi-Bd-AJF"/>
                                             <outlet property="estCostLbl" destination="UUv-pQ-NdG" id="noY-4a-rX7"/>
@@ -1999,9 +2005,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AhU-Ky-WEs"/>
-        <segue reference="YnI-WA-tKL"/>
         <segue reference="MId-6e-6ct"/>
+        <segue reference="YnI-WA-tKL"/>
+        <segue reference="AhU-Ky-WEs"/>
         <segue reference="Sfd-d4-CHD"/>
     </inferredMetricsTieBreakers>
 </document>
