@@ -116,24 +116,19 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
     switch type {
     case .update:
-      print("update - \(indexPath)")
       if let path = indexPath {
         let cell = self.tableView.cellForRow(at: path) as? ShoppingListCell
         configureCell(cell!, indexPath: path)
       }
     case .insert:
-      print("insert - \(newIndexPath)")
       if let newPath = newIndexPath {
         self.tableView.insertRows(at: [newPath], with: .fade)
       }
     case .delete:
-      print("delete - \(indexPath)")
       if let path = indexPath {
         self.tableView.deleteRows(at: [path], with: .fade)
       }
     case .move:
-      print("move - \(indexPath)")
-      print("move - \(newIndexPath)")
       if let deleteIndexPath = indexPath {
         self.tableView.deleteRows(at: [deleteIndexPath], with: .fade)
       }

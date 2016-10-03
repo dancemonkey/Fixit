@@ -34,6 +34,7 @@ class HitListCell: UITableViewCell {
     
     timeLabel.text = ""
     titleLbl.text = ""
+    checkBoxBtn.incompleteTask()
     
     if let title = task.title {
       titleLbl.text = title

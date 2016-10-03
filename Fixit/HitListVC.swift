@@ -12,9 +12,7 @@ import CoreData
 class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
 
   @IBOutlet weak var tableView: UITableView!
-  
-  let sectionNameKeypath = "sectionName"
-  
+    
   var fetchedResultsController: NSFetchedResultsController<Task>!
   
   override func viewDidLoad() {

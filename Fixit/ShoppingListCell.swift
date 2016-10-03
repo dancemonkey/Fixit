@@ -34,6 +34,7 @@ class ShoppingListCell: UITableViewCell {
     
     costLbl.text = ""
     titleLbl.text = ""
+    checkBoxBtn.incompleteTask()
     
     if let title = task.title {
       titleLbl.text = title

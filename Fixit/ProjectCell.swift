@@ -90,7 +90,7 @@ class ProjectCell: UITableViewCell {
     if let image = project.photo, let data = image.data {
       self.thumbImg.image = UIImage(data: data as Data)
     } else {
-      //thumbImg.image = UIImage(named: "Camera")
+      thumbImg.image = nil
     }
   }
   

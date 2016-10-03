@@ -12,9 +12,7 @@ import CoreData
 class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
   
   @IBOutlet weak var tableView: UITableView!
-  
-  let sectionNameKeyPath: String? = nil //"completed"
-  
+    
   var fetchedResultsController: NSFetchedResultsController<Task>!
   
   override func viewDidLoad() {
@@ -34,7 +32,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     let quaternarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
     fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDesc, quaternarySortDesc]
     
-    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: self.sectionNameKeyPath, cacheName: nil)
+    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
     
     fetchedResultsController.delegate = self
 
@@ -139,7 +137,6 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     Utils.animateButton(tableView.cellForRow(at: indexPath)!, withTiming: 0.05) {
       self.performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
     }
-    //performSegue(withIdentifier: "showTaskDetail", sender: indexPath)
   }
   
   func configureCell(_ cell: TaskCell, indexPath: IndexPath) {
