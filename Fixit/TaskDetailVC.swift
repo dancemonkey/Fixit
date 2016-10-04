@@ -71,7 +71,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       if let cost = task.cost {
         costFld.text = String(describing: cost)
       }
-      if let dueDate = task.dueDate {
+      if let dueDate = task.dueDate, dueDate != Date.distantFuture {
         dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: dueDate as Date), for: UIControlState())
         self.dueDate = dueDate as Date!
       }

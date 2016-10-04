@@ -58,6 +58,7 @@
         selectDueDate.setTitle("Set due date...", for: UIControlState())
         self.newTaskBtn.isEnabled = false
         self.newTaskBtn.setTitleColor(UIColor.lightGray, for: UIControlState())
+        self.newTaskBtn.setTitle("Add tasks after saving", for: .normal)
         trashBtn.isEnabled = false
         titleFld.becomeFirstResponder()
       }
@@ -65,6 +66,7 @@
       if let project = self.project {
         
         self.newTaskBtn.isEnabled = true
+        self.newTaskBtn.setTitle("+ New task", for: .normal)
         trashBtn.isEnabled = true
         
         self.navigationItem.title = project.title
