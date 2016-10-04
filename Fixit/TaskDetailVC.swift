@@ -169,7 +169,15 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         newTask.completed = false
         newTask.cost = Double(costFld.text!) as NSNumber?
         newTask.details = details.text
-        newTask.dueDate = self.dueDate
+        
+        // hack to allow NIL due dates to sort at bottom of list view
+        if let date = self.dueDate {
+          newTask.dueDate = date
+        } else {
+          newTask.dueDate = Date.distantFuture
+        }
+        //newTask.dueDate = self.dueDate
+        
         newTask.time = Int(timeFld.text!) as NSNumber?
         if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
           newPhoto.data = UIImagePNGRepresentation(photo)
@@ -191,7 +199,15 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       task!.title = titleFld.text!
       task!.cost = Double(costFld.text!) as NSNumber?
       task!.details = details.text
-      task!.dueDate = self.dueDate
+      
+      // hack to allow NIL due dates to sort at bottom of list view
+      if let date = self.dueDate {
+        task!.dueDate = date
+      } else {
+        task!.dueDate = Date.distantFuture
+      }
+      //task!.dueDate = self.dueDate
+      
       task!.time = Int(timeFld.text!) as NSNumber?
       if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
         newPhoto.data = UIImagePNGRepresentation(photo)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10064AE61DA3E4300041CA6C /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10064AE51DA3E4300041CA6C /* Task+CoreDataClass.swift */; };
+		10064AE71DA3E4300041CA6C /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10064AE51DA3E4300041CA6C /* Task+CoreDataClass.swift */; };
 		103C100A1D82F63900E475B3 /* HitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C10091D82F63900E475B3 /* HitListCell.swift */; };
 		103C100B1D82F63900E475B3 /* HitListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C10091D82F63900E475B3 /* HitListCell.swift */; };
 		103C10101D82F6B000E475B3 /* HitListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C100F1D82F6B000E475B3 /* HitListVC.swift */; };
@@ -62,8 +64,6 @@
 		10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB911D66A3540049A929 /* FixitTests.swift */; };
 		10EFBBA41D66AE260049A929 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9D1D66AE260049A929 /* Project.swift */; };
 		10EFBBA51D66AE260049A929 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9D1D66AE260049A929 /* Project.swift */; };
-		10EFBBA81D66AE260049A929 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9F1D66AE260049A929 /* Task.swift */; };
-		10EFBBA91D66AE260049A929 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBB9F1D66AE260049A929 /* Task.swift */; };
 		10EFBBAC1D66AE260049A929 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBA11D66AE260049A929 /* Photo.swift */; };
 		10EFBBAD1D66AE260049A929 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBA11D66AE260049A929 /* Photo.swift */; };
 		10EFBBB31D66AE6D0049A929 /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EFBBB21D66AE6D0049A929 /* MaterialView.swift */; };
@@ -85,6 +85,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		10064AE51DA3E4300041CA6C /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
 		103C10091D82F63900E475B3 /* HitListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitListCell.swift; sourceTree = "<group>"; };
 		103C100F1D82F6B000E475B3 /* HitListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HitListVC.swift; sourceTree = "<group>"; };
 		103ED4F51D7E4A5300923A68 /* ProjectSelectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectSelectVC.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		10EFBB911D66A3540049A929 /* FixitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixitTests.swift; sourceTree = "<group>"; };
 		10EFBB931D66A3540049A929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10EFBB9D1D66AE260049A929 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		10EFBB9F1D66AE260049A929 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		10EFBBA11D66AE260049A929 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		10EFBBB21D66AE6D0049A929 /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		10EFBBB61D66B3D30049A929 /* Fixit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fixit-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -261,7 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				10EFBB9D1D66AE260049A929 /* Project.swift */,
-				10EFBB9F1D66AE260049A929 /* Task.swift */,
+				10064AE51DA3E4300041CA6C /* Task+CoreDataClass.swift */,
 				10EFBBA11D66AE260049A929 /* Photo.swift */,
 				10EFBB801D66A3540049A929 /* Fixit.xcdatamodeld */,
 				107558AB1D6A87F40058290F /* Datasource.swift */,
@@ -457,9 +457,9 @@
 				109B81F01D7782190032FE7E /* TaskListVC.swift in Sources */,
 				107558AC1D6A87F40058290F /* Datasource.swift in Sources */,
 				103C100A1D82F63900E475B3 /* HitListCell.swift in Sources */,
-				10EFBBA81D66AE260049A929 /* Task.swift in Sources */,
 				107558D01D6A8C630058290F /* Photo+CoreDataProperties.swift in Sources */,
 				10EFBBB31D66AE6D0049A929 /* MaterialView.swift in Sources */,
+				10064AE61DA3E4300041CA6C /* Task+CoreDataClass.swift in Sources */,
 				10CFD1D61D67EEEB00C1B389 /* DashboardCellView.swift in Sources */,
 				10DA685D1D91B9D200840503 /* OutlineView.swift in Sources */,
 				10EC02E61D8619CA0090DF03 /* PhotoPickerVC.swift in Sources */,
@@ -495,7 +495,7 @@
 				103C100B1D82F63900E475B3 /* HitListCell.swift in Sources */,
 				10EFBB921D66A3540049A929 /* FixitTests.swift in Sources */,
 				107558CD1D6A8C630058290F /* Task+CoreDataProperties.swift in Sources */,
-				10EFBBA91D66AE260049A929 /* Task.swift in Sources */,
+				10064AE71DA3E4300041CA6C /* Task+CoreDataClass.swift in Sources */,
 				107558AD1D6A87F40058290F /* Datasource.swift in Sources */,
 				10DA685E1D91B9D200840503 /* OutlineView.swift in Sources */,
 				10EC02E71D8619CA0090DF03 /* PhotoPickerVC.swift in Sources */,
@@ -669,10 +669,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FixitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drewlanning.FixitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fixit.app/Fixit";
 			};
@@ -682,6 +684,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FixitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drewlanning.FixitTests;

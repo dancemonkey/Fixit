@@ -1,8 +1,8 @@
 //
-//  Task.swift
+//  Task+CoreDataClass.swift
 //  Fixit
 //
-//  Created by Drew Lanning on 8/18/16.
+//  Created by Drew Lanning on 10/4/16.
 //  Copyright © 2016 Drew Lanning. All rights reserved.
 //
 
@@ -10,11 +10,9 @@ import Foundation
 import CoreData
 
 
-class Task: NSManagedObject {
-
-// Insert code here to add functionality to your managed object subclass
-  
-  override func awakeFromInsert() {
+public class Task: NSManagedObject {
+    
+  override public func awakeFromInsert() {
     self.completed = false
     self.shoppingList = false
     self.creationDate = Date()
@@ -32,4 +30,5 @@ class Task: NSManagedObject {
     } catch {
     }
   }
+
 }

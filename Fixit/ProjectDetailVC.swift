@@ -268,7 +268,7 @@
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       if let tasks = taskData, let cell = tableView.dequeueReusableCell(withIdentifier: "miniTaskCell") {
         cell.textLabel?.text = tasks[(indexPath as NSIndexPath).row].title
-        if let date = tasks[(indexPath as NSIndexPath).row].dueDate {
+        if let date = tasks[(indexPath as NSIndexPath).row].dueDate, date != Date.distantFuture {
           cell.detailTextLabel?.text = dateFormatter.string(from: date as Date)
         } else {
           cell.detailTextLabel?.text = "No due date"
