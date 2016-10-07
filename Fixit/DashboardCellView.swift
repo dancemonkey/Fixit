@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UserNotifications
 
 class DashboardCellView: UIView, UIGestureRecognizerDelegate {
   
@@ -81,26 +80,6 @@ extension DashboardCellView {
         label.text = String("Overdue: " + String(Datasource.ds.fetchOverdueTaskCount()))
       }
     }
-    
-    if #available(iOS 10.0, *) {
-//      UNUserNotificationCenter.current().getNotificationSettings(completionHandler: {settings in
-//        print(settings)
-//      })
-    
-      print("setting badge")
-    
-      let content = UNMutableNotificationContent()
-      content.badge = NSNumber(value: Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount())
-      let request = UNNotificationRequest(identifier: "badgeUpdate", content: content, trigger: nil)
-      let center = UNUserNotificationCenter.current()
-      center.add(request, withCompletionHandler: nil)
-    
-      print("badge should be \(content.badge)")
-    
-    } else {
-      UIApplication.shared.applicationIconBadgeNumber = Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount()
-    }
-    
   }
   
   func updateShoppingListView() {

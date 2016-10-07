@@ -19,9 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
     if #available(iOS 10.0, *) {
-      UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+      let center = UNUserNotificationCenter.current()
+      let action = UNNotificationAction(identifier: "badgeUpdateReply", title: "reply")
+      let category = UNNotificationCategory(identifier: "badgeUpdate", actions: [action], intentIdentifiers: [])
+      center.setNotificationCategories([category])
+      center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
         if error != nil {
-          //
+          print("error")
         }
       }
     } else if #available(iOS 9.0, *){

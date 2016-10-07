@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CircleMenu
+import UserNotifications
 
 class DashboardVC: UIViewController, CircleMenuDelegate {
   
@@ -41,6 +42,7 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     
     animatedCells = [projectCell, taskCell, shoppingListCell, hitListCell]
   
+    updateBadge()
   }
   
   @IBAction func buttonTapped(_ sender: UIButton) {
@@ -64,6 +66,22 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     
   }
   
+  func updateBadge() {
+    if #available(iOS 10.0, *) {
+      let content = UNMutableNotificationContent()
+      content.badge = NSNumber(value: Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount())
+      let request = UNNotificationRequest(identifier: "badgeUpdate", content: content, trigger: nil)
+      UNUserNotificationCenter.current().add(request) { error in
+        UNUserNotificationCenter.current().delegate = self
+        if error != nil {
+          print("error in notification")
+        }
+      }
+    } else {
+      UIApplication.shared.applicationIconBadgeNumber = Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount()
+    }
+  }
+  
   func addProject(_ sender: UIButton) {
     Utils.delay(0.5) {
       self.performSegue(withIdentifier: "newProject", sender: self)
@@ -81,7 +99,19 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }
+}
+
+extension UIViewController: UNUserNotificationCenterDelegate {
   
+  @available(iOS 10.0, *)
+  public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Swift.Void) {
+    completionHandler( [.alert, .badge, .sound])
+  }
+  
+  @available(iOS 10.0, *)
+  public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
+    print("Tapped in notification")
+  }
 }
 
 

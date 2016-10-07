@@ -103,6 +103,7 @@
 		109B81EF1D7782190032FE7E /* TaskListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
 		109BD0F41D7F71540069CD89 /* DueDatePickerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DueDatePickerVC.swift; sourceTree = "<group>"; };
 		10ACA3D81D7F466B00554072 /* ProjectDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailVC.swift; sourceTree = "<group>"; };
+		10AF95EB1DA7F11A00B85D04 /* Fixit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Fixit.entitlements; sourceTree = "<group>"; };
 		10BBF4DD1D78CFF50079889E /* CheckBoxBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxBtn.swift; sourceTree = "<group>"; };
 		10CFD1D51D67EEEB00C1B389 /* DashboardCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardCellView.swift; sourceTree = "<group>"; };
 		10DA68591D91B77C00840503 /* Phosphate.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Phosphate.ttc; sourceTree = "<group>"; };
@@ -189,6 +190,7 @@
 		10EFBB781D66A3540049A929 /* Fixit */ = {
 			isa = PBXGroup;
 			children = (
+				10AF95EB1DA7F11A00B85D04 /* Fixit.entitlements */,
 				1061BE731D9D64E200BD9A0E /* Files */,
 				105B0D261D75D7ED00830B71 /* Util */,
 				10EFBBAE1D66AE2D0049A929 /* Generated */,
@@ -341,6 +343,11 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = TFEDY5M56J;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					10EFBB8C1D66A3540049A929 = {
 						CreatedOnToolsVersion = 7.3.1;
