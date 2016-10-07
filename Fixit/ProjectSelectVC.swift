@@ -49,4 +49,9 @@ class ProjectSelectVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
   }
   
+  @IBAction func removeProjectPressed(sender: UIBarButtonItem) {
+    self.delegate.saveProject(nil)
+    _ = self.navigationController?.popViewController(animated: true)
+  }
+  
 }

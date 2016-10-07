@@ -85,7 +85,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         self.details.textColor = self.details.defaultColor
       }
       if let project = task.parentProject {
-        self.setProject(withProject: project)
+        self.saveProject(project)
       }
       
       shoppingListSwitch.setOn((task.shoppingList?.boolValue)!, animated: true)
@@ -93,7 +93,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     }
     
     if let project = self.project {
-      self.setProject(withProject: project)
+      self.saveProject(project)
     }
     
   }
@@ -176,15 +176,15 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         } else {
           newTask.dueDate = Date.distantFuture
         }
-        //newTask.dueDate = self.dueDate
         
         newTask.time = Int(timeFld.text!) as NSNumber?
         if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
           newPhoto.data = UIImagePNGRepresentation(photo)
           newTask.photo = newPhoto
         }
+        
+        newTask.parentProject = self.project
         if let project = self.project {
-          newTask.parentProject = project
           if let title = project.title {
             newTask.sectionName = title
           } else {
@@ -206,15 +206,15 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       } else {
         task!.dueDate = Date.distantFuture
       }
-      //task!.dueDate = self.dueDate
       
       task!.time = Int(timeFld.text!) as NSNumber?
       if let photo = currentPhoto, let newPhoto = NSEntityDescription.insertNewObject(forEntityName: "Photo", into: context) as? Photo {
         newPhoto.data = UIImagePNGRepresentation(photo)
         task!.photo = newPhoto
       }
+      
+      task!.parentProject = self.project
       if let project = self.project {
-        task!.parentProject = project
         if let title = project.title {
           task!.sectionName = title
         } else {
@@ -272,8 +272,13 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   
   // MARK: Protocol methods
   
-  func saveProject(_ project: Project) {
-    setProject(withProject: project)
+  func saveProject(_ project: Project?) {
+    self.project = project
+    if let proj = project {
+      self.projectSelectBtn.setTitle(proj.title, for: UIControlState())
+    } else {
+      self.projectSelectBtn.setTitle("Select project", for: .normal)
+    }
   }
   
   func saveImage(_ image: UIImage?) {
@@ -301,10 +306,14 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     }
   }
   
-  func setProject(withProject project: Project) {
-    self.project = project
-    self.projectSelectBtn.setTitle(self.project?.title, for: UIControlState())
-  }
+//  func setProject(withProject project: Project?) {
+//    self.project = project
+//    if let proj = project {
+//      self.projectSelectBtn.setTitle(proj.title, for: UIControlState())
+//    } else {
+//      self.projectSelectBtn.setTitle("Select project", for: .normal)
+//    }
+//  }
   
   // MARK: TextView delegate methods
   

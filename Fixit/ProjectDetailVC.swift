@@ -329,7 +329,7 @@
       }
     }
     
-    func saveProject(_ project: Project) {
+    func saveProject(_ project: Project?) {
       // not used in this context
     }
     

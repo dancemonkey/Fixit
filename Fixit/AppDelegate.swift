@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           print("error")
         }
       }
-    } else if #available(iOS 9.0, *){
-      if(UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
+    } else if #available(iOS 9.0, *) {
+      if (UIApplication.instancesRespond(to: #selector(UIApplication.registerUserNotificationSettings(_:)))) {
         UIApplication.shared.registerUserNotificationSettings(UIUserNotificationSettings(types: .badge, categories: nil))
       }
     }
