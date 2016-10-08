@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTextView: UITextView {
+class CustomTextView: UITextView, UITextViewDelegate {
   
   let placeholderText = "Notes"
   let defaultColor = UIColor.black
@@ -18,6 +18,23 @@ class CustomTextView: UITextView {
     super.awakeFromNib()
     self.text = placeholderText
     self.textColor = placeholderColor
+    self.isEditable = false
+    self.dataDetectorTypes = .all
+    
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(CustomTextView.editTextRecognizer))
+    self.addGestureRecognizer(tapRecognizer)
+    
+  }
+  
+  func editTextRecognizer() {
+    self.dataDetectorTypes = []
+    self.isEditable = true
+    self.becomeFirstResponder()
+  }
+  
+  func textViewDidEndEditing(_ textView: UITextView) {
+    self.isEditable = false
+    self.dataDetectorTypes = .all
   }
   
 }
