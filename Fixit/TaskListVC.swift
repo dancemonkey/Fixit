@@ -28,7 +28,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
     let secondarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
-    let tertiarySortDesc = NSSortDescriptor(key: "parentProject.title", ascending: true)
+    let tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
     let quaternarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
     fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDesc, quaternarySortDesc]
     

@@ -16,7 +16,7 @@ public class Task: NSManagedObject {
     self.completed = false
     self.shoppingList = false
     self.creationDate = Date()
-    self.sectionName = "No project assigned"
+    self.parentProjectTitle = "No project assigned"
   }
   
   func checkOffTask() {

@@ -22,7 +22,7 @@ extension Task {
     @NSManaged var time: NSNumber?
     @NSManaged var title: String?
     @NSManaged var creationDate: Date?
-    @NSManaged var sectionName: String?
+    @NSManaged var parentProjectTitle: String?
     @NSManaged var parentProject: Project?
     @NSManaged var photo: Photo?
 

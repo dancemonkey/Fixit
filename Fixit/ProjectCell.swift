@@ -52,13 +52,10 @@ class ProjectCell: UITableViewCell {
     
     if let tasks = project.taskList {
       
-      var completedTasks = 0
-      for task in tasks {
-        if ((task as! Task).completed != nil) {
-          completedTasks = completedTasks + 1
-        }
-      }
-      self.taskLbl.text = String(completedTasks)
+      let incompleteTasks = tasks.filter({ (task: Any) -> Bool in
+        (task as! Task).completed == false
+      })
+      self.taskLbl.text = String(incompleteTasks.count)
     } else {
       taskLbl.text = "0"
     }

@@ -66,21 +66,21 @@ class DashboardVC: UIViewController, CircleMenuDelegate {
     
   }
   
-  func updateBadge() {
-    if #available(iOS 10.0, *) {
-      let content = UNMutableNotificationContent()
-      content.badge = NSNumber(value: Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount())
-      let request = UNNotificationRequest(identifier: "badgeUpdate", content: content, trigger: nil)
-      UNUserNotificationCenter.current().add(request) { error in
-        UNUserNotificationCenter.current().delegate = self
-        if error != nil {
-          print("error in notification")
-        }
-      }
-    } else {
-      UIApplication.shared.applicationIconBadgeNumber = Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount()
-    }
-  }
+//  func updateBadge() {
+//    if #available(iOS 10.0, *) {
+//      let content = UNMutableNotificationContent()
+//      content.badge = NSNumber(value: Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount())
+//      let request = UNNotificationRequest(identifier: "badgeUpdate", content: content, trigger: nil)
+//      UNUserNotificationCenter.current().add(request) { error in
+//        UNUserNotificationCenter.current().delegate = self
+//        if error != nil {
+//          print("error in notification")
+//        }
+//      }
+//    } else {
+//      UIApplication.shared.applicationIconBadgeNumber = Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount()
+//    }
+//  }
   
   func addProject(_ sender: UIButton) {
     Utils.delay(0.5) {
@@ -112,6 +112,23 @@ extension UIViewController: UNUserNotificationCenterDelegate {
   public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Swift.Void) {
     print("Tapped in notification")
   }
+  
+  func updateBadge() {
+    if #available(iOS 10.0, *) {
+      let content = UNMutableNotificationContent()
+      content.badge = NSNumber(value: Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount())
+      let request = UNNotificationRequest(identifier: "badgeUpdate", content: content, trigger: nil)
+      UNUserNotificationCenter.current().add(request) { error in
+        UNUserNotificationCenter.current().delegate = self
+        if error != nil {
+          print("error in notification")
+        }
+      }
+    } else {
+      UIApplication.shared.applicationIconBadgeNumber = Datasource.ds.fetchDueTaskCount() + Datasource.ds.fetchOverdueTaskCount()
+    }
+  }
+  
 }
 
 

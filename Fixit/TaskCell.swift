@@ -83,8 +83,8 @@ class TaskCell: UITableViewCell {
       dueDateLbl.text = "--/--"
     }
     
-    if let project = task.parentProject {
-      projectLbl.text = project.title
+    if task.parentProject != nil {
+      projectLbl.text = task.parentProjectTitle
     } else {
       projectLbl.text = "No project"
     }

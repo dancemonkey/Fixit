@@ -154,6 +154,10 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   
   @IBAction func savePressed(_ sender: UIBarButtonItem) {
     
+    defer {
+      updateBadge()
+    }
+    
     let context = appDelegate.managedObjectContext
     
     let formatter = NumberFormatter()
@@ -186,9 +190,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
         newTask.parentProject = self.project
         if let project = self.project {
           if let title = project.title {
-            newTask.sectionName = title
+            newTask.parentProjectTitle = title
           } else {
-            newTask.sectionName = blankSectionName
+            newTask.parentProjectTitle = blankSectionName
           }
         }
         newTask.shoppingList = shoppingListSwitch.isOn as NSNumber?
@@ -216,9 +220,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       task!.parentProject = self.project
       if let project = self.project {
         if let title = project.title {
-          task!.sectionName = title
+          task!.parentProjectTitle = title
         } else {
-          task!.sectionName = blankSectionName
+          task!.parentProjectTitle = blankSectionName
         }
       }
       task!.shoppingList = shoppingListSwitch.isOn as NSNumber?
@@ -305,15 +309,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       dueDateSelectBtn.setTitle("Set due date...", for: UIControlState())
     }
   }
-  
-//  func setProject(withProject project: Project?) {
-//    self.project = project
-//    if let proj = project {
-//      self.projectSelectBtn.setTitle(proj.title, for: UIControlState())
-//    } else {
-//      self.projectSelectBtn.setTitle("Select project", for: .normal)
-//    }
-//  }
   
   // MARK: TextView delegate methods
   

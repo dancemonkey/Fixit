@@ -98,6 +98,7 @@
 		107558C91D6A8C630058290F /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		107558CA1D6A8C630058290F /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		107558CB1D6A8C630058290F /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		10810DF61DA9BC09005E3E55 /* Fixit 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Fixit 2.xcdatamodel"; sourceTree = "<group>"; };
 		1082944B1D80CAD20087E4CE /* ShoppingListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListVC.swift; sourceTree = "<group>"; };
 		1082944E1D80CDE60087E4CE /* ShoppingListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListCell.swift; sourceTree = "<group>"; };
 		109B81EF1D7782190032FE7E /* TaskListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
@@ -737,9 +738,10 @@
 		10EFBB801D66A3540049A929 /* Fixit.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				10810DF61DA9BC09005E3E55 /* Fixit 2.xcdatamodel */,
 				10EFBB811D66A3540049A929 /* Fixit.xcdatamodel */,
 			);
-			currentVersion = 10EFBB811D66A3540049A929 /* Fixit.xcdatamodel */;
+			currentVersion = 10810DF61DA9BC09005E3E55 /* Fixit 2.xcdatamodel */;
 			path = Fixit.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
