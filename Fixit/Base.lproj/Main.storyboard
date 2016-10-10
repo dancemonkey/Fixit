@@ -1379,13 +1379,9 @@
                             <constraint firstItem="HDq-Vc-69G" firstAttribute="leading" secondItem="NIO-9i-gp5" secondAttribute="leading" id="2Ua-0D-iEY"/>
                             <constraint firstItem="yJE-8h-pBv" firstAttribute="top" secondItem="HDq-Vc-69G" secondAttribute="bottom" id="41b-zG-2ye"/>
                             <constraint firstItem="G3I-wW-Hek" firstAttribute="top" secondItem="NIO-9i-gp5" secondAttribute="top" id="BoJ-xH-FAc"/>
-                            <constraint firstItem="yJE-8h-pBv" firstAttribute="top" secondItem="G3I-wW-Hek" secondAttribute="bottom" id="Ekd-tQ-AB7"/>
-                            <constraint firstAttribute="trailing" secondItem="G3I-wW-Hek" secondAttribute="trailing" id="H5a-zM-RBZ"/>
-                            <constraint firstItem="G3I-wW-Hek" firstAttribute="leading" secondItem="NIO-9i-gp5" secondAttribute="leading" id="TLP-5f-vG6"/>
                             <constraint firstItem="NuY-4U-FeU" firstAttribute="width" secondItem="NIO-9i-gp5" secondAttribute="width" id="VP5-NG-8CY"/>
                             <constraint firstAttribute="trailing" secondItem="G3I-wW-Hek" secondAttribute="trailing" id="WRu-b6-BgX"/>
                             <constraint firstAttribute="trailing" secondItem="HDq-Vc-69G" secondAttribute="trailing" id="e9h-jY-K6L"/>
-                            <constraint firstItem="G3I-wW-Hek" firstAttribute="top" secondItem="Qi4-wA-ODW" secondAttribute="bottom" id="frL-PN-dWa"/>
                             <constraint firstItem="yJE-8h-pBv" firstAttribute="top" secondItem="G3I-wW-Hek" secondAttribute="bottom" id="ngi-f9-dWa"/>
                             <constraint firstItem="G3I-wW-Hek" firstAttribute="top" secondItem="Qi4-wA-ODW" secondAttribute="bottom" id="shg-aU-2S2"/>
                             <constraint firstItem="G3I-wW-Hek" firstAttribute="leading" secondItem="NIO-9i-gp5" secondAttribute="leading" id="wU9-8n-WZu"/>
@@ -1394,18 +1390,14 @@
                             <mask key="constraints">
                                 <exclude reference="BoJ-xH-FAc"/>
                                 <exclude reference="WRu-b6-BgX"/>
-                                <exclude reference="frL-PN-dWa"/>
                                 <exclude reference="wU9-8n-WZu"/>
-                                <exclude reference="Ekd-tQ-AB7"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="constraints">
                                 <exclude reference="BoJ-xH-FAc"/>
                                 <include reference="WRu-b6-BgX"/>
-                                <include reference="frL-PN-dWa"/>
                                 <include reference="wU9-8n-WZu"/>
-                                <include reference="Ekd-tQ-AB7"/>
                             </mask>
                         </variation>
                     </view>
@@ -2013,9 +2005,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lzy-zi-yZw"/>
-        <segue reference="MId-6e-6ct"/>
         <segue reference="YnI-WA-tKL"/>
-        <segue reference="pPk-Mp-OhW"/>
+        <segue reference="Zbv-EL-gJw"/>
+        <segue reference="AhU-Ky-WEs"/>
+        <segue reference="Sfd-d4-CHD"/>
     </inferredMetricsTieBreakers>
 </document>

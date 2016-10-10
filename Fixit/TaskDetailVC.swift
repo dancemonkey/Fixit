@@ -117,7 +117,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       let screenHeight = screenSize.height
       let height:CGFloat=screenHeight-(keyboardScreenEndFrame.size.height)-(details!.frame.size.height)
       if details.frame.origin.y >= height {
-        let scrollPoint = CGPoint(x: 0.0, y: details.frame.origin.y-25) // 25 is just a buffer so it's not flush with the top
+        let scrollPoint = CGPoint(x: 0.0, y: details.frame.origin.y-50) // 50 is just a buffer so it's not flush with the top
         self.scrollView.setContentOffset(scrollPoint, animated: true)
       }
       

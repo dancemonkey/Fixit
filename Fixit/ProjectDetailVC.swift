@@ -167,6 +167,16 @@
         scrollView.contentInset = UIEdgeInsets.zero
       } else {
         scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        
+        // figure out if details is off screen and scroll to it
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenHeight = screenSize.height
+        let height:CGFloat=screenHeight-(keyboardScreenEndFrame.size.height)-(detailsFld!.frame.size.height)
+        if detailsFld.frame.origin.y >= height {
+          let scrollPoint = CGPoint(x: 0.0, y: detailsFld.frame.origin.y-50) // 50 is just a buffer so it's not flush with the top
+          self.scrollView.setContentOffset(scrollPoint, animated: true)
+        }
+
       }
       scrollView.scrollIndicatorInsets = scrollView.contentInset
     }
