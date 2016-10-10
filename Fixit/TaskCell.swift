@@ -89,6 +89,8 @@ class TaskCell: UITableViewCell {
       projectLbl.text = "No project"
     }
     
+    print(task.parentProjectTitle)
+    
     if let cart = task.shoppingList?.boolValue {
       self.cartIcon.isHidden = !cart
     }

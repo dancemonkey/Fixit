@@ -27,7 +27,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   var project: Project? = nil
   let dateFormatter = DateFormatter()
   var dueDate: Date!
-  let blankSectionName = "No associated project"
+  let blankSectionName = "No project"
   var photoBtnHeightConst: CGFloat!
   var currentPhoto: UIImage? = nil
   
@@ -221,9 +221,9 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       if let project = self.project {
         if let title = project.title {
           task!.parentProjectTitle = title
-        } else {
-          task!.parentProjectTitle = blankSectionName
         }
+      } else {
+        task!.parentProjectTitle = blankSectionName
       }
       task!.shoppingList = shoppingListSwitch.isOn as NSNumber?
     }
@@ -302,7 +302,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   
   func saveDate(_ date: Date?) {
     if let pickedDate = date {
-      self.dueDate = pickedDate
+      self.dueDate = Calendar.current.startOfDay(for: pickedDate)
       dueDateSelectBtn.setTitle("Due " + dateFormatter.string(from: self.dueDate), for: UIControlState())
     } else {
       self.dueDate = nil
