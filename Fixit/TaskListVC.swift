@@ -176,6 +176,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.endUpdates()
+    updateBadge()
   }
   
 }

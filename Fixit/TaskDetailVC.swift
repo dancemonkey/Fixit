@@ -145,9 +145,11 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       if task.completed == false {
         task.completed = true
         setCompleteBtnStatus()
+        updateBadge()
       } else {
         task.completed = false
         setCompleteBtnStatus()
+        updateBadge()
       }
     }
   }
