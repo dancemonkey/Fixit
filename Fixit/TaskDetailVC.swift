@@ -21,7 +21,6 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
   @IBOutlet weak var photoSelectBtn: UIButton!
   @IBOutlet weak var shoppingListSwitch: UISwitch!
   @IBOutlet weak var completeBtn: UIBarButtonItem!
-  @IBOutlet weak var photoBtnHeight: NSLayoutConstraint!
   
   var task: Task? = nil
   var project: Project? = nil
@@ -112,6 +111,16 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       scrollView.contentInset = UIEdgeInsets.zero
     } else {
       scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+      
+      // figure out if details is off screen and scroll to it
+      let screenSize: CGRect = UIScreen.main.bounds
+      let screenHeight = screenSize.height
+      let height:CGFloat=screenHeight-(keyboardScreenEndFrame.size.height)-(details!.frame.size.height)
+      if details.frame.origin.y >= height {
+        let scrollPoint = CGPoint(x: 0.0, y: details.frame.origin.y-25) // 25 is just a buffer so it's not flush with the top
+        self.scrollView.setContentOffset(scrollPoint, animated: true)
+      }
+      
     }
     scrollView.scrollIndicatorInsets = scrollView.contentInset
   }
