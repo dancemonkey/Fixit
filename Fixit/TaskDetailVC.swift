@@ -109,6 +109,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
     
     if notification.name == NSNotification.Name.UIKeyboardWillHide {
       scrollView.contentInset = UIEdgeInsets.zero
+      self.scrollView.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: true)
     } else {
       scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
       
@@ -116,7 +117,7 @@ class TaskDetailVC: UIViewController, UIScrollViewDelegate, SaveDelegateData, UI
       let screenSize: CGRect = UIScreen.main.bounds
       let screenHeight = screenSize.height
       let height:CGFloat=screenHeight-(keyboardScreenEndFrame.size.height)-(details!.frame.size.height)
-      if details.frame.origin.y >= height {
+      if details.isFirstResponder, details.frame.origin.y >= height {
         let scrollPoint = CGPoint(x: 0.0, y: details.frame.origin.y-50) // 50 is just a buffer so it's not flush with the top
         self.scrollView.setContentOffset(scrollPoint, animated: true)
       }
