@@ -24,7 +24,7 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     tableView.dataSource = self
     
     let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "sectionName", ascending: true)
+    let primarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
     let secondarySortDesc = NSSortDescriptor(key: "cost", ascending: true)
     let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
     fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
