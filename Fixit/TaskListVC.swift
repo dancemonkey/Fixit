@@ -9,9 +9,16 @@
 import UIKit
 import CoreData
 
+enum TaskSorts: String {
+  case parentProjectTitle, dueDate, cost, time, title
+}
+
 class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
   
   @IBOutlet weak var tableView: UITableView!
+  var customSortString: TaskSorts = .dueDate
+  var secondarySortDesc: NSSortDescriptor!
+  var tertiarySortDesc: NSSortDescriptor!
     
   var fetchedResultsController: NSFetchedResultsController<Task>!
   
@@ -27,8 +34,18 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
     let primarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
-    let secondarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
-    let tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
+    
+    secondarySortDesc = NSSortDescriptor(key: customSortString.rawValue, ascending: true)
+    tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
+    switch customSortString {
+    case .parentProjectTitle:
+      tertiarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
+    case .dueDate:
+      tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
+    case .cost, .time, .title:
+      tertiarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
+    }
+    
     let quaternarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
     fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDesc, quaternarySortDesc]
     
