@@ -673,18 +673,26 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgT-E5-anY">
                                                 <state key="normal" title="Sort"/>
+                                                <connections>
+                                                    <action selector="sortPressedWithSender:" destination="BvG-p7-fPW" eventType="touchUpInside" id="w0e-jR-Hfm"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9JN-hB-APs">
                                                 <state key="normal" title="Filter"/>
+                                                <connections>
+                                                    <action selector="filterPressedWithSender:" destination="BvG-p7-fPW" eventType="touchUpInside" id="fbW-FK-L5P"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Ogw-qC-7AM" secondAttribute="bottom" id="CW6-Pj-tM2"/>
                                     <constraint firstItem="Ogw-qC-7AM" firstAttribute="centerY" secondItem="GTJ-gS-UsB" secondAttribute="centerY" id="GAE-FL-R4z"/>
                                     <constraint firstItem="Ogw-qC-7AM" firstAttribute="centerX" secondItem="GTJ-gS-UsB" secondAttribute="centerX" id="n6I-nf-8IK"/>
                                     <constraint firstAttribute="height" constant="44" id="qa7-cK-7QN"/>
+                                    <constraint firstItem="Ogw-qC-7AM" firstAttribute="top" secondItem="GTJ-gS-UsB" secondAttribute="top" id="vUD-81-Ra9"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="outlineView" value="YES"/>

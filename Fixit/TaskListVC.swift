@@ -66,6 +66,31 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
   }
   
+  @IBAction func sortPressed(sender: UIButton) {
+    let alert = UIAlertController(title: "Sort by...", message: nil, preferredStyle: .actionSheet)
+    let project = UIAlertAction(title: "Project title", style: .default, handler: sort(sender: ))
+    let dueDate = UIAlertAction(title: "Task title", style: .default, handler: sort(sender: ))
+    let cost = UIAlertAction(title: "Due date", style: .default, handler: sort(sender: ))
+    let time = UIAlertAction(title: "Cost", style: .default, handler: sort(sender: ))
+    let title = UIAlertAction(title: "Estimated time", style: .default, handler: sort(sender: ))
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alert.addAction(project)
+    alert.addAction(dueDate)
+    alert.addAction(cost)
+    alert.addAction(time)
+    alert.addAction(title)
+    alert.addAction(cancel)
+    self.present(alert, animated: true, completion: nil)
+  }
+  
+  func sort(sender: UIAlertAction) {
+    print("sorting by \(sender.title)")
+  }
+  
+  @IBAction func filterPressed(sender: UIButton) {
+    
+  }
+  
   @IBAction func addNewPressed(_ sender: UIBarButtonItem) {
     performSegue(withIdentifier: "createNewTask", sender: self)
   }
