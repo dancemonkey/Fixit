@@ -22,11 +22,14 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   var fetchedResultsController: NSFetchedResultsController<Task>!
   
+  let prefs = UserDefaults.standard
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.delegate = self
     tableView.dataSource = self
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +50,9 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func setSortDescriptors() {
+    if let sortString = prefs.value(forKey: "customSortString") as? String {
+      customSortString = TaskSorts(rawValue: sortString)!
+    }
     secondarySortDesc = NSSortDescriptor(key: customSortString.rawValue, ascending: true)
     tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
     switch customSortString {
@@ -94,14 +100,19 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     switch sender.title! {
     case "Project title":
       self.customSortString = .parentProjectTitle
+      prefs.set(TaskSorts.parentProjectTitle.rawValue, forKey: "customSortString")
     case "Task title":
       self.customSortString = .title
+      prefs.set(TaskSorts.title.rawValue, forKey: "customSortString")
     case "Due date":
       self.customSortString = .dueDate
+      prefs.set(TaskSorts.dueDate.rawValue, forKey: "customSortString")
     case "Cost":
       self.customSortString = .cost
+      prefs.set(TaskSorts.cost.rawValue, forKey: "customSortString")
     case "Estimated time":
       self.customSortString = .time
+      prefs.set(TaskSorts.time.rawValue, forKey: "customSortString")
     default: break
     }
     self.fetchedResultsController = nil
