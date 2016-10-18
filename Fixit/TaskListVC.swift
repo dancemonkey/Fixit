@@ -19,7 +19,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   var customSortString: TaskSorts = .dueDate
   var secondarySortDesc: NSSortDescriptor!
   var tertiarySortDesc: NSSortDescriptor!
-    
+  
   var fetchedResultsController: NSFetchedResultsController<Task>!
   
   override func viewDidLoad() {
@@ -32,27 +32,7 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
-    
-    secondarySortDesc = NSSortDescriptor(key: customSortString.rawValue, ascending: true)
-    tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
-    switch customSortString {
-    case .parentProjectTitle:
-      tertiarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
-    case .dueDate:
-      tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
-    case .cost, .time, .title:
-      tertiarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
-    }
-    
-    let quaternarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
-    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDesc, quaternarySortDesc]
-    
-    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-    
-    fetchedResultsController.delegate = self
-
+    setFRC()
     attemptFetch()
     
     tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 44.0, right: 0)
@@ -64,6 +44,33 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     } catch {
       print("\(error)")
     }
+  }
+  
+  func setSortDescriptors() {
+    secondarySortDesc = NSSortDescriptor(key: customSortString.rawValue, ascending: true)
+    tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
+    switch customSortString {
+    case .parentProjectTitle:
+      tertiarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
+    case .dueDate:
+      tertiarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
+    case .cost, .time, .title:
+      tertiarySortDesc = NSSortDescriptor(key: "dueDate", ascending: true)
+    }
+  }
+  
+  func setFRC() {
+    let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
+    let primarySortDesc = NSSortDescriptor(key: "completed", ascending: true)
+    
+    setSortDescriptors()
+    
+    let quaternarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
+    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDesc, quaternarySortDesc]
+    
+    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+    
+    fetchedResultsController.delegate = self
   }
   
   @IBAction func sortPressed(sender: UIButton) {
@@ -84,7 +91,23 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   }
   
   func sort(sender: UIAlertAction) {
-    print("sorting by \(sender.title)")
+    switch sender.title! {
+    case "Project title":
+      self.customSortString = .parentProjectTitle
+    case "Task title":
+      self.customSortString = .title
+    case "Due date":
+      self.customSortString = .dueDate
+    case "Cost":
+      self.customSortString = .cost
+    case "Estimated time":
+      self.customSortString = .time
+    default: break
+    }
+    self.fetchedResultsController = nil
+    setFRC()
+    attemptFetch()
+    self.tableView.reloadData()
   }
   
   @IBAction func filterPressed(sender: UIButton) {
