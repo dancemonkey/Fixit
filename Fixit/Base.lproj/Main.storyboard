@@ -935,11 +935,17 @@
                                                         <state key="normal" title="Sort">
                                                             <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="sortPressedWithSender:" destination="epI-FT-RxT" eventType="touchUpInside" id="eJH-vy-y0U"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4X-AH-Dyl">
                                                         <state key="normal" title="Filter">
                                                             <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="filterPressedWithSender:" destination="epI-FT-RxT" eventType="touchUpInside" id="Lgl-R3-XVP"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -2160,9 +2166,9 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RVP-Hx-CJZ"/>
+        <segue reference="YnI-WA-tKL"/>
+        <segue reference="Gl2-hA-64l"/>
         <segue reference="lzy-zi-yZw"/>
         <segue reference="pPk-Mp-OhW"/>
-        <segue reference="YnI-WA-tKL"/>
     </inferredMetricsTieBreakers>
 </document>

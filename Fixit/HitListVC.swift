@@ -31,7 +31,6 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
     tableView.delegate = self
     tableView.dataSource = self
 
-    //attemptFetch()
   }
   
   func attemptFetch() {

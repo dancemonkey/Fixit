@@ -9,30 +9,28 @@
 import UIKit
 import CoreData
 
+enum ShoppingListSorts: String {
+  case parentProjectTitle, title, cost
+}
+
 class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
   
   @IBOutlet weak var tableView: UITableView!
   
-  let sectionNameKeypath = "sectionName"
+  var customSortString: ShoppingListSorts = .parentProjectTitle
   
   var fetchedResultsController: NSFetchedResultsController<Task>!
+  var primarySortDesc: NSSortDescriptor!
+  var secondarySortDesc: NSSortDescriptor!
+  
+  let prefs = UserDefaults.standard
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.delegate = self
     tableView.dataSource = self
-    
-    let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
-    let secondarySortDesc = NSSortDescriptor(key: "cost", ascending: true)
-    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
-    fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
-    fetch.predicate = NSPredicate(format: "shoppingList.boolValue == true AND completed.boolValue == false", argumentArray: nil)
-    fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-    
-    fetchedResultsController.delegate = self
-   
+  
   }
   
   func attemptFetch() {
@@ -45,7 +43,34 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    setFRC()
     attemptFetch()
+  }
+  
+  func setSortDescriptors() {
+    if let sortString = prefs.value(forKey: "shoppingListSortString") as? String {
+      customSortString = ShoppingListSorts(rawValue: sortString)!
+    }
+    primarySortDesc = NSSortDescriptor(key: customSortString.rawValue, ascending: true)
+    switch customSortString {
+    case .parentProjectTitle:
+      secondarySortDesc = NSSortDescriptor(key: "cost", ascending: true)
+    case .title:
+      secondarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
+    case .cost:
+      secondarySortDesc = NSSortDescriptor(key: "parentProjectTitle", ascending: true)
+    }
+  }
+  
+  func setFRC() {
+    let fetch = NSFetchRequest<Task>(entityName: fetches.Tasks.rawValue)
+    setSortDescriptors()
+    let tertiarySortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
+    fetch.sortDescriptors = [primarySortDesc,secondarySortDesc, tertiarySortDesc]
+    fetch.predicate = NSPredicate(format: "shoppingList.boolValue == true AND completed.boolValue == false", argumentArray: nil)
+    fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+    
+    fetchedResultsController.delegate = self
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,6 +86,43 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
     self.present(alert, animated: true, completion: nil)
   }
+  
+  @IBAction func sortPressed(sender: UIButton) {
+    let alert = UIAlertController(title: "Sort by...", message: nil, preferredStyle: .actionSheet)
+    let project = UIAlertAction(title: "Project title", style: .default, handler: sort(sender: ))
+    let title = UIAlertAction(title: "Task title", style: .default, handler: sort(sender: ))
+    let cost = UIAlertAction(title: "Estimated cost", style: .default, handler: sort(sender: ))
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alert.addAction(project)
+    alert.addAction(title)
+    alert.addAction(cost)
+    alert.addAction(cancel)
+    self.present(alert, animated: true, completion: nil)
+  }
+  
+  @IBAction func filterPressed(sender: UIButton) {
+    
+  }
+  
+  func sort(sender: UIAlertAction) {
+    switch sender.title! {
+    case "Project title":
+      self.customSortString = .parentProjectTitle
+      prefs.set(ShoppingListSorts.parentProjectTitle.rawValue, forKey: "shoppingListSortString")
+    case "Task title":
+      self.customSortString = .title
+      prefs.set(ShoppingListSorts.title.rawValue, forKey: "shoppingListSortString")
+    case "Estimated cost":
+      self.customSortString = .cost
+      prefs.set(ShoppingListSorts.cost.rawValue, forKey: "shoppingListSortString")
+    default: break
+    }
+    self.fetchedResultsController = nil
+    setFRC()
+    attemptFetch()
+    self.tableView.reloadData()
+  }
+
   
   // MARK: Tableview methods
   
