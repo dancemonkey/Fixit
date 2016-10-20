@@ -454,14 +454,14 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="listProjectCell" textLabel="Ldl-kt-Ogn" style="IBUITableViewCellStyleDefault" id="TBC-PV-wgf">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TBC-PV-wgf" id="IMA-TD-z8V">
-                                            <frame key="frameInset" width="1000" height="44"/>
+                                            <frame key="frameInset" width="359" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ldl-kt-Ogn">
-                                                    <frame key="frameInset" minX="164" width="672" height="43.5"/>
+                                                    <frame key="frameInset" minX="15" width="329" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.34509803919999998" green="0.2274509804" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -672,6 +672,9 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="Ogw-qC-7AM" userLabel="Sort and Filter Btns">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgT-E5-anY">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="iPe-qf-cJV"/>
+                                                </constraints>
                                                 <state key="normal" title="Sort">
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -680,6 +683,9 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9JN-hB-APs">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="LYa-mL-JNL"/>
+                                                </constraints>
                                                 <state key="normal" title="Filter">
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -1075,18 +1081,26 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LNx-gd-RMZ">
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="M5K-rr-OhP">
-                                        <frame key="frameInset" minX="67" width="193" height="44"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="128" translatesAutoresizingMaskIntoConstraints="NO" id="M5K-rr-OhP">
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOh-ZR-NQF">
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="W0S-6H-ipl"/>
+                                                </constraints>
                                                 <state key="normal" title="Sort">
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sortPressedWithSender:" destination="MRF-Ed-s0B" eventType="touchUpInside" id="0XT-c4-O0z"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utz-vK-vOq">
                                                 <state key="normal" title="Filter">
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="filterPressedWithSender:" destination="MRF-Ed-s0B" eventType="touchUpInside" id="L7W-x5-u8C"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -1357,18 +1371,18 @@
                                                                 <rect key="frame" x="0.0" y="28" width="335" height="44"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EkP-Go-xUb" id="hDJ-19-iXs">
-                                                                    <frame key="frameInset" width="335" height="44"/>
+                                                                    <frame key="frameInset" width="335" height="43"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xoq-yg-sRe">
-                                                                            <frame key="frameInset" minX="15" minY="12" width="31.5" height="19.5"/>
+                                                                            <frame key="frameInset" minX="15" minY="12" width="32" height="20"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AMJ-VR-eiI">
-                                                                            <frame key="frameInset" minX="278.5" minY="12" width="41.5" height="19.5"/>
+                                                                            <frame key="frameInset" minX="278" minY="12" width="42" height="20"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1854,7 +1868,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8u4-3u-W7W" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lod-FX-ZRl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lod-FX-ZRl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -2140,7 +2154,7 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RVP-Hx-CJZ"/>
+        <segue reference="MId-6e-6ct"/>
         <segue reference="lzy-zi-yZw"/>
         <segue reference="pPk-Mp-OhW"/>
         <segue reference="YnI-WA-tKL"/>

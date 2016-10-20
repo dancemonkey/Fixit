@@ -9,11 +9,21 @@
 import UIKit
 import CoreData
 
+enum ProjectSorts: String {
+  case title, dueDate, estimatedCost, estimatedTime
+}
+
 class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
   
   @IBOutlet weak var tableView: UITableView!
   
+  var customSortString: ProjectSorts = ProjectSorts.dueDate
+  var primarySortDesc: NSSortDescriptor!
+  var secondarySortDesc: NSSortDescriptor!
+  
   var fetchedResultsController: NSFetchedResultsController<Project>!
+  
+  let prefs = UserDefaults.standard
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,16 +36,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
-    let fetch = NSFetchRequest<Project>(entityName: fetches.Projects.rawValue)
-    let primarySortDesc = NSSortDescriptor(key: "dueDate", ascending: false)
-    let secondarySortDesc = NSSortDescriptor(key: "title", ascending: true)
-    let tertiarySortDescr = NSSortDescriptor(key: "startDate", ascending: true)
-    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDescr]
-    
-    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-    
-    fetchedResultsController.delegate = self
-
+    setFRC()
     attemptFetch()
   }
   
@@ -45,6 +46,72 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     } catch {
       print("\(error)")
     }
+  }
+  
+  func setSortDescriptors() {
+    if let sortString = prefs.value(forKey: "projectSortString") as? String {
+      customSortString = ProjectSorts(rawValue: sortString)!
+    }
+    primarySortDesc = NSSortDescriptor(key: customSortString.rawValue, ascending: true)
+    switch customSortString {
+    case .title:
+      secondarySortDesc = NSSortDescriptor(key: ProjectSorts.dueDate.rawValue, ascending: true)
+    case .dueDate:
+      secondarySortDesc = NSSortDescriptor(key: ProjectSorts.title.rawValue, ascending: true)
+    case .estimatedCost, .estimatedTime:
+      secondarySortDesc = NSSortDescriptor(key: ProjectSorts.dueDate.rawValue, ascending: true)
+    }
+  }
+  
+  func setFRC() {
+    let fetch = NSFetchRequest<Project>(entityName: fetches.Projects.rawValue)
+    setSortDescriptors()
+    let tertiarySortDescr = NSSortDescriptor(key: "startDate", ascending: true)
+    fetch.sortDescriptors = [primarySortDesc, secondarySortDesc, tertiarySortDescr]
+    self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetch, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+    fetchedResultsController.delegate = self
+
+  }
+  
+  @IBAction func sortPressed(sender: UIButton) {
+    let alert = UIAlertController(title: "Sort by...", message: nil, preferredStyle: .actionSheet)
+    let project = UIAlertAction(title: "Project title", style: .default, handler: sort(sender: ))
+    let cost = UIAlertAction(title: "Due date", style: .default, handler: sort(sender: ))
+    let time = UIAlertAction(title: "Estimated Cost", style: .default, handler: sort(sender: ))
+    let title = UIAlertAction(title: "Estimated time", style: .default, handler: sort(sender: ))
+    let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    alert.addAction(project)
+    alert.addAction(cost)
+    alert.addAction(time)
+    alert.addAction(title)
+    alert.addAction(cancel)
+    self.present(alert, animated: true, completion: nil)
+  }
+  
+  func sort(sender: UIAlertAction) {
+    switch sender.title! {
+    case "Project title":
+      self.customSortString = .title
+      prefs.set(ProjectSorts.title.rawValue, forKey: "projectSortString")
+    case "Due date":
+      self.customSortString = .dueDate
+      prefs.set(ProjectSorts.dueDate.rawValue, forKey: "projectSortString")
+    case "Estimated Cost":
+      self.customSortString = .estimatedCost
+      prefs.set(ProjectSorts.estimatedCost.rawValue, forKey: "projectSortString")
+    case "Estimated time":
+      self.customSortString = .estimatedTime
+      prefs.set(ProjectSorts.estimatedTime.rawValue, forKey: "projectSortString")
+    default: break
+    }
+    self.fetchedResultsController = nil
+    setFRC()
+    attemptFetch()
+    self.tableView.reloadData()
+  }
+  
+  @IBAction func filterPressed(sender: UIButton) {
+    
   }
   
   @IBAction func addNewPressed(_ sender: UIBarButtonItem) {
