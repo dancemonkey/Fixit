@@ -786,11 +786,17 @@
                                                 <state key="normal" title="Sort">
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sortPressedWithSender:" destination="ZZO-xF-6AC" eventType="touchUpInside" id="B1W-Fi-xlA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PFc-PG-w0X">
                                                 <state key="normal" title="Filter">
                                                     <color key="titleColor" red="0.08235294118" green="0.2156862745" blue="0.46274509800000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="filterPressedWithSender:" destination="ZZO-xF-6AC" eventType="touchUpInside" id="RJN-3q-s2P"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -2154,7 +2160,7 @@
         <image name="Oval" width="65" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MId-6e-6ct"/>
+        <segue reference="RVP-Hx-CJZ"/>
         <segue reference="lzy-zi-yZw"/>
         <segue reference="pPk-Mp-OhW"/>
         <segue reference="YnI-WA-tKL"/>
