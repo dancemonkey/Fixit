@@ -89,9 +89,9 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   @IBAction func sortPressed(sender: UIButton) {
     let alert = UIAlertController(title: "Sort by...", message: nil, preferredStyle: .actionSheet)
-    let project = UIAlertAction(title: "Project title", style: .default, handler: sort(sender: ))
-    let title = UIAlertAction(title: "Task title", style: .default, handler: sort(sender: ))
-    let cost = UIAlertAction(title: "Estimated cost", style: .default, handler: sort(sender: ))
+    let project = UIAlertAction(title: "Project title (a->z)", style: .default, handler: sort(sender: ))
+    let title = UIAlertAction(title: "Task title (a->z)", style: .default, handler: sort(sender: ))
+    let cost = UIAlertAction(title: "Estimated cost ($->$$$)", style: .default, handler: sort(sender: ))
     let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     alert.addAction(project)
     alert.addAction(title)
@@ -106,13 +106,13 @@ class ShoppingListVC: UIViewController, UITableViewDelegate, UITableViewDataSour
   
   func sort(sender: UIAlertAction) {
     switch sender.title! {
-    case "Project title":
+    case "Project title (a->z)":
       self.customSortString = .parentProjectTitle
       prefs.set(ShoppingListSorts.parentProjectTitle.rawValue, forKey: "shoppingListSortString")
-    case "Task title":
+    case "Task title (a->z)":
       self.customSortString = .title
       prefs.set(ShoppingListSorts.title.rawValue, forKey: "shoppingListSortString")
-    case "Estimated cost":
+    case "Estimated cost ($->$$$)":
       self.customSortString = .cost
       prefs.set(ShoppingListSorts.cost.rawValue, forKey: "shoppingListSortString")
     default: break

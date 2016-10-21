@@ -81,11 +81,11 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   @IBAction func sortPressed(sender: UIButton) {
     let alert = UIAlertController(title: "Sort by...", message: nil, preferredStyle: .actionSheet)
-    let project = UIAlertAction(title: "Project title", style: .default, handler: sort(sender: ))
-    let dueDate = UIAlertAction(title: "Task title", style: .default, handler: sort(sender: ))
-    let cost = UIAlertAction(title: "Due date", style: .default, handler: sort(sender: ))
-    let time = UIAlertAction(title: "Cost", style: .default, handler: sort(sender: ))
-    let title = UIAlertAction(title: "Estimated time", style: .default, handler: sort(sender: ))
+    let project = UIAlertAction(title: "Project title (a->z)", style: .default, handler: sort(sender: ))
+    let dueDate = UIAlertAction(title: "Task title (a->z)", style: .default, handler: sort(sender: ))
+    let cost = UIAlertAction(title: "Due date (now->later)", style: .default, handler: sort(sender: ))
+    let time = UIAlertAction(title: "Cost ($->$$$)", style: .default, handler: sort(sender: ))
+    let title = UIAlertAction(title: "Estimated time (less->more)", style: .default, handler: sort(sender: ))
     let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     alert.addAction(project)
     alert.addAction(dueDate)
@@ -98,19 +98,19 @@ class TaskListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
   
   func sort(sender: UIAlertAction) {
     switch sender.title! {
-    case "Project title":
+    case "Project title (a->z)":
       self.customSortString = .parentProjectTitle
       prefs.set(TaskSorts.parentProjectTitle.rawValue, forKey: "customSortString")
-    case "Task title":
+    case "Task title (a->z)":
       self.customSortString = .title
       prefs.set(TaskSorts.title.rawValue, forKey: "customSortString")
-    case "Due date":
+    case "Due date (now->later)":
       self.customSortString = .dueDate
       prefs.set(TaskSorts.dueDate.rawValue, forKey: "customSortString")
-    case "Cost":
+    case "Cost ($->$$$)":
       self.customSortString = .cost
       prefs.set(TaskSorts.cost.rawValue, forKey: "customSortString")
-    case "Estimated time":
+    case "Estimated time (less->more)":
       self.customSortString = .time
       prefs.set(TaskSorts.time.rawValue, forKey: "customSortString")
     default: break

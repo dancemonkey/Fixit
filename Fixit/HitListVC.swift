@@ -91,9 +91,9 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   
   @IBAction func sortPressed(sender: UIButton) {
     let alert = UIAlertController(title: "Sort by...", message: nil, preferredStyle: .actionSheet)
-    let project = UIAlertAction(title: "Project title", style: .default, handler: sort(sender: ))
-    let title = UIAlertAction(title: "Task title", style: .default, handler: sort(sender: ))
-    let time = UIAlertAction(title: "Estimated time", style: .default, handler: sort(sender: ))
+    let project = UIAlertAction(title: "Project title (a->z)", style: .default, handler: sort(sender: ))
+    let title = UIAlertAction(title: "Task title (a->z)", style: .default, handler: sort(sender: ))
+    let time = UIAlertAction(title: "Estimated time (less->more)", style: .default, handler: sort(sender: ))
     let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     alert.addAction(project)
     alert.addAction(title)
@@ -108,13 +108,13 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   
   func sort(sender: UIAlertAction) {
     switch sender.title! {
-    case "Project title":
+    case "Project title (a->z)":
       self.customSortString = .parentProjectTitle
       prefs.set(HitListSorts.parentProjectTitle.rawValue, forKey: "hitListSortString")
-    case "Task title":
+    case "Task title (a->z)":
       self.customSortString = .title
       prefs.set(HitListSorts.title.rawValue, forKey: "hitListSortString")
-    case "Estimated time":
+    case "Estimated time (less->more)":
       self.customSortString = .time
       prefs.set(HitListSorts.time.rawValue, forKey: "hitListSortString")
     default: break
