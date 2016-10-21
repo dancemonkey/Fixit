@@ -199,6 +199,7 @@ class HitListVC: UIViewController, UITableViewDelegate, UITableViewDataSource, N
   
   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     self.tableView.endUpdates()
+    updateBadge()
   }
 
 }

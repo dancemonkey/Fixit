@@ -77,7 +77,7 @@ class ProjectListVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     let alert = UIAlertController(title: "Sort by...", message: nil, preferredStyle: .actionSheet)
     let project = UIAlertAction(title: "Project title", style: .default, handler: sort(sender: ))
     let cost = UIAlertAction(title: "Due date", style: .default, handler: sort(sender: ))
-    let time = UIAlertAction(title: "Estimated Cost", style: .default, handler: sort(sender: ))
+    let time = UIAlertAction(title: "Estimated cost", style: .default, handler: sort(sender: ))
     let title = UIAlertAction(title: "Estimated time", style: .default, handler: sort(sender: ))
     let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
     alert.addAction(project)
